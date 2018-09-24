@@ -6,6 +6,9 @@ This High Altitude Balloon project was done for a commercial for a local Energy 
 
 The goal of the advertisement campaign was to take the Bangladeshi Flag as high as possible. It was a big project with many names involved where I was in fabrication. I made the high gain Yagi antenna, payload, onboard circuitry used in the project.
 
++ ![Pre-launch photo from onboard cam](https://raw.githubusercontent.com/samiul-hoque/HAB-BlackHorse/master/Images/resized/onboard_cam.jpg)
++ ![Patch-job Yagi Antenna made from local supplies](https://raw.githubusercontent.com/samiul-hoque/HAB-BlackHorse/master/Images/resized/Yagi.jpg)
+
 There were multiple attempts and finally the third attempt yielded results after we hacked the GoPro Session. Battery characteristics in extreme temperatures caused the major problems in the first two launches. Finally though, We were able to achieve a height of 1 lac 6 thousand feet.(32.4km) 
 Here are some screenshots collected from the actual footage.
 + ![screen shot 1](https://raw.githubusercontent.com/samiul-hoque/HAB-BlackHorse/master/Images/resized/3.jpg) 
