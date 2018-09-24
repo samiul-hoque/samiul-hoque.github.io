@@ -7,6 +7,10 @@ I have been working at a Wood factory for a while now, to learn and adapt to the
 ![CNC at dovetail](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory2.jpg)
 
 These are some stuff I worked on at dovetail,
++ Cat Scratching Post
+    + ![Cat Scratching Post](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/cat%20scratcing%20post.jpg)
+    + ![Happy Customer with cat Scratching post](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/cat%20scratcing%20post2.jpg)
+
 + Teak mirror with Japanese joints
     + ![Happy Customer with mirror](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory3.jpg)
     + ![Teak Mirror](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory3.5.jpg)
