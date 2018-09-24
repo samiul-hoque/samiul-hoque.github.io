@@ -2,10 +2,9 @@
 
 Wood to me is probably the most intriguing material to work with. The way it is processed from a tree trunk to a polished piece amazes me everyday. It feels like the materials is almost alive as how it comes to life with it's full beauty after a coating of oil.
 
-I have been working at a Wood factory for a while now, to learn and adapt to the surrounding industry. Can not thank [Dovetail]() enough for letting me hang around and use their tools.
-! [](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory1.jpg)
-! [](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory2.jpg)
-! []()
+I have been working at a Wood factory for a while now, to learn and adapt to the surrounding industry. Can not thank [Dovetail](https://www.instagram.com/dovetailbd/) enough for letting me hang around and use their tools.
+! [Dovetail's woodworking factory](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory1.jpg)
+! [CNC at dovetail](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/woodworking/factory2.jpg)
 
 These are some stuff I worked on at dovetail,
 + Teak mirror with Japanese joints
