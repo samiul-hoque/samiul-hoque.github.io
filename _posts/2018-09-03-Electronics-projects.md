@@ -7,7 +7,8 @@ Along with that, I have taken various workshops specifically focused on electron
 Here are random photos of some of my electronics projects;
 
 + OpenWRT Router mainboards I am currently working on
-    + ![Flashed Mi Router 3G mainboard](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/electronics/Testing%20out%20new%20OpenWRT%20routerboard1.jpg)
+    +Flashed Mi Router 3G mainboard 
+    ![Flashed Mi Router 3G mainboard](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/electronics/Testing%20out%20new%20OpenWRT%20routerboard1.jpg)
     + ![Flashed Mi Router 3F mainboard](https://github.com/samiul-hoque/samiul-hoque.github.io/blob/master/img/electronics/Testing%20out%20new%20OpenWRT%20routerboard2.jpg?raw=true)
 
 + ATTiny Workshop kit
