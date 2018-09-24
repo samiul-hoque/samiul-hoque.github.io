@@ -13,4 +13,4 @@ The 5 workshop I took was under Dr. Phillip Smith on IPV6 deployment. The room w
 On the 3 day tutorials, I chose to split my days up and visit all three sessions on IoT(pyCom), server security(FreeBSD) and DNS security. I realized networking with people was more important than attending the lectures themselves as all resources are public anyway and I could learn them anyday. 
 I ended up exchanging visiting cards with someone from almost all the big ISPs. Also found IoT/electronics enthusiasts who are working at BDCOM. It was certainly a very productive workshop
 
-! [With WiFi Picchi Team](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/sanog32/wifipicchi.jpg)
+![With WiFi Picchi Team](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/sanog32/wifipicchi.jpg)
