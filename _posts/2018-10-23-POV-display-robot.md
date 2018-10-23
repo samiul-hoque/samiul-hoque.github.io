@@ -7,7 +7,8 @@ The objective is to build a robot that can show certain 'facial' reactions via t
 The challenges here are to reduce the vibrations due to rotation of the POV arm, constructing a joint that is capable of staying connected during the spinning of the arm and then conceal all of it on top of a moving two/four wheeled robot.
 
 ## Initial Ideation:
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a>
+<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a> <figcaption>Fig.1 - Initial Ideation.</figcaption>
+</figure>
 
 <a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 2" width="800" height="600" align="middle"></a>
 
@@ -24,6 +25,8 @@ The main electronics part of the project is quite simple.
 + Additionally use an esp32/8266 as a mainboard so we can sync the whole thing with hass.io or any web application.
 
 I have been working on a small motor control unit which can drive 2 micrometal motors with encoders. It has an atmega8a at it's heart and comes with full compatibility with i2c, spi and serial, depending on the host board. I have been using it with an orange pi zero for integrating it into hass.io . I am hoping the electronics portion wont be of any difficulties.
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg"> 
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
 
 
 I plan to use 2 layers of PCB so the POV display portion is modular and can be hooked to any other project for later use. A modular POV display module itself could be a fairly interesting project.
