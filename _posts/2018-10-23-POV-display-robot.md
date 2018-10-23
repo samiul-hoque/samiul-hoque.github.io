@@ -39,5 +39,5 @@ For the mechanical part, I am concerned about the bearing/joint of the rotating 
 ## 2w/4w robot platform:
 I am not planning anything special with the robot platform other than making it as compact and small as possible. Making the platform big and heavy would be the easy way out to stabilize the rotating POV displays on top, but I would also like to take this as a challenge here.
 
-
+# Motivation for this project: 
 To conlude, I'd like to say that it was quite difficult selecting a project that would encompass everything that is taught at the FAB Academy course. A small project like this gives enough room for me to learn and utilize what I learn throughout the course. This project will require my utmost dedication in design/CAD work, which currently I think I need improving on. I'll also have to figure out how they wire up the sensors on a rotating platform, such as a LIDAR internally, since I'll have to make that pivot myself. I hope at the end of the program, this project will be aesthetically pleasing enough for a FAB acadmy final project.
