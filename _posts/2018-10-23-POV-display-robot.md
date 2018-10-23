@@ -7,11 +7,11 @@ The objective is to build a robot that can show certain 'facial' reactions via t
 The challenges here are to reduce the vibrations due to rotation of the POV arm, constructing a joint that is capable of staying connected during the spinning of the arm and then conceal all of it on top of a moving two/four wheeled robot.
 
 ## Initial Ideation:
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600"></a>
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a>
 
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 1" width="800" height="600"></a>
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 2" width="800" height="600" align="middle"></a>
 
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg" alt="Initial Ideation 1" width="800" height="600"></a>
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
 
 
 ## Electronics:
