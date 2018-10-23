@@ -10,13 +10,13 @@ The challenges here are to;
 + concealing it all of it on top of a moving two/four wheeled robot.
 
 ## Initial Ideation:
-<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a> <figcaption>Fig.1 - Initial Ideation.</figcaption>
+<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" target="_blank"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a> <figcaption>Fig.1 - Initial Ideation.</figcaption>
 </figure>
 
-<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 2" width="800" height="600" align="middle"></a><figcaption>Fig.2 - Initial Ideation 2.</figcaption>
+<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" target="_blank"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 2" width="800" height="600" align="middle"></a><figcaption>Fig.2 - Initial Ideation 2.</figcaption>
 </figure>
 
-<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg"> 
+<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg" target="_blank"> 
 <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a><figcaption>Fig.3 - 3.5jack as pivot.</figcaption>
 </figure>
 
@@ -31,7 +31,7 @@ The main electronics part of the project is quite simple.
 
 I have been working on a small motor control unit which can drive 2 micrometal motors with encoders. It has an atmega8a at it's heart and comes with full compatibility with i2c, spi and serial, depending on the host board. I have been using it with an orange pi zero for integrating it into hass.io . I am hoping the electronics portion wont be of any difficulties.
 
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" target="_blank"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
 
 I plan to use 2 layers of PCB so the POV display portion is modular and can be hooked to any other project for later use. A modular POV display module itself could be a fairly interesting project.
 
