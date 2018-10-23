@@ -10,10 +10,12 @@ The challenges here are to reduce the vibrations due to rotation of the POV arm,
 <figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a> <figcaption>Fig.1 - Initial Ideation.</figcaption>
 </figure>
 
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 2" width="800" height="600" align="middle"></a>
+<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation2.jpg" alt="Initial Ideation 2" width="800" height="600" align="middle"></a><figcaption>Fig.2 - Initial Ideation 2.</figcaption>
+</figure>
 
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg"> 
-<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
+<figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg"> 
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation3.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a><figcaption>Fig.3 - 3.5jack as pivot.</figcaption>
+</figure>
 
 
 ## Electronics:
