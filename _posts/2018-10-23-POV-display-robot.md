@@ -27,9 +27,8 @@ The main electronics part of the project is quite simple.
 + Additionally use an esp32/8266 as a mainboard so we can sync the whole thing with hass.io or any web application.
 
 I have been working on a small motor control unit which can drive 2 micrometal motors with encoders. It has an atmega8a at it's heart and comes with full compatibility with i2c, spi and serial, depending on the host board. I have been using it with an orange pi zero for integrating it into hass.io . I am hoping the electronics portion wont be of any difficulties.
-<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg"> 
-<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
 
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" alt="Initial Ideation 3" width="800" height="600" align="middle"></a>
 
 I plan to use 2 layers of PCB so the POV display portion is modular and can be hooked to any other project for later use. A modular POV display module itself could be a fairly interesting project.
 
