@@ -4,7 +4,10 @@ POV displays, where POV stands for Persistence of Vision, are nowadays widely av
 
 The objective is to build a robot that can show certain 'facial' reactions via the POV display. The idea came to me when I was checking out the LIDAR sensor on top of [boston dynamic's Atlas](https://www.youtube.com/results?search_query=boston+dynamics+atlas) robot. It occured to me that all of their robots have a rotating LIDAR sensor as a head, why not design something that could go as a face for them?
 
-The challenges here are to reduce the vibrations due to rotation of the POV arm, constructing a joint that is capable of staying connected during the spinning of the arm and then conceal all of it on top of a moving two/four wheeled robot.
+The challenges here are to;
++ reduce the vibrations due to rotation of the POV arm
++ constructing a joint that is capable of staying connected during the spinning of the arm 
++ concealing it all of it on top of a moving two/four wheeled robot.
 
 ## Initial Ideation:
 <figure><a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/initial_ideation1.jpg" alt="Initial Ideation 1" width="800" height="600" align="middle"></a> <figcaption>Fig.1 - Initial Ideation.</figcaption>
