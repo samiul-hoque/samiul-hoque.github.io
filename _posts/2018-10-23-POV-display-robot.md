@@ -15,7 +15,15 @@ The challenges here are to reduce the vibrations due to rotation of the POV arm,
 
 
 ## Electronics:
+The main electronics part of the project is quite simple. 
++ We need to control one BLDC motor
++ sync it's speed with an hall sensor (or alternatively use an old HDD motor which can sync speed from the pulses generatind during spinning, ref [here](https://www.youtube.com/watch?v=tjCJ3MlFt7g))
++ create a motor controller for the robot platform
++ create a battery management system for the 3.7v li-ion cell, add a boost converter for 5v for the LEDs and motors
++ Additionally use an esp32/8266 as a mainboard so we can sync the whole thing with hass.io or any web application.
+
 I have been working on a small motor control unit which can drive 2 micrometal motors with encoders. It has an atmega8a at it's heart and comes with full compatibility with i2c, spi and serial, depending on the host board. I have been using it with an orange pi zero for integrating it into hass.io . I am hoping the electronics portion wont be of any difficulties.
+<a href="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/pov%20display/resized/motor_controller.jpg" alt="Initial Ideation 1" width="800" height="600"></a>
 
 I plan to use 2 layers of PCB so the POV display portion is modular and can be hooked to any other project for later use. A modular POV display module itself could be a fairly interesting project.
 
