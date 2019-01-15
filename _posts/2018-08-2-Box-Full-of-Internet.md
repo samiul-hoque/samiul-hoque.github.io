@@ -1,7 +1,6 @@
-# Box full of Internet
+# Internet Box
 
-The box full of internet project is one of my ongoing works. My partners, Malinda Senanayeke and Mainul Hasan Alin approached me with the idea in the beginning of June, 2018. We did Ideation to prototyping and then pilot deployment in just 4 months.
-This was possible only because of the multidisciplinary nature of our team. None of us knew anything about the internet industry in Bangladesh and yet we ventured into it and came far enough to pull it off.
+The internet box project is one of my ongoing works. My partners, Malinda Senanayeke and Mainul Hasan Alin approached me with the idea in the beginning of June, 2018. We did ideation to prototyping and then pilot deployment in just 4 months.This was possible only because of the multidisciplinary nature of our team, I can not thank them enough. None of us knew anything about the internet industry in Bangladesh and yet we dived into it and came far enough to pull it off.
 
 Our idea was to provide High Speed Internet facilities to marginally low income areas such as Korail Slums. We had to deal with local thugs, unavailability of internet, poor infrastrcture and technological difficulties that come with deployment of such projects.
 + ![Internetman](https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/internetman.jpg "Our lineman routing fibre Optic cables")
