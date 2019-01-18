@@ -9,7 +9,9 @@ Life here moves around the tea stalls. In most slum areas, the tea stores are pu
 
 Our goal is to provide internet using Wi-Fi Hotspots to local communities at tea stores while making the setup sustainable to the tea stall owners.
 
-===========================================================================================================================
+<br><br/>
+
+======================================================================================================================
 
 ## Business Model:
 Our business model operates on 2 entities and it was developed throughout the pilot project. We are currently running this setup for data collection to collect some funding.
