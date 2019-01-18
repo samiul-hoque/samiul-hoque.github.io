@@ -9,7 +9,7 @@ Life here moves around the tea stalls. In most slum areas, the tea stores are pu
 
 Our goal is to provide internet using Wi-Fi Hotspots to local communities at tea stores while making the setup sustainable to the tea stall owners.
 
-===================================================================================================================================================
+===========================================================================================================================
 
 ## Business Model:
 Our business model operates on 2 entities and it was developed throughout the pilot project. We are currently running this setup for data collection to collect some funding.
@@ -31,7 +31,9 @@ Customer:
 ## The Proof of Concept:
 To test out if the idea works, we started with hacking cheap routers and installing openWRT on them. Routers with built in captive portal support are available in the market but the price range usually starts from BDT 10,000. Our plan was to get the full setup cost under BDT 5000, or else it would make it very difficult to break even. Besides, we were all quite broke :|
 
-We started with Xiaomi Router 3, as it had the most available onboard RAM and a good Wi-Fi chipset. But sadly, it did not get an official opnWRT image. Due to various performance issues we later stuck with the TP-Link MR3420. Which was priced at BDT 2000.
+We started with Xiaomi Router 3, as it had the most available onboard RAM and a good Wi-Fi chipset. But sadly, it did not get an official opnWRT image.<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/miRouterExperiment.png" alt="Mi Router 3 hack" width="1600">
+ Due to various performance issues we later stuck with the TP-Link MR3420. Which was priced at BDT 2000.
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/tplink-mr3420.png" alt="TP-Link MR3420 hack" width="1600">
 
 For the captive portal we used coova-chilli. An opensource captive portal supported by openWRT. For the user authentication server, we used radius. The idea was to host the AAA server centrally so our users could use any of our hotspots for connectivity. Basically it’s like roaming turned on for Wi-Fi Hotspots.  After testing the captive portal, we decided on giving it a fancy enclosure. We were planning to provide internet to slum dwellers, for whom an outlook other than some antennas and wires are quite important. So I designed a prototype box using PVC as material and named it ‘Premium WiFi’ we were ready to launch. 
 We set up our first box at Tarunno’s café, a coffee shop just below my home. As it was for testing purposes, we tried to get it as close as possible to our workplace, which sadly was my room for the time being.
