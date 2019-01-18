@@ -1,4 +1,5 @@
 # Internet Box
+<img src="samiul-hoque.github.io/img/internetbox/heroImage.png" alt="WiFi Picchi">
 
 The Internet box is one of my ongoing projects. The aim of the project is to provide internet to the dense slum areas of Bangladesh. I’ve been working on the project since mid 2018 with my partners Mainul Hasan Alin and Malinda Senanayeke.
 
@@ -8,8 +9,8 @@ Life here moves around the tea stalls. In most slum areas, the tea stores are pu
 
 Our goal is to provide internet using Wi-Fi Hotspots to local communities at tea stores while making the setup sustainable to the tea stall owners.
 
+==========
 
-====
 ## Business Model:
 Our business model operates on 2 entities and it was developed throughout the pilot project. We are currently running this setup for data collection to collect some funding.
 
@@ -26,8 +27,8 @@ Customer:
 + A customer will come in to the shop and buy tokens from the vendor.
 + The customer can connect to the open hotspot and enter his 4 digit coupon to get access to unlimited high speed internet for 3 hours at any of our hotspots.
 
+==========
 
-====
 ## The Proof of Concept:
 To test out if the idea works, we started with hacking cheap routers and installing openWRT on them. Routers with built in captive portal support are available in the market but the price range usually starts from BDT 10,000. Our plan was to get the full setup cost under BDT 5000, or else it would make it very difficult to break even. Besides, we were all quite broke :|
 
