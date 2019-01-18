@@ -8,7 +8,7 @@ The Internet box is one of my ongoing projects. The aim of the project is to pro
     Mobile internet is the primary access to the web for most of the people here, while they remain quite expensive compared to the GDP here. Even after paying a lot for data packs, the abysmal internet speeds due to the density of mobile devices makes it quite impossible to work with.
     Life here moves around the tea stalls. In most slum areas, the tea stores are public gathering spots where they watch TV, interact and talk over a sip of tea. Tea stalls are always densely packed, with foot traffic reaching over 1,000 easily on an average sized tea store.</p>
     </div>
-    
+
     <div class="column"><p align="right"><img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/density.png" alt="Tea Store crowd" align="middle" width="400x"></p>
     </div>
 </div>
@@ -45,3 +45,12 @@ For the captive portal we used coova-chilli. An opensource captive portal suppor
 We set up our first box at Tarunno’s café, a coffee shop just below my home. As it was for testing purposes, we tried to get it as close as possible to our workplace, which sadly was my room for the time being.
 
 At the first test we found multiple problems without set up. We found that users were finding the captive portals difficult to use. Some phones handled the spash screen differently. Our initial tokens were 8 character long with an alphanumeric character. We had to bring it down to 4 digit numeric eventually and then finally at 6 digit numeric. There were some issues with downtime and range. We also found a bug that reset the router once every week or so. Reset as in, even the firmware gets corrupted and we had to write everything in again. Later we found it to be a heating issue which was solved by putting in a heatsink on the Wi-Fi chipset. After a few weeks of testing out, we started scouting for places to run our pilot project.
+
+<style type="text/css">
+.image-left {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: right;
+}
+</style>
