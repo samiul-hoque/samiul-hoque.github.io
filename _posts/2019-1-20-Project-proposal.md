@@ -8,6 +8,7 @@
         <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/roboface.gif" >
     </div>
 
+    <p>So I am taking matters into my own hands and designing a head with a "kawaii" face for them.</p>
     <ol>
         <li>The head will be interractive; it will react to external stimuli with a proximity sensor</li>
         <li>The head will be able to express basic emotions using emojis displayed on a POV display</li>
@@ -16,8 +17,8 @@
 
     <h3>Initial Sketch</h3>
     <div class="sketches">
-        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/initial_sketch.png">
-        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/bitfaces.png">
+        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/initial_sketch.png" width= "800px">
+        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/bitfaces.png" width= "800px">
     </div>
     <br>
 
