@@ -8,7 +8,7 @@
         <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/roboface.gif" >
     </div>
 
-    <p>So I am taking matters into my own hands and designing a head with a "kawaii" face for them.</p>
+    So I am taking matters into my own hands and designing a head with a "kawaii" face for them.
     <ol>
         <li>The head will be interractive; it will react to external stimuli with a proximity sensor</li>
         <li>The head will be able to express basic emotions using emojis displayed on a POV display</li>
