@@ -33,8 +33,8 @@
 
     <h3>References</h3>
      <ul>
-        <li><a href="http://fab.cba.mit.edu/classes/863.14/people/shaunta_butler//finalproject/">Shaunta Butler's Fab Academy Project</a></li>
-        <li><a href="https://www.youtube.com/watch?v=69G522AeRq8">Great Scott's POV Globe</a></li>
-        <li><a href="https://www.youtube.com/watch?v=I7vgha_N5s8">This Random YouTube Video</a></li>
+        <li><a href="http://fab.cba.mit.edu/classes/863.14/people/shaunta_butler//finalproject/" target="blank">Shaunta Butler's Fab Academy Project</a></li>
+        <li><a href="https://www.youtube.com/watch?v=69G522AeRq8" target="blank">Great Scott's POV Globe</a></li>
+        <li><a href="https://www.youtube.com/watch?v=I7vgha_N5s8" target="blank">This Random YouTube Video</a></li>
     </ul>
 </div>
