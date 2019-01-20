@@ -17,8 +17,8 @@
 
     <h3>Initial Sketch</h3>
     <div class="sketches">
-        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/initial_sketch.png" width= "800px">
-        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/bitfaces.png" width= "800px">
+        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/initial_sketch.png" width= "800px" height= "800px">
+        <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/bitfaces.png" width= "800px" height= "800px">
     </div>
     <br>
 
