@@ -1,0 +1,40 @@
+<div class="blog-post">
+    <h3>Week 1</h3>
+    <p>Plan & sketch an idea for a final project.</p>
+    <br>
+    <h3>Project Idea:</h3>
+    My design goal for the a final project is to make a universal head for robots. Why? <strong> BECAUSE ROBOTS NEED A FACE!!!</strong>
+    <div class="roboface">
+        <img src="../img/projectproposal/roboface.gif" >
+    </div>
+
+
+    <ol>
+        <li>The head will be interractive; it will react to external stimuli with a proximity sensor</li>
+        <li>The head will be able to express basic emotions using emojis displayed on a POV display</li>
+        <li>The head will be easily programmable so it can be interfaced very easily with existing projects. Possibly via i2c.</li>
+    </ol>
+
+    <h3>Initial Sketch</h3>
+    <div class="sketches">
+        <img src="../img/projectproposal/initial_sketch.png">
+        <img src="../img//projectproposal/bitfaces.png">
+    </div>
+    <br>
+
+    <h3>Technical challenges</h3>
+    <ul>
+        <li>Stopping the device from wobbling due to vibrations.</li>
+        <li>Getting exact positional feedback from the motors via optical encoders and then mapping the pixels for the POV effect</li>
+        <li>Getting the wire connections to the LEDs through the moving axis.</li>
+        <li>Mapping the 32bit POV effect</li>
+        <li>Making a simplified interfacing option</li>
+    </ul>
+
+    <h3>References</h3>
+     <ul>
+        <li><a href="">Shauna Butler's Fab Academy Project</a></li>
+        <li><a href="">Great Scott's POV Globe</a></li>
+        <li><a href="">This Random YouTube Video</a></li>
+    </ul>
+</div>
