@@ -3,9 +3,11 @@
     <p>Plan & sketch an idea for a final project.</p>
     <br>
     <h3>Project Idea:</h3>
+    <h3>PixelFace</h3>
     My design goal for the a final project is to make a universal head for robots. Why? <strong> BECAUSE ROBOTS NEED A FACE!!!</strong>
    <div class="roboface">
         <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/roboface.gif" >
+         <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/roboface2.jpg" >
     </div>
 
     So I am taking matters into my own hands and designing a head with a "kawaii" face for them.
@@ -21,6 +23,16 @@
         <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/projectproposal/bitfaces.png" width= "800px" height= "800px">
     </div>
     <br>
+
+    <h3>Project Requisites</h3>
+    <ul>
+        <li>High RPM motor</li>
+        <li>Quadrature encoders</li>
+        <li>Addressable LEDs SK6812/WS2811</li>
+        <li>Proximity sensor, guessing Sharp IR sensors</li>
+        <li>Atmel 328p</li>
+        <li>Enclosure assembly</li>
+        <li>Power management and other peripheral electronics</li>
 
     <h3>Technical challenges</h3>
     <ul>
