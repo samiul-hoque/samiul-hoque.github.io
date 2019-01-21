@@ -34,14 +34,15 @@
         <li>Enclosure assembly</li>
         <li>Power management and other peripheral electronics</li>
 
-<h3>Technical challenges</h3>
-<ul>
-    <li>Stopping the device from wobbling due to vibrations.</li>
-    <li>Getting exact positional feedback from the motors via optical encoders and then mapping the pixels for the POV effect</li>
-    <li>Getting the wire connections to the LEDs through the moving axis.</li>
-    <li>Mapping the 32bit POV effect</li>
-    <li>Making a simplified interfacing option</li>
-</ul>
+
+    <h3>Technical challenges</h3>
+    <ul>
+        <li>Stopping the device from wobbling due to vibrations.</li>
+        <li>Getting exact positional feedback from the motors via optical encoders and then mapping the pixels for the POV effect</li>
+        <li>Getting the wire connections to the LEDs through the moving axis.</li>
+        <li>Mapping the 32bit POV effect</li>
+        <li>Making a simplified interfacing option</li>
+    </ul>
 
     <h3>References</h3>
      <ul>
