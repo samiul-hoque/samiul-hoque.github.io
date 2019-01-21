@@ -25,7 +25,7 @@ Voila! Now you have access to your GitLab repo!
 
 ## Step 5
 Click on Academany/Fab Academy/2019/Labs/CEPT/CEPT Students/"_Username_" to go to your repo folder.
-<img src="" alt="GitLab folder" width="800" length="800">
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/5gitlabFolder.PNG" alt="GitLab folder" width="800" length="800">
 
 
 You'll then have to add an ssh key pair to sync with git on your local machine to get remote access to your repo. I guess I'll write about that on the next post.
