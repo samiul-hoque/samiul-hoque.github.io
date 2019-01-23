@@ -17,7 +17,7 @@ Once that is done, you'll be granted master access to your GitLab repo and a con
 
 ## Step 3
 Now, I am not sure about this step.... kinda..
-But I managed a work around :| (sorry, it wasn't intended)
+But I managed a work around :|
 I guess a password was to be sent to you or something for accessing your GitLab Accound.. BUT! if you send a password reset request through git pages, you should be able to rest your password and get in. So that's what I did.
 
 <br>
@@ -67,11 +67,12 @@ To generate a ssh key pair for your local machine and your registered GitLab acc
 ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
+It will then ask for the location where the ssh key will be saved at; leave that blank to keep it at default.
+![SSH key directory](!!!!!!!)
 It should ask for a pass key, leave that blank.
 
-It will then ask for the location where the ssh key will be saved at; leave that blank as well.
-
-Okay, with that we're done with creating the SSH key.
+Okay, Now if you see some squiggly ascii art on your console, you should be done with creating your ssh key.
+![SSHkey ascci created]()
 
 ## Step 3: 
 Now we have to copy the ssh key over to your GitLab account. To do that, first open the ssh key with the following command:
@@ -80,9 +81,11 @@ Now we have to copy the ssh key over to your GitLab account. To do that, first o
 cat ~/.ssh/id_rsa.pub
 ```
 You should see a pretty large string starting with rsa and ending with your email. Copy the whole thing from here.
+![copy SSH key]()
 
 ## Step 4:
 After this log into your GitLab Account, go over to settings and then to SSH. And just copy your key there.
+![Add SSH key to gitlab]()
 
 You'll get a notification email from GitLab about it as well.
 <br>
@@ -90,6 +93,9 @@ You'll get a notification email from GitLab about it as well.
 <br>
 
 To verify if your local machine can access the gitlab with your ssh key pair, just run the following command. (Make sure to connect from a secure network, After hours of hair pulling I found out that you can't connect to GitLab from our Fab Lab's WiFi. I had to make a hotspot from my cellphone and then connect).
+```bash
+ssh -T git@gitlab.com
+```
 
 ## Step 5:
 Now cd your way to a directory where you want to set up your local repository, and type in;
@@ -101,7 +107,7 @@ git pull "your_repo_link"
 To get your repo link, just copy it from the GitLab folder.
 
 
-With that, your're done setting up GIT on your local machine that has access to your GitLab repo. All the git commands should be working. Have a look at this neat [git cheatsheet]() to help you through that. 
+With that, your're done setting up GIT on your local machine that has access to your GitLab repo. All the git commands should be working. Have a look at this neat [git cheatsheet](https://www.git-tower.com/blog/git-cheat-sheet/) to help you through that. 
 The basic commands are:
 
 ```bash
@@ -117,12 +123,12 @@ git push -u origin master        //pushes your commits to origin, master branch
 
 # Configuring Your Fab Academy Website
 
-Your GitLab repo is already hosting MkDocs, which apparently is a downright 'gorgeous' website generator. It means, you'll just have to right all your documentation on markdown in the docs folder, and MkDocs will generate a website for you.(It's actually quite neat!!). Only downside though, is that you have to put all your images in the exact dimension as you want it on your posts. You can't resize them as you did with your html height and weight properties. I am trying to figure out a workaround on that, apparently posting direct html img tags breaks the page a bit.
+Your GitLab repo is already hosting [MkDocs](https://www.mkdocs.org/), which apparently is a downright 'gorgeous' website generator. It means, you'll just have to right all your documentation on markdown in the docs folder, and MkDocs will generate a website for you.(It's actually quite neat!!). Only downside though, is that you have to put all your images in the exact dimension as you want it on your posts. You can't resize them as you did with your html height and weight properties. I am trying to figure out a workaround on that, apparently posting direct html img tags breaks the page a bit.
 
-So here's how you get started with MkDocs and the [Material Theme]().(That's the theme on the default template running for all the fab academy students for now)
+So here's how you get started with MkDocs and the [Material Theme](https://squidfunk.github.io/mkdocs-material/).(That's the theme on the default template running for all the fab academy students for now)
 
 ## Editing your Mkdocs.yml
-This file has all your website properties. It's quite self explanatory once you open it. More details on confiuring it can be found [here]().
+This file has all your website properties. It's quite self explanatory once you open it. More details on confiuring it can be found [here](https://squidfunk.github.io/mkdocs-material/getting-started/) under the usage section.
 
 ## Editing Posts
-So all the posts are written in Markdown. Feel free to check out this [Markdown Cheatsheat]() for reference. They already gave sample usage of almost everything on each of the posts.
+So all the posts are written in Markdown. Feel free to check out this [Markdown Cheatsheat](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for reference. They already gave sample usage of almost everything on each of the posts.
