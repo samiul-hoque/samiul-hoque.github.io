@@ -44,9 +44,9 @@ Click on your repo folder to open your repository.
 <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/5gitlabFolder.PNG" alt="GitLab folder" width="800" length="800">
 <br>
 
-Now you have access to your GitLab repository, the folder or filespace given by Fab Academy, where all your website files will go. But, to access them from your local drive, you'll need to securely connect to it. To do that, we need to generate an ssh key pair for your local machine and GitLab account so they can recognize eachother.(That's how it probably works :| that's what I figured)
+Now you have access to your GitLab repository, the folder or filespace given by Fab Academy, where all your website files will go. But, to access them from your local drive, you'll need to securely connect to it. To do that, we need to generate an ssh key pair for your local machine and GitLab account so they can recognize eachother.(That's how it probably works... that's what I figured)
 
-So let's get to that. :) 
+So let's get to that. 
 
 # Setting up GIT on your local Machine
 
@@ -56,12 +56,14 @@ For this part, have a look at [Adhitya's week 2 documentation from last year](ht
 Download [GIT](https://git-scm.com/downloads). For Windows users, I strongly recomend trying out [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10). It basically runs linux in terminal within windows. (Thanks Ohad :D) Have a look at windows' documentation on installing that first. And then you can install git with just a simple "apt-get install git "
 For linux users, just install git from your package manager, in my case it was;
 
-``` sudo apt-get install git
+```bash
+sudo apt-get install git
 ```
 
 ## Step 2:
 To generate a ssh key pair for your local machine and your registered GitLab account, we'll run the following command:
-```
+
+```bash
 ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
@@ -73,7 +75,8 @@ Okay, with that we're done with creating the SSH key.
 
 ## Step 3: 
 Now we have to copy the ssh key over to your GitLab account. To do that, first open the ssh key with the following command:
-```
+
+```bash
 cat ~/.ssh/id_rsa.pub
 ```
 You should see a pretty large string starting with rsa and ending with your email. Copy the whole thing from here.
@@ -90,7 +93,8 @@ To verify if your local machine can access the gitlab with your ssh key pair, ju
 
 ## Step 5:
 Now cd your way to a directory where you want to set up your local repository, and type in;
-```
+
+```bash
 git pull "your_repo_link"
 ```
 
