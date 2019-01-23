@@ -105,7 +105,7 @@ With that, your're done setting up GIT on your local machine that has access to 
 The basic commands are:
 
 ```bash
-git add .        //stages all file edits
+git add .                        //stages all file edits
 ```
 ```bash
 git commit -m "message here"     //commits your changes, the message helps you to keep track on what you are working on
