@@ -1,4 +1,4 @@
-# Accessing your GitLab Repo
+# Fab Academy repository: Starter's guide
 
 
 ## Step 1
