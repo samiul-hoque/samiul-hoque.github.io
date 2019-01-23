@@ -68,11 +68,15 @@ ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
 It will then ask for the location where the ssh key will be saved at; leave that blank to keep it at default.
-![SSH key directory](!!!!!!!)
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/6generatesshkey.PNG" alt="SSH key location prompt" width="800" length="800">
+<br>
 It should ask for a pass key, leave that blank.
 
 Okay, Now if you see some squiggly ascii art on your console, you should be done with creating your ssh key.
-![SSHkey ascci created]()
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/sshkeycreatedconfirmation.PNG" alt="SSH key created" width="800" length="800">
+<br>
 
 ## Step 3: 
 Now we have to copy the ssh key over to your GitLab account. To do that, first open the ssh key with the following command:
@@ -80,12 +84,19 @@ Now we have to copy the ssh key over to your GitLab account. To do that, first o
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
+
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/8catsshkey.PNG" alt="View SSH key" width="800" length="800">
+<br>
+
 You should see a pretty large string starting with rsa and ending with your email. Copy the whole thing from here.
-![copy SSH key]()
 
 ## Step 4:
 After this log into your GitLab Account, go over to settings and then to SSH. And just copy your key there.
-![Add SSH key to gitlab]()
+
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/7sshkeyaddgitlab.PNG" alt="Add SSH key to gitlab" width="800" length="800">
+<br>
 
 You'll get a notification email from GitLab about it as well.
 <br>
@@ -96,6 +107,10 @@ To verify if your local machine can access the gitlab with your ssh key pair, ju
 ```bash
 ssh -T git@gitlab.com
 ```
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/9sshverify.png" alt="SSH handshake verify" width="800" length="800">
+<br>
+
 
 ## Step 5:
 Now cd your way to a directory where you want to set up your local repository, and type in;
@@ -106,6 +121,9 @@ git pull "your_repo_link"
 
 To get your repo link, just copy it from the GitLab folder.
 
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/10repolink.png" alt="get repo link" width="800" length="800">
+<br>
 
 With that, your're done setting up GIT on your local machine that has access to your GitLab repo. All the git commands should be working. Have a look at this neat [git cheatsheet](https://www.git-tower.com/blog/git-cheat-sheet/) to help you through that. 
 The basic commands are:
@@ -128,7 +146,11 @@ Your GitLab repo is already hosting [MkDocs](https://www.mkdocs.org/), which app
 So here's how you get started with MkDocs and the [Material Theme](https://squidfunk.github.io/mkdocs-material/).(That's the theme on the default template running for all the fab academy students for now)
 
 ## Editing your Mkdocs.yml
-This file has all your website properties. It's quite self explanatory once you open it. More details on confiuring it can be found [here](https://squidfunk.github.io/mkdocs-material/getting-started/) under the usage section.
+This file has all your website properties. It's quite self explanatory once you open it. More details on confiuring it can be found [here](https://squidfunk.github.io/mkdocs-material/getting-started/) under the usage section. Here's how my one looks like.
+<br>
+<img src="" alt="Mkdocs.yml" width="800" length="800">
+<br>
+Oh and if you want to add more icons on your socials section, the material theme supports FontAesome 4.0 glyphs. I couldn't find anything for instructables, so I just added a wrench there.
 
 ## Editing Posts
 So all the posts are written in Markdown. Feel free to check out this [Markdown Cheatsheat](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for reference. They already gave sample usage of almost everything on each of the posts.
