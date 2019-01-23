@@ -101,7 +101,19 @@ git pull "your_repo_link"
 To get your repo link, just copy it from the GitLab folder.
 
 
-With that, your're done setting up GIT on your local machine that has access to your GitLab repo.
+With that, your're done setting up GIT on your local machine that has access to your GitLab repo. All the git commands should be working. Have a look at this neat [git cheatsheet]() to help you through that. 
+The basic commands are:
+
+```bash
+git add .        //stages all file edits
+```
+```bash
+git commit -m "message here"     //commits your changes, the message helps you to keep track on what you are working on
+```
+```bash
+git push -u origin master        //pushes your commits to origin, master branch
+```
+
 
 # Configuring Your Fab Academy Website
 
