@@ -148,7 +148,7 @@ So here's how you get started with MkDocs and the [Material Theme](https://squid
 ## Editing your Mkdocs.yml
 This file has all your website properties. It's quite self explanatory once you open it. More details on confiuring it can be found [here](https://squidfunk.github.io/mkdocs-material/getting-started/) under the usage section. Here's how my one looks like.
 <br>
-<img src="" alt="Mkdocs.yml" width="800" length="800">
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/gitLabAcess/mkdocsyml.PNG" alt="Mkdocs.yml" width="800" length="800">
 <br>
 Oh and if you want to add more icons on your socials section, the material theme supports FontAesome 4.0 glyphs. I couldn't find anything for instructables, so I just added a wrench there.
 
