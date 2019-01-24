@@ -43,8 +43,7 @@ ul.posts li {
 }
 
 .inline-imgtext {
-    display: flex;
-    flex-flow: column wrap;
+
 }
 
 .inline-text {
