@@ -7,7 +7,7 @@ Bangladesh is one of the most densely populated countries while it’s capital, 
 Mobile internet is the primary access to the web for most of the people here, while they remain quite expensive compared to the GDP here. Even after paying a lot for data packs, the abysmal internet speeds due to the density of mobile devices makes it quite impossible to work with.
 Life here moves around the tea stalls. In most slum areas, the tea stores are public gathering spots where they watch TV, interact and talk over a sip of tea. Tea stalls are always densely packed, with foot traffic reaching over 1,000 easily on an average sized tea store.
   
-<img  style="float: right;"src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/density.png" alt="Tea Store crowd"  width="400x">
+<img  style="float: right;" src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/density.png" alt="Tea Store crowd"  width="400x"/>
 
 
 Our goal is to provide internet using Wi-Fi Hotspots to local communities at tea stores while making the setup sustainable to the tea stall owners.
