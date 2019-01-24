@@ -1,5 +1,5 @@
+<div style= "width: 100%; ">
 <img style ="background-size: cover;" src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/heroImage.png" alt="WiFi Picchi">
-<div></div>
 
 The Internet box is one of my ongoing projects. The aim of the project is to provide internet to the dense slum areas of Bangladesh. I’ve been working on the project since mid 2018 with my partners Mainul Hasan Alin and Malinda Senanayeke.
 
@@ -59,4 +59,5 @@ At the first test we found multiple problems without set up. We found that users
   margin-right: auto;
   float: right;
 }
-</style>
+
+</div>
