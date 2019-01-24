@@ -1,8 +1,9 @@
-<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/heroImage.png" alt="WiFi Picchi">
+<img style ="background-size: cover;" src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/heroImage.png" alt="WiFi Picchi">
+<div></div>
 
 The Internet box is one of my ongoing projects. The aim of the project is to provide internet to the dense slum areas of Bangladesh. I’ve been working on the project since mid 2018 with my partners Mainul Hasan Alin and Malinda Senanayeke.
 
-<div class="inline-imgtext" style= "display: flex;">
+<div class="inline-imgtext" style= "display: flex; flex: flow; raw , wrap">
 
   <div class="inline-text">
     Bangladesh is one of the most densely populated countries while it’s capital, Dhaka is the third most populous city in the world with a population density of 59,595 per sq. mile. The sheer number of people make it very difficult for its resident to get access to basic amenities, let alone proper high speed internet. 
@@ -10,12 +11,12 @@ The Internet box is one of my ongoing projects. The aim of the project is to pro
   </div>
 
   <div>
-    <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/density.png" alt="Tea Store crowd"  width="400x"/>
+    <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/density.png" alt="Tea Store crowd"  width="400px"/>
   </div>
 
 </div>
 
-Life here moves around the tea stalls. In most slum areas, the tea stores are public gathering spots where they watch TV, interact and talk over a sip of tea. Tea stalls are always densely packed, with foot traffic reaching over 1,000 easily on an average sized tea store.
+Life here moves around the tea stalls. In most slum areas, the tea stores are public gathering spots where they watch TV, interact and talk over a sip of tea. Tea stalls are always densely packed, with foot traffic reaching over  1,000 easily on an average sized tea store.
   
 
 Our goal is to provide internet using Wi-Fi Hotspots to local communities at tea stores while making the setup sustainable to the tea stall owners.
