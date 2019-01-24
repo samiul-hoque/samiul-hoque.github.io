@@ -47,4 +47,8 @@ ul.posts li {
     flex-flow: column wrap;
 }
 
+.inline-text {
+    flex: 1 0 30%;
+}
+
 
