@@ -3,10 +3,10 @@
 The Internet box is one of my ongoing projects. The aim of the project is to provide internet to the dense slum areas of Bangladesh. I’ve been working on the project since mid 2018 with my partners Mainul Hasan Alin and Malinda Senanayeke.
 
 <div>
-  <div style="text-align: right; width: 66%; clear: both">
+  <div style="text-align: left; width: 66%; clear: both">
   Bangladesh is one of the most densely populated countries while it’s capital, Dhaka is the third most populous city in the world with a population density of 59,595 per sq. mile. The sheer number of people make it very difficult for its resident to get access to basic amenities, let alone proper high speed internet. 
   Mobile internet is the primary access to the web for most of the people here, while they remain quite expensive compared to the GDP here. Even after paying a lot for data packs, the abysmal internet speeds due to the density of mobile devices makes it quite impossible to work with.
-  <div>
+  </div>
 
   <div style="float: right; width 33%; padding: 5px;">
   <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/density.png" alt="Tea Store crowd"  width="400x"/>
