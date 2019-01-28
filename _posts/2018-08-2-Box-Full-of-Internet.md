@@ -127,7 +127,7 @@ Here’s some photos of our shops:
 + Average consumption of data is 684 MB download, 27 MB upload.
 + Total Data consumed after setting up the four nodes is 5088 GB.
 + Assuming the minimum price of 1 GB data from the telcos as 100tk, that’s about 610,560 BDT of data consumed by the users.
-+ We soled about 7000 5tk unlimited tokens, which is about 17 times cheaper than the average telcos and 94% of the price was slashed.
++ We sold about 7000 5tk unlimited tokens, which is about 17 times cheaper than the average telcos and 94% of the price was slashed.
 
 <hr>
 We also attended SANOG32 and BDNog for getting acquainted with the internet community in Dhaka. I ended up taking an IPv6 workshop under Dr. Philip Smith. Also took a small introductory workshop on IoT featuring PyCom development boards and micro python. The next day was all about server hardening on FreeBSD. 
