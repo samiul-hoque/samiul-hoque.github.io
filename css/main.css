@@ -50,4 +50,8 @@ ul.posts li {
     flex: 1 0 30%;
 }
 
+.internetbox-hero-image {
+    background-image: url(/img/internetbox/heroImage.png)
+}
+
 
