@@ -38,14 +38,18 @@ Customer:
 ## The Proof of Concept:
 To test out if the idea works, we started with hacking cheap routers and installing openWRT on them. Routers with built in captive portal support are available in the market but the price range usually starts from BDT 10,000. Our plan was to get the full setup cost under BDT 5000, or else it would make it very difficult to break even. Besides, we were all quite broke :|
 
-We started with Xiaomi Router 3, as it had the most available onboard RAM and a good Wi-Fi chipset. But sadly, it did not get an official opnWRT image.<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/miRouterExperiment.png" alt="Mi Router 3 hack" width="800">
+We started with Xiaomi Router 3, as it had the most available onboard RAM and a good Wi-Fi chipset. But sadly, it did not get an official opnWRT image.
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/miRouterExperiment.png" alt="Mi Router 3 hack" width="800">
+<br>
  Due to various performance issues we later stuck with the TP-Link MR3420. Which was priced at BDT 2000.
+<br>
 <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/tplink-mr3420.png" alt="TP-Link MR3420 hack" width="800">
-
+<br>
 For the captive portal we used coova-chilli. An opensource captive portal supported by openWRT. For the user authentication server, we used radius. The idea was to host the AAA server centrally so our users could use any of our hotspots for connectivity. Basically it’s like roaming turned on for Wi-Fi Hotspots.  After testing the captive portal, we decided on giving it a fancy enclosure. We were planning to provide internet to slum dwellers, for whom an outlook other than some antennas and wires are quite important. So I designed a prototype box using PVC as material and named it ‘Premium WiFi’ we were ready to launch. 
 We set up our first box at Tarunno’s café, a coffee shop just below my home. As it was for testing purposes, we tried to get it as close as possible to our workplace, which sadly was my room for the time being.
-
-<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/first%20prototype1.jpg.png" alt="First run" width="800px">
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/first%20prototype1.jpg.png" alt="First run" width="800px"><br>
 
 At the first test we found multiple problems without set up. We found that users were finding the captive portals difficult to use. Some phones handled the spash screen differently. Our initial tokens were 8 character long with an alphanumeric character. We had to bring it down to 4 digit numeric eventually and then finally at 6 digit numeric. There were some issues with downtime and range. We also found a bug that reset the router once every week or so. Reset as in, even the firmware gets corrupted and we had to write everything in again. Later we found it to be a heating issue which was solved by putting in a heatsink on the Wi-Fi chipset. After a few weeks of testing out, we started scouting for places to run our pilot project.
 
