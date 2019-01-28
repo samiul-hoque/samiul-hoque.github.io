@@ -90,10 +90,54 @@ We took some feedback from the customers and decided to paint the boxes Bright Y
 <img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/PaintingTheBox.jpg" alt="Painting boxes" width="800" length="800">
 <br>
 <br>
-<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/PaintingTheBox.jpg" alt="Painting boxes" width="800" length="800">
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/thirdprototype.jpg" alt="Painting boxes" width="800" length="800">
+<br>
+<hr>
+
+Here’s some photos of our shops: 
+
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/teashop.png" alt="" width="800" length="800">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/third%20prototype1.jpg" alt="" width="800" length="800">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/third%20prototype3.jpg" alt="" width="800" length="800">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/third%20prototype4.jpg" alt="" width="800" length="800">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/new%20shop.jpg" alt="" width="800" length="800">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/third%20prototype2.jpg" alt="" width="800" length="800">
 <br>
 
+<hr>
 
+## Milestones Reached
 
++ 900 unique users reached, on our 4 nodes. Considering unique mac IDs.
++ Average consumption of data is 684 MB download, 27 MB upload.
++ Total Data consumed after setting up the four nodes is 5088 GB.
++ Assuming the minimum price of 1 GB data from the telcos as 100tk, that’s about 610,560 BDT of data consumed by the users.
++ We soled about 7000 5tk unlimited tokens, which is about 17 times cheaper than the average telcos and 94% of the price was slashed.
+
+<hr>
+We also attended SANOG32 and BDNog for getting acquainted with the internet community in Dhaka. I ended up taking an IPv6 workshop under Dr. Philip Smith. Also took a small introductory workshop on IoT featuring PyCom development boards and micro python. The next day was all about server hardening on FreeBSD. 
+
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/sanog32/wifipicchi.jpg" alt="SANOG32" width="800" length="800">
+<br>
+<hr>
+
+Before coming to Ahmedabad for my Fab Academy course, we partnered up with a wood factory to make 10 of these boxes as a preparation to make them in bulk.
+
+<br>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/box.jpg" alt="SANOG32" width="800" length="800">
+<br>
+<hr>
 
 
