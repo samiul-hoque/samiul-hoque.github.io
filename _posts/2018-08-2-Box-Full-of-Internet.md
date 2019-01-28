@@ -1,7 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/heroImage.png" alt="WiFi Picchi hero image" width="50%">
-<div class="internetbox-hero-image">
-</div>
+<img src="https://raw.githubusercontent.com/samiul-hoque/samiul-hoque.github.io/master/img/internetbox/heroImage.png" alt="WiFi Picchi hero image" width="70%">
 
 
 The Internet box is one of my ongoing projects. The aim of the project is to provide internet to the dense slum areas of Bangladesh. I’ve been working on the project since mid 2018 with my partners Mainul Hasan Alin and Malinda Senanayeke.
