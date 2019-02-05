@@ -121,7 +121,7 @@ Here’s some photos of our shops:
 
 <hr>
 
-## Milestones Reached
+# Milestones Reached
 
 + 900 unique users reached, on our 4 nodes. Considering unique mac IDs.
 + Average consumption of data is 684 MB download, 27 MB upload.
@@ -130,6 +130,7 @@ Here’s some photos of our shops:
 + We sold about 7000 5tk unlimited tokens, which is about 17 times cheaper than the average telcos and 94% of the price was slashed.
 
 <hr>
+
 We also attended SANOG32 and BDNog for getting acquainted with the internet community in Dhaka. I ended up taking an IPv6 workshop under Dr. Philip Smith. Also took a small introductory workshop on IoT featuring PyCom development boards and micro python. The next day was all about server hardening on FreeBSD. 
 
 <br>
