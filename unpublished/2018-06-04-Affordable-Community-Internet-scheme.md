@@ -1,1 +1,0 @@
-# Affordable Community Internet Scheme

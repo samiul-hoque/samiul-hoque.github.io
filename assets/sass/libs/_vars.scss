@@ -1,0 +1,49 @@
+// Misc.
+	$misc: (
+		z-index-base:		10000,
+		max-features:		20,
+		max-sidebar-links:	20
+	);
+
+// Duration.
+	$duration: (
+		transition:			0.2s,
+		activation:			1s
+	);
+
+// Size.
+	$size: (
+		border-radius:		0.25em,
+		border-width:		1px,
+		element-height:		2.75em,
+		element-margin:		2em,
+		sidebar-width:		16em,
+		sidebar-height:		3.5em,	// when <=large is active
+		inner-width:		75em
+	);
+
+// Font.
+	$font: (
+		family:				(Arial, Helvetica, sans-serif),
+		family-fixed:		('Courier New', monospace),
+		weight:				normal,
+		weight-bold:		bold,
+		kerning-alt:		0.25em
+	);
+
+// Palette.
+	$palette: (
+		bg:					#ffffffd7,                      //sidebar and background for posts
+		bg-alt:				darken(#ece4e41a, 5),
+		fg:					rgb(0, 0, 0),             //text
+		fg-bold:			#000000,                  //heads
+		fg-light:			rgb(48, 2, 2),             //sidebar text color
+		border:				rgba(0, 0, 0, 0.13),
+		border-bg:			rgba(0, 0, 0, 0.795),
+		accent1:			#9b91833d,                   //main page color accent
+		accent1-alt:		darken(#ffffff3d, 10),
+		accent2:			#d1cccc,                //second block color
+		accent2-alt:		darken(#ff0000, 10),
+		accent3:			#00ff15,                 //tick mark, underlines and all that
+		accent3-alt:		darken(#01be0a, 10)
+	);
