@@ -33,17 +33,17 @@
 
 // Palette.
 	$palette: (
-		bg:					#ffffffd7,                      //sidebar and background for posts
-		bg-alt:				darken(#ece4e41a, 5),
+		bg:					rgba(255, 255, 255, 0.843),                      //sidebar and background for posts
+		bg-alt:				darken(rgba(236, 228, 228, 0.102), 5),
 		fg:					rgb(0, 0, 0),             //text
-		fg-bold:			#000000,                  //heads
+		fg-bold:			rgb(0, 0, 0),                  //heads
 		fg-light:			rgb(48, 2, 2),             //sidebar text color
 		border:				rgba(0, 0, 0, 0.13),
 		border-bg:			rgba(0, 0, 0, 0.795),
-		accent1:			#9b91833d,                   //main page color accent
-		accent1-alt:		darken(#ffffff3d, 10),
-		accent2:			#d1cccc,                //second block color
-		accent2-alt:		darken(#ff0000, 10),
-		accent3:			#00ff15,                 //tick mark, underlines and all that
-		accent3-alt:		darken(#01be0a, 10)
+		accent1:			rgba(155, 145, 131, 0.239),                   //main page color accent
+		accent1-alt:		darken(rgba(255, 255, 255, 0.239), 10),
+		accent2:			rgb(209, 204, 204),                //second block color
+		accent2-alt:		darken(rgb(255, 0, 0), 10),
+		accent3:			rgb(0, 255, 21),                 //tick mark, underlines and all that
+		accent3-alt:		darken(rgb(1, 190, 10), 10)
 	);
