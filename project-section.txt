@@ -1,0 +1,152 @@
+ <section id="Projects">
+    <div class="project-container">
+      <div class="project-header">
+        <h1>Projects</h1>
+        <p>
+          I've worked on some interesting projects so far. Hoping to keep on
+          doing that.
+        </p>
+      </div>
+
+      <div class="all-projects">
+        <!-- project 1-->
+        <div class="project-item">
+          <div class="project-info">
+            <h1>WiFi Picchi</h1>
+            <h2>Connecting the next million users.</h2>
+            <p>
+              A crowdsharing approach to connect dense slums with WiFi using
+              community hotspots.
+            </p>
+          </div>
+          <div class="project-image">
+            <img src="./images/wifipicchi.jpg" alt="" />
+          </div>
+        </div>
+        <!-- end of project 1-->
+
+        <!-- project 2-->
+        <div class="project-item">
+          <div class="project-info">
+            <h1>BlackHorse HAB</h1>
+            <h2>Bangladeshi Flag at 1 Lac 6 thousand Feet</h2>
+            <p>
+              Sent our Flag to a height of 34.5km using a Helium Balloon and
+              built onboard electronics to record the footage.
+            </p>
+          </div>
+          <div class="project-image">
+            <img src="./images/blackhorse.jpg" alt="" />
+          </div>
+        </div>
+        <!-- end of project 2-->
+
+        <!-- project 3-->
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Fab Lab IUB</h1>
+            <h2>200,000$ grant from World Bank</h2>
+            <p>
+              Prepared proposal and acquired the grant to set up Fab Lab IUB.
+            </p>
+          </div>
+          <div class="project-image">
+            <img src="./images/fab-iub-logo-1.png" alt="" />
+          </div>
+        </div>
+        <!-- end of project 3-->
+        </div>
+    </div>
+    </div>
+    </section>
+
+
+
+
+
+    ------------------------------------------
+    css 
+
+    .project-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2em 0;
+}
+
+
+.project-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.project-header h1 {
+    font-weight: bold;
+    font-size: 3em;
+    padding: 2%;
+}
+
+.project-header p {
+    font-size: 1.2em;
+}
+
+
+.all-projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.project-info{
+ padding: 30px;
+ flex-basis: 50%;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ width: 50%;
+ align-items: flex-start;
+ justify-content: center;
+ background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+ 
+}
+
+
+
+.project-image {
+	flex-basis: 50%;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.project-image::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	opacity: 0.7;
+}
+
+.project-image img{
+    transition: 0.3s ease transform;
+}
+
+.project-item:hover .project-img img {
+    transform: scale(1.1);
+}
