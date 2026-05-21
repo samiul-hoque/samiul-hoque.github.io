@@ -1,0 +1,591 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('projects', ({ data }) => !data.draft);
+const bySlug = Object.fromEntries(all.map((p) => [p.id, p]));
+
+const publications = (await getCollection('publications', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.year - a.data.year || a.data.order - b.data.order)
+  .slice(0, 4);
+
+/**
+ * Selected work entries for the home page.
+ *
+ * Each entry is curated copy meant for the landing page — denser than the
+ * card one-liner, lighter than the detail-page prose. Multiple images
+ * encouraged where they add substance.
+ *
+ * Order is chronological (oldest → newest) per HANDOVER §5 sequencing rule;
+ * user will resequence after more project pages are written.
+ */
+const selected = [
+  {
+    slug: 'blackhorse-hab',
+    images: [
+      '/images/blackhorse/balloon2.jpg',
+      '/images/blackhorse/Yagi.jpg',
+      '/images/blackhorse/timevsalt.png',
+    ],
+    body: `Technical engineer on a high-altitude balloon campaign that put a Bangladeshi flag at 32.45 km. Built the onboard electronics — Raspberry Pi, 433 MHz RTTY downlink, Ublox GPS, hacked GoPro — and the receiving Yagi out of copper rod and PVC sheet because nothing locally available would do. Recovered the box on the third attempt; the first two were defeated by batteries that didn't like the cold.`,
+  },
+  {
+    slug: 'fab-lab-iub',
+    images: [
+      '/images/fabIUB.jpg',
+      '/images/fab-iub-logo-1.png',
+    ],
+    body: `Drafted the proposal that won a USD 200,000 World Bank grant under HEQEP to set up a digital fabrication lab at Independent University Bangladesh. Speced and sourced the machines, prepared the space, and ran it up to the milestones the grant required. The lab has been operational ever since.`,
+  },
+  {
+    slug: 'wifi-picchi',
+    images: [
+      '/images/wifipicchi/teashop.png',
+      '/images/wifipicchi/token.png',
+      '/images/wifipicchi/third-prototype1.jpg',
+    ],
+    body: `Community internet hotspots hosted at slum tea shops in Dhaka. Five-taka paper tokens for three hours of WiFi; OpenWRT on TP-Link MR3420 boxes, CoovaChilli captive portal, a Diameter AAA server, an SDN controller for fleet management. Three prototype generations, hand-painted enclosures, pilot deployment across multiple shops before I left for Fab Academy in 2019.`,
+  },
+  {
+    slug: 'fab-academy',
+    images: [
+      '/images/fabacademy/group.jpg',
+      '/images/fabacademy/presentation.png',
+    ],
+    body: `Nineteen weeks of digital fabrication at Fab Lab CEPT, Ahmedabad — laser, CNC, PCB design and fab, molding and casting, embedded, networking, machine design. Final project was PixelFace, a wearable pixel-display mask. Local instructor was Ohad Meyuhas (Stratasys); global was Francisco Sanchez (TECSUP).`,
+  },
+  {
+    slug: 'lumo',
+    images: [],
+    body: `Raspberry Pi HAT for vehicle CAN bus, designed at TeroLabs. Eagle CAD schematic and board, Fusion 360 enclosure, the OBD-II side protected against the kinds of electrical events cars actually produce. Became the sensor layer for a driver-behaviour analytics pipeline and a few other internal projects. Design files are public on GitHub.`,
+  },
+];
+
+const selectedHydrated = selected
+  .map((entry) => {
+    const project = bySlug[entry.slug];
+    if (!project) return null;
+    return { ...entry, project };
+  })
+  .filter((x): x is NonNullable<typeof x> => x !== null);
+
+/**
+ * Affiliation strip. Logos confirmed by user 2026-05-19 (HANDOVER §5).
+ * Ghorar Dim and CCSE shown as text plates since we don't have logo files.
+ */
+const affiliations = [
+  { name: 'Ghorar Dim Studios', text: true, href: null },
+  { name: 'TeroLabs', logo: '/images/terolabslogo.png', href: 'https://www.terolabs.org/' },
+  { name: 'Universal Machine', logo: '/images/universalmachinelogo.png', href: 'https://universalmachine.io/' },
+  { name: 'Fab Lab IUB', logo: '/images/fab-iub-logo-1.png', href: 'https://fablabiub.com/' },
+  { name: 'Fab Academy', logo: '/images/fabacademy.png', href: 'https://fabacademy.org/' },
+  { name: 'CCSE, IUB', text: true, href: null },
+  { name: "Dogs Day Advertisement", logo: '/images/dogsdaylogo.jpg', href: null },
+];
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Samiul Hoque',
+  url: 'https://samiul-hoque.github.io',
+  jobTitle: 'Founding Engineer',
+  worksFor: { '@type': 'Organization', name: 'Ghorar Dim Studios' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Independent University Bangladesh' },
+    { '@type': 'EducationalOrganization', name: 'Fab Academy' },
+  ],
+  knowsAbout: ['Electronics', 'PCB Design', 'Embedded Systems', 'Digital Fabrication', 'Full-Stack Development', 'IoT'],
+  sameAs: [
+    'https://www.linkedin.com/in/s026hoque/',
+    'https://github.com/samiul-hoque',
+    'https://www.instagram.com/hoque_samiul/',
+  ],
+};
+
+const teaching = [
+  { label: 'Kolpokoushol', detail: 'attendee 2014, then local facilitator (×2), then mentor (×2) through 2019' },
+  { label: 'Arduino Day Dhaka', detail: 'multiple years, mostly facilitating' },
+  { label: 'CCSE & Fab Lab IUB workshops', detail: 'electronics, fabrication, design — for students and the broader maker community' },
+  { label: 'SANOG32', detail: "South Asia's biggest network operator conference — our team somehow ranked best despite being networking newbies" },
+];
+---
+
+<Base title="Samiul Hoque" description="Engineer based in Dhaka. Hardware, software, and whatever the project needs." jsonLd={personJsonLd}>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Dhaka · Bangladesh</span>
+        <h1>Samiul Hoque</h1>
+        <p class="lede">
+          I build things at the intersection of hardware and software.<br />
+          Mostly whatever the project needs.
+        </p>
+        <p class="intro">
+          I'm an engineer based in Bangladesh. I work across electronics,
+          embedded systems, fabrication, and full-stack software — usually
+          all of them at once, because the projects I end up on tend to
+          need it. Fab Academy graduate, founding engineer at Ghorar Dim,
+          and on the lookout for interesting opportunities.
+        </p>
+        <ul class="actions">
+          <li><a class="button accent" href="/about/">Longer story</a></li>
+          <li><a class="button" href="#reach">Reach me</a></li>
+        </ul>
+      </div>
+      <div class="hero-image">
+        <img src="/images/landing-workshop.jpg" alt="Samiul standing on a CNC-cut stool he built at a fab lab" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENTLY -->
+  <section class="currently container">
+    <h2 class="section-label">Currently</h2>
+    <ul class="now-list">
+      <li><span class="now-tag">2022 →</span> Founding engineer, <strong>Ghorar Dim Studios</strong> — kinetic animation devices, spinoscopes, praxinoscopes, a Bangla word clock. Saiqa makes the art; I figure out how to turn it into product.</li>
+      <li><span class="now-tag">Background</span> CS graduate. Been building things professionally since 2014.</li>
+      <li><span class="now-tag">Open</span> On the lookout for substantive work where the breadth of what I do is the point, not a problem to manage.</li>
+    </ul>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="selected container">
+    <div class="section-head">
+      <h2 class="section-label">Selected work</h2>
+      <a href="/projects/" class="see-all">Full archive →</a>
+    </div>
+
+    {selectedHydrated.map((entry) => (
+      <article class="entry">
+        <div class="entry-media">
+          {entry.images.length > 0 ? (
+            <>
+              <div class="entry-primary">
+                <img src={entry.images[0]} alt={entry.project.data.title} loading="lazy" />
+              </div>
+              {entry.images.length > 1 && (
+                <div class="entry-strip">
+                  {entry.images.slice(1).map((src) => (
+                    <img src={src} alt="" loading="lazy" />
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <div class="entry-primary entry-text-only">
+              <span class="meta">{entry.project.data.category}</span>
+            </div>
+          )}
+        </div>
+        <div class="entry-body">
+          <span class="meta">{entry.project.data.category} · {entry.project.data.year}</span>
+          <h3>{entry.project.data.title}</h3>
+          <p>{entry.body}</p>
+          <p class="entry-link">
+            <a href={`/projects/${entry.project.id}/`}>Read the longer writeup →</a>
+          </p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="publications-home container">
+    <div class="section-head">
+      <h2 class="section-label">Publications &amp; writing</h2>
+      <a href="/publications/" class="see-all">Full list →</a>
+    </div>
+    <ul class="pub-mini">
+      {publications.map((p) => (
+        <li>
+          <span class="pm-year">{p.data.year}</span>
+          <div class="pm-body">
+            <a href={p.data.url ?? `https://doi.org/${p.data.doi}`} target="_blank" rel="noopener" class="pm-title">
+              {p.data.title}
+            </a>
+            <p class="pm-meta">
+              {p.data.authors.join(', ')}
+              <br />
+              <em>{p.data.venueShort ?? p.data.venue}</em>
+              {p.data.location && <> · {p.data.location}</>}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- AFFILIATIONS -->
+  <section class="affiliations container">
+    <h2 class="section-label">Affiliations &amp; companies</h2>
+    <div class="logo-strip">
+      {affiliations.map((a) => {
+        const inner = a.text ? (
+          <span class="text-plate">{a.name}</span>
+        ) : (
+          <img src={a.logo} alt={a.name} title={a.name} loading="lazy" />
+        );
+        return a.href ? (
+          <a class="logo-cell" href={a.href} target="_blank" rel="noopener" aria-label={a.name}>
+            {inner}
+          </a>
+        ) : (
+          <span class="logo-cell" aria-label={a.name}>{inner}</span>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- TEACHING & COMMUNITY -->
+  <section class="teaching container">
+    <h2 class="section-label">Teaching &amp; community</h2>
+    <ul class="teach-list">
+      {teaching.map((t) => (
+        <li>
+          <span class="t-label">{t.label}</span>
+          <span class="t-detail">{t.detail}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- A BIT MORE -->
+  <section class="preamble container">
+    <div>
+      <h2>A bit more</h2>
+      <p>
+        Fifteen years of saying yes to interesting problems. Robotics
+        contests, a slum-internet startup, automotive telematics, kinetic
+        animation devices, a fab lab grant, a praxinoscope or two, a
+        weather balloon that came back from 32 kilometres up.
+      </p>
+      <p>
+        <a href="/about/">Read the longer story →</a>
+      </p>
+    </div>
+  </section>
+
+  <span id="reach"></span>
+</Base>
+
+<style>
+  /* HERO */
+  .hero {
+    padding: 3rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem;
+  }
+  .lede {
+    font-size: 1.0625rem;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 1.25rem;
+  }
+  .intro {
+    color: var(--ink-soft);
+    max-width: 36rem;
+    margin-bottom: 2rem;
+  }
+  .actions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .hero-image {
+    aspect-ratio: 4/5;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.75rem;
+    margin: 0 0 1rem;
+    font-weight: 500;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .section-head .section-label {
+    margin-bottom: 0;
+  }
+  .see-all {
+    font-family: var(--mono);
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border-top: 1px solid transparent;
+    padding-top: 0.75rem;
+  }
+  .see-all:hover { color: var(--accent); }
+
+  /* CURRENTLY */
+  .currently { padding-top: 2.5rem; }
+  .now-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+  .now-list li {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    border-top: 1px solid var(--rule);
+    padding-top: 0.5rem;
+  }
+  .now-list li:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .now-tag {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* SELECTED WORK — inline entries */
+  .selected { padding-top: 2.5rem; }
+  .selected .section-head { margin-bottom: 1rem; }
+  .entry {
+    display: grid;
+    grid-template-columns: 38% 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .entry-media {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .entry-primary img,
+  .entry-text-only {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+  }
+  .entry-text-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    background: repeating-linear-gradient(
+      45deg, var(--bg-elev), var(--bg-elev) 12px,
+      var(--bg) 12px, var(--bg) 24px
+    );
+  }
+  .entry-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .entry-strip img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+  }
+  .entry-body h3 {
+    font-size: 1.1875rem;
+    margin: 0.25rem 0 0.75rem;
+    line-height: 1.25;
+  }
+  .entry-body p {
+    color: var(--ink-soft);
+    margin: 0 0 0.5rem;
+    line-height: 1.6;
+  }
+  .entry-link {
+    font-family: var(--mono);
+    font-size: 0.875rem;
+    margin-top: 0.5rem !important;
+  }
+  .entry-link a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .entry-link a:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  /* PUBLICATIONS (home) */
+  .publications-home { padding-top: 2.5rem; }
+  .publications-home .section-head { margin-bottom: 1rem; }
+  .pub-mini {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pub-mini li {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .pub-mini li:first-child { border-top: 0; padding-top: 0; }
+  .pm-year {
+    font-family: var(--mono);
+    font-size: 0.9375rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .pm-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pm-title:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .pm-meta {
+    color: var(--ink-mute);
+    font-size: 0.875rem;
+    margin: 0.5rem 0 0;
+    line-height: 1.5;
+  }
+
+  /* AFFILIATIONS */
+  .affiliations { padding-top: 2.5rem; }
+  .logo-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.5rem;
+    align-items: stretch;
+    border: 1px solid var(--rule);
+    background: var(--bg-elev);
+  }
+  .logo-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.75rem;
+    min-height: 72px;
+    text-decoration: none;
+    border-right: 1px solid var(--rule);
+    transition: background 0.2s ease;
+  }
+  .logo-cell:last-child { border-right: 0; }
+  .logo-cell:hover { background: var(--bg); }
+  .logo-cell img {
+    max-height: 50px;
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(0.9);
+    opacity: 0.7;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+  .logo-cell:hover img {
+    filter: grayscale(0%) contrast(1);
+    opacity: 1;
+  }
+  .text-plate {
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-align: center;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+  }
+  .logo-cell:hover .text-plate { color: var(--ink); }
+
+  /* TEACHING */
+  .teaching { padding-top: 2.5rem; }
+  .teach-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .teach-list li {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .teach-list li:first-child { border-top: 0; padding-top: 0; }
+  .t-label {
+    font-family: var(--mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .t-detail {
+    color: var(--ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* PREAMBLE */
+  .preamble { padding-top: 2.5rem; padding-bottom: 1rem; }
+  .preamble h2 {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.75rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-image { aspect-ratio: 4/3; max-height: 360px; }
+    .entry { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem 0; }
+    .now-list li { grid-template-columns: 1fr; gap: 0.25rem; }
+    .teach-list li { grid-template-columns: 1fr; gap: 0.25rem; }
+    .pub-mini li { grid-template-columns: 1fr; gap: 0.25rem; }
+    .logo-strip { grid-template-columns: repeat(2, 1fr); }
+    .logo-cell { border-right: 0 !important; border-bottom: 1px solid var(--rule); }
+    .logo-cell:nth-child(odd) { border-right: 1px solid var(--rule) !important; }
+  }
+</style>

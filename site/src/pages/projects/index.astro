@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects', ({ data }) => !data.draft);
+
+// In-progress / placeholder projects — full pages coming, but listed so the
+// inventory is honest.
+const upcoming = [
+  { slug: 'bangla-word-clock', title: 'Bangla Word Clock', year: '2024', oneLiner: 'A clock that tells time in Bangla words. With Ghorar Dim Studios.', category: 'art' },
+  { slug: 'pixelface', title: 'PixelFace', year: '2019', oneLiner: 'Fab Academy final project — a wearable pixel display.', category: 'fabrication' },
+  { slug: 'spinoscope', title: 'Spinoscope / Praxinoscope / Zoetrope', year: '2022–', oneLiner: 'Kinetic animation devices for Ghorar Dim Studios.', category: 'art' },
+  { slug: 'e-braille', title: 'E-Braille', year: '2014', oneLiner: 'Tactile feedback Braille reader. Won the first Make-a-Thon in Bangladesh.', image: '/images/ebraille/banner.jpg', category: 'hardware' },
+  { slug: 'argus-helmet', title: 'Argus Helmet', year: '2017', oneLiner: 'Smart helmet hackathon entry at Maker’s Lab, hosted by Toru.', image: '/images/argushelmet/banner.jpg', category: 'hardware' },
+  { slug: 'ccse-makerspace', title: 'CCSE Makerspace', year: '2016–2019', oneLiner: 'Built and ran the makerspace inside the CCSE lab at IUB.', image: '/images/ccse-makerspace/ccsemakerspace1.jpg', category: 'community' },
+  { slug: 'hadoop-cluster', title: 'Raspberry Pi Hadoop Cluster', year: '~2018', oneLiner: 'A four-Pi Hadoop cluster, built for the CCSE lab.', category: 'software' },
+];
+
+const sorted = projects.sort((a, b) => {
+  const af = a.data.featured ? 1 : 0;
+  const bf = b.data.featured ? 1 : 0;
+  if (af !== bf) return bf - af;
+  return (a.data.order ?? 0) - (b.data.order ?? 0);
+});
+---
+
+<Base title="Projects" description="Hardware, fabrication, software, research, art. Fifteen years of saying yes to interesting problems.">
+  <section class="container intro">
+    <span class="eyebrow">Projects</span>
+    <h1>What I've built.</h1>
+    <p class="lede">
+      A working archive. Some of these have full pages; others are stubs
+      while I write them up. Roughly chronological, organised by what kind
+      of work it was.
+    </p>
+  </section>
+
+  <section class="container">
+    <h2 class="section-label">Documented</h2>
+    <div class="grid">
+      {sorted.map((p) => (
+        <ProjectCard
+          href={`/projects/${p.id}/`}
+          title={p.data.title}
+          year={p.data.year}
+          oneLiner={p.data.oneLiner}
+          image={p.data.heroImage}
+          category={p.data.category}
+        />
+      ))}
+    </div>
+
+    <h2 class="section-label">Writing up</h2>
+    <div class="grid">
+      {upcoming.map((p) => (
+        <ProjectCard
+          href={`/projects/${p.slug}/`}
+          title={p.title}
+          year={p.year}
+          oneLiner={p.oneLiner}
+          image={p.image}
+          category={p.category}
+          upcoming
+        />
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    padding: 2rem 0 1rem;
+  }
+  .lede {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+</style>

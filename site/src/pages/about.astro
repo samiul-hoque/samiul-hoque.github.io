@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About" description="How I came to do this kind of work — hardware, software, and whatever else the project demands.">
+  <article class="container about">
+    <header>
+      <span class="eyebrow">About</span>
+      <h1>I build things.</h1>
+    </header>
+
+    <div class="about-body">
+      <p>
+        I'm Samiul. I build things — usually things that involve both hardware
+        and software, often things that involve fabrication, occasionally things
+        that involve a weather balloon.
+      </p>
+      <p>
+        My working philosophy has always been "whatever it takes." That mostly
+        means learning whatever skill a project needs, even if it's outside what
+        I was trained for. It also means doing the unglamorous parts — sourcing
+        components in Bangladesh, writing the grant application, debugging the
+        firmware at 2&nbsp;am, figuring out the customs paperwork. Engineers
+        usually want to stop at the engineering. I've never been good at
+        stopping there.
+      </p>
+
+      <h2>How I got here</h2>
+
+      <p>
+        I grew up in Dhaka and went through Motijheel Ideal and Notre Dame
+        before starting CSE at BRAC University in 2012. The robotics club was
+        where things actually clicked. I spent more time there than in classes,
+        won some contests, and got deep into the kind of build-something-and-
+        see-if-it-works projects that have shaped most of my work since.
+      </p>
+      <p>
+        In 2014 I attended the first Kolpokoushol, an outreach program run by
+        MIT researchers in Bangladesh. That's where the rest of this started.
+        The people in that orbit — the global fab lab world, the Media Lab
+        adjacent crowd — were thinking about hardware, fabrication, and
+        computation in a way I hadn't seen before, and it pulled me in. One of
+        those connections led to the weather balloon project, where I came on
+        as the technical engineer to send a small Bangladeshi flag to 32.45
+        kilometers and bring back the footage. Around the same period I also
+        made a short documentary-style commercial for GP Music. I dropped out
+        of BRAC not long after.
+      </p>
+      <p>
+        I came back to Kolpokoushol over the next several years, first as a
+        local facilitator and then as a mentor. In 2016 I transferred to
+        Independent University Bangladesh and joined the CCSE lab as a research
+        assistant, also TA-ing the algorithms course. Most of my BRAC credits
+        didn't transfer, so it was effectively starting the degree over.
+      </p>
+      <p>
+        Some of the work I've taken on over the years has been pro-bono — a
+        turtle-egg incubator and later a sensor mesh for the Creative
+        Conservation Alliance's wild tortoise programme in Bhawal Reserve
+        Forest. The hatchlings from the incubator are now part of an active
+        recovery effort for an endangered species, which is probably the most
+        surprising thing on this page.
+      </p>
+      <p>
+        While at IUB I worked with Dr. Mahady Hasan on a World Bank grant that
+        funded the IUB fab lab. The lab is still running. In 2019 I went to
+        Fab Lab CEPT in Ahmedabad and completed Fab Academy — partly because
+        I wanted to eventually run the program at IUB. That second part didn't
+        work out due to bureaucratic issues, so I left IUB and joined TeroLabs,
+        a venture studio building early-stage products. The role was
+        deliberately undefined. I ended up working on Celo network validators,
+        a CAN bus module for driver behavior analysis, custom Segway
+        integrations with HERE Mobility, and a stack of blockchain projects
+        when that's where the funding was.
+      </p>
+      <p>
+        I quit TeroLabs in part because of herniated discs and chronic back
+        pain — the hours and pace weren't compatible with the body I had.
+        After a break, I joined Saiqa, an artist and animator I'd worked with
+        at TeroLabs, as the founding engineer of Ghorar Dim Studios. She makes
+        the art; I figure out how to turn it into physical products. We've
+        made spinoscopes, praxinoscopes, zoetropes, and a Bangla word clock.
+        Each one is its own engineering problem — mechanism, electronics,
+        fabrication, sourcing, packaging.
+      </p>
+      <p>
+        I finished my CSE degree at IUB this semester, Spring 2026, while
+        still working on Ghorar Dim.
+      </p>
+
+      <h2>What I'm good at</h2>
+
+      <p>
+        Electronics and PCB design. Embedded systems and firmware. Mechanical
+        design and CAD. Digital fabrication — 3D printing, CNC, laser,
+        woodworking. Full-stack web development, including the parts that talk
+        to hardware. Writing grants. Setting up labs. Running workshops.
+        Sourcing things in Dhaka. Shipping products end-to-end.
+      </p>
+      <p>
+        I'm not the deepest specialist in any one of these. I'm unusually
+        broad across all of them, and I've shipped real work in each —
+        commercial products, research, infrastructure, art objects.
+      </p>
+
+      <h2>What I'm looking for</h2>
+
+      <p>
+        A role where the breadth is the point, not a problem to manage.
+        Hardware product companies, fab labs, R&amp;D groups, applied
+        research, hardware-heavy startups. Remote is fine. International is
+        fine. Bangladesh is fine. What I care about is the work being
+        substantive and the team being honest about what they're trying to
+        build.
+      </p>
+      <p>
+        If something here resonates, I'd be glad to hear from you.
+      </p>
+
+      <h2 class="muted">Also</h2>
+      <p class="footnotes">
+        Conferences attended along the way: SANOG32 (where our team somehow
+        ranked best despite being networking newbies), Kolpokoushol 2014–2019
+        (attendee, then facilitator, then mentor), Arduino Day Dhaka
+        (multiple years, mostly facilitating).
+      </p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .about {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  .about header {
+    margin-bottom: 1.5rem;
+  }
+  .about-body :global(p),
+  .about-body :global(ul),
+  .about-body :global(ol) {
+    line-height: 1.7;
+  }
+  .muted {
+    color: var(--ink-mute);
+    font-size: 0.9375rem;
+  }
+  .footnotes {
+    color: var(--ink-soft);
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,0 +1,378 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ data }) => !data.draft);
+  const publications = await getCollection('publications', ({ data }) => !data.draft);
+  const pubById = Object.fromEntries(publications.map((p) => [p.id, p]));
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: {
+      project,
+      relatedPub: project.data.relatedPublication ? pubById[project.data.relatedPublication] ?? null : null,
+    },
+  }));
+}
+
+const { project, relatedPub } = Astro.props;
+const { Content, headings } = await render(project);
+const { data } = project;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.oneLiner,
+  ...(data.heroImage && { image: new URL(data.heroImage, Astro.site).toString() }),
+  author: { '@type': 'Person', name: 'Samiul Hoque', url: 'https://samiul-hoque.github.io' },
+  ...(data.year && { datePublished: `${data.year}` }),
+  keywords: data.tags.join(', '),
+};
+---
+
+<Base title={data.title} description={data.oneLiner} ogImage={data.heroImage} jsonLd={jsonLd}>
+  <article class="container project">
+    <header>
+      <a href="/projects/" class="back">← All projects</a>
+      <span class="eyebrow">{data.category}{data.year ? ` · ${data.year}` : ''}</span>
+      <h1>{data.title}</h1>
+      <p class="one-liner">{data.oneLiner}</p>
+      <dl class="meta-grid">
+        {data.role && (
+          <>
+            <dt>Role</dt>
+            <dd>{data.role}</dd>
+          </>
+        )}
+        {data.client && (
+          <>
+            <dt>Context</dt>
+            <dd>{data.client}</dd>
+          </>
+        )}
+        {data.tags.length > 0 && (
+          <>
+            <dt>Tags</dt>
+            <dd class="tags">
+              {data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </dd>
+          </>
+        )}
+      </dl>
+    </header>
+
+    {data.heroImage && (
+      <figure class="hero">
+        <img src={data.heroImage} alt={data.title} loading="eager" />
+      </figure>
+    )}
+
+    <div class="body-with-toc">
+      <div class="body" data-gallery={JSON.stringify(data.gallery)}>
+        <Content />
+      </div>
+      <aside class="toc-sidebar">
+        <TableOfContents headings={headings} />
+      </aside>
+    </div>
+
+    {relatedPub && (
+      <aside class="related-pub">
+        <span class="rp-label">Published as</span>
+        <p class="rp-title">
+          <a href={relatedPub.data.url ?? `https://doi.org/${relatedPub.data.doi}`} target="_blank" rel="noopener">
+            {relatedPub.data.title}
+          </a>
+        </p>
+        <p class="rp-meta">
+          {relatedPub.data.authors.join(', ')}
+          <br />
+          <em>{relatedPub.data.venue}</em>
+          {relatedPub.data.location && <>, {relatedPub.data.location}</>}
+          , {relatedPub.data.year}.
+          {relatedPub.data.doi && <> doi:{relatedPub.data.doi}</>}
+        </p>
+        <p class="rp-link">
+          <a href="/publications/">All publications →</a>
+        </p>
+      </aside>
+    )}
+
+    {data.externalLinks.length > 0 && (
+      <section class="links">
+        <h2>Links</h2>
+        <ul>
+          {data.externalLinks.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </article>
+</Base>
+
+<script>
+  function interleaveGallery() {
+    const body = document.querySelector<HTMLElement>('.body[data-gallery]');
+    if (!body) return;
+
+    const gallery: string[] = JSON.parse(body.dataset.gallery || '[]');
+    if (!gallery.length) return;
+
+    const h2s = Array.from(body.querySelectorAll(':scope > h2'));
+    if (h2s.length < 2) {
+      appendRemainder(body, gallery, 0);
+      return;
+    }
+
+    const breaks = h2s.slice(1);
+    const perBreak = Math.max(1, Math.ceil(gallery.length / breaks.length));
+    let idx = 0;
+
+    for (const h2 of breaks) {
+      if (idx >= gallery.length) break;
+      const count = Math.min(perBreak, gallery.length - idx);
+      const figure = document.createElement('figure');
+      figure.className = 'section-images' + (count === 1 ? ' single' : '');
+      for (let i = 0; i < count; i++) {
+        const a = document.createElement('a');
+        a.href = gallery[idx];
+        a.target = '_blank';
+        a.rel = 'noopener';
+        const img = document.createElement('img');
+        img.src = gallery[idx];
+        img.alt = '';
+        img.loading = 'lazy';
+        a.appendChild(img);
+        figure.appendChild(a);
+        idx++;
+      }
+      body.insertBefore(figure, h2);
+    }
+
+    appendRemainder(body, gallery, idx);
+  }
+
+  function appendRemainder(body: HTMLElement, gallery: string[], fromIdx: number) {
+    if (fromIdx >= gallery.length) return;
+    const figure = document.createElement('figure');
+    figure.className = 'section-images remainder';
+    for (let i = fromIdx; i < gallery.length; i++) {
+      const a = document.createElement('a');
+      a.href = gallery[i];
+      a.target = '_blank';
+      a.rel = 'noopener';
+      const img = document.createElement('img');
+      img.src = gallery[i];
+      img.alt = '';
+      img.loading = 'lazy';
+      a.appendChild(img);
+      figure.appendChild(a);
+    }
+    body.appendChild(figure);
+  }
+
+  interleaveGallery();
+  document.addEventListener('astro:after-swap', interleaveGallery);
+</script>
+
+<style>
+  .project {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .back {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    text-decoration: none;
+    color: var(--ink-mute);
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .back:hover { color: var(--accent); }
+  .one-liner {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 0.25rem 0 1rem;
+    line-height: 1.5;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 0.5rem 1.5rem;
+    margin: 1rem 0;
+    font-size: 0.9375rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0;
+  }
+  .meta-grid dt {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding-top: 0.2rem;
+  }
+  .meta-grid dd {
+    margin: 0;
+    color: var(--ink);
+  }
+  .hero {
+    margin: 1rem 0 1.5rem;
+  }
+  .hero img {
+    width: 100%;
+    border-radius: 2px;
+  }
+  .body-with-toc {
+    display: grid;
+    grid-template-columns: 1fr 14rem;
+    gap: 3rem;
+  }
+  .toc-sidebar {
+    align-self: stretch;
+  }
+  .body :global(p),
+  .body :global(ul),
+  .body :global(ol) {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+  .body :global(ul),
+  .body :global(ol) {
+    padding-left: 1.25rem;
+  }
+  .body :global(li) {
+    margin-bottom: 0.25rem;
+  }
+  .body :global(h2) {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+  }
+  .body :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .body :global(hr) {
+    margin: 1.5rem 0;
+  }
+  .body :global(.section-images) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1.25rem 0;
+    max-width: none;
+  }
+  .body :global(.section-images.single) {
+    grid-template-columns: 1fr;
+  }
+  .body :global(.section-images.remainder) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .body :global(.section-images img) {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    transition: opacity 0.2s ease;
+  }
+  .body :global(.section-images a:hover img) {
+    opacity: 0.85;
+  }
+  .links h2 {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related-pub {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-elev);
+    border-left: 3px solid var(--accent);
+  }
+  .rp-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .rp-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+  }
+  .rp-title a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .rp-title a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .rp-meta {
+    color: var(--ink-mute);
+    font-size: 0.875rem;
+    margin: 0.5rem 0 0.75rem;
+    line-height: 1.5;
+  }
+  .rp-link {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    margin: 0;
+  }
+  .rp-link a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .links ul {
+    list-style: none;
+    padding: 0;
+    font-family: var(--mono);
+    font-size: 0.9375rem;
+  }
+  .links li {
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0;
+  }
+  .links a {
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .links a:hover { color: var(--accent); }
+  .links a::after {
+    content: ' ↗';
+    color: var(--ink-mute);
+  }
+
+  @media (max-width: 960px) {
+    .body-with-toc {
+      grid-template-columns: 1fr;
+    }
+    .toc-sidebar {
+      display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .meta-grid {
+      grid-template-columns: 1fr;
+      gap: 0.1rem 0;
+    }
+    .meta-grid dt { padding-top: 0.75rem; }
+  }
+</style>

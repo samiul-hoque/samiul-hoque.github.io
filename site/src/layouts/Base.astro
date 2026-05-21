@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description = 'Engineer based in Dhaka. Hardware, software, and whatever the project needs.',
+  ogImage,
+  jsonLd,
+} = Astro.props;
+
+const fullTitle = title === 'Samiul Hoque' ? title : `${title} — Samiul Hoque`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogUrl = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    {ogUrl && <meta property="og:image" content={ogUrl} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <Nav />
+    <main><slot /></main>
+    <Footer />
+  </body>
+</html>

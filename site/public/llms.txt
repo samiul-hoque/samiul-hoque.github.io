@@ -1,0 +1,53 @@
+# Samiul Hoque
+
+> Engineer based in Dhaka, Bangladesh. Hardware, software, and whatever the project needs.
+
+## Identity
+
+- Name: Samiul Hoque
+- Location: Dhaka, Bangladesh
+- Role: Founding engineer at Ghorar Dim Studios
+- Education: BSc in CSE, Independent University Bangladesh (Spring 2026); Fab Academy 2019
+- Site: https://samiul-hoque.github.io
+
+## What I do
+
+I work across electronics, embedded systems, digital fabrication, and full-stack software — usually all of them at once, because the projects I end up on tend to need it. I'm not the deepest specialist in any one area. I'm unusually broad across all of them, and I've shipped real work in each.
+
+## Skills
+
+- Electronics and PCB design (Eagle, Altium, KiCad, Proteus)
+- Embedded systems and firmware (C, C++, AVR, Arduino, STM32, ESP32, RTOS, IoT)
+- Mechanical CAD (Fusion 360, Rhino, Blender, TinkerCAD)
+- Digital fabrication (3D printing, CNC, laser cutting, vinyl cutting, woodworking)
+- Full-stack web development with hardware integrations
+- Programming: C, C++, Python, Solidity, JavaScript
+- Grant writing, lab setup, workshop facilitation
+- Component sourcing (Shenzhen, local Dhaka markets)
+
+## Selected projects
+
+- BlackHorse HAB (2015): High-altitude balloon that sent a Bangladeshi flag to 32.45 km. Built onboard electronics, ground antenna, and payload.
+- Fab Lab IUB (2017–2018): Drafted the proposal for a USD 200,000 World Bank grant to set up a digital fabrication lab at IUB. Lab is still operational.
+- WiFi Picchi (2017–2019): Community internet hotspots at slum tea shops in Dhaka. OpenWRT, CoovaChilli, Diameter AAA, SDN fleet management.
+- Fab Academy (2019): 19-week digital fabrication programme at Fab Lab CEPT, Ahmedabad. Final project: PixelFace.
+- Lumo CAN bus HAT (TeroLabs era): Raspberry Pi HAT for vehicle CAN bus data extraction and driver behaviour analytics.
+- TurtleSense (pro-bono): ESP32/8266 sensor mesh for the Creative Conservation Alliance's wild tortoise programme.
+- Ghorar Dim Studios (2022–present): Kinetic animation devices — spinoscopes, praxinoscopes, zoetropes, and a Bangla word clock.
+
+## Publications
+
+- S. Hoque et al., "Design and Development of an Industrial IoT-based Monitoring System," ICEPES 2024. doi:10.1109/ICEPES60647.2024.10653574
+- S. Haque et al., "Design of a Revolutionary Omni-Directional Pick and Place Robot," ICIPRoB 2024. doi:10.1109/ICIPRoB62548.2024.10544036
+- Undergraduate thesis: Holonomic Odometry Testbed (Spring 2026, IUB, supervised by Dr. Md. Tarek Habib). Being prepared for journal submission.
+
+## Contact
+
+- Email: s026hoque@gmail.com
+- LinkedIn: https://www.linkedin.com/in/s026hoque/
+- GitHub: https://github.com/samiul-hoque
+- Instagram: https://www.instagram.com/hoque_samiul/
+
+## What I'm looking for
+
+A role where the breadth is the point, not a problem to manage. Hardware product companies, fab labs, R&D groups, applied research, hardware-heavy startups. Remote, international, or Bangladesh-based.

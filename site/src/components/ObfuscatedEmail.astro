@@ -1,0 +1,51 @@
+---
+interface Props {
+  user?: string;
+  domain?: string;
+  label?: string;
+  class?: string;
+}
+const {
+  user = 's026hoque',
+  domain = 'gmail.com',
+  label = 'Email',
+  class: className = '',
+} = Astro.props;
+
+const userB64 = Buffer.from(user).toString('base64');
+const domainB64 = Buffer.from(domain).toString('base64');
+const id = `oe-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<span class:list={['obf-email', className]} data-u={userB64} data-d={domainB64} id={id}>
+  <noscript>{user} [at] {domain.replace('.', ' [dot] ')}</noscript>
+  <span class="obf-fallback">{user.slice(0, 3)}&hellip;&nbsp;[click to reveal]</span>
+</span>
+
+<script define:vars={{ id }}>
+  (() => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const decode = (s) => atob(s);
+    const user = decode(el.dataset.u);
+    const domain = decode(el.dataset.d);
+    const addr = `${user}@${domain}`;
+    const fallback = el.querySelector('.obf-fallback');
+    if (fallback) fallback.remove();
+    const a = document.createElement('a');
+    a.href = `mailto:${addr}`;
+    a.textContent = addr;
+    el.appendChild(a);
+  })();
+</script>
+
+<style>
+  .obf-email {
+    font-family: var(--mono);
+    font-size: 0.9375rem;
+  }
+  .obf-fallback {
+    color: var(--ink-mute);
+    cursor: pointer;
+  }
+</style>

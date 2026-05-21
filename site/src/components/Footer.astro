@@ -1,0 +1,61 @@
+---
+import ObfuscatedEmail from './ObfuscatedEmail.astro';
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="reach">
+      <span class="eyebrow">Reach me</span>
+      <ul>
+        <li><ObfuscatedEmail /></li>
+        <li><a href="https://www.linkedin.com/in/s026hoque/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/samiul-hoque" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.instagram.com/hoque_samiul/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <p>Built in Dhaka. &copy; {new Date().getFullYear()} Samiul Hoque.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 3rem;
+    padding: 2rem 0 1.5rem;
+    background: var(--bg-elev);
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .reach ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.9375rem;
+  }
+  .reach a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+  }
+  .reach a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .colophon p {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--ink-mute);
+  }
+</style>

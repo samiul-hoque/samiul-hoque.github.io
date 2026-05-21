@@ -1,0 +1,18 @@
+# Archive — never publish to GitHub
+backup.old/
+
+# Contains personal address, phone, and private context — keep local only
+HANDOVER.md
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*

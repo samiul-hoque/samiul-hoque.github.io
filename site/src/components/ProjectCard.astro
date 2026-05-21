@@ -1,0 +1,110 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  year?: number | string;
+  oneLiner: string;
+  image?: string;
+  category?: string;
+  upcoming?: boolean;
+}
+const { href, title, year, oneLiner, image, category, upcoming = false } = Astro.props;
+---
+
+<a href={upcoming ? '#' : href} class:list={['card', { upcoming }]} aria-disabled={upcoming}>
+  <div class="image">
+    {image ? (
+      <img src={image} alt="" loading="lazy" />
+    ) : (
+      <div class="placeholder">
+        <span>{upcoming ? 'soon' : ''}</span>
+      </div>
+    )}
+  </div>
+  <div class="info">
+    <span class="meta">
+      {category}{year ? ` · ${year}` : ''}{upcoming ? ' · in progress' : ''}
+    </span>
+    <h3>{title}</h3>
+    <p>{oneLiner}</p>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  .card.upcoming {
+    opacity: 0.7;
+    pointer-events: none;
+    cursor: default;
+  }
+  .image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+  .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .image img {
+    transform: scale(1.03);
+  }
+  .placeholder {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--bg-elev),
+      var(--bg-elev) 12px,
+      var(--bg) 12px,
+      var(--bg) 24px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .info {
+    padding: 1.25rem;
+  }
+  .info h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0.5rem;
+    color: var(--ink);
+  }
+  .info p {
+    color: var(--ink-soft);
+    font-size: 0.9375rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+</style>
