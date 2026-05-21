@@ -4,37 +4,40 @@ interface Props {
   domain?: string;
   label?: string;
   class?: string;
+  displayUser?: string;
 }
 const {
   user = 's026hoque',
   domain = 'gmail.com',
   label = 'Email',
   class: className = '',
+  displayUser,
 } = Astro.props;
 
+const shown = displayUser ?? user;
 const userB64 = Buffer.from(user).toString('base64');
 const domainB64 = Buffer.from(domain).toString('base64');
+const shownB64 = Buffer.from(shown).toString('base64');
 const id = `oe-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<span class:list={['obf-email', className]} data-u={userB64} data-d={domainB64} id={id}>
-  <noscript>{user} [at] {domain.replace('.', ' [dot] ')}</noscript>
-  <span class="obf-fallback">{user.slice(0, 3)}&hellip;&nbsp;[click to reveal]</span>
+<span class:list={['obf-email', className]} data-u={userB64} data-d={domainB64} data-s={shownB64} id={id}>
+  <noscript>{shown}@{domain}</noscript>
+  <span class="obf-fallback">{shown}@{domain}</span>
 </span>
 
 <script define:vars={{ id }}>
   (() => {
     const el = document.getElementById(id);
     if (!el) return;
-    const decode = (s) => atob(s);
-    const user = decode(el.dataset.u);
-    const domain = decode(el.dataset.d);
-    const addr = `${user}@${domain}`;
+    const user = atob(el.dataset.u);
+    const domain = atob(el.dataset.d);
+    const shown = atob(el.dataset.s);
     const fallback = el.querySelector('.obf-fallback');
     if (fallback) fallback.remove();
     const a = document.createElement('a');
-    a.href = `mailto:${addr}`;
-    a.textContent = addr;
+    a.href = `mailto:${user}@${domain}`;
+    a.textContent = `${shown}@${domain}`;
     el.appendChild(a);
   })();
 </script>
@@ -46,6 +49,5 @@ const id = `oe-${Math.random().toString(36).slice(2, 8)}`;
   }
   .obf-fallback {
     color: var(--ink-mute);
-    cursor: pointer;
   }
 </style>

@@ -15,11 +15,11 @@ gallery:
 oneLiner: "Nineteen weeks of digital fabrication at Fab Lab CEPT. Final project: PixelFace, a pixel-display mask."
 externalLinks:
   - label: "Fab Academy archive (assignments)"
-    url: "http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/"
+    url: "https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/"
   - label: "Final project — PixelFace"
-    url: "http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/finalproject.html"
+    url: "https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/finalproject.html"
   - label: "Weekly tiles"
-    url: "http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/assignments/weeklytiles.html"
+    url: "https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/assignments/weeklytiles.html"
 ---
 
 ## Context
@@ -43,7 +43,7 @@ Everything has to be documented to pass.
 
 The full week-by-week archive lives at the Fab Academy site — there's no
 way to reproduce 19 weeks of build logs on this page and there's no point
-trying. Go to the [archive](http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/)
+trying. Go to the [archive](https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/)
 if you want the depth.
 
 ## Machine Design week
@@ -58,7 +58,7 @@ result was, against my expectations, beautiful.
 
 A wearable pixel display mounted on the front of a mask. The full
 documentation, schematics, video, and project files are on the
-[PixelFace page](http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/finalproject.html).
+[PixelFace page](https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/finalproject.html).
 
 ## Outcome
 

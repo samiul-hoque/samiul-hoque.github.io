@@ -26,7 +26,7 @@ const jsonLd = {
   headline: data.title,
   description: data.oneLiner,
   ...(data.heroImage && { image: new URL(data.heroImage, Astro.site).toString() }),
-  author: { '@type': 'Person', name: 'Samiul Hoque', url: 'https://samiul-hoque.github.io' },
+  author: { '@type': 'Person', name: 'Samiul Hoque', url: 'https://samiulmakes.com' },
   ...(data.year && { datePublished: `${data.year}` }),
   keywords: data.tags.join(', '),
 };
