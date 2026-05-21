@@ -32,8 +32,8 @@ externalLinks:
 In 2015 a local energy drink brand wanted to send the Bangladeshi flag higher
 than anyone in the country had sent anything before. Their agency, Dogs Day,
 brought me in through a Kolpokoushol connection. I was in charge of the
-onboard electronics and the payload fabrication. Everything else — buying
-the helium, getting the permits, recovering the box from a rice field — we
+onboard electronics and the payload fabrication. Everything else, buying
+the helium, getting the permits, recovering the box from the landing zone, we
 figured out as we went.
 
 ## Problem
@@ -47,24 +47,11 @@ be cheap enough that losing it is acceptable.
 
 ## What I did
 
-I built the onboard stack around a Raspberry Pi 2 with a [Radiometrix
-NTX-2b](https://www.radiometrix.com/) as the primary downlink. Primary GPS
-was a Ublox Neo 6M; we ran a SPOT Tracker as a backup so we'd at least know
-where the box landed if the main radio failed. A DS18B20 (waterproof
-variant) sat outside the enclosure for external temperature; a BMP180
-handled internal temp and pressure. Camera was a hacked GoPro Hero Session —
-the unmodified firmware kept shutting down at altitude, so we patched it.
+I built the onboard stack around a Raspberry Pi 2. This was 2015; ESP32s weren't around yet, and the Pi was the obvious choice for something we needed to prototype quickly. Primary downlink was a Radiometrix NTX-2b; GPS was a Ublox Neo 6M. We ran a SPOT Tracker as a backup so we'd at least know where the box landed if the main radio gave out. A DS18B20 (waterproof variant) sat outside the enclosure for external temperature; a BMP180 handled internal temp and pressure. For the camera we used a GoPro Hero Session, physically modified: we pulled the internal battery and wired it directly to the Energizer Ultimate Lithium AA pack running the rest of the stack, so it would survive the cold at altitude.
 
-On the ground side I built a Yagi antenna out of copper rod and PVC sheet
-because there was nothing locally available we could buy. The receiving
-station was a laptop running fldigi for the RTTY decode.
+On the ground side I built a Yagi antenna out of copper rod and PVC sheet. We were travelling between possible launch sites, and close to half the build happened on the road, sourcing parts from bazars and small-town shops along the way because there was nothing we could just buy. The receiving station was a laptop running fldigi for the RTTY decode.
 
-The enclosure was a block of styrofoam carved by hand, coated with mylar to
-hold heat in. Energizer Ultimate Lithium AAs ran the whole stack — they're
-the only batteries we found that didn't fall over in the cold.
-
-It took three launches. The first two failed because the batteries
-underperformed worse than expected at altitude. The third one worked.
+It took three launches. The first balloon was lost to weather before we got a flight. The second flew and we recovered the box, but the camera hadn't recorded anything; something went wrong with the MMC card. The third one worked.
 
 ## Outcome
 
@@ -76,8 +63,18 @@ underperformed worse than expected at altitude. The third one worked.
 - Payload mass: 500 g · Helium supplier: Linde
 
 We recovered the box, the GoPro, and a complete sensor log. The footage
-became the centrepiece of the campaign. The data plots — altitude, temp,
-internal vs external — are in the [repo](https://github.com/samiul-hoque/HAB-BlackHorse).
+became the centrepiece of the campaign. The data plots (altitude, temp,
+internal vs external) are in the [repo](https://github.com/samiul-hoque/HAB-BlackHorse).
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;">
+  <iframe
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    src="https://www.youtube-nocookie.com/embed/uRRbZOm5O_c"
+    title="BlackHorse HAB full flight recording"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
 
 Fun fact: pure helium is genuinely scarce in Bangladesh. Most of the
 project budget went to gas.

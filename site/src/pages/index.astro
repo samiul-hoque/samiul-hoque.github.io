@@ -27,7 +27,7 @@ const selected = [
       '/images/blackhorse/Yagi.jpg',
       '/images/blackhorse/timevsalt.png',
     ],
-    body: `Technical engineer on a high-altitude balloon campaign that put a Bangladeshi flag at 32.45 km. Built the onboard electronics — Raspberry Pi, 433 MHz RTTY downlink, Ublox GPS, hacked GoPro — and the receiving Yagi out of copper rod and PVC sheet because nothing locally available would do. Recovered the box on the third attempt; the first two were defeated by batteries that didn't like the cold.`,
+    body: `Technical engineer on a high-altitude balloon campaign that put a Bangladeshi flag at 32.45 km. Built the onboard electronics, a Raspberry Pi 2 with 433 MHz RTTY downlink and Ublox GPS, a physically modified GoPro Hero Session, and a Yagi antenna pieced together from bazars and small-town shops on the road to the launch site. Three attempts: one balloon lost to weather, one recovered with no camera footage, the third a full success.`,
   },
   {
     slug: 'fab-lab-iub',
@@ -580,6 +580,7 @@ const teaching = [
   @media (max-width: 800px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-image { aspect-ratio: 4/3; max-height: 360px; }
+  .hero-image img { object-position: top center; }
     .entry { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem 0; }
     .now-list li { grid-template-columns: 1fr; gap: 0.25rem; }
     .teach-list li { grid-template-columns: 1fr; gap: 0.25rem; }
