@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://samiul-hoque.github.io',
+  site: 'https://samiulmakes.com',
   base: '/',
   trailingSlash: 'ignore',
   build: {
