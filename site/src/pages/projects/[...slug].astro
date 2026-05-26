@@ -33,7 +33,7 @@ const jsonLd = {
 ---
 
 <Base title={data.title} description={data.oneLiner} ogImage={data.heroImage} jsonLd={jsonLd}>
-  <article class="container project">
+  <article class="container project" data-slug={project.id}>
     <header>
       <a href="/projects/" class="back">← All projects</a>
       <span class="eyebrow">{data.category}{data.year ? ` · ${data.year}` : ''}</span>
@@ -63,14 +63,13 @@ const jsonLd = {
       </dl>
     </header>
 
-    {data.heroImage && (
-      <figure class="hero">
-        <img src={data.heroImage} alt={data.title} loading="eager" />
-      </figure>
-    )}
-
     <div class="body-with-toc">
       <div class="body" data-gallery={JSON.stringify(data.gallery)}>
+        {data.heroImage && (
+          <figure class="hero">
+            <img src={data.heroImage} alt={data.title} loading="eager" />
+          </figure>
+        )}
         <Content />
       </div>
       <aside class="toc-sidebar">
@@ -265,6 +264,17 @@ const jsonLd = {
   .body :global(hr) {
     margin: 1.5rem 0;
   }
+  .body :global(figure:not(.hero):not(.section-images)) {
+    margin: 1.25rem 0;
+  }
+  .body :global(figcaption) {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--ink-mute);
+    text-align: center;
+    margin-top: 0.4rem;
+    line-height: 1.4;
+  }
   .body :global(.section-images) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -283,8 +293,8 @@ const jsonLd = {
   }
   .body :global(.section-images img) {
     width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     background: var(--bg-elev);
     border: 1px solid var(--rule);
     transition: opacity 0.2s ease;
@@ -374,5 +384,14 @@ const jsonLd = {
       gap: 0.1rem 0;
     }
     .meta-grid dt { padding-top: 0.75rem; }
+  }
+
+  :global(article[data-slug="holonomic-odometry-testbed"] .body figure:not(.hero):not(.section-images)) {
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  :global(article[data-slug="holonomic-odometry-testbed"] .body figure:not(.hero):not(.section-images) img) {
+    width: 100%;
   }
 </style>

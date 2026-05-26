@@ -8,5 +8,10 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  markdown: {
+    shikiConfig: {
+      theme: 'github-light',
+    },
+  },
   integrations: [sitemap()],
 });
