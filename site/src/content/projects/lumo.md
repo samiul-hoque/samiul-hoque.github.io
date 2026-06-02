@@ -7,6 +7,11 @@ category: "hardware"
 tags: ["CAN bus", "Raspberry Pi", "Eagle CAD", "Fusion 360", "automotive", "telematics"]
 featured: true
 order: 25
+heroImage: "/images/lumo/lumo_v2_2021-Dec-20_10-28-48AM-000_CustomizedView27565336381.png"
+gallery:
+  - "/images/lumo/lumo_v2_2021-Dec-20_10-28-48AM-000_CustomizedView27565336381.png"
+  - "/images/lumo/lumo_v2_2021-Aug-17_06-02-58PM-000_CustomizedView17935510965.png"
+  - "/images/lumo/lumov1.png"
 oneLiner: "A Raspberry Pi HAT that pulls data off a vehicle's CAN bus. Built at TeroLabs, later used as the sensor layer for driver-behaviour analysis."
 externalLinks:
   - label: "Official repo — Tero-Labs/elektra-OBD-device_0.1"
