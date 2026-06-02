@@ -7,10 +7,10 @@ category: "fabrication"
 tags: ["fab academy", "digital fabrication", "PCB", "CNC", "molding", "embedded"]
 featured: true
 order: 20
-heroImage: "/images/fabacademy/group.jpg"
+heroImage: "/images/fabacademy/presentation.png"
 gallery:
-  - "/images/fabacademy/group.jpg"
   - "/images/fabacademy/presentation.png"
+  - "/images/fabacademy/group.jpg"
   - "/images/fabacademy/fablogo.jpg"
 oneLiner: "Nineteen weeks of digital fabrication at Fab Lab CEPT. Final project: PixelFace, a pixel-display mask."
 externalLinks:
