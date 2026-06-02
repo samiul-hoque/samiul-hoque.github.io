@@ -23,9 +23,31 @@ const sorted = projects.sort((a, b) => {
   if (af !== bf) return bf - af;
   return (a.data.order ?? 0) - (b.data.order ?? 0);
 });
+
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': 'https://samiulmakes.com/projects/#collection',
+      name: 'Projects — Samiul Hoque',
+      description: 'Hardware, fabrication, software, research, and art. Fifteen years of project work by Samiul Hoque (samiulmakes).',
+      url: 'https://samiulmakes.com/projects/',
+      author: { '@id': 'https://samiulmakes.com/#person' },
+      isPartOf: { '@id': 'https://samiulmakes.com/#website' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Samiul Hoque', item: 'https://samiulmakes.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://samiulmakes.com/projects/' },
+      ],
+    },
+  ],
+};
 ---
 
-<Base title="Projects" description="Hardware, fabrication, software, research, art. Fifteen years of saying yes to interesting problems.">
+<Base title="Projects" description="Hardware, fabrication, software, research, art. Fifteen years of saying yes to interesting problems." jsonLd={collectionJsonLd}>
   <section class="container intro">
     <span class="eyebrow">Projects</span>
     <h1>What I've built.</h1>

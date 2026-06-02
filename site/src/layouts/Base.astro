@@ -40,12 +40,16 @@ const ogUrl = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
     <meta property="og:locale" content="en_US" />
     {ogUrl && <meta property="og:image" content={ogUrl} />}
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@samiulmakes" />
+    <meta name="twitter:creator" content="@samiulmakes" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     {ogUrl && <meta name="twitter:image" content={ogUrl} />}
+    <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>

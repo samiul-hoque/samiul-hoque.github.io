@@ -20,7 +20,9 @@ order: 7
 heroImage: "/images/holonomic-testbed/hero.jpg"
 gallery: []
 oneLiner: "Built a four-mecanum-wheel robot to understand holonomic kinematics hands-on — how the math works, where wheels slip, and what it takes to correct for it in firmware."
-externalLinks: []
+externalLinks:
+  - label: "GitHub"
+    url: "https://github.com/samiul-hoque/open-omnibot"
 relatedPublication: "thesis-2026-holonomic-odometry"
 draft: false
 ---
@@ -419,10 +421,10 @@ without re-running the robot.
 ## Status
 
 Thesis defended and graded, Spring 2026. The platform, firmware, server,
-browser dashboard, and offline analysis pipeline are being prepared as an
-**open-source testbed** for evaluating sensor-fusion and localization
-algorithms on four-wheeled holonomic robots. The repo is private until the
-work is submitted as journal or conference papers.
+browser dashboard, and offline analysis pipeline are open-source at
+**[samiul-hoque/open-omnibot](https://github.com/samiul-hoque/open-omnibot)**
+as a testbed for evaluating sensor-fusion and localization algorithms on
+four-wheeled holonomic robots.
 
 A video walkthrough of the kinematics — inverse kinematics, forward
 kinematics, and the slip problem — is in progress. It will be linked here
@@ -444,7 +446,7 @@ when it is up.
 
 A small earlier RC-controlled pick-and-place build on a mecanum-wheel chassis
 was written up by classmates and published at ICIPRoB 2024 (see
-[Omnidirectional Pick-and-Place Robot](/projects/omni-pick-place-robot/)).
+[Omnidirectional Pick-and-Place Robot — ICIPRoB 2024](https://ieeexplore.ieee.org/document/10544036)).
 The thesis platform is a distinct build with a different controller, sensors,
 and firmware — but it sits in the same line of work on mecanum-wheel holonomic
 robots at IUB.

@@ -4,18 +4,32 @@ import ObfuscatedEmail from './ObfuscatedEmail.astro';
 
 <footer class="site-footer">
   <div class="container footer-inner">
+
     <div class="reach">
-      <span class="eyebrow">Reach me</span>
-      <ul>
-        <li><ObfuscatedEmail displayUser="s(zero-two)6hoque" /></li>
-        <li><a href="https://www.linkedin.com/in/s026hoque/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://github.com/samiul-hoque" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.instagram.com/hoque_samiul/" target="_blank" rel="noopener">Instagram</a></li>
+      <span class="eyebrow">Contact</span>
+      <ul class="link-row">
+        <li class="email-item"><ObfuscatedEmail displayUser="s(zero-two)6hoque" /></li>
+        <li><a href="https://www.linkedin.com/in/s026hoque/" target="_blank" rel="noopener" aria-label="LinkedIn" class="icon-link"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/samiul-hoque" target="_blank" rel="noopener" aria-label="GitHub" class="icon-link"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://www.instagram.com/hoque_samiul/" target="_blank" rel="noopener" aria-label="Instagram @hoque_samiul" class="icon-link"><i class="fa-brands fa-instagram"></i></a></li>
       </ul>
     </div>
+
+    <div class="reach">
+      <span class="eyebrow">samiulmakes</span>
+      <ul class="link-row">
+        <li><a href="https://www.youtube.com/@samiulmakes" target="_blank" rel="noopener" aria-label="YouTube" class="icon-link"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="https://x.com/samiulmakes" target="_blank" rel="noopener" aria-label="X" class="icon-link"><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com/samiulmakes/" target="_blank" rel="noopener" aria-label="Instagram @samiulmakes" class="icon-link"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/samiulmakes" target="_blank" rel="noopener" aria-label="Facebook" class="icon-link"><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href="https://www.tiktok.com/@samiulmakes" target="_blank" rel="noopener" aria-label="TikTok" class="icon-link"><i class="fa-brands fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+
     <div class="colophon">
       <p>Built in Dhaka. &copy; {new Date().getFullYear()} Samiul Hoque.</p>
     </div>
+
   </div>
 </footer>
 
@@ -29,33 +43,63 @@ import ObfuscatedEmail from './ObfuscatedEmail.astro';
   .footer-inner {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
+    align-items: flex-start;
+    gap: 2rem 3rem;
   }
-  .reach ul {
+  .reach {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .link-row {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+  }
+  .email-item {
     font-family: var(--mono);
     font-size: 0.9375rem;
+    margin-right: 0.25rem;
   }
-  .reach a {
-    text-decoration: none;
+  .email-item a,
+  .email-item span {
     color: var(--ink-soft);
+    text-decoration: none;
     border-bottom: 1px solid var(--rule);
     padding-bottom: 1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
-  .reach a:hover {
+  .email-item a:hover {
     color: var(--ink);
     border-bottom-color: var(--accent);
+  }
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 4px;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .icon-link:hover { color: var(--ink); }
+  .colophon {
+    margin-left: auto;
+    align-self: flex-end;
   }
   .colophon p {
     margin: 0;
     font-family: var(--mono);
     font-size: 0.8125rem;
     color: var(--ink-mute);
+  }
+  @media (max-width: 600px) {
+    .colophon { margin-left: 0; }
   }
 </style>

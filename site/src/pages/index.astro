@@ -9,65 +9,18 @@ const publications = (await getCollection('publications', ({ data }) => !data.dr
   .sort((a, b) => b.data.year - a.data.year || a.data.order - b.data.order)
   .slice(0, 4);
 
-/**
- * Selected work entries for the home page.
- *
- * Each entry is curated copy meant for the landing page — denser than the
- * card one-liner, lighter than the detail-page prose. Multiple images
- * encouraged where they add substance.
- *
- * Order is chronological (oldest → newest) per HANDOVER §5 sequencing rule;
- * user will resequence after more project pages are written.
- */
-const selected = [
-  {
-    slug: 'blackhorse-hab',
-    images: [
-      '/images/blackhorse/balloon2.jpg',
-      '/images/blackhorse/Yagi.jpg',
-      '/images/blackhorse/timevsalt.png',
-    ],
-    body: `Technical engineer on a high-altitude balloon campaign that put a Bangladeshi flag at 32.45 km. Built the onboard electronics, a Raspberry Pi 2 with 433 MHz RTTY downlink and Ublox GPS, a physically modified GoPro Hero Session, and a Yagi antenna pieced together from bazars and small-town shops on the road to the launch site. Three attempts: one balloon lost to weather, one recovered with no camera footage, the third a full success.`,
-  },
-  {
-    slug: 'fab-lab-iub',
-    images: [
-      '/images/fabIUB.jpg',
-      '/images/fab-iub-logo-1.png',
-    ],
-    body: `Drafted the proposal that won a USD 200,000 World Bank grant under HEQEP to set up a digital fabrication lab at Independent University Bangladesh. Speced and sourced the machines, prepared the space, and ran it up to the milestones the grant required. The lab has been operational ever since.`,
-  },
-  {
-    slug: 'wifi-picchi',
-    images: [
-      '/images/wifipicchi/teashop.png',
-      '/images/wifipicchi/token.png',
-      '/images/wifipicchi/third-prototype1.jpg',
-    ],
-    body: `Community internet hotspots hosted at slum tea shops in Dhaka. Five-taka paper tokens for three hours of WiFi; OpenWRT on TP-Link MR3420 boxes, CoovaChilli captive portal, a Diameter AAA server, an SDN controller for fleet management. Three prototype generations, hand-painted enclosures, pilot deployment across multiple shops before I left for Fab Academy in 2019.`,
-  },
-  {
-    slug: 'fab-academy',
-    images: [
-      '/images/fabacademy/group.jpg',
-      '/images/fabacademy/presentation.png',
-    ],
-    body: `Nineteen weeks of digital fabrication at Fab Lab CEPT, Ahmedabad — laser, CNC, PCB design and fab, molding and casting, embedded, networking, machine design. Final project was PixelFace, a wearable pixel-display mask. Local instructor was Ohad Meyuhas (Stratasys); global was Francisco Sanchez (TECSUP).`,
-  },
-  {
-    slug: 'lumo',
-    images: [],
-    body: `Raspberry Pi HAT for vehicle CAN bus, designed at TeroLabs. Eagle CAD schematic and board, Fusion 360 enclosure, the OBD-II side protected against the kinds of electrical events cars actually produce. Became the sensor layer for a driver-behaviour analytics pipeline and a few other internal projects. Design files are public on GitHub.`,
-  },
+const selectedSlugs = [
+  'blackhorse-hab',
+  'fab-lab-iub',
+  'wifi-picchi',
+  'fab-academy',
+  'lumo',
+  'holonomic-odometry-testbed',
 ];
 
-const selectedHydrated = selected
-  .map((entry) => {
-    const project = bySlug[entry.slug];
-    if (!project) return null;
-    return { ...entry, project };
-  })
-  .filter((x): x is NonNullable<typeof x> => x !== null);
+const selectedHydrated = selectedSlugs
+  .map((slug) => bySlug[slug])
+  .filter((p): p is NonNullable<typeof p> => p != null);
 
 /**
  * Affiliation strip. Logos confirmed by user 2026-05-19 (HANDOVER §5).
@@ -85,20 +38,44 @@ const affiliations = [
 
 const personJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Samiul Hoque',
-  url: 'https://samiulmakes.com',
-  jobTitle: 'Founding Engineer',
-  worksFor: { '@type': 'Organization', name: 'Ghorar Dim Studios' },
-  alumniOf: [
-    { '@type': 'CollegeOrUniversity', name: 'Independent University Bangladesh' },
-    { '@type': 'EducationalOrganization', name: 'Fab Academy' },
-  ],
-  knowsAbout: ['Electronics', 'PCB Design', 'Embedded Systems', 'Digital Fabrication', 'Full-Stack Development', 'IoT'],
-  sameAs: [
-    'https://www.linkedin.com/in/s026hoque/',
-    'https://github.com/samiul-hoque',
-    'https://www.instagram.com/hoque_samiul/',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://samiulmakes.com/#person',
+      name: 'Samiul Hoque',
+      alternateName: 'samiulmakes',
+      url: 'https://samiulmakes.com',
+      description: 'Engineer based in Dhaka, Bangladesh, working across electronics, embedded systems, digital fabrication, and full-stack software.',
+      jobTitle: 'Founding Engineer',
+      worksFor: { '@type': 'Organization', name: 'Ghorar Dim Studios' },
+      alumniOf: [
+        { '@type': 'CollegeOrUniversity', name: 'Independent University Bangladesh' },
+        { '@type': 'EducationalOrganization', name: 'Fab Academy' },
+      ],
+      knowsAbout: ['Electronics', 'PCB Design', 'Embedded Systems', 'Digital Fabrication', 'Full-Stack Development', 'IoT', 'Robotics', 'Sensor Fusion'],
+      address: { '@type': 'PostalAddress', addressLocality: 'Dhaka', addressCountry: 'BD' },
+      nationality: { '@type': 'Country', name: 'Bangladesh' },
+      sameAs: [
+        'https://www.linkedin.com/in/s026hoque/',
+        'https://github.com/samiul-hoque',
+        'https://www.instagram.com/hoque_samiul/',
+        'https://www.youtube.com/@samiulmakes',
+        'https://x.com/samiulmakes',
+        'https://www.instagram.com/samiulmakes/',
+        'https://www.facebook.com/samiulmakes',
+        'https://www.tiktok.com/@samiulmakes',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://samiulmakes.com/#website',
+      name: 'samiulmakes',
+      alternateName: 'Samiul Hoque',
+      url: 'https://samiulmakes.com',
+      description: 'Portfolio of Samiul Hoque, engineer based in Dhaka, Bangladesh.',
+      author: { '@id': 'https://samiulmakes.com/#person' },
+      inLanguage: 'en-US',
+    },
   ],
 };
 
@@ -110,7 +87,7 @@ const teaching = [
 ];
 ---
 
-<Base title="Samiul Hoque" description="Engineer based in Dhaka. Hardware, software, and whatever the project needs." ogImage="/images/landing-workshop.jpg" jsonLd={personJsonLd}>
+<Base title="Samiul Hoque" description="Samiul Hoque (samiulmakes) is an engineer based in Dhaka, Bangladesh. Electronics, embedded systems, fabrication, and full-stack software." ogImage="/images/landing-workshop.jpg" jsonLd={personJsonLd}>
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-inner">
@@ -156,38 +133,26 @@ const teaching = [
       <a href="/projects/" class="see-all">Full archive →</a>
     </div>
 
-    {selectedHydrated.map((entry) => (
-      <article class="entry">
-        <div class="entry-media">
-          {entry.images.length > 0 ? (
-            <>
-              <div class="entry-primary">
-                <img src={entry.images[0]} alt={entry.project.data.title} loading="lazy" />
+    <div class="work-grid">
+      {selectedHydrated.map((project) => (
+        <a href={`/projects/${project.id}/`} class="work-card">
+          <div class="card-img">
+            {project.data.heroImage ? (
+              <img src={project.data.heroImage} alt={project.data.title} loading="lazy" />
+            ) : (
+              <div class="card-img-placeholder">
+                <span class="meta">{project.data.category}</span>
               </div>
-              {entry.images.length > 1 && (
-                <div class="entry-strip">
-                  {entry.images.slice(1).map((src) => (
-                    <img src={src} alt="" loading="lazy" />
-                  ))}
-                </div>
-              )}
-            </>
-          ) : (
-            <div class="entry-primary entry-text-only">
-              <span class="meta">{entry.project.data.category}</span>
-            </div>
-          )}
-        </div>
-        <div class="entry-body">
-          <span class="meta">{entry.project.data.category} · {entry.project.data.year}</span>
-          <h3>{entry.project.data.title}</h3>
-          <p>{entry.body}</p>
-          <p class="entry-link">
-            <a href={`/projects/${entry.project.id}/`}>Read the longer writeup →</a>
-          </p>
-        </div>
-      </article>
-    ))}
+            )}
+          </div>
+          <div class="card-body">
+            <span class="card-meta">{project.data.category} · {project.data.year}</span>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.oneLiner}</p>
+          </div>
+        </a>
+      ))}
+    </div>
   </section>
 
   <!-- PUBLICATIONS -->
@@ -380,31 +345,47 @@ const teaching = [
     color: var(--accent);
   }
 
-  /* SELECTED WORK — inline entries */
+  /* SELECTED WORK — card grid */
   .selected { padding-top: 2.5rem; }
   .selected .section-head { margin-bottom: 1rem; }
-  .entry {
+
+  .work-grid {
     display: grid;
-    grid-template-columns: 38% 1fr;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--rule);
-    align-items: start;
-  }
-  .entry-media {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .entry-primary img,
-  .entry-text-only {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    background: var(--bg-elev);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
     border: 1px solid var(--rule);
   }
-  .entry-text-only {
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+    overflow: hidden;
+  }
+  .work-card:hover { background: var(--bg-elev); }
+
+  .card-img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--bg-elev);
+    flex-shrink: 0;
+  }
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  .work-card:hover .card-img img { transform: scale(1.04); }
+
+  .card-img-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -414,42 +395,33 @@ const teaching = [
       var(--bg) 12px, var(--bg) 24px
     );
   }
-  .entry-strip {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+
+  .card-body {
+    padding: 0.875rem 1rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
-  .entry-strip img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    background: var(--bg-elev);
-    border: 1px solid var(--rule);
-  }
-  .entry-body h3 {
-    font-size: 1.1875rem;
-    margin: 0.25rem 0 0.75rem;
-    line-height: 1.25;
-  }
-  .entry-body p {
-    color: var(--ink-soft);
-    margin: 0 0 0.5rem;
-    line-height: 1.6;
-  }
-  .entry-link {
+  .card-meta {
     font-family: var(--mono);
-    font-size: 0.875rem;
-    margin-top: 0.5rem !important;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
   }
-  .entry-link a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
+  .card-body h3 {
+    font-size: 0.9375rem;
+    margin: 0;
+    line-height: 1.3;
+    color: var(--ink);
   }
-  .entry-link a:hover {
-    background: var(--accent);
-    color: var(--bg);
+  .work-card:hover .card-body h3 { color: var(--accent); }
+  .card-body p {
+    color: var(--ink-soft);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    margin: 0.1rem 0 0;
   }
 
   /* PUBLICATIONS (home) */
@@ -569,6 +541,10 @@ const teaching = [
     line-height: 1.6;
   }
 
+  @media (max-width: 520px) {
+    .work-grid { grid-template-columns: 1fr; }
+  }
+
   /* PREAMBLE */
   .preamble { padding-top: 2.5rem; padding-bottom: 1rem; }
   .preamble h2 {
@@ -581,7 +557,7 @@ const teaching = [
     .hero-inner { grid-template-columns: 1fr; }
     .hero-image { aspect-ratio: 4/3; max-height: 360px; }
   .hero-image img { object-position: top center; }
-    .entry { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem 0; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
     .now-list li { grid-template-columns: 1fr; gap: 0.25rem; }
     .teach-list li { grid-template-columns: 1fr; gap: 0.25rem; }
     .pub-mini li { grid-template-columns: 1fr; gap: 0.25rem; }
