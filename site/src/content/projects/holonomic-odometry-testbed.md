@@ -15,6 +15,7 @@ tags:
   - "Firmware"
   - "Browser dashboard"
   - "Open-source"
+  - "open-omnibot"
 featured: true
 order: 7
 heroImage: "/images/holonomic-testbed/hero.jpg"
@@ -43,7 +44,9 @@ over a run. Real platforms deal with this through laser range-finders,
 external cameras, or UWB anchors. The goal here was to understand the
 problem from the ground up: derive the kinematics by hand, build a
 testbed to run them on, and then layer feedback — per-wheel PID, then
-IMU fusion — to see how much of that error each layer can cancel.
+IMU fusion — to see how much of that error each layer can cancel. The
+platform and all its software are open-source as
+[open-omnibot](https://github.com/samiul-hoque/open-omnibot).
 
 ## Building the platform
 
