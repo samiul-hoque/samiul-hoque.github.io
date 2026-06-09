@@ -312,6 +312,17 @@ No purely proprioceptive scheme can hold long-horizon accuracy without an
 external reference or an independent heading measurement. IMU fusion (Tier 2)
 and a future UWB-anchored tier are the two routes for bounding this drift.
 
+<figure>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    src="https://www.youtube-nocookie.com/embed/H9lzJVEVBNo"
+    title="Circle trajectory — holonomic motion on the mecanum testbed"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+<figcaption>Circle trajectory (Tier 2). The robot sweeps a continuous circle by blending forward and lateral velocity simultaneously — a motion class unavailable to differential-drive platforms.</figcaption>
+</figure>
+
 ## The firmware
 
 The ESP32 runs a single-threaded Arduino loop at approximately 1 kHz with
@@ -401,6 +412,39 @@ direction-inversion cases.
 - **Tier 2 (complementary filter):** same as Tier 1 for position, but heading is fused: θ_fused = (1 − α)·θ_odom + α·(θ_IMU − θ_offset) with α = 0.98. The IMU has 98% authority over heading, which is the component most corrupted by slip; a heading-hold proportional controller also engages on translation segments to actively suppress uncommanded yaw.
 
 EKF or UKF fusion alongside an external reference — UWB anchors or an overhead camera — is the natural next step for closing the gap that roller scuff leaves open.
+
+<figure>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    src="https://www.youtube-nocookie.com/embed/Y_7dTGvNBDk"
+    title="Straight-line run comparing Tier 0, Tier 1, and Tier 2"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+<figcaption>Straight-line run — Tier 0 (open-loop) vs Tier 1 (encoder odometry) vs Tier 2 (complementary filter). Each tier visibly reduces heading drift over the same segment.</figcaption>
+</figure>
+
+<figure>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    src="https://www.youtube-nocookie.com/embed/eFW1CiQnIWs"
+    title="Square path — rotation variant"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+<figcaption>Square path — rotation variant. The robot rotates at each corner to realign heading with the next edge.</figcaption>
+</figure>
+
+<figure>
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    src="https://www.youtube-nocookie.com/embed/vdCFkQ1Tqys"
+    title="Square path — strafe variant"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+<figcaption>Square path — strafe variant. The robot translates sideways at each corner without rotating, using the lateral holonomic freedom that the rotation variant forgoes.</figcaption>
+</figure>
 
 ## The dashboard and pipeline
 
