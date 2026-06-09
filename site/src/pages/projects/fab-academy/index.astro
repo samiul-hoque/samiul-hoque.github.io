@@ -26,6 +26,18 @@ const jsonLd = {
         { '@type': 'ListItem', position: 3, name: 'Fab Academy 2019', item: 'https://samiulmakes.com/projects/fab-academy/' },
       ],
     },
+    {
+      '@type': 'ItemList',
+      '@id': 'https://samiulmakes.com/projects/fab-academy/#weeks',
+      name: 'Fab Academy 2019 weekly assignments',
+      numberOfItems: weeks.length,
+      itemListElement: weeks.map((w) => ({
+        '@type': 'ListItem',
+        position: w.data.week,
+        name: `Week ${w.data.week}: ${w.data.title}`,
+        url: `https://samiulmakes.com/projects/fab-academy/week-${String(w.data.week).padStart(2, '0')}/`,
+      })),
+    },
   ],
 };
 ---

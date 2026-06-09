@@ -19,8 +19,39 @@ const { week, prevWeek, nextWeek } = Astro.props;
 const { Content, headings } = await render(week);
 const { data } = week;
 
+// Per-week machine/tool/part keywords — the specific terms searchers use.
+// These power the meta description and JSON-LD keywords for each week.
+const KEYWORDS: Record<number, string[]> = {
+  1: ['PixelFace', 'POV display', 'persistence of vision', 'final project proposal', 'addressable LEDs'],
+  2: ['Git', 'GitLab', 'HTML5UP Editorial', 'static site', 'version control', 'SSH keys'],
+  3: ['Fusion 360', 'GIMP', 'Adobe Illustrator', 'MeshMixer', 'parametric CAD', 'raster vs vector'],
+  4: ['laser cutter', 'vinyl cutter', 'Roland GX-24', 'press-fit kit', 'kerf', 'parametric design', 'RDworks'],
+  5: ['FabISP', 'PCB milling', 'Roland MDX-20', 'FabTinyStar', 'ATtiny45', 'avrdude', 'fab modules'],
+  6: ['3D printing', 'FDM', 'PLA', 'FlashForge', '3D scanning', 'Skanect', 'Fusion 360', 'slicer settings'],
+  7: ['Eagle CAD', 'ATtiny44', 'PCB design', 'schematic', 'hello echo board', 'autorouter', 'DRC'],
+  8: ['ShopBot', 'CNC router', 'Partworks', 'MDF', 'box joint', 'dogbone', 'feeds and speeds', 'Fusion 360'],
+  9: ['ATtiny44', 'STM32', 'Blue Pill', 'Arduino', 'Atmel Studio', 'embedded C', 'Mbed', 'datasheet'],
+  10: ['molding', 'casting', 'OOMOO 30', 'Smooth-Cast 305', 'silicone mold', 'machineable wax', 'Roland MDX-20'],
+  11: ['ADXL345', 'accelerometer', 'rotary encoder', 'KY-040', 'joystick', 'I2C', 'optical encoder', 'sensors'],
+  12: ['ATmega328p', 'BLDC motor', 'ESC', 'WS2812B', 'SSD1306 OLED', 'buck converter', 'output devices'],
+  13: ['POV display', 'slip ring', 'hall effect sensor', 'NeoPixelBus', 'BLDC', 'rotating arm', 'bill of materials'],
+  14: ['nRF24L01', 'RF24', 'wireless networking', 'I2C', 'SPI', 'telemetry', 'ATmega328p'],
+  15: ['machine design', 'marble maze', 'MG995 servo', 'ATmega328p', 'mechanism', 'group project'],
+  16: ['Processing', 'serial communication', 'GUI', 'scrollbar', 'interface programming', 'BLDC control'],
+  18: ['wildcard', 'laser cutting', 'vinyl PCB', 'LED matrix', 'multilayer PCB', 'laser-cut cheese'],
+  19: ['Creative Commons', 'CC BY-SA', 'patent', 'GPL', 'MIT license', 'open hardware', 'intellectual property'],
+};
+const weekKeywords = KEYWORDS[data.week] ?? [];
+const keywordsStr = weekKeywords.join(', ');
+
 const slug = `week-${String(data.week).padStart(2, '0')}`;
 const pageUrl = new URL(`/projects/fab-academy/${slug}/`, Astro.site).toString();
+const pageTitle = `${data.title} — Fab Academy 2019`;
+// Keyword-rich, specific meta description (kept under ~160 chars).
+const metaDesc = (
+  `Fab Academy 2019, Week ${data.week} at Fab Lab CEPT: ${data.title}. ${data.assignment}`
+  + (keywordsStr ? ` Covers ${keywordsStr}.` : '')
+).slice(0, 300);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -28,7 +59,7 @@ const jsonLd = {
     {
       '@type': 'Article',
       '@id': `${pageUrl}#article`,
-      headline: data.title,
+      headline: `${data.title} — Fab Academy 2019 Week ${data.week}`,
       description: data.assignment,
       url: pageUrl,
       ...(data.heroImage && { image: new URL(data.heroImage, Astro.site).toString() }),
@@ -40,6 +71,9 @@ const jsonLd = {
       },
       publisher: { '@id': 'https://samiulmakes.com/#person' },
       datePublished: '2019',
+      inLanguage: 'en',
+      articleSection: 'Fab Academy 2019',
+      ...(weekKeywords.length && { keywords: weekKeywords.join(', ') }),
       isPartOf: { '@id': 'https://samiulmakes.com/#website' },
     },
     {
@@ -55,7 +89,7 @@ const jsonLd = {
 };
 ---
 
-<Base title={data.title} description={data.assignment} ogImage={data.heroImage} jsonLd={jsonLd}>
+<Base title={pageTitle} description={metaDesc} ogImage={data.heroImage} jsonLd={jsonLd}>
   <article class="container project" data-slug={slug}>
     <header>
       <a href="/projects/fab-academy/" class="back">← Fab Academy 2019</a>
@@ -67,12 +101,7 @@ const jsonLd = {
     </header>
 
     <div class="body-with-toc">
-      <div class="body" data-gallery={JSON.stringify(data.gallery)}>
-        {data.heroImage && (
-          <figure class="hero">
-            <img src={data.heroImage} alt={data.title} loading="eager" />
-          </figure>
-        )}
+      <div class="body">
         <Content />
       </div>
       <aside class="toc-sidebar">
@@ -95,71 +124,6 @@ const jsonLd = {
     </nav>
   </article>
 </Base>
-
-<script>
-  function interleaveGallery() {
-    const body = document.querySelector<HTMLElement>('.body[data-gallery]');
-    if (!body) return;
-
-    const gallery: string[] = JSON.parse(body.dataset.gallery || '[]');
-    if (!gallery.length) return;
-
-    const h2s = Array.from(body.querySelectorAll(':scope > h2'));
-    if (h2s.length < 2) {
-      appendRemainder(body, gallery, 0);
-      return;
-    }
-
-    const breaks = h2s.slice(1);
-    const perBreak = Math.max(1, Math.ceil(gallery.length / breaks.length));
-    let idx = 0;
-
-    for (const h2 of breaks) {
-      if (idx >= gallery.length) break;
-      const count = Math.min(perBreak, gallery.length - idx);
-      const figure = document.createElement('figure');
-      figure.className = 'section-images' + (count === 1 ? ' single' : '');
-      for (let i = 0; i < count; i++) {
-        const a = document.createElement('a');
-        a.href = gallery[idx];
-        a.target = '_blank';
-        a.rel = 'noopener';
-        const img = document.createElement('img');
-        img.src = gallery[idx];
-        img.alt = '';
-        img.loading = 'lazy';
-        a.appendChild(img);
-        figure.appendChild(a);
-        idx++;
-      }
-      body.insertBefore(figure, h2);
-    }
-
-    appendRemainder(body, gallery, idx);
-  }
-
-  function appendRemainder(body: HTMLElement, gallery: string[], fromIdx: number) {
-    if (fromIdx >= gallery.length) return;
-    const figure = document.createElement('figure');
-    figure.className = 'section-images remainder';
-    for (let i = fromIdx; i < gallery.length; i++) {
-      const a = document.createElement('a');
-      a.href = gallery[i];
-      a.target = '_blank';
-      a.rel = 'noopener';
-      const img = document.createElement('img');
-      img.src = gallery[i];
-      img.alt = '';
-      img.loading = 'lazy';
-      a.appendChild(img);
-      figure.appendChild(a);
-    }
-    body.appendChild(figure);
-  }
-
-  interleaveGallery();
-  document.addEventListener('astro:after-swap', interleaveGallery);
-</script>
 
 <style>
   .project {
@@ -220,7 +184,17 @@ const jsonLd = {
     color: var(--ink-soft);
     font-style: italic;
   }
-  .body :global(figure:not(.hero):not(.section-images)) { margin: 1.25rem 0; }
+  .body :global(figure) {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  .body :global(figure img) {
+    width: 100%;
+    height: auto;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
   .body :global(figcaption) {
     font-family: var(--mono);
     font-size: 0.8125rem;
@@ -229,33 +203,44 @@ const jsonLd = {
     margin-top: 0.4rem;
     line-height: 1.4;
   }
-  .body :global(.section-images) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    margin: 1.25rem 0;
-  }
-  .body :global(.section-images.single) { grid-template-columns: 1fr; }
-  .body :global(.section-images.remainder) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    border-top: 1px solid var(--rule);
-    padding-top: 1.25rem;
-    margin-top: 1.5rem;
-  }
-  .body :global(.section-images img) {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    background: var(--bg-elev);
-    border: 1px solid var(--rule);
-    transition: opacity 0.2s ease;
-  }
-  .body :global(.section-images a:hover img) { opacity: 0.85; }
   .body :global(img) {
     max-width: 100%;
     height: auto;
+  }
+  .body :global(pre) {
+    background: var(--bg-elev);
     border: 1px solid var(--rule);
     border-radius: 2px;
+    padding: 0.875rem 1rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .body :global(code) {
+    font-family: var(--mono);
+    font-size: 0.85em;
+  }
+  .body :global(:not(pre) > code) {
+    background: var(--bg-elev);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+  .body :global(table) {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+  }
+  .body :global(th),
+  .body :global(td) {
+    border: 1px solid var(--rule);
+    padding: 0.4rem 0.6rem;
+    text-align: left;
+  }
+  .body :global(hr) {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 1.5rem 0;
   }
 
   .week-nav {

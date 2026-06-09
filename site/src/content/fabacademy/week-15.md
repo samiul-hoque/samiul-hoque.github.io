@@ -2,45 +2,116 @@
 title: "Mechanical & Machine Design"
 week: 15
 assignment: "Group project: design and build a machine including mechanisms, actuation, automation, and application."
-heroImage: "/images/fabacademy/week-15/controlBoard.jpg"
-gallery:
-  - "/images/fabacademy/week-15/gearassembly3.jpg"
-  - "/images/fabacademy/week-15/groupworkblockdiagram1.jpg"
-  - "/images/fabacademy/week-15/groupworkblockdiagram2.jpg"
-  - "/images/fabacademy/week-15/control board schematics.jpg"
-  - "/images/fabacademy/week-15/controlboardbrd.jpg"
-  - "/images/fabacademy/week-15/controlboard1.jpg"
-  - "/images/fabacademy/week-15/controller schematics.jpg"
-  - "/images/fabacademy/week-15/controllerbrd.jpg"
-  - "/images/fabacademy/week-15/controller1.jpg"
-  - "/images/fabacademy/week-15/controlBoard.jpg"
-  - "/images/fabacademy/week-15/controller11.jpg"
-  - "/images/fabacademy/week-15/controller2.jpg"
+heroImage: "/images/fabacademy/week-15/gearassembly3.jpg"
+gallery: []
 ---
-
 ## Assignment
 
-Group project: design and build a machine including mechanisms, actuation, automation, and an application. Covers weeks 15 and 17.
+[Group Assignment](http://fab.academany.org/2019/labs/cept/mechanicaldesign.html)  
+  
 
-## The machine — motorised marble maze
+-   Design a machine that includes mechanism+actuation+automation.
+-   Build the mechanical parts and operate it manually.
+-   Document the group project and your individual contribution.
 
-Five people, very different backgrounds. We built a Victorian-era marble maze with a motorised ball-lift mechanism. Two variants of the machine were built using identical electronics but different control methods:
+## What I made this Week
 
-- **Variant A:** Accelerometer glove controller
-- **Variant B:** Joystick controller
+<figure>
+  <img src="/images/fabacademy/week-15/gearassembly3.jpg" alt="" loading="lazy" />
+</figure>
 
-I was nominally on electronics and firmware. That expanded to include mechanical CAD for parts of the mechanism as the week progressed. Everyone ended up doing everyone's job by the end.
+## Groupwork Responsibilities:
 
-The result was, against expectations, genuinely beautiful.
+With our Fab Lab group being mostly design students, I was given the responsibility to make the Electronics for our Group Projects. Since we were a group of five students, we decided to make two marble mazes instead of one, each working on different mechanisms. After several hours of discussion, I figured the basic electronics block diagram for our circuitry.
 
-## My contribution — electronics
+### Group 1:
 
-### Control board (main, installed in machine)
+<figure>
+  <img src="/images/fabacademy/week-15/groupworkblockdiagram1.jpg" alt="" loading="lazy" />
+</figure>
 
-ATmega328p at 20MHz 5V. Dedicated 3.3V rail for nRF24L01. LM2940 regulator for two MG995 servo motors. N-MOSFET gate for a 12V LED strip. Hardware I2C and serial.
+### Group 2:
 
-### Controller board (handheld transmitter)
+<figure>
+  <img src="/images/fabacademy/week-15/groupworkblockdiagram2.jpg" alt="" loading="lazy" />
+</figure>
 
-ATmega328p at 8MHz 3.3V. Integrated nRF24L01+ and ADXL345 accelerometer. Joystick module connector.
+-   Both Group Had different Mechanisms to move the Maze, but they both will be using the same two servos.
+-   Group 1 will be using an Accelerometer in a glove to control the maze while Group 2 will use a joystick module to control it.
+-   For aesthetics, we will be using 12v LED strips.
 
-Both boards used the nRF24L01+ RF link at 2Mbps with the RF24 library — same architecture as the Week 14 networking assignment.
+## Groupwork: Designing the boards
+
+Since I am a lazy person, I decided to make a single pair of boards which would work for both the groups. I made the schematics for the controller and the control board while considering that the control board will be the same for both the groups while the controller would have pinouts for both tht accelerometer and the joystick module and these are what I came up with.
+
+More on these boards can be found in my [Networking Week Documentation.](/projects/fab-academy/week-14/)
+
+### Control Board:
+
+<figure>
+  <img src="/images/fabacademy/week-15/control board schematics.jpg" alt="Control Board Schematics" loading="lazy" />
+  <figcaption>Control Board Schematics</figcaption>
+</figure>
+
+### Features:
+
+-   Atmega328p 20MHz running on 5v
+-   Seperate 3.3v power for nrF24L01
+-   Seperate power management for MG995 Servos using LM2940
+-   Control Circuit for 12v LED strips using N-Mosfets
+-   Onboard Devices: nrF24L01, connecting port for HC-05
+-   Hardware i2c and Serial pinouts
+
+<figure>
+  <img src="/images/fabacademy/week-15/controlboardbrd.jpg" alt="Control Board Schematics" loading="lazy" />
+  <figcaption>Control Board Schematics</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-15/controlboard1.jpg" alt="Control Board Schematics" loading="lazy" />
+  <figcaption>Control Board Schematics</figcaption>
+</figure>
+
+### Controller Board:
+
+<figure>
+  <img src="/images/fabacademy/week-15/controller schematics.jpg" alt="Controller Board Schematics" loading="lazy" />
+  <figcaption>Controller Board Schematics</figcaption>
+</figure>
+
+### Features:
+
+-   Atmega328p 8MHz running on 3.3v
+-   Onboard Devices: nrF24L01, ADXL345
+-   Hardware i2c and Serial pinouts
+-   Pinout to Connect Joystick Module
+
+<figure>
+  <img src="/images/fabacademy/week-15/controllerbrd.jpg" alt="Control Board Schematics" loading="lazy" />
+  <figcaption>Control Board Schematics</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-15/controller1.jpg" alt="Control Board Schematics" loading="lazy" />
+  <figcaption>Control Board Schematics</figcaption>
+</figure>
+
+## Final Boards:
+
+<figure>
+  <img src="/images/fabacademy/week-15/controlBoard.jpg" alt="" loading="lazy" />
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-15/controller11.jpg" alt="" loading="lazy" />
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-15/controller2.jpg" alt="" loading="lazy" />
+</figure>
+
+[Mainboard Final Code](/files/fabacademy/week-15/mainBoardFinal.ino)
+
+[Controller1\_joystick Final Code](/files/fabacademy/week-15/mainBoardFinal.ino)
+
+[Controller2\_adxl345 Final Code](/files/fabacademy/week-15/mainBoardFinal.ino)

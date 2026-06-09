@@ -1,0 +1,14 @@
+DISPLAY ALL
+RATSNEST
+DISPLAY None
+DISPLAY Top Pads Vias  
+set palette white;
+EXPORT IMAGE D:\pcb_top.png MONOCHROME 1200;
+DISPLAY None
+DISPLAY Pads Vias Dimension 
+EXPORT IMAGE D:\pcb_drill.png MONOCHROME 800;
+DISPLAY None
+DISPLAY Dimension 
+EXPORT IMAGE D:\pcb_outline.png MONOCHROME 800;
+DISPLAY ALL
+set palette black;

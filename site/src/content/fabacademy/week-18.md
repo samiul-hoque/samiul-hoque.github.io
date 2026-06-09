@@ -2,41 +2,148 @@
 title: "Wildcard Week"
 week: 18
 assignment: "Use a digital fabrication process not covered in another assignment."
-heroImage: "/images/fabacademy/week-18/sandwichfinal.jpg"
-gallery:
-  - "/images/fabacademy/week-18/testtemplate.jpg"
-  - "/images/fabacademy/week-18/testpower.jpg"
-  - "/images/fabacademy/week-18/testpower2.jpg"
-  - "/images/fabacademy/week-18/finaltemplate.jpg"
-  - "/images/fabacademy/week-18/finaltemplate2.jpg"
-  - "/images/fabacademy/week-18/sandwichfinal.jpg"
-  - "/images/fabacademy/week-18/evaluation.jpg"
+heroImage: "/images/fabacademy/week-18/1.jpg"
+gallery: []
 ---
-
 ## Assignment
 
-Use a digital fabrication process not covered in another assignment.
+Design and produce something with a digital fabrication process (incorporating computer-aided design and manufacturing) not covered in another assignment, documenting the requirements that your assignment meets, and including everything necessary to reproduce it. Possibilities include (but are not limited to) composites, textiles, biotechnology, robotics, folding, and cooking.
 
-## Attempt 1 — multi-layer PCBs via vinyl stacking (rejected)
+## What I made this Week
 
-Initial plan: stack vinyl-cut copper layers to create multi-layer PCBs. Estimated two weeks of work. Rejected by the regional review because single-layer vinyl PCBs were already covered in Week 4 — this wasn't sufficiently novel.
+## Plan for the Week
 
-## Attempt 2 — LED matrix (discontinued)
+My plan for the week was to make a multi layered PCB using vinyl cut copper. But on my regional review I was instructed to do something else as vinyl cutting single layered PCBs were already covered in our Computer Aided Cutting week. I'm adding what photos I have of the week here anyway since I started working on this a few weeks prior to wildcard week.
 
-Built a 4×4 LED matrix using vinyl-cut copper layers:
-- Cut layers for common anode connections
-- Soldered 1206 SMD LEDs
-- Dissolved the adhesive backing in isopropyl alcohol
-- Stacked layers
+#### Trying to Create layers for 4x4 LED matrix using Vinyl Cutter
 
-The build worked but was not approved for evaluation — same reasoning as above.
+<figure>
+  <img src="/images/fabacademy/week-18/1.jpg" alt="Vinyl Cutting Single Layers of the LED matrix, (common annode)" loading="lazy" />
+  <figcaption>Vinyl Cutting Single Layers of the LED matrix, (common annode)</figcaption>
+</figure>
 
-## Final project — The Fab Cheese Sandwich
+<figure>
+  <img src="/images/fabacademy/week-18/2.jpg" alt="Making some more" loading="lazy" />
+  <figcaption>Making some more</figcaption>
+</figure>
 
-One day left. Laser-engraved a grilled cheese sandwich.
+<figure>
+  <img src="/images/fabacademy/week-18/3.jpg" alt="Soldering One side first for 1206 components" loading="lazy" />
+  <figcaption>Soldering One side first for 1206 components</figcaption>
+</figure>
 
-Created test templates in Fusion 360 to find the right laser parameters for cheese in scan (raster) mode. Iteratively tested power and speed settings.
+<figure>
+  <img src="/images/fabacademy/week-18/4.jpg" alt="Soldering the 1206 LEDs" loading="lazy" />
+  <figcaption>Soldering the 1206 LEDs</figcaption>
+</figure>
 
-**Optimal settings (SIL-1290, scan mode):** Power (10, 10), Speed 100.
+<figure>
+  <img src="/images/fabacademy/week-18/5.jpg" alt="Trying to Dissolve the Glue in Alcohol" loading="lazy" />
+  <figcaption>Trying to Dissolve the Glue in Alcohol</figcaption>
+</figure>
 
-The result was exactly what it sounds like.
+<figure>
+  <img src="/images/fabacademy/week-18/6.jpg" alt="And it worked after leaving it for a night" loading="lazy" />
+  <figcaption>And it worked after leaving it for a night</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/7.jpg" alt="Single layer of the LED cube" loading="lazy" />
+  <figcaption>Single layer of the LED cube</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/8.jpg" alt="Single Layer of the LED cube" loading="lazy" />
+  <figcaption>Single Layer of the LED cube</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/9.jpg" alt="Soldering the Layers on top of eachother" loading="lazy" />
+  <figcaption>Soldering the Layers on top of eachother</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/10.jpg" alt="Soldering the Layers on top of eachother" loading="lazy" />
+  <figcaption>Soldering the Layers on top of eachother</figcaption>
+</figure>
+
+And for the Base I wanted to create a 3 layered Copper PCB using a regular one sided PCB, one acryllic PCB with two layers made with the vinyl cutter.
+
+<figure>
+  <img src="/images/fabacademy/week-18/11.jpg" alt="" loading="lazy" />
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/12.jpg" alt="" loading="lazy" />
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/13.jpg" alt="" loading="lazy" />
+</figure>
+
+Naturally I was quite frustrated with working for about 2 weeks on this to know that this wouldn't cut it for evaluation..  
+And I only had one day left to come up with something for wildcard week.
+
+> Lesson learnt, just stick to the evaluation book.
+
+## The Fab Cheese Sandwich
+
+So the next day, I decided to make my breakfast in the lab. I bought a packed of bread and cheese and started testing out laser cutter parameters on a slice of cheese. This time, I first got it approved by my regional instructor before trying anything further by sending him this photo
+
+<figure>
+  <img src="/images/fabacademy/week-18/evaluation.jpg" alt="yay! And he approved this is wild enough!" loading="lazy" />
+  <figcaption>yay! And he approved this is wild enough!</figcaption>
+</figure>
+
+## Making a Laser Test Template for the material "Cheese"
+
+I quickly made a test template to test different laser parameters on Cheese in Fusion 360.
+
+<figure>
+  <img src="/images/fabacademy/week-18/testtemplate.jpg" alt="Cheese Test Template" loading="lazy" />
+  <figcaption>Cheese Test Template</figcaption>
+</figure>
+
+Then I went to the Laser Cutter to test out various power and speed Settings. To know more on how to use the laser cutter, have a look at my [Computer Aided Cutting](/projects/fab-academy/week-04/) Assignment.
+
+<figure>
+  <img src="/images/fabacademy/week-18/testpower.jpg" alt="Different Power & Speed Settings I tried in Scan Mode" loading="lazy" />
+  <figcaption>Different Power & Speed Settings I tried in Scan Mode</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/testpower2.jpg" alt="Cheese Test Template" loading="lazy" />
+  <figcaption>Cheese Test Template</figcaption>
+</figure>
+
+After alot of testing, (for science) I came up with this test template for anyone who would like to make his cheese sandwich at the lab.
+
+<figure>
+  <img src="/images/fabacademy/week-18/finaltemplate.jpg" alt="Different Power & Speed Settings I tried in Scan Mode" loading="lazy" />
+  <figcaption>Different Power & Speed Settings I tried in Scan Mode</figcaption>
+</figure>
+
+<figure>
+  <img src="/images/fabacademy/week-18/finaltemplate2.jpg" alt="Cheese Test Template" loading="lazy" />
+  <figcaption>Cheese Test Template</figcaption>
+</figure>
+
+I tasted the Cheese on the burnt part and the raw parts and found that it tasted best on power (10,10) and Speed 100
+
+## The Fab (Grilled) Cheese Sandwich!
+
+<figure>
+  <img src="/images/fabacademy/week-18/sandwichfinal.jpg" alt="yay! And he approved this is wild enough!" loading="lazy" />
+  <figcaption>yay! And he approved this is wild enough!</figcaption>
+</figure>
+
+## Downloads
+
+#### DXF Files:
+
+1.  [Test Template](/files/fabacademy/week-18/cheesetest.dxf)
+2.  [Cheese Sandwich dxf](/files/fabacademy/week-18/cheesev1.dxf)
+
+#### Fusion Archive File:
+
+1.  [Cheese Sandwich f3d](</files/fabacademy/week-18/cheeseSandwich v2.f3d>)
