@@ -64,7 +64,7 @@ For my raster artwork part of the project, I chose to use [Microsoft Paint](http
 #### MS Paint
 
 <figure>
-  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="MS Paint" loading="lazy" />
+  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="MS Paint" class="logo" loading="lazy" />
 </figure>
 
 Since I am very used to the UI on this, it took me about 7 minutes to come up with this rough sketch.
@@ -112,7 +112,7 @@ it should open with MS paint by default on windows. Go to File > Save As > save 
 #### GIMP
 
 <figure>
-  <img src="/images/fabacademy/week-03/gimp.png" alt="GIMP" loading="lazy" />
+  <img src="/images/fabacademy/week-03/gimp.png" alt="GIMP" class="logo" loading="lazy" />
 </figure>
 
 GIMP is another raster graphics manipulation tool which just happens to be cross platform. It has always been in my list of things to learn because I wanted to shift to a Linux environment for a while now.  
@@ -146,7 +146,7 @@ A nifty plugin of GIMP can be installed with [BIMP](https://alessandrofrancescon
 #### Adobe Photoshop
 
 <figure>
-  <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop" loading="lazy" />
+  <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop" class="logo" loading="lazy" />
 </figure>
 
 Adobe Photoshop is probably the most powerfull raster graphics software out there which is widely accepted by professionals. It has many tools and features that I have yet to discover, but I use it's "export for web" feature alot to export/convert/resize graphics files. But, other than that, I am quite oblivious to it. Since I did some struggling with GIMP, I decided to watch some beginner tutorials first, which I found here, before starting to draw using Photoshop.
@@ -189,7 +189,7 @@ For Vector designing, I chose to go with Illustrator and Inkscape. I had illustr
 #### Adobe Illustrator
 
 <figure>
-  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator" loading="lazy" />
+  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator" class="logo" loading="lazy" />
 </figure>
 
 I will try to create a rough laser cutout of my initial project sketch using Illustrator while exploring vector art. First I calculated a rough dimension of the cutouts I would like to make using MS paint,
@@ -236,7 +236,7 @@ Here's a screencapture of my whole work process in illustrator.
 
 |  | MS Paint | GIMP | Adobe Photoshop CC | Adobe Illustrator CC |
 | --- | --- | --- | --- | --- |
-|  | <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="MS Paint logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/gimp.png" alt="GIMP logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator logo" loading="lazy" /> |
+|  | <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="MS Paint logo" class="logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/gimp.png" alt="GIMP logo" class="logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop logo" class="logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator logo" class="logo" loading="lazy" /> |
 | Graphic Type | Raster | Raster | Raster/Vector | Vector |
 | License | Free | Free | Paid | Paid |
 | Learning curve | Very easy | Slightly difficult | difficult | Slightly difficult |
@@ -252,7 +252,7 @@ I am also planning to explore generative design tools because I am a huge fan it
 #### Fusion 360
 
 <figure>
-  <img src="/images/fabacademy/week-03/fusion360.png" alt="Fusion 360" loading="lazy" />
+  <img src="/images/fabacademy/week-03/fusion360.png" alt="Fusion 360" class="logo" loading="lazy" />
 </figure>
 
 To use Fusion360 firstly you need a license key and you need to be connected to the internet. The reason for that is that Fusion360 is cloud based which makes it very light and it doesn't clog up my really low spec laptop.  

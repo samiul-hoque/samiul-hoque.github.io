@@ -214,6 +214,13 @@ const jsonLd = {
     max-width: 100%;
     height: auto;
   }
+  /* Software logos: keep them small icons, not full-width figures */
+  .body :global(img.logo) {
+    width: auto;
+    max-height: 80px;
+    border: none;
+    background: none;
+  }
   .body :global(pre) {
     background: var(--bg-elev);
     border: 1px solid var(--rule);
