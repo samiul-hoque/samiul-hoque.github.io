@@ -164,7 +164,7 @@ Materials will be sourced from the local stationary shop at CEPT University. Thi
 -   It has to be light weight and Balanced.
 
 <figure>
-  <img src="/images/fabacademy/week-13/assemblies.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-13/assemblies.jpg" alt="Rotating Arm Assembly" loading="lazy" />
 </figure>
 
 ## What processes will be used?
@@ -196,7 +196,7 @@ It did, and it worked out perfectly.
 It wasn't perfectly stable. 1100RPM was too much for acryllic. It worked but the acryllic bent quite alot. This high speed photo explains it well.
 
 <figure>
-  <img src="/images/fabacademy/week-13/rotatingarmhighspeed.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-13/rotatingarmhighspeed.jpg" alt="Will the Rotating Arm Assembly be stable enough?" loading="lazy" />
 </figure>
 
 This part will need better materials, maybe a composite?

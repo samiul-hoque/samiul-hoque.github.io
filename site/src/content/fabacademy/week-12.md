@@ -18,15 +18,15 @@ Measure the power consumption of an output device, which can be found following 
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-12/board.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/board.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-12/flex.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/flex.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-12/tile.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/tile.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Why I needed a new board this week
@@ -71,7 +71,7 @@ High performance micro chip developed by Atmel .It is a 8bit AVR RISC-based micr
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-12/328pblockdiagram.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/328pblockdiagram.jpg" alt="Specifications" loading="lazy" />
 </figure>
 
 More info on the 328p architecture can be found [here.](https://www.theengineeringprojects.com/2017/08/introduction-to-atmega328.html) And the datasheet can be downloaded from [here.](https://www.sparkfun.com/datasheets/Components/SMD/ATMega328.pdf)
@@ -207,7 +207,7 @@ Making the Symbol is pretty much straightforward. This is what will show up on t
 To make the device, we have to select the footprint and symbol we created earlier and open the connect menu. The image here shows the connections I used for this device.
 
 <figure>
-  <img src="/images/fabacademy/week-12/device.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/device.jpg" alt="Making the Device" loading="lazy" />
 </figure>
 
 And just like that, our library is created. Now we can include this on the library manager and use our component.
@@ -262,7 +262,7 @@ Make sure all of your drills are larger than 32mil. For safety I used 35mil for 
 Cutting out the outline is straightforward, no additional steps were necessary. Make sure the outline is drawn on the dimension layer for my script to work on it. As for the trace width, it will be 35 mil as we are using the 1/32" bit.
 
 <figure>
-  <img src="/images/fabacademy/week-12/fabmodules3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/fabmodules3.jpg" alt="Milling the Outline(1/32 bit)" loading="lazy" />
 </figure>
 
 ## Pictures during Milling:
@@ -270,21 +270,21 @@ Cutting out the outline is straightforward, no additional steps were necessary. 
 One of the ATMega328p traces broke off on the first iteration
 
 <figure>
-  <img src="/images/fabacademy/week-12/milling.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/milling.jpg" alt="Pictures during Milling" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-12/milling1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/milling1.jpg" alt="Pictures during Milling" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-12/milling3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/milling3.jpg" alt="Pictures during Milling" loading="lazy" />
 </figure>
 
 After the second and third attempt came out successful, the error did not repeat itself after the first iteration.
 
 <figure>
-  <img src="/images/fabacademy/week-12/milling4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/milling4.jpg" alt="Pictures during Milling" loading="lazy" />
 </figure>
 
 ## Soldering the Board
@@ -348,7 +348,7 @@ For detailed instructions on how to make these Epoxy film and Copper tape Flex P
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-12/flex4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/flex4.jpg" alt="Making Flex Connectors: Second Iteration" loading="lazy" />
 </figure>
 
 [Download Flex Connector Eagle Project](http://)
@@ -367,7 +367,7 @@ The Settings for uploading the bootloader were;
 -   Variant: "328p/328PA"
 
 <figure>
-  <img src="/images/fabacademy/week-12/bootloader.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/bootloader.jpg" alt="Uploading the Minicore Bootloader" loading="lazy" />
 </figure>
 
 ## Driving a BLDC motor with a 30A SimonK ESC
@@ -401,7 +401,7 @@ The Motor and ESC I bought for my final project is [this](https://robu.in/produc
 -   LiPO Batteries: 2S-3S
 
 <figure>
-  <img src="/images/fabacademy/week-12/bldcesc.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/bldcesc.jpg" alt="SimonK 30A ESC" loading="lazy" />
 </figure>
 
 ## Driving the BLDC motor using Arduino (Powersource- Benchtop Power Supply)
@@ -428,7 +428,7 @@ I went through the documentation for this library and realized it just uses the 
 These are my favourite displays for any electronics projects. They're super energy efficient and very easy to add to any arduino project. I decided to interface this as well because having a display to debug code makes life much easier. There are multiple libraries to use these displays, but the adafruit gfx library is the easiest to use.
 
 <figure>
-  <img src="/images/fabacademy/week-12/oled.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/oled.jpg" alt="Driving SSD1306 OLED via i2c" loading="lazy" />
 </figure>
 
 #### Libraries:
@@ -474,7 +474,7 @@ Adafruit sells these LEDs as [Neopixels](https://www.adafruit.com/category/168),
 -   If your microcontroller and NeoPixels are powered from two different sources (e.g. separate batteries for each), there must be a ground connection between the two.
 
 <figure>
-  <img src="/images/fabacademy/week-12/leds_Wiring-Diagram.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-12/leds_Wiring-Diagram.jpg" alt="Minimal Interfacing Circuit & Best Practices" loading="lazy" />
 </figure>
 
 #### Links

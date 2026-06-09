@@ -17,7 +17,7 @@ Send a message between two projects
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-14/heroshot.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/heroshot.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Context
@@ -52,7 +52,7 @@ All the details about my communitiy internet Router can be found [here.](https:/
 A key point in our network deployment is the dependence on the local Internet Exchanges. Since most of our users only use cached data services like Facebook and Youtube, the latency we have been able to provide has been better than any Telcos or ISPs operating in that area.
 
 <figure>
-  <img src="/images/fabacademy/week-14/heroImage.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/heroImage.jpg" alt="Community Internet Router" loading="lazy" />
 </figure>
 
   
@@ -126,13 +126,13 @@ Recieve the accelerometer data using another nrF24L01 module, and send it to ano
 Recieve Data using i2c, and writing it on Serial so I can see it on the Serial Monitor.
 
 <figure>
-  <img src="/images/fabacademy/week-14/flowchart.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/flowchart.jpg" alt="Third Objective" loading="lazy" />
 </figure>
 
 ## The Board's I'll be Using
 
 <figure>
-  <img src="/images/fabacademy/week-14/controller.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/controller.jpg" alt="The Board's I'll be Using" loading="lazy" />
 </figure>
 
 #### Features:
@@ -144,7 +144,7 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 [Download Eagle Project Files](/files/fabacademy/week-14/marbleMaze.zip)
 
 <figure>
-  <img src="/images/fabacademy/week-14/controlboard.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/controlboard.jpg" alt="Features" loading="lazy" />
 </figure>
 
 #### Features:
@@ -159,7 +159,7 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 [Download Eagle Project Files](/files/fabacademy/week-14/marbleMaze.zip)
 
 <figure>
-  <img src="/images/fabacademy/week-14/pixelfaceboard.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/pixelfaceboard.jpg" alt="Features" loading="lazy" />
 </figure>
 
 #### Features:
@@ -185,11 +185,11 @@ The board can be run on battery power as the voltage level needs to be just abov
 [Download Eagle Project Files](/files/fabacademy/week-14/marbleMaze.zip)
 
 <figure>
-  <img src="/images/fabacademy/week-14/controller1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/controller1.jpg" alt="Target Board" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-14/controller2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/controller2.jpg" alt="Target Board" loading="lazy" />
 </figure>
 
 ### ADXL345 interfacing
@@ -201,7 +201,7 @@ Since this was the first time I soldered a component without any legs, I wanted 
 [Download i2c Scanner.ino](/files/fabacademy/week-14/i2c-scanner.ino)
 
 <figure>
-  <img src="/images/fabacademy/week-14/i2cScanner.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/i2cScanner.jpg" alt="->Checking if Accelerometer is Detected" loading="lazy" />
 </figure>
 
   
@@ -288,11 +288,11 @@ It has an nRF240L01 module connected on the SPI bus, header pins for the i2c bus
 It has power management circuitry to drive two high current MG995 servos using LM2940 regulators. It also has two NDS355AN N- mosfets to control two 12v LED strips.
 
 <figure>
-  <img src="/images/fabacademy/week-14/controlboard2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/controlboard2.jpg" alt="Target Board" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-14/controlboard1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/controlboard1.jpg" alt="Target Board" loading="lazy" />
 </figure>
 
 > I used a double sided FR1 board to make this board and used the copper on the other side as a common ground plane. This helped me reduce the number of jumper resistors and also provided great thermals.
@@ -344,7 +344,7 @@ It has power management circuitry to drive two high current MG995 servos using L
 I'll just be using this board I made during the output week to read the data over i2c and print it on my Serial monitor. All details about this board can be found [here.](/projects/fab-academy/week-12/)
 
 <figure>
-  <img src="/images/fabacademy/week-14/pxfboard.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/pxfboard.jpg" alt="Target Board" loading="lazy" />
 </figure>
 
 #### Recieving data from i2c bus: (slave side) and printing it on serial
@@ -354,7 +354,7 @@ I'll just be using this board I made during the output week to read the data ove
 ## Hero Shots
 
 <figure>
-  <img src="/images/fabacademy/week-14/heroshot.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-14/heroshot.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 ## Downloads

@@ -19,7 +19,7 @@ compare as many tool options as possible
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-16/application.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-16/application.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Objective
@@ -29,7 +29,7 @@ The objective for me this week is to create a Control interface for my BLDC driv
 ## The Board I'll be using for this week
 
 <figure>
-  <img src="/images/fabacademy/week-16/board.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-16/board.jpg" alt="The Board I'll be using for this week" loading="lazy" />
 </figure>
 
 The Board I decided to use was the one I designed on my [Output Week](/projects/fab-academy/week-12/).

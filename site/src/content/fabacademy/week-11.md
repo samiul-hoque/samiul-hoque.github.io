@@ -18,19 +18,19 @@ Probe an input device's analog levels and digital signals
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-11/adxl345.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/adxl345.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-11/joystick.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/joystick.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-11/encoder.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/encoder.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-11/opticalencoder.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/opticalencoder.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Researching about The Sensors I decided to work with
@@ -120,13 +120,13 @@ The Encoder I am using is a mechanical rotary encoder. This illustration from th
 -   Rotating the switch counterclockwise will cause the switch connecting B and C to change states first.
 
 <figure>
-  <img src="/images/fabacademy/week-11/encoder2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/encoder2.jpg" alt="Principle of Operation" loading="lazy" />
 </figure>
 
 If we were to represent the opening and closing of the switches as wave forms, it would look something like this;
 
 <figure>
-  <img src="/images/fabacademy/week-11/encoder3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/encoder3.jpg" alt="Principle of Operation" loading="lazy" />
 </figure>
 
 Essentially, determining which switch changed states first is how the direction of rotation is determined. If A changed states first, the switch is rotating in a clockwise direction. If B changed states first, the switch is rotating in a counter clockwise direction.
@@ -144,7 +144,7 @@ The rotary Encoder I sourced from a local shop here was KY-040. The datasheet fo
 -   Compatible with Arduino/Raspberry Pi controller board.
 
 <figure>
-  <img src="/images/fabacademy/week-11/encoder.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/encoder.jpg" alt="Specification" loading="lazy" />
 </figure>
 
 ## Quadrature Optical Encoders
@@ -169,7 +169,7 @@ The Principle of operation for the optical encoders are the same for our rotary 
 (Note: Measuring Reversible rely on these two levels to distinguish between forward or reverse).
 
 <figure>
-  <img src="/images/fabacademy/week-11/opticalencoder.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/opticalencoder.jpg" alt="Specification" loading="lazy" />
 </figure>
 
 #### Links
@@ -270,7 +270,7 @@ Since this was the first time I soldered a component without any legs, I wanted 
 [Download i2c Scanner.ino](/files/fabacademy/week-11/i2c-scanner.ino)
 
 <figure>
-  <img src="/images/fabacademy/week-11/i2cScanner.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/i2cScanner.jpg" alt="->Checking if Accelerometer is Detected" loading="lazy" />
 </figure>
 
   
@@ -315,10 +315,6 @@ Then I wrote a simple code to read analog data from pin A6 and A7 and print it o
 
 [Download joystickModule.ino](/files/fabacademy/week-11/joystickModule.ino)
 
-<figure>
-  <img src="/images/fabacademy/week-11/" alt="" loading="lazy" />
-</figure>
-
 ## Designing & Making the PxFDuino v1.0
 
 The PxFDuino is the board I made with my Final Project in Mind. All the relevant documentation on it can be found [here](projects/electronics.html) in my [Final Project Documentation.](/projects/fab-academy-final-project/) I'll be using this board to interface the Encoders with.
@@ -348,21 +344,21 @@ Rotary Encoders are perfect use cases for external Interrupt pins. They wont clo
 First attempt to interface this sensor literally went up in smoke, the photodiode had burnt out. I could not figure out what happened and made a post on [Stack Exchange](https://electronics.stackexchange.com/questions/438304/anyone-got-these-optical-encoders-working/438313?noredirect=1#comment1095715_438313) where I got some positive enough responses to order a few more of these.
 
 <figure>
-  <img src="/images/fabacademy/week-11/opticalencoderburnt.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/opticalencoderburnt.jpg" alt="Interfacing Generic Chinese Optical Encoders with the PxFDuino" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-11/opticalencodernewordered.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/opticalencodernewordered.jpg" alt="Interfacing Generic Chinese Optical Encoders with the PxFDuino" loading="lazy" />
 </figure>
 
 The new encoders that I recieved did not burn out as soon as I connected them, but they were not working either. I was only getting gibberish data. I read about encoder wheel alignment from [this](http://www.amscontrols.com/knowledgebase/troubleshooting-encoder-alignment) article by [amscontrols](https://www.amscontrols.com/) and ended up 3d printing a mount for my enocder to match with the wheel. All the files regarding this can be found [here](projects/mechanical.html) on my final project page.
 
 <figure>
-  <img src="/images/fabacademy/week-11/optical mount.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/optical mount.jpg" alt="Interfacing Generic Chinese Optical Encoders with the PxFDuino" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-11/optical mount 2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-11/optical mount 2.jpg" alt="Interfacing Generic Chinese Optical Encoders with the PxFDuino" loading="lazy" />
 </figure>
 
 After a whole two or three weeks of trying to interface these encoders and failing I posted an [issue](https://gitlab.fabcloud.org/academany/fabacademy/2019/class/issues/42) on the class issue tracker to find an alternative. The reason for it not working, I tracked down to three probable causes;

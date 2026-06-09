@@ -19,11 +19,11 @@ gallery: []
 ## What I made this week
 
 <figure>
-  <img src="/images/fabacademy/week-07/heroshot2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/heroshot2.jpg" alt="What I made this week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-07/soldering3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/soldering3.jpg" alt="What I made this week" loading="lazy" />
 </figure>
 
 ## 1\. Electronics Basics
@@ -63,7 +63,7 @@ To make circuits, we'll need components. All electronics components can be divid
 This Infographic by Codrey illustrates Active vs Passive Electronics devices/components.
 
 <figure>
-  <img src="/images/fabacademy/week-07/Active-and-Passive-Elements-Infographic-768x1395.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/Active-and-Passive-Elements-Infographic-768x1395.png" alt="Components: Active vs Passive components" loading="lazy" />
 </figure>
 
 Learning what each of these components do is a long and tedious process. But to get started, I found [this tutorial](https://www.sparkfun.com/tutorials/57) by Sparkfun Electronics very helpful.  
@@ -72,11 +72,11 @@ As for my own introduction to electronics back in 2012, I read [Robotics By Begi
 [The Art of Electronics](https://artofelectronics.net/) is a really good one, which I wish I had read earlier.
 
 <figure>
-  <img src="/images/fabacademy/week-07/roboticsforbeginners.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/roboticsforbeginners.jpg" alt="Components: Active vs Passive components" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-07/artofelectronics.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/artofelectronics.jpg" alt="Components: Active vs Passive components" loading="lazy" />
 </figure>
 
 #### Link
@@ -321,7 +321,7 @@ EAGLE is a scriptable electronic design automation application with schematic ca
 It is now a part Autodesk which has added features where I can directly link my circuits with my Fusion360 work. I will be using Eagle 9.31 with an Educational License for the Fab Academy Course.
 
 <figure>
-  <img src="/images/fabacademy/week-07/eaglesplash.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/eaglesplash.jpg" alt="Eagle CAD" loading="lazy" />
 </figure>
 
 ## Why Eagle?
@@ -414,7 +414,7 @@ This is how the Schematic Editor Window Looks like
 ### Library Manager
 
 <figure>
-  <img src="/images/fabacademy/week-07/eaglelibraries.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/eaglelibraries.jpg" alt="Library Manager" loading="lazy" />
 </figure>
 
 You can bring up the library manager from the parts manager menu. Eagle 9.3 has the option of adding managed libraries here from the 'available' tab. You can automatically install and keep your libraries updated from here.
@@ -422,7 +422,7 @@ You can bring up the library manager from the parts manager menu. Eagle 9.3 has 
 ### Adding Custom Libraries
 
 <figure>
-  <img src="/images/fabacademy/week-07/eaglelibraries1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/eaglelibraries1.jpg" alt="Adding Custom Libraries" loading="lazy" />
 </figure>
 
 For custom library you just have to download the library and use the browse option in the library manager to open it. The [Fab Library](https://github.com/Academany/FabAcademany-Resources/blob/master/files/fab.lbr) can be downloaded from [here.](/files/fabacademy/week-07/fab.lbr)
@@ -430,13 +430,13 @@ For custom library you just have to download the library and use the browse opti
 ## Connecting Wires
 
 <figure>
-  <img src="/images/fabacademy/week-07/wirenet.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/wirenet.jpg" alt="Connecting Wires" loading="lazy" />
 </figure>
 
 Wires can be connected directly using Nets.
 
 <figure>
-  <img src="/images/fabacademy/week-07/wirename.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/wirename.jpg" alt="Connecting Wires" loading="lazy" />
 </figure>
 
 They can also be connected using the name attribute.
@@ -477,10 +477,6 @@ To Create the board file, I just clicked on the brd icon on top and Eagle automa
 ## Placing Components in a board layout
 
 Now that I had my schematic prepared, and board file generated. I started to place my components in a layout where I could connect all the wires without overlapping any of them. I first started with a general layout, without much detail to the distancing,
-
-<figure>
-  <img src="/images/fabacademy/week-07/" alt="" loading="lazy" />
-</figure>
 
 ## DRC, Design Rule Check
 
@@ -654,15 +650,15 @@ And these are the Settings for PCB outlines,
 -   image threshhold: .5
 
 <figure>
-  <img src="/images/fabacademy/week-07/mill1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/mill1.jpg" alt="Outlines (1/32)" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-07/mill2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/mill2.jpg" alt="Outlines (1/32)" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-07/mill3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/mill3.jpg" alt="Outlines (1/32)" loading="lazy" />
 </figure>
 
 ## 7\. Component Collection
@@ -670,7 +666,7 @@ And these are the Settings for PCB outlines,
 I like to collect my SMD components in masking tape. It makes it easier to collect and document as well. For this board, I made my parts list and went on to collecting the components.
 
 <figure>
-  <img src="/images/fabacademy/week-07/components.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/components.jpg" alt="Component Collection" loading="lazy" />
 </figure>
 
   
@@ -724,7 +720,7 @@ To program the ATTINY microcontroller family using Arduino, I will be using [ATT
 If all went right, your arduino should have the ATTiny Core listed on your boards list.
 
 <figure>
-  <img src="/images/fabacademy/week-07/tinycore1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/tinycore1.jpg" alt="Adding TinyCore (support for ATTiny MCU Series to Arduino)" loading="lazy" />
 </figure>
 
 ## Uploading a Blink Code
@@ -759,7 +755,7 @@ Here are the settings I used on arduino to upload the code.
 Everything else was on default.
 
 <figure>
-  <img src="/images/fabacademy/week-07/usbtinysettings.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/usbtinysettings.jpg" alt="Uploading a Blink Code" loading="lazy" />
 </figure>
 
 Then I wrote this code, and uploaded it. [Download Code](/files/fabacademy/week-07/helloEchoBlink.ino)  
@@ -804,11 +800,11 @@ Since I already had some experience with electronics, I got the chance to explor
 ## 12\. Hero Shots
 
 <figure>
-  <img src="/images/fabacademy/week-07/heroshot2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/heroshot2.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-07/soldering3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-07/soldering3.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 ## Downloads:

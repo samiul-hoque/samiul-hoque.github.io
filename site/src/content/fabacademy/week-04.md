@@ -22,23 +22,23 @@ gallery: []
 * * *
 
 <figure>
-  <img src="/images/fabacademy/week-04/finalVinyl.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/finalVinyl.png" alt="What I made this week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/observations.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/observations.png" alt="What I made this week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/parametrickit.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/parametrickit.gif" alt="What I made this week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output1.png" alt="What I made this week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output5.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output5.png" alt="What I made this week" loading="lazy" />
 </figure>
 
 ## Vinyl Cutter
@@ -61,7 +61,7 @@ The Vinyl Materials we had at the lab were;
 -   Unknown material that I assume is to sandwich multilayer PCBs with.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylmaterials.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylmaterials.png" alt="Materials" loading="lazy" />
 </figure>
 
 ### Blades
@@ -69,11 +69,11 @@ The Vinyl Materials we had at the lab were;
 We only had 45 degree blades at the lab. The vinyl cutter here is used for cutting labels and stickers mostly.
 
 <figure>
-  <img src="/images/fabacademy/week-04/rolanblades1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rolanblades1.png" alt="Blades" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/rolanblades2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rolanblades2.png" alt="Blades" loading="lazy" />
 </figure>
 
 ### Setting up the Machine for Operation
@@ -87,7 +87,7 @@ We only had 45 degree blades at the lab. The vinyl cutter here is used for cutti
 To load vinyl rolls, you first need to pull down the lever on the left side of the machine
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylload.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylload.png" alt="Open the lever" loading="lazy" />
 </figure>
 
 #### Loading vinyl Roll onto the roller
@@ -95,7 +95,7 @@ To load vinyl rolls, you first need to pull down the lever on the left side of t
 To load vinyl rolls, you first need to pull down the lever on the left side of the machine
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylRoller.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylRoller.png" alt="Loading vinyl Roll onto the roller" loading="lazy" />
 </figure>
 
 #### Position the Rollers
@@ -103,7 +103,7 @@ To load vinyl rolls, you first need to pull down the lever on the left side of t
 Position the rollers properly onto the edges of the material. The rollers can only be placed on the white marked positions. You will get a 'BAD POSITION' error message if not done properly.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylpositionrollers.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylpositionrollers.png" alt="Position the Rollers" loading="lazy" />
 </figure>
 
 #### Turn the machine on
@@ -111,7 +111,7 @@ Position the rollers properly onto the edges of the material. The rollers can on
 Press the Power button to turn the machine on. It should light up Blue.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylPowerOn.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylPowerOn.png" alt="Turn the machine on" loading="lazy" />
 </figure>
 
 #### Load Roll Mode
@@ -119,7 +119,7 @@ Press the Power button to turn the machine on. It should light up Blue.
 On 'Select Sheet', select '\*Roll' and press the 'Enter Button'.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylloadroll.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylloadroll.png" alt="Load Roll Mode" loading="lazy" />
 </figure>
 
 #### Vinyl Loading...
@@ -127,7 +127,7 @@ On 'Select Sheet', select '\*Roll' and press the 'Enter Button'.
 The machine head will now move across the roll you just loaded and calculate the length automatically.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylNowLoading.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylNowLoading.png" alt="Vinyl Loading..." loading="lazy" />
 </figure>
 
 #### Work Area width
@@ -135,7 +135,7 @@ The machine head will now move across the roll you just loaded and calculate the
 After that you should be able to see your work area on the machine.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylWorkAreaWidth.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylWorkAreaWidth.png" alt="Work Area width" loading="lazy" />
 </figure>
 
   
@@ -153,7 +153,7 @@ Luckily the machine has some quick and easy ways to calibrate this force.
 Press the Force Button to bring up the Force Adjustment Menu.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylForceMenu.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylForceMenu.png" alt="Force Adjustment Menu" loading="lazy" />
 </figure>
 
 #### Set Origin
@@ -161,7 +161,7 @@ Press the Force Button to bring up the Force Adjustment Menu.
 Move the blade around with the arrow keys and place it where you want to set the origin, and press the origin button to set it as the origin.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylSetOrigin.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylSetOrigin.png" alt="Set Origin" loading="lazy" />
 </figure>
 
 #### Test Cut
@@ -169,7 +169,7 @@ Move the blade around with the arrow keys and place it where you want to set the
 If you press hold the test button, the machine will do a test cut. Play around with the force settings a bit and use the test cut feature to find that perfect blade force.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylTestCut.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylTestCut.png" alt="Test Cut" loading="lazy" />
 </figure>
 
   
@@ -191,7 +191,7 @@ Being an electronics enthusiast, I was eager to try out making flexible circuits
 I will go over creating PCBs on EagleCAD next week. For now I'll just cover on how to get this cut on roland cut studio.
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylPCBtest.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylPCBtest.png" alt="Designing Files for the Vinyl Cutter" loading="lazy" />
 </figure>
 
 I exported the bottom layer as a bmp image with 150 detail. And opened it on Roland Cut Studio on the Lab Computer for the vinyl cutter.
@@ -213,7 +213,7 @@ Once you're done with that, you can start cutting.
 This gif excplains it all. 
 
 <figure>
-  <img src="/images/fabacademy/week-04/rolandcutstudio.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rolandcutstudio.gif" alt="Roland Cut Studio" loading="lazy" />
 </figure>
 
 ### Manual Calibration of cutting force During cutting for intricate detail
@@ -221,7 +221,7 @@ This gif excplains it all.
 After many repeatations of this;
 
 <figure>
-  <img src="/images/fabacademy/week-04/vinylManualCalibration.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/vinylManualCalibration.png" alt="Manual Calibration of cutting force During cutting for intricate detail" loading="lazy" />
 </figure>
 
 I was able to find a workaround, by manually adjusting the force during cutting of the smaller details using the force slider on the machine.
@@ -229,7 +229,7 @@ I was able to find a workaround, by manually adjusting the force during cutting 
 The final product came out like this.
 
 <figure>
-  <img src="/images/fabacademy/week-04/finalVinyl.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/finalVinyl.png" alt="Manual Calibration of cutting force During cutting for intricate detail" loading="lazy" />
 </figure>
 
 ### Transfer Tape
@@ -240,7 +240,7 @@ Now bear in mind that you are supposed to take out the negatives before you put 
 BUT! for very detailed designs like PCBs, its much easier to remove the negative after you transfer the vinyl on the intended surface. 
 
 <figure>
-  <img src="/images/fabacademy/week-04/transfertape.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/transfertape.png" alt="Transfer Tape" loading="lazy" />
 </figure>
 
 Trying out to cut traces for the Atmega328p would be a long stretch, but I think I could do everything else. Or at least it seemed like that. I was fairly satisfied with the output and wanted to test this out on copper now.
@@ -252,19 +252,19 @@ But I made **One Mistake**. I put it on paper...
 The result was a mess, because the copper tape had much stronger glue on it. It kept tearing off the paper and I couldn't weed it out.
 
 <figure>
-  <img src="/images/fabacademy/week-04/copperpaper.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/copperpaper.png" alt="Trying to cut Copper tape" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/copperpaper2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/copperpaper2.png" alt="Trying to cut Copper tape" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/copperpaper3.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/copperpaper3.png" alt="Trying to cut Copper tape" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/copperpaper4.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/copperpaper4.png" alt="Trying to cut Copper tape" loading="lazy" />
 </figure>
 
 This was definitely not going to work.
@@ -274,11 +274,11 @@ This was definitely not going to work.
 For the next copper tape, I decided to use an acryllic base, found that from the waste bin.
 
 <figure>
-  <img src="/images/fabacademy/week-04/copperonacryl.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/copperonacryl.png" alt="Mounting copper tape on a better base." loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/copperonacryl2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/copperonacryl2.png" alt="Mounting copper tape on a better base." loading="lazy" />
 </figure>
 
 This time it was coming off nicely. And seemed very satisfactory to me.
@@ -286,7 +286,7 @@ This time it was coming off nicely. And seemed very satisfactory to me.
 ### The Final Output
 
 <figure>
-  <img src="/images/fabacademy/week-04/observations.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/observations.png" alt="The Final Output" loading="lazy" />
 </figure>
 
 ### Conclusions
@@ -310,7 +310,7 @@ The Laser cutter seemed like the most used tool in the FabLab to me. There was a
 ### Laser Cutter Workflow
 
 <figure>
-  <img src="/images/fabacademy/week-04/laserworkflow.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laserworkflow.png" alt="Laser Cutter Workflow" loading="lazy" />
 </figure>
 
 ### Laser Cutter Regulations
@@ -362,7 +362,7 @@ The Laser cutter seemed like the most used tool in the FabLab to me. There was a
 source: [Epilog's Website.](http://www.engravingconcepts.com/index.php/products/epilog-laser-products/products/mini-24)
 
 <figure>
-  <img src="/images/fabacademy/week-04/laserepilogmini.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laserepilogmini.jpg" alt="Specs" loading="lazy" />
 </figure>
 
 ### SIL-1290
@@ -390,7 +390,7 @@ source: [Epilog's Website.](http://www.engravingconcepts.com/index.php/products/
 source: [Last year's Week 4 group work.](http://fab.academany.org/2018/labs/fablabcept/week-04-computer-controlled-cutting.html)
 
 <figure>
-  <img src="/images/fabacademy/week-04/lasersil.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/lasersil.jpg" alt="Specs" loading="lazy" />
 </figure>
 
 ### Designing a Test Template
@@ -398,7 +398,7 @@ source: [Last year's Week 4 group work.](http://fab.academany.org/2018/labs/fabl
 I started with making this simple template on Adobe Illustrator. I wanted to check what the kerf was, how the laser worked with circles and text. This tutorial was especially helpfull for preparing laser cutting files in Adobe Illustrator.
 
 <figure>
-  <img src="/images/fabacademy/week-04/laserFirstTest.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laserFirstTest.png" alt="Designing a Test Template" loading="lazy" />
 </figure>
 
 ### Exporting Files for Laser CAM
@@ -406,7 +406,7 @@ I started with making this simple template on Adobe Illustrator. I wanted to che
 I exported the files as .DXF with autodesk 2004 compatibility because our laser CAM software works with that.
 
 <figure>
-  <img src="/images/fabacademy/week-04/laserFirstTest.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laserFirstTest.png" alt="Exporting Files for Laser CAM" loading="lazy" />
 </figure>
 
 ### Laser CAM Software: RDworks v8.01.26
@@ -418,7 +418,7 @@ RDworks is a generic control software for laser cutters equipped with [Ruida Con
 ### RDworks UI:
 
 <figure>
-  <img src="/images/fabacademy/week-04/rdworksui.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rdworksui.jpg" alt="RDworks UI" loading="lazy" />
 </figure>
 
 ### Working Procedure:
@@ -428,7 +428,7 @@ RDworks is a generic control software for laser cutters equipped with [Ruida Con
 The vector can be imported using the 'import' file operation. 'Ctrl+i' works as well. I imported the file as .DXF I saved earlier with Autodesk 2004 support.
 
 <figure>
-  <img src="/images/fabacademy/week-04/rdimport.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rdimport.jpg" alt="Importing" loading="lazy" />
 </figure>
 
 #### Nesting
@@ -440,11 +440,11 @@ Nesting is the process of arranging your cuts in order to reduce material waste.
 Error checking on your file can be done before sending it to your laser and wasting material using the error checking tools. Most of the erros can also be fixed from RDworks so you don't have to jump between CAD and CAM tools.
 
 <figure>
-  <img src="/images/fabacademy/week-04/rderror.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rderror.jpg" alt="Checking for Errors: Overlapping lines, un-joint vectors" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/rderror1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rderror1.jpg" alt="Checking for Errors: Overlapping lines, un-joint vectors" loading="lazy" />
 </figure>
 
 #### Laser Power and Speed Settings
@@ -454,7 +454,7 @@ Power sets the wattage of the laser, a 55% power will result in 55% of the total
 More on Output modes, Speed and power settings can be found in our [Group work page](http://fab.academany.org/2019/labs/cept/computercontrolledcutting.html) for this week.
 
 <figure>
-  <img src="/images/fabacademy/week-04/rdpower.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rdpower.jpg" alt="Laser Power and Speed Settings" loading="lazy" />
 </figure>
 
 #### Downloading to machine
@@ -465,7 +465,7 @@ After I was done with checking errors on my design, setting the appropriate powe
 -   Device Connection Settings: Over local network ( IP 192.169.7.8)
 
 <figure>
-  <img src="/images/fabacademy/week-04/rddownload.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/rddownload.jpg" alt="Downloading to machine" loading="lazy" />
 </figure>
 
 #### Setting Origin and Cutting
@@ -481,7 +481,7 @@ I will be using 3mm MDF as material as it was cheap and readily available near t
 ### Trying Different laser Power Settings
 
 <figure>
-  <img src="/images/fabacademy/week-04/firstTestOutput.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/firstTestOutput.png" alt="Trying Different laser Power Settings" loading="lazy" />
 </figure>
 
   
@@ -513,19 +513,19 @@ I will be using 3mm MDF as material as it was cheap and readily available near t
   
 
 <figure>
-  <img src="/images/fabacademy/week-04/laserInsideCut.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laserInsideCut.png" alt="Measuring the Kerf" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/laserInsideCut2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laserInsideCut2.png" alt="Measuring the Kerf" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/laser.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laser.png" alt="Measuring the Kerf" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/laser1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/laser1.png" alt="Measuring the Kerf" loading="lazy" />
 </figure>
 
   
@@ -603,7 +603,7 @@ I tried to put a parameter for the number of sides while creating a polygon, and
 -   Slot Depth
 
 <figure>
-  <img src="/images/fabacademy/week-04/parametrickit.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/parametrickit.gif" alt="Parameters" loading="lazy" />
 </figure>
 
 #### Parametric Kerf Optimization
@@ -615,7 +615,7 @@ So I tried with three slot sizes,
 Outside: Material Thickness - 2\* kerf
 
 <figure>
-  <img src="/images/fabacademy/week-04/outside.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/outside.jpg" alt="Parametric Kerf Optimization" loading="lazy" />
 </figure>
 
 <figure>
@@ -626,7 +626,7 @@ Outside: Material Thickness - 2\* kerf
 Inside: Material Thickness + 2\* kerf
 
 <figure>
-  <img src="/images/fabacademy/week-04/inside.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/inside.jpg" alt="Parametric Kerf Optimization" loading="lazy" />
 </figure>
 
 <figure>
@@ -637,7 +637,7 @@ Inside: Material Thickness + 2\* kerf
 Along: Material Thickness + kerf
 
 <figure>
-  <img src="/images/fabacademy/week-04/along.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/along.jpg" alt="Parametric Kerf Optimization" loading="lazy" />
 </figure>
 
 <figure>
@@ -650,23 +650,23 @@ Along: Material Thickness + kerf
 And all were generated from the same file, just by changing the 'side' parameter.
 
 <figure>
-  <img src="/images/fabacademy/week-04/triangle.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/triangle.png" alt="Design Outputs" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/pentagon.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/pentagon.png" alt="Design Outputs" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/hexagon.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/hexagon.png" alt="Design Outputs" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/heptagon.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/heptagon.png" alt="Design Outputs" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/octagon.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/octagon.png" alt="Design Outputs" loading="lazy" />
 </figure>
 
 ### Difficulties
@@ -683,33 +683,33 @@ And all were generated from the same file, just by changing the 'side' parameter
 Your files should look like this;
 
 <figure>
-  <img src="/images/fabacademy/week-04/filestructure.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/filestructure.png" alt="Solution" loading="lazy" />
 </figure>
 
 ### Hero Shots
 
 <figure>
-  <img src="/images/fabacademy/week-04/finalLaserOutput.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/finalLaserOutput.png" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output1.png" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output2.png" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output3.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output3.png" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output4.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output4.png" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-04/output5.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-04/output5.png" alt="Hero Shots" loading="lazy" />
 </figure>
 
 ### Precautions & Health Hazard

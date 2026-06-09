@@ -70,15 +70,15 @@ My plan for the week was to make a multi layered PCB using vinyl cut copper. But
 And for the Base I wanted to create a 3 layered Copper PCB using a regular one sided PCB, one acryllic PCB with two layers made with the vinyl cutter.
 
 <figure>
-  <img src="/images/fabacademy/week-18/11.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-18/11.jpg" alt="Trying to Create layers for 4x4 LED matrix using Vinyl Cutter" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-18/12.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-18/12.jpg" alt="Trying to Create layers for 4x4 LED matrix using Vinyl Cutter" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-18/13.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-18/13.jpg" alt="Trying to Create layers for 4x4 LED matrix using Vinyl Cutter" loading="lazy" />
 </figure>
 
 Naturally I was quite frustrated with working for about 2 weeks on this to know that this wouldn't cut it for evaluation..  

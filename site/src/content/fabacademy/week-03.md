@@ -64,7 +64,7 @@ For my raster artwork part of the project, I chose to use [Microsoft Paint](http
 #### MS Paint
 
 <figure>
-  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="MS Paint" loading="lazy" />
 </figure>
 
 Since I am very used to the UI on this, it took me about 7 minutes to come up with this rough sketch.
@@ -100,7 +100,7 @@ it should open with MS paint by default on windows. Go to File > Save As > save 
   
 
 <figure>
-  <img src="/images/fabacademy/week-03/mspainttypeconvert.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/mspainttypeconvert.png" alt="MS Paint" loading="lazy" />
 </figure>
 
   
@@ -112,7 +112,7 @@ it should open with MS paint by default on windows. Go to File > Save As > save 
 #### GIMP
 
 <figure>
-  <img src="/images/fabacademy/week-03/gimp.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/gimp.png" alt="GIMP" loading="lazy" />
 </figure>
 
 GIMP is another raster graphics manipulation tool which just happens to be cross platform. It has always been in my list of things to learn because I wanted to shift to a Linux environment for a while now.  
@@ -146,7 +146,7 @@ A nifty plugin of GIMP can be installed with [BIMP](https://alessandrofrancescon
 #### Adobe Photoshop
 
 <figure>
-  <img src="/images/fabacademy/week-03/photoshop.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop" loading="lazy" />
 </figure>
 
 Adobe Photoshop is probably the most powerfull raster graphics software out there which is widely accepted by professionals. It has many tools and features that I have yet to discover, but I use it's "export for web" feature alot to export/convert/resize graphics files. But, other than that, I am quite oblivious to it. Since I did some struggling with GIMP, I decided to watch some beginner tutorials first, which I found here, before starting to draw using Photoshop.
@@ -189,7 +189,7 @@ For Vector designing, I chose to go with Illustrator and Inkscape. I had illustr
 #### Adobe Illustrator
 
 <figure>
-  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator" loading="lazy" />
 </figure>
 
 I will try to create a rough laser cutout of my initial project sketch using Illustrator while exploring vector art. First I calculated a rough dimension of the cutouts I would like to make using MS paint,
@@ -221,7 +221,7 @@ Then I transferred the file to the laser cutter. After a fancy light show, I was
  After some intense glue work, I literally have my fingerprints stuck on the cardboards.....  
 
 <figure>
-  <img src="/images/fabacademy/week-03/illustratorPixelFacemodel.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/illustratorPixelFacemodel.png" alt="Adobe Illustrator" loading="lazy" />
 </figure>
 
 Here's a screencapture of my whole work process in illustrator.
@@ -256,25 +256,25 @@ Here's a screencapture of my whole work process in illustrator.
 |  | 
 
 <figure>
-  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="Adobe Illustrator CC" loading="lazy" />
 </figure>
 
  | 
 
 <figure>
-  <img src="/images/fabacademy/week-03/gimp.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/gimp.png" alt="Adobe Illustrator CC" loading="lazy" />
 </figure>
 
  | 
 
 <figure>
-  <img src="/images/fabacademy/week-03/photoshop.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Illustrator CC" loading="lazy" />
 </figure>
 
  | 
 
 <figure>
-  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator CC" loading="lazy" />
 </figure>
 
  |
@@ -318,7 +318,7 @@ I am also planning to explore generative design tools because I am a huge fan it
 #### Fusion 360
 
 <figure>
-  <img src="/images/fabacademy/week-03/fusion360.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/fusion360.png" alt="Fusion 360" loading="lazy" />
 </figure>
 
 To use Fusion360 firstly you need a license key and you need to be connected to the internet. The reason for that is that Fusion360 is cloud based which makes it very light and it doesn't clog up my really low spec laptop.  
@@ -331,7 +331,7 @@ I started with a rough sketch of the base of PixelFace. The dimensions don't nee
   
 
 <figure>
-  <img src="/images/fabacademy/week-03/1roughsketch.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/1roughsketch.png" alt="Fusion 360" loading="lazy" />
 </figure>
 
 ##### Constrains and Parameters
@@ -342,7 +342,7 @@ I then brougth up the parameters menu and created basic parameters for my design
   
 
 <figure>
-  <img src="/images/fabacademy/week-03/2parametervariables.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/2parametervariables.png" alt="Fusion 360" loading="lazy" />
 </figure>
 
  Then I used the dimension tool to add dimensions to my sketch. With this method, my design will be parametric. I can just edit the parameter variables I created and my design will change accordingly.  
@@ -353,7 +353,7 @@ I then brougth up the parameters menu and created basic parameters for my design
 To create a 3D object out of my sketch, I used the extrude tool. 
 
 <figure>
-  <img src="/images/fabacademy/week-03/3extrude.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/3extrude.png" alt="Fusion 360" loading="lazy" />
 </figure>
 
   
@@ -361,7 +361,7 @@ To create a 3D object out of my sketch, I used the extrude tool.
 For extruding the Motor mount, I used extrude from offset and used the base height as an offset. 
 
 <figure>
-  <img src="/images/fabacademy/week-03/4extrudeFromOffset.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/4extrudeFromOffset.png" alt="Fusion 360" loading="lazy" />
 </figure>
 
   
@@ -375,20 +375,20 @@ My entire Fusion360 workflow can be watched on this video. Sadly, the educationa
 After a bit of struggling, I managed to export files from Fusion360 using the web interface so I could use the model in a different 3D CAD software that can do design optimization for me. 
 
 <figure>
-  <img src="/images/fabacademy/week-03/5exportingfromf360.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/5exportingfromf360.png" alt="Fusion 360" loading="lazy" />
 </figure>
 
 ### Design Optimization in Meshmixer
 
 <figure>
-  <img src="/images/fabacademy/week-03/meshmixer-logo.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/meshmixer-logo.png" alt="Design Optimization in Meshmixer" loading="lazy" />
 </figure>
 
 For creating similar patterns like generative design, I am using Meshmixer. It is very user friendly. And after watching this tutorial;  
 I came up with this design for the base. I used the Make pattern tool and made a dual edge with a hex grid pattern. I am sure I can optimize it further after optimizing where I need the parts to be stronger,
 
 <figure>
-  <img src="/images/fabacademy/week-03/6meshmixer.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/6meshmixer.png" alt="Design Optimization in Meshmixer" loading="lazy" />
 </figure>
 
 [Pixel Face Meshmixed](https://sketchfab.com/models/001a028025404c74840c9b90aca54f93?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
@@ -491,11 +491,11 @@ The draft Operation can add an angle between a selected plane and selected surfa
 Here I added a draft angle to the motor extrusion for the base I made for my week 3 design.
 
 <figure>
-  <img src="/images/fabacademy/week-03/draft.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/draft.jpg" alt="Draft" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-03/draft1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/draft1.jpg" alt="Draft" loading="lazy" />
 </figure>
 
 #### Fillet
@@ -503,11 +503,11 @@ Here I added a draft angle to the motor extrusion for the base I made for my wee
 Like the 2D fillet feature, the 3D fillet tool can add curvatures to corners and sharp surfaces.
 
 <figure>
-  <img src="/images/fabacademy/week-03/fillet.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/fillet.jpg" alt="Fillet" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-03/fillet1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/fillet1.jpg" alt="Fillet" loading="lazy" />
 </figure>
 
 #### Press Pull
@@ -515,11 +515,11 @@ Like the 2D fillet feature, the 3D fillet tool can add curvatures to corners and
 The press/pull operation can select a face and deform the 3D object accordingly.
 
 <figure>
-  <img src="/images/fabacademy/week-03/pull.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/pull.jpg" alt="Press Pull" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-03/pull1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-03/pull1.jpg" alt="Press Pull" loading="lazy" />
 </figure>
 
 This is how my model looks like after these three operations other than extrude, which I used in week 2.

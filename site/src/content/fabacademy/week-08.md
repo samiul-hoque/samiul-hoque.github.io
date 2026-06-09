@@ -16,7 +16,7 @@ gallery: []
 ## What I made this week
 
 <figure>
-  <img src="/images/fabacademy/week-08/heroshot3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/heroshot3.jpg" alt="What I made this week" loading="lazy" />
 </figure>
 
 ## 1\. Context
@@ -463,11 +463,11 @@ I laser cut a half scaled model first before milling it. I used 6mm cardboard an
 #### Scaled down model:
 
 <figure>
-  <img src="/images/fabacademy/week-08/scale5.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/scale5.jpg" alt="Scaled down model" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/scale6.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/scale6.jpg" alt="Scaled down model" loading="lazy" />
 </figure>
 
 #### Download Laser Cut DXFs:
@@ -502,23 +502,23 @@ I made two toolpaths, one for inside profile cut and the other for outside profi
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/0.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/0.png" alt="Tool Parameters" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/1.png" alt="Tool Parameters" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/2.png" alt="Tool Parameters" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/3.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/3.png" alt="Tool Parameters" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/4.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/4.png" alt="Tool Parameters" loading="lazy" />
 </figure>
 
 ### 11\. Fastening the Material
@@ -597,29 +597,29 @@ Zeroing can be done using the control box software, make sure to check all the l
 I took out all the cut parts, sanded them lightly and pressed fit them together. Some of the parts needed a bit of glue but the rest of the table was good to go.
 
 <figure>
-  <img src="/images/fabacademy/week-08/assembly.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/assembly.jpg" alt="Cleaning, Sanding and Finishing up" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/assembly1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/assembly1.jpg" alt="Cleaning, Sanding and Finishing up" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/assembly3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/assembly3.jpg" alt="Cleaning, Sanding and Finishing up" loading="lazy" />
 </figure>
 
 ### 16\. Hero Shots
 
 <figure>
-  <img src="/images/fabacademy/week-08/heroshot1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/heroshot1.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/heroshot2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/heroshot2.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-08/heroshot3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-08/heroshot3.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 ### 17\. Learning Outcomes

@@ -21,7 +21,7 @@ Due to various circumstances, I had to drop out of college back in 2013. Ever si
 The vision of instructables is kinda like this, everything can be made if you follow a recipe. Well techically, everything should be doable if there is a good enough recipe to do it. If documentation can be made simple enough, anyone can follow through inspite of their level of skill and learn along the way. I believe fab academy runs on a similar principle. But an advantage an instructable article has over a fab academy weekly documentation is that it is a recipe for a particular thing, where a fab academy weekly documentation becomes far too obscure with all the details put into it.
 
 <figure>
-  <img src="/images/fabacademy/week-19/logo-instructables-011.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-19/logo-instructables-011.png" alt="Instructables" loading="lazy" />
 </figure>
 
 Another good feature about instructables is their contests. There are always multiple contests running on various topics in instructables, ranging from cooking, sewing to making lunar rovers. I hope to publish my final project, PixelFace in such a contest. I was always awestruck at the contest entries and the winners from instructables, I hope publish my own entry once I have all the documentation done in a simpler toned down way.
@@ -124,19 +124,19 @@ Source :
 Once I was done Deciding, I just went to [Creative Common's Website](https://creativecommons.org/choose/) to create my license. They have a really nice and easy website where you can get your license just by filling up some tick boxes.
 
 <figure>
-  <img src="/images/fabacademy/week-19/1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-19/1.jpg" alt="Generating my CC license" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-19/2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-19/2.jpg" alt="Generating my CC license" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-19/3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-19/3.jpg" alt="Generating my CC license" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-19/4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-19/4.jpg" alt="Generating my CC license" loading="lazy" />
 </figure>
 
 ## My Dissemination Plan:

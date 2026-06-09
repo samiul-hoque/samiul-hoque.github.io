@@ -47,11 +47,18 @@ const keywordsStr = weekKeywords.join(', ');
 const slug = `week-${String(data.week).padStart(2, '0')}`;
 const pageUrl = new URL(`/projects/fab-academy/${slug}/`, Astro.site).toString();
 const pageTitle = `${data.title} — Fab Academy 2019`;
-// Keyword-rich, specific meta description (kept under ~160 chars).
-const metaDesc = (
-  `Fab Academy 2019, Week ${data.week} at Fab Lab CEPT: ${data.title}. ${data.assignment}`
-  + (keywordsStr ? ` Covers ${keywordsStr}.` : '')
-).slice(0, 300);
+// Keyword-rich, specific meta description trimmed to ~158 chars on a word
+// boundary (Google truncates around 160).
+function trimDesc(s: string, max = 158): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > 60 ? cut.slice(0, sp) : cut).replace(/[\s,;:.—-]+$/, '') + '…';
+}
+const metaDesc = trimDesc(
+  `${data.title} — Fab Academy 2019 Week ${data.week} at Fab Lab CEPT.`
+  + (keywordsStr ? ` ${keywordsStr}.` : ` ${data.assignment}`),
+);
 
 const jsonLd = {
   '@context': 'https://schema.org',

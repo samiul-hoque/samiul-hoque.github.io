@@ -14,7 +14,7 @@ const { href, title, year, oneLiner, image, category, upcoming = false } = Astro
 <a href={upcoming ? '#' : href} class:list={['card', { upcoming }]} aria-disabled={upcoming}>
   <div class="image">
     {image ? (
-      <img src={image} alt="" loading="lazy" />
+      <img src={image} alt={title} loading="lazy" />
     ) : (
       <div class="placeholder">
         <span>{upcoming ? 'soon' : ''}</span>

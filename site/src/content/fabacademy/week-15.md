@@ -17,7 +17,7 @@ gallery: []
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-15/gearassembly3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-15/gearassembly3.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Groupwork Responsibilities:
@@ -27,13 +27,13 @@ With our Fab Lab group being mostly design students, I was given the responsibil
 ### Group 1:
 
 <figure>
-  <img src="/images/fabacademy/week-15/groupworkblockdiagram1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-15/groupworkblockdiagram1.jpg" alt="Group 1" loading="lazy" />
 </figure>
 
 ### Group 2:
 
 <figure>
-  <img src="/images/fabacademy/week-15/groupworkblockdiagram2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-15/groupworkblockdiagram2.jpg" alt="Group 2" loading="lazy" />
 </figure>
 
 -   Both Group Had different Mechanisms to move the Maze, but they both will be using the same two servos.
@@ -99,15 +99,15 @@ More on these boards can be found in my [Networking Week Documentation.](/projec
 ## Final Boards:
 
 <figure>
-  <img src="/images/fabacademy/week-15/controlBoard.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-15/controlBoard.jpg" alt="Final Boards" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-15/controller11.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-15/controller11.jpg" alt="Final Boards" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-15/controller2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-15/controller2.jpg" alt="Final Boards" loading="lazy" />
 </figure>
 
 [Mainboard Final Code](/files/fabacademy/week-15/mainBoardFinal.ino)

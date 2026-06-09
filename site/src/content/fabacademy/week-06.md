@@ -32,7 +32,7 @@ We had two assignments three week.
 -   More images [here](/projects/fab-academy/week-06/)
 
 <figure>
-  <img src="/images/fabacademy/week-06/3Dprintoutput1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/3Dprintoutput1.jpg" alt="LED Arm For PixelFace" loading="lazy" />
 </figure>
 
 ### 3D Scanning:
@@ -309,11 +309,11 @@ I played around with the parameters a bit to see if I could make any of them dep
 ##### armCurvature = baseDiameter \* 0.9
 
 <figure>
-  <img src="/images/fabacademy/week-06/f360sketch1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/f360sketch1.jpg" alt="Parameters Used" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/f360sketch1explanation.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/f360sketch1explanation.jpg" alt="Parameters Used" loading="lazy" />
 </figure>
 
   
@@ -329,7 +329,7 @@ Then I extruded the the sketch to make the initial 3D object. I used a parameter
 -   armWidth
 
 <figure>
-  <img src="/images/fabacademy/week-06/f360sketch1extrusion.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/f360sketch1extrusion.jpg" alt="Parameters Used" loading="lazy" />
 </figure>
 
 [Extrusion Result](https://sketchfab.com/3d-models/armv01-cd5e6207dc644d04965cbaa281b80d26?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
@@ -451,7 +451,7 @@ The distance between each LED was ledSize+ ledSpacing.
 -   ledSpacing
 
 <figure>
-  <img src="/images/fabacademy/week-06/p1patterndistance1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p1patterndistance1.jpg" alt="Pattern Along Path" loading="lazy" />
 </figure>
 
 [Arm Design 8 LEDs Final](https://sketchfab.com/3d-models/arm-design-8-leds-final-d356ff8b8e004ecfab0822ce3d62704a?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
@@ -580,7 +580,7 @@ Since My print was long but thin, one end of it wasn't adhering to the bed prope
 The print worked out great once I placed it on an edge of the print bed.
 
 <figure>
-  <img src="" alt="" loading="lazy" />
+  <img src="" alt="Problem 2: 'Print not Sticking to bed properly' (Printing error)" loading="lazy" />
 </figure>
 
 ## Problem 3: 'Print Dimensions are not accurate' (Printing error)
@@ -588,31 +588,31 @@ The print worked out great once I placed it on an edge of the print bed.
 I haven't yet found a solution for this problem yet where the print dimensions are not accurate as the design dimension. I haven't found a way 'yet' to put in the printing offset into a parametric design.
 
 <figure>
-  <img src="/images/fabacademy/week-06/p3measurement0.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p3measurement0.jpg" alt="Problem 3: 'Print Dimensions are not accurate' (Printing error)" loading="lazy" />
 </figure>
 
 #### Spacing Measurements:
 
 <figure>
-  <img src="/images/fabacademy/week-06/p3measurement1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p3measurement1.jpg" alt="Spacing Measurements" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/p3measurement2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p3measurement2.jpg" alt="Spacing Measurements" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/p3measurement3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p3measurement3.jpg" alt="Spacing Measurements" loading="lazy" />
 </figure>
 
 #### LED Slots Measurement:
 
 <figure>
-  <img src="/images/fabacademy/week-06/p3measurement4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p3measurement4.jpg" alt="LED Slots Measurement" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/p3measurement5.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/p3measurement5.jpg" alt="LED Slots Measurement" loading="lazy" />
 </figure>
 
 #### Observation:
@@ -621,7 +621,7 @@ Errors of this scale is expected during 3D printing. That is why we did our grou
 As for example, in my case, the small error margins add up to huge alignment issues on the LED slots as they were designed using a pattern in Fusion 360.
 
 <figure>
-  <img src="/images/fabacademy/week-06/3Dprintoutput2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/3Dprintoutput2.jpg" alt="Observation" loading="lazy" />
 </figure>
 
 <figure>
@@ -728,27 +728,27 @@ I used Skannect to scan myself and exported the scan on sketchfab. The free vers
 * * *
 
 <figure>
-  <img src="/images/fabacademy/week-06/skannect1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/skannect1.jpg" alt="How to Scan" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/skannect2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/skannect2.jpg" alt="How to Scan" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/skannect3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/skannect3.jpg" alt="How to Scan" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/skannect4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/skannect4.jpg" alt="How to Scan" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/skannect5.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/skannect5.jpg" alt="How to Scan" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-06/skannect6.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/skannect6.jpg" alt="How to Scan" loading="lazy" />
 </figure>
 
 ## SCANN3D
@@ -756,7 +756,7 @@ I used Skannect to scan myself and exported the scan on sketchfab. The free vers
 [SCANN3D](https://play.google.com/store/apps/details?id=com.smartmobilevision.scann3d&hl=en_IN) is another 3d scanning app on google play store. I tried it and the way it generates the 3D models by photogrammetry. Here's what I ended up with.
 
 <figure>
-  <img src="/images/fabacademy/week-06/scann3d.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-06/scann3d.jpg" alt="SCANN3D" loading="lazy" />
 </figure>
 
 Unfortunately SCANN3D wouldn't let me export my designs or save them either. So all I had were these screenshots and the 3D model on my phone.

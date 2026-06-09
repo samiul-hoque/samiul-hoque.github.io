@@ -18,7 +18,7 @@ Design a mold around the stock and tooling that you'll be using, mill it (rough 
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-10/weeklytile.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/weeklytile.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Making a Design to mold & cast
@@ -148,7 +148,7 @@ First I tried to find a safe melting point for my wax which I could use in our c
 I found the safety datasheet for the specific machinable wax I was using which can be found [here](https://www.machinablewax.com/docs/SDS-MachinableWax_BLUE_F-14.pdf) . The Melting point for this wax was at 115.6 degrees Celcius and the flash point for it was 301.7 degrees Celcius. After some trial and error, I used 250 degree celcius and it took about 50 minutes to completely melt and get liquid enough to get rid of the bubbles.
 
 <figure>
-  <img src="/images/fabacademy/week-10/wax2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/wax2.jpg" alt="Melting Machineable Wax in a Convection Oven" loading="lazy" />
 </figure>
 
 ## Making Machineable Wax Ingots
@@ -180,7 +180,7 @@ I made some molds out of waste acryllic sheets at the lab and assembled them wit
 I tried exploring Fusion 360's Manufacture option in our CAM week, but I was overwhelmed with all the options. The usual workflow at Fablab CEPT for CAM tools is to use partworks for generating toolpaths. But due to some technical errors, the lab laptop which had partworks kept crashing. So I was left with no other option than to make fusion's CAM tool work.
 
 <figure>
-  <img src="/images/fabacademy/week-10/manufacture.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/manufacture.jpg" alt="Preparing Toolpaths in Fusion360" loading="lazy" />
 </figure>
 
   
@@ -296,19 +296,19 @@ These are the settings I used for the roughing toolpath. There are way too many 
 I depended on the simulation option to optimize as much as possible and get a workable toolpath.
 
 <figure>
-  <img src="/images/fabacademy/week-10/roughing1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/roughing1.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/roughing2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/roughing2.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/roughing3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/roughing3.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/roughing4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/roughing4.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 ## Contour Pass: Finishing Pass
@@ -335,23 +335,23 @@ These are the settings I used for the the contour toolpath. My selection of the 
 The Simulation did show me rough edges, but I didn't think they would vary so much.
 
 <figure>
-  <img src="/images/fabacademy/week-10/contour2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/contour2.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/contour3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/contour3.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/contour4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/contour4.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/contour5.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/contour5.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/contour6.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/contour6.jpg" alt="Roughing Toolpath Settings" loading="lazy" />
 </figure>
 
 ## Simulating and changing Toolpath parameters
@@ -394,7 +394,7 @@ My first Attempt was on Friday. I started machining the toolpath I made with Fus
 > I knew the feed rate settings were right as the wax chips were all fine powders. If the wax was melting they would have been thicker.
 
 <figure>
-  <img src="/images/fabacademy/week-10/machining1.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/machining1.gif" alt="Machining" loading="lazy" />
 </figure>
 
 <figure>
@@ -413,7 +413,7 @@ The Second Attempt was on the next day. I had trouble getting a slot for Machini
 > No one at my Lab Uses Fusion 360 for the CAM process, they use partworks. I Couldn't debug it in time so I went back to partworks.
 
 <figure>
-  <img src="/images/fabacademy/week-10/machining3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/machining3.jpg" alt="Machining" loading="lazy" />
 </figure>
 
 ## Starting Over
@@ -421,11 +421,11 @@ The Second Attempt was on the next day. I had trouble getting a slot for Machini
 First thing I did was to put the two wax blocks and the waste back into the oven. I was collecting all the wax dust that was coming out all through the process.
 
 <figure>
-  <img src="/images/fabacademy/week-10/startingover.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/startingover.jpg" alt="Starting Over" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/startingover2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/startingover2.jpg" alt="Starting Over" loading="lazy" />
 </figure>
 
 * * *
@@ -435,11 +435,11 @@ First thing I did was to put the two wax blocks and the waste back into the oven
 I made a new design, with both the top and bottom molds in one wax stock. In order to reduce workload. It's the design You can see on my design part of this week's documentation.
 
 <figure>
-  <img src="/images/fabacademy/week-10/startingover3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/startingover3.jpg" alt="Starting Over" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/startingover4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/startingover4.jpg" alt="Starting Over" loading="lazy" />
 </figure>
 
 ## Generating Toolpaths in Partworks
@@ -491,7 +491,7 @@ Someone had fiddled with the Shopbot Control Software and it kept getting an err
 Our Instructor was not here either and the only thing we could do was check our previous year's documentation on the default settings of the shopbot. And we found something on [Aditya's Week 8](http://archive.fabacademy.org/2018/labs/fablabcept/students/adhitya-ss/week-8.html) documentation. The limit switches 2 and 3 were always on, on his images as well. That's why even going back to the default settings were not working. So I disabled the limit switches and the machine started to work again.
 
 <figure>
-  <img src="/images/fabacademy/week-10/disaster.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/disaster.jpg" alt="Disaster Strikes Again: Error on Shopbot Control Software" loading="lazy" />
 </figure>
 
 ## Milling Failure.... Again
@@ -527,7 +527,7 @@ Fab Modules seemed to be working for the 2017 batch as well, as per their docume
 So we went back to 2016's documentation and saw that an older version of fab modules, which was completly offline, worked for [Rudraprakash Solank](http://archive.fabacademy.org/fabacademy2016/fablabcept/students/472/week-12.html). We located the laptop he used and found the local fab modules program, ran our files in that, and it worked perfectly.
 
 <figure>
-  <img src="/images/fabacademy/week-10/oldfab.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/oldfab.jpg" alt="Older Fab Modules" loading="lazy" />
 </figure>
 
 ## Changing the Design A bit
@@ -657,19 +657,19 @@ I first used a brush to fill in the places where it would be difficult for the s
 The next day, I took out my mold, and it looked perfect. I cut them apart with a cutter. And they fit perfectly.
 
 <figure>
-  <img src="/images/fabacademy/week-10/casting14 .jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/casting14 .jpg" alt="Casting the negative mold with OOMOO 30" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/casting15.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/casting15.jpg" alt="Casting the negative mold with OOMOO 30" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/casting16.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/casting16.jpg" alt="Casting the negative mold with OOMOO 30" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/casting17.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/casting17.jpg" alt="Casting the negative mold with OOMOO 30" loading="lazy" />
 </figure>
 
 ## Casting with Smooth-Cast 305
@@ -737,13 +737,13 @@ I googled a bit for probable reason for the bubbling, because it didn't happen f
 Next I tried casting wax, since we had alot of machineable wax chips everywhere, I just melted the and poured it into my mold. The Oomoo30 product page specifies that wax can be cast in it, so I just went along with it and I was really impressed with the output this time. There was no leakage from the mold, the edges came out sharp and the finishing was exactly as the mold.
 
 <figure>
-  <img src="/images/fabacademy/week-10/waxcast.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/waxcast.jpg" alt="Casting wax" loading="lazy" />
 </figure>
 
 ## Hero Shots
 
 <figure>
-  <img src="/images/fabacademy/week-10/weeklytile.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-10/weeklytile.jpg" alt="Hero Shots" loading="lazy" />
 </figure>
 
 ## Downloads

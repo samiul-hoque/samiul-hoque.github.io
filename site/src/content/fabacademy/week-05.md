@@ -21,7 +21,7 @@ gallery: []
 ## What I made
 
 <figure>
-  <img src="/images/fabacademy/week-05/heroimage.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/heroimage.png" alt="What I made" loading="lazy" />
 </figure>
 
 * * *
@@ -35,7 +35,7 @@ I recomend reading this paper: [Demystifying the FabISP](http://fab.cba.mit.edu/
 We will basically be using the FabISP to program our circuits in the coming weeks.
 
 <figure>
-  <img src="/images/fabacademy/week-05/ladyada.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/ladyada.png" alt="A bit of Context" loading="lazy" />
 </figure>
 
 ## Finding a FabISP design
@@ -50,19 +50,19 @@ For this week, we were suggested to select a design from the Fab Academy archive
 At first I decided to go with the [Fab ISP key](http://fab.cba.mit.edu/content/archive/projects/fabispkey/index.html) by [Andy bardagjy](http://bardagjy.com/)
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeytracev2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeytracev2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeycutv2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeycutv2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeytboardv2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeytboardv2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeyschematicv2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeyschematicv2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 I intend to get this week's assignment done first and then explore on making my own ISP and that's why I didn't bother looking into the design much on the first go. And oh boy was I so wrong..  
@@ -70,15 +70,15 @@ I intend to get this week's assignment done first and then explore on making my 
 After milling, my PCBs had more than just a few connected traces.
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeyv2output3.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeyv2output3.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeyv2output.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeyv2output.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispkeyv2output2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispkeyv2output2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
 Then I realized that Andy's images were not of high enough DPI. Since I didn't know much about the settings on [Mods](http://mods.cba.mit.edu/), I thought I was probably making a mistake somewhere. I also realized that there was a logic level shifter, the [TBX0104](http://www.ti.com/lit/ds/symlink/txb0104.pdf) on the board, which was not in our inventory. While doing all this, I was already two days behind schedule.
@@ -92,17 +92,17 @@ So I searched the Fab Academy Archive and found [Brian's](http://fab.cba.mit.edu
 I found the files on [Brian's project page](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) and they were in PNG format with 1200 dpi. I knew these images would work and started milling them.
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispbriantrace.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispbriantrace.png" alt="Brian's Fab ISP" loading="lazy" />
 </figure>
 
  
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispbriancut.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispbriancut.png" alt="Brian's Fab ISP" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabispbriantboard.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabispbriantboard.png" alt="Brian's Fab ISP" loading="lazy" />
 </figure>
 
 ## PCB Milling
@@ -247,7 +247,7 @@ Open a browser tab and go to `127.0.0.1:8080` which is the same as `http://local
 -   Process> PCB Outline(1/32) for outlines and drill holes
 
 <figure>
-  <img src="/images/fabacademy/week-05/fabmodules.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/fabmodules.jpg" alt="Using Fab Modules" loading="lazy" />
 </figure>
 
 ## Fab Module Settings
@@ -313,7 +313,7 @@ Another trick is to cut the circuit twice using the same origin. This helps to g
 For the sheet, I used epoxy film beneath the copper layer. This doesn't give me that transparent PCB look after the transfer, but the copper still looks good on the white epoxy film. 
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylcopperepoxy.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylcopperepoxy.png" alt="Preparing the Copper Sheet" loading="lazy" />
 </figure>
 
 #### Cutting the Epoxy Vinyl:
@@ -322,11 +322,11 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
 -   Make sure to use some masking tape to secure the vinyl after you've cut your piece.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylepoxyprepare1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylepoxyprepare1.png" alt="Cutting the Epoxy Vinyl" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylepoxyprepare2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylepoxyprepare2.png" alt="Cutting the Epoxy Vinyl" loading="lazy" />
 </figure>
 
   
@@ -340,11 +340,11 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
 -   Make sure to use some masking tape to secure the vinyl after you've cut your piece. Copper vinyl is expensive, be considerate while using it.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylcopperprepare1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylcopperprepare1.png" alt="Cutting the Copper Vinyl" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylcopperprepare2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylcopperprepare2.png" alt="Cutting the Copper Vinyl" loading="lazy" />
 </figure>
 
   
@@ -356,15 +356,15 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
 -   Place copper vinyl on top of epoxy vinyl, rub with your thumb to get it as smooth as possible.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylprepare1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylprepare1.png" alt="Putting copper vinyl on Epoxy" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylprepare2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylprepare2.png" alt="Putting copper vinyl on Epoxy" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylprepare3.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylprepare3.png" alt="Putting copper vinyl on Epoxy" loading="lazy" />
 </figure>
 
   
@@ -380,11 +380,11 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
 -   Do a test cut before you start with your printing, calibrate the blade force with that.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylprepare4.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylprepare4.png" alt="Putting the piece on the machine" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylsheetmode.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylsheetmode.png" alt="Putting the piece on the machine" loading="lazy" />
 </figure>
 
   
@@ -409,15 +409,15 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
 -   Cutting Speed: 1cm/s
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylimport.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylimport.png" alt="Machine Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylimagetrace.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylimagetrace.png" alt="Machine Settings" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylsettings.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylsettings.png" alt="Machine Settings" loading="lazy" />
 </figure>
 
 ### Ouptut
@@ -427,7 +427,7 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
 The output should look like this.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylcutoutput.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylcutoutput.png" alt="Ouptut" loading="lazy" />
 </figure>
 
   
@@ -441,11 +441,11 @@ The output should look like this.
 -   Use tweezers if any part is not comming out properly.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylweeding.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylweeding.png" alt="Weeding" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylweedoutput.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylweedoutput.png" alt="Weeding" loading="lazy" />
 </figure>
 
   
@@ -455,11 +455,11 @@ The output should look like this.
 Since I used an epoxy film vinyl beneath the copper, I can just cut that portion out and stick it to a a surface. The only downside is that I cant make transparent circuits this way, but the white background is obviously an improvement compared to the FR1 boards.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylpcboutput.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylpcboutput.png" alt="Transfering the PCB" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylpcbonacryllic.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylpcbonacryllic.png" alt="Transfering the PCB" loading="lazy" />
 </figure>
 
 I tried to transfer the copper using transfer tape, but the copper adhesive on the epoxy film adheres more strongly than the adhesive power of the transfer tape. It was not possible to transfer it that way.
@@ -485,7 +485,7 @@ The settings came out so well, that I could weed the whole PCB on one pull. Here
 To put it simply, the glue on the copper tape is not strong enough to hold down the 6pin connector when you're plugin in the ISP programmer cable. It will snap off like you can see here. To avoid that, and also to protect the copper vinyl from moving around, we can secure the whole circuit using epoxy.
 
 <figure>
-  <img src="/images/fabacademy/week-05/circuitprotect.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/circuitprotect.png" alt="Why you need it?" loading="lazy" />
 </figure>
 
 #### Epoxy Glue
@@ -499,11 +499,11 @@ I probably didn't need to smother so much onto it, but....
 yeah.. you learn these things only after you mess up. :|
 
 <figure>
-  <img src="/images/fabacademy/week-05/epoxyglue1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/epoxyglue1.png" alt="Epoxy Glue" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/epoxyglue2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/epoxyglue2.png" alt="Epoxy Glue" loading="lazy" />
 </figure>
 
 #### Clear Epoxy Resin
@@ -515,11 +515,11 @@ Clear Epoxy gave much better results, and it's barely noticable.
 Make sure to smother your 6 pin connector with Epoxy. This is the part that actually needs the protection.
 
 <figure>
-  <img src="/images/fabacademy/week-05/clearepoxy1.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/clearepoxy1.png" alt="Clear Epoxy Resin" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/clearepoxy2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/clearepoxy2.png" alt="Clear Epoxy Resin" loading="lazy" />
 </figure>
 
 ## Gathering Components
@@ -539,7 +539,7 @@ The components list of Brian's Fab ISP are as follows:
 When collecting components, I usually write up the list of items on paper and use a masking tape to stick the materials on my list. So after a quick run through the lab inventory, I ended up with this.
 
 <figure>
-  <img src="/images/fabacademy/week-05/components.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/components.png" alt="Collecting Components the Right Way" loading="lazy" />
 </figure>
 
 ### Maintaining Inventory
@@ -567,7 +567,7 @@ Here are some quick videos of soldering various components.
 * * *
 
 <figure>
-  <img src="/images/fabacademy/week-05/solderingtiny44.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/solderingtiny44.gif" alt="How to solder the ATtiny45" loading="lazy" />
 </figure>
 
 #### How to solder 1206 components
@@ -575,7 +575,7 @@ Here are some quick videos of soldering various components.
 * * *
 
 <figure>
-  <img src="/images/fabacademy/week-05/soldering1206.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/soldering1206.gif" alt="How to solder 1206 components" loading="lazy" />
 </figure>
 
 #### How to thicken the traces for the USB connector.
@@ -583,7 +583,7 @@ Here are some quick videos of soldering various components.
 * * *
 
 <figure>
-  <img src="/images/fabacademy/week-05/solderingtrail.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/solderingtrail.gif" alt="How to thicken the traces for the USB connector." loading="lazy" />
 </figure>
 
 ## Circuit Debugging
@@ -596,7 +596,7 @@ After I was done soldering, I started to check my board for errors.
 I used a multimeter to check for shorts using it's continuity function.
 
 <figure>
-  <img src="/images/fabacademy/week-05/shortcheck.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/shortcheck.png" alt="Using the Multimeter: Continuity Function" loading="lazy" />
 </figure>
 
   
@@ -688,7 +688,7 @@ Then I ran the following command to erase the flash memory on the AtTiny45.
 This will erase any existing code on the chip.
 
 <figure>
-  <img src="/images/fabacademy/week-05/makeflash.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/makeflash.png" alt="Flashing the FabISP" loading="lazy" />
 </figure>
 
   
@@ -705,7 +705,7 @@ This will set up all of the fuses except the one that disables the reset pin. Ag
 This will also make the FabISP recognizable by USB. It will show up as a USBTinySPI device.
 
 <figure>
-  <img src="/images/fabacademy/week-05/makefuses.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/makefuses.png" alt="Setting the fuses for USB Functionality" loading="lazy" />
 </figure>
 
   
@@ -727,7 +727,7 @@ Only after all the above steps working, run the command,
 This will make your rst pin into a regular GPIO pin. But at the cost of the AtTiny45 to become unprogrammable.
 
 <figure>
-  <img src="/images/fabacademy/week-05/makerstdisbl.PNG" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/makerstdisbl.PNG" alt="Blow the Reset Fuse" loading="lazy" />
 </figure>
 
   
@@ -741,31 +741,31 @@ Run, `make --always-make`
 And follow through the same process again. For me everything went well and now I have two fully functional FabISPs.
 
 <figure>
-  <img src="/images/fabacademy/week-05/programmingwithfabISP.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/programmingwithfabISP.png" alt="Using the FabISP to program another FabISP" loading="lazy" />
 </figure>
 
 ## Trying out additional PCB manufacturing techniques
 
 <figure>
-  <img src="/images/fabacademy/week-05/differentpcboutput.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/differentpcboutput.png" alt="Trying out additional PCB manufacturing techniques" loading="lazy" />
 </figure>
 
 #### Trying out my own FabISP design
 
 <figure>
-  <img src="/images/fabacademy/week-05/myfabisp2.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/myfabisp2.png" alt="Trying out my own FabISP design" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/myfabisp3.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/myfabisp3.png" alt="Trying out my own FabISP design" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/myfabisp4.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/myfabisp4.png" alt="Trying out my own FabISP design" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/myfabisp5.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-05/myfabisp5.png" alt="Trying out my own FabISP design" loading="lazy" />
 </figure>
 
 ## Downloads

@@ -201,7 +201,7 @@ I am now using a plugin within visual studio code called 'live server' which doe
 The Editorial theme looks like this by default.
 
 <figure>
-  <img src="/images/fabacademy/week-02/editorialdefault.png" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-02/editorialdefault.png" alt="Customizing the theme" loading="lazy" />
 </figure>
 
 Now let's change the colors a bit. I dont like a white background as it is kinda hard on the eyes. And I'd like to get rid of the pink colors To do that, Navigate to `/assets/sass/libs/_vars.scss`

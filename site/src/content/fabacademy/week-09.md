@@ -18,19 +18,19 @@ Compare the performance and development workflows for other architectures
 ## What I made this Week
 
 <figure>
-  <img src="/images/fabacademy/week-09/heroshot2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/heroshot2.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-09/attinytest_arduino.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/attinytest_arduino.gif" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-09/st322.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/st322.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-09/ftdi.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/ftdi.jpg" alt="What I made this Week" loading="lazy" />
 </figure>
 
 ## Reading a Datasheet: ATTINY44
@@ -43,7 +43,7 @@ The Atmel ATtiny24/44/84 provides the following features:
 The best way to know about a microcontroller and Instruction set is reading its Datasheet.we will get all the information from the Datasheet , only problem is that its not beginner friendly. I started Reading ATtiny44 Datasheet that I got from the [Micorchip's website as it was a part of the assignment this week.](http://ww1.microchip.com/downloads/en/devicedoc/Atmel-7701_Automotive-Microcontrollers-ATtiny24-44-84_Datasheet.pdf).
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet1.jpg" alt="Reading a Datasheet: ATTINY44" loading="lazy" />
 </figure>
 
 ## Specifitcations
@@ -80,7 +80,7 @@ The Block Diagram for the ATTINY44, according to the datasheet has four main sec
 -   and The Programming interface
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_block_diagram.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_block_diagram.jpg" alt="Architecture" loading="lazy" />
 </figure>
 
 ### ALU Unit:
@@ -88,7 +88,7 @@ The Block Diagram for the ATTINY44, according to the datasheet has four main sec
 The ALU - Arithmetic Logic Unit - operations are divided in some categories like: arithmetic, logical and bit-functions. Status register contains the most recently executed arithmetic instruction.
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_ALU_SR.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_ALU_SR.jpg" alt="ALU Unit" loading="lazy" />
 </figure>
 
 ### Timer & Counter:
@@ -96,7 +96,7 @@ The ALU - Arithmetic Logic Unit - operations are divided in some categories like
 The main features of the timer - counter are:
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_16bitTimer1.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_16bitTimer1.jpg" alt="Timer & Counter" loading="lazy" />
 </figure>
 
 ### ADC Characteristics:
@@ -104,31 +104,31 @@ The main features of the timer - counter are:
 The ADC table characteristic are:
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_adc_characteristics.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_adc_characteristics.jpg" alt="ADC Characteristics" loading="lazy" />
 </figure>
 
 In order to choose an ADC, you need to choose multiplexers according to this table.
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_single_end_input_channel.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_single_end_input_channel.jpg" alt="ADC Characteristics" loading="lazy" />
 </figure>
 
 ## Pin descriptions
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheetPin.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheetPin.jpg" alt="Pin descriptions" loading="lazy" />
 </figure>
 
 Port A Configuration:
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_porta.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_porta.jpg" alt="Pin descriptions" loading="lazy" />
 </figure>
 
 Port B Configuration:
 
 <figure>
-  <img src="/images/fabacademy/week-09/datasheet_portb.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/datasheet_portb.jpg" alt="Pin descriptions" loading="lazy" />
 </figure>
 
 ## Programming the ATTINY44 with Arduino
@@ -136,7 +136,7 @@ Port B Configuration:
 The Arduino Development Environment can be used to program the ATTINY44. It makes life much easier for the everyday maker like me by getting the full support of the Arduino IDE.
 
 <figure>
-  <img src="/images/fabacademy/week-09/arduino.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/arduino.jpg" alt="Programming the ATTINY44 with Arduino" loading="lazy" />
 </figure>
 
 ## Installation
@@ -189,7 +189,7 @@ This code below blinks two LEDs on pin PA3 and PA4.
 ### Output
 
 <figure>
-  <img src="/images/fabacademy/week-09/attinytest_arduino.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/attinytest_arduino.gif" alt="Output" loading="lazy" />
 </figure>
 
 ### HEX footprint:
@@ -197,7 +197,7 @@ This code below blinks two LEDs on pin PA3 and PA4.
 The generated HEX can be exported from arduino by clicking on the 'Export Compiled Binary' option.
 
 <figure>
-  <img src="/images/fabacademy/week-09/hexarduino.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/hexarduino.jpg" alt="HEX footprint" loading="lazy" />
 </figure>
 
 #### HEX Output:
@@ -211,7 +211,7 @@ The generated HEX can be exported from arduino by clicking on the 'Export Compil
 AVR microcontrollers can be programmed using GCC C. I'll be using Atmel Studio as the IDE. Most of Neil's code is written in C, which I have been having a hard time understanding. Hopefully after tinkering with Atmel Studio a bit, I'll be able to write my onw C code.
 
 <figure>
-  <img src="/images/fabacademy/week-09/atmelstudio.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/atmelstudio.jpg" alt="Programming the ATTINY44 with GCC C" loading="lazy" />
 </figure>
 
 ## Setting up Atmel Studio
@@ -279,7 +279,7 @@ The FABISP needs to be added as an external tool to Atmel Studio if we want to u
 ### The Output on the board was the same as the code was the same, just written in different languages
 
 <figure>
-  <img src="/images/fabacademy/week-09/attinytest_arduino.gif" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/attinytest_arduino.gif" alt="The Output on the board was the same as the code was the same, just written in different languages" loading="lazy" />
 </figure>
 
 #### HEX Footprint:
@@ -338,7 +338,7 @@ The STM32F103xx medium-density performance line family incorporates the high-per
   
 
 <figure>
-  <img src="/images/fabacademy/week-09/stm32datasheet.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/stm32datasheet.jpg" alt="Low-power" loading="lazy" />
 </figure>
 
 #### 2 x 12-bit, 1 μs A/D converters (up to 16 channels)
@@ -387,7 +387,7 @@ stop-   2 watchdog timers (Independent and Window)
 #### Packages are ECOPACK®
 
 <figure>
-  <img src="/images/fabacademy/week-09/stm32architecture.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/stm32architecture.jpg" alt="Packages are ECOPACK®" loading="lazy" />
 </figure>
 
 ## Making a STM32F103C8T6 board
@@ -461,7 +461,7 @@ To use the board manager installation method, the following url needs to be adde
 `https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json`
 
 <figure>
-  <img src="/images/fabacademy/week-09/stm32duino.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/stm32duino.jpg" alt="Using STM32Duino to program the Blue Pill Dev. Board" loading="lazy" />
 </figure>
 
 #### Uploading a Blink Code:
@@ -505,7 +505,7 @@ Surprisingly, the hex footprint to run this small code is 715 lines long. (32,76
 [Mbed](https://www.mbed.com/en/) is an online embedded device platform which gives you an embedded operating system, transport, security and cloud services to create Embedded solutions. Although it is designed mostly for IoT applications, the generic chinese blue pill development board can also be programmed using it. I think it is an integrated solution that is easy to work on and easy to deploy. More about what is Mbed and how it works, can be found [here.](https://www.mbed.com/en/about-mbed/what-mbed/)
 
 <figure>
-  <img src="/images/fabacademy/week-09/mbed.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/mbed.jpg" alt="Using Arm Mbed to program the Blue Pill Development Board" loading="lazy" />
 </figure>
 
 ### Getting Started with Mbed and the Generic Blue Pill Development board:
@@ -529,11 +529,11 @@ The compiler UI is a bit confusing at first. I would recomend using the many exa
 The program project folder will be created along with the 'main.c' file, which we will be editing to write our own code. The example code looks a bit like this, but it didn't work out of the box because the default Serial Tx/Rx pins for the nucleo and the blue pill are different. So after going through the [Generic Blue Pill Guide for Mbed](https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/), I wrote the following code.
 
 <figure>
-  <img src="/images/fabacademy/week-09/mbed2.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/mbed2.jpg" alt="Using the Online Mbed Compiler" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-09/mbed3.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/mbed3.jpg" alt="Using the Online Mbed Compiler" loading="lazy" />
 </figure>
 
 #### Compiling and optimizing:
@@ -541,15 +541,15 @@ The program project folder will be created along with the 'main.c' file, which w
 The Blue Pill board has 64KB memory, while the nucleo has 128kb. So after we click compile, we have to check on the 'Build Details', and manually ensure the Flash size does not exceed 64kb. For our case, the Flash Size of the build was 27.6kb which was well under 64kb. Once you click compile, the compiled .bin file should automatically downloaded in your browser.
 
 <figure>
-  <img src="/images/fabacademy/week-09/mbed4.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/mbed4.jpg" alt="Compiling and optimizing" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-09/mbed6.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/mbed6.jpg" alt="Compiling and optimizing" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-09/mbed5.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/mbed5.jpg" alt="Compiling and optimizing" loading="lazy" />
 </figure>
 
 #### Uploading the Code:
@@ -603,7 +603,7 @@ To view the UART output, connect the FTDI module with the blue pill dev. board, 
 -   GND-------------------------------------GND
 
 <figure>
-  <img src="/images/fabacademy/week-09/ftdi.jpg" alt="" loading="lazy" />
+  <img src="/images/fabacademy/week-09/ftdi.jpg" alt="Blue Pill ---------------------FTDI" loading="lazy" />
 </figure>
 
 #### Download Project Files:

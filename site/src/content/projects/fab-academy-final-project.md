@@ -1,5 +1,5 @@
 ---
-title: "Fab Academy 2019"
+title: "Fab Academy 2019 — Final Project"
 year: 2019
 role: "Student — 19-week distributed digital fabrication programme"
 client: "Fab Foundation / Center for Bits and Atoms (MIT)"
