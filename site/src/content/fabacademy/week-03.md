@@ -234,81 +234,15 @@ Here's a screencapture of my whole work process in illustrator.
 
 ### Comparison betweeen all the 2D software I tried
 
-| 
- | 
-
-#### MS Paint
-
- | 
-
-#### GIMP
-
- | 
-
-#### Adobe Photoshop CC
-
- | 
-
-#### Adobe Illustrator CC
-
- |
+|  | MS Paint | GIMP | Adobe Photoshop CC | Adobe Illustrator CC |
 | --- | --- | --- | --- | --- |
-|  | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="Adobe Illustrator CC" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/gimp.png" alt="Adobe Illustrator CC" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Illustrator CC" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator CC" loading="lazy" />
-</figure>
-
- |
-| --- | --- | --- | --- | --- |
+|  | <img src="/images/fabacademy/week-03/mspaintlogo.png" alt="MS Paint logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/gimp.png" alt="GIMP logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop logo" loading="lazy" /> | <img src="/images/fabacademy/week-03/illustrator-logo.png" alt="Adobe Illustrator logo" loading="lazy" /> |
 | Graphic Type | Raster | Raster | Raster/Vector | Vector |
 | License | Free | Free | Paid | Paid |
 | Learning curve | Very easy | Slightly difficult | difficult | Slightly difficult |
 | Best feature | Built into Windows, highly optimized. Useful for quick edits. | Cross platform, free to use and has almost all tools to compete with photoshop. | The Profesional Standard in graphics work. Has every tool necessary for this line of work. | Built into the Adobe creative cloud. UI is clean and similar to photoshop. Can generate a wide range of output files. |
 | What I would use it for | Quick and fast edits on single file. | Batch Image manipulation | Creating posters, banners and online content. | Create vectors for Laser cutting, CNC etc |
-| Output | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/mspaintPixelFace.png" alt="MSpaint sample" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/gimpPixelFace.png" alt="MSpaint sample" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/pixeFace-Photoshop-Output.png" alt="MSpaint sample" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/illustratorpixelFace.png" alt="MSpaint sample" loading="lazy" />
-</figure>
-
- |
+| Output | <img src="/images/fabacademy/week-03/mspaintPixelFace.png" alt="PixelFace drawn in MS Paint" loading="lazy" /> | <img src="/images/fabacademy/week-03/gimpPixelFace.png" alt="PixelFace in GIMP" loading="lazy" /> | <img src="/images/fabacademy/week-03/pixeFace-Photoshop-Output.png" alt="PixelFace in Photoshop" loading="lazy" /> | <img src="/images/fabacademy/week-03/illustratorpixelFace.png" alt="PixelFace in Illustrator" loading="lazy" /> |
 
 ### 3D Designing
 
@@ -370,50 +304,14 @@ With that I was ready with the 3D model of my base. I decided not to complicate 
 
 [PixelFace Base](https://sketchfab.com/models/5743e561ccd94952a70e2ab21ac0c94b?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
 
-  
-My entire Fusion360 workflow can be watched on this video. Sadly, the educational License on Fusion 360 doesn't have that feature.  
-After a bit of struggling, I managed to export files from Fusion360 using the web interface so I could use the model in a different 3D CAD software that can do design optimization for me. 
-
-<figure>
-  <img src="/images/fabacademy/week-03/5exportingfromf360.png" alt="Fusion 360" loading="lazy" />
-</figure>
-
-### Design Optimization in Meshmixer
-
-<figure>
-  <img src="/images/fabacademy/week-03/meshmixer-logo.png" alt="Design Optimization in Meshmixer" loading="lazy" />
-</figure>
-
-For creating similar patterns like generative design, I am using Meshmixer. It is very user friendly. And after watching this tutorial;  
-I came up with this design for the base. I used the Make pattern tool and made a dual edge with a hex grid pattern. I am sure I can optimize it further after optimizing where I need the parts to be stronger,
-
-<figure>
-  <img src="/images/fabacademy/week-03/6meshmixer.png" alt="Design Optimization in Meshmixer" loading="lazy" />
-</figure>
-
-[Pixel Face Meshmixed](https://sketchfab.com/models/001a028025404c74840c9b90aca54f93?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
-
-| 
- | Fusion 360 | MeshMixer |
+|  | Fusion 360 | MeshMixer |
 | --- | --- | --- |
 | Graphic type | 3D/2D | 3D |
 | License | Educational Version is free | Free |
 | Learning Curve | Very Intuitive | Very easy |
 | Best Feature | Combines 2D design with 3D, parametric, Easy to run on low spec Machine | Free to use, can be used to generate shapes in 3D objects desgined in f360 |
 | What I would use it for | Make 3D designs for my project, share and collaborate with others using a360 and the mobile app. | Since Generative feature in Fusion 360 is not free, I'll use MeshMixer to optimize my Desingns through trial and error. |
-|  | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/f360output.png" alt="MSpaint sample" loading="lazy" />
-</figure>
-
- | 
-
-<figure>
-  <img src="/images/fabacademy/week-03/meshmixerOutput.png" alt="MSpaint sample" loading="lazy" />
-</figure>
-
- |
+| Output | <img src="/images/fabacademy/week-03/f360output.png" alt="PixelFace base in Fusion 360" loading="lazy" /> | <img src="/images/fabacademy/week-03/meshmixerOutput.png" alt="PixelFace base optimized in MeshMixer" loading="lazy" /> |
 
 ### Mistakes Made this week
 
