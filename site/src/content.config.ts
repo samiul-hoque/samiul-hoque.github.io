@@ -52,4 +52,15 @@ const publications = defineCollection({
   }),
 });
 
-export const collections = { projects, publications };
+const fabacademy = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/fabacademy' }),
+  schema: z.object({
+    title: z.string(),
+    week: z.number(),
+    assignment: z.string(),
+    heroImage: z.string().optional(),
+    gallery: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { projects, publications, fabacademy };
