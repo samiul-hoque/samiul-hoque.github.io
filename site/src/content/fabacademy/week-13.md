@@ -207,7 +207,7 @@ It did not. The Chinese Optical Encoders I bought did not give proper Data. I la
 
 ## Will the LED refresh rate be fast enough for the POV effect?
 
-I was quite worried about this, but it turns out, for only 14 LEDs, the refresh rate is more than fast enough. My Atmega328p is running at 20Mhz and the rotating arm is running at 1100rpm. Which is roughly 18 rotations per second. Each Rotation has about 24 frames according to my code, which meant around 440 updates to the LEDs per second. Thats a whole 2.72 milliseconds to update the LEDs.
+I was quite worried about this, but it turns out, for only 14 LEDs, the refresh rate is more than fast enough. My Atmega328p is running at 20Mhz and the rotating arm is running at 1100rpm. Which is roughly 18 rotations per second. Each Rotation has about 24 frames according to my code, which meant around 440 updates to the LEDs per second. Thats a whole 2.27 milliseconds to update the LEDs.
 
 I used the [NeoPixelBus](https://github.com/Makuna/NeoPixelBus) library which made it possible for me to use the LED library in a non blocking way, the regular [FastLED](https://github.com/FastLED/FastLED) library would not have worked.
 

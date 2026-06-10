@@ -40,9 +40,47 @@ function formatAuthors(authors: string[]) {
       : { name: a, self: false }
   );
 }
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': 'https://samiulmakes.com/publications/#collection',
+      name: 'Publications — Samiul Hoque',
+      description: 'Peer-reviewed conference papers and thesis work by Samiul Hoque.',
+      url: 'https://samiulmakes.com/publications/',
+      author: { '@id': 'https://samiulmakes.com/#person' },
+      isPartOf: { '@id': 'https://samiulmakes.com/#website' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Samiul Hoque', item: 'https://samiulmakes.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Publications', item: 'https://samiulmakes.com/publications/' },
+      ],
+    },
+    ...all
+      .sort((a, b) => b.data.year - a.data.year || a.data.order - b.data.order)
+      .map((p) => ({
+        '@type': 'ScholarlyArticle',
+        headline: p.data.title,
+        author: p.data.authors.map((name) =>
+          name === 'Samiul Hoque' || name === 'Samiul Haque'
+            ? { '@type': 'Person', '@id': 'https://samiulmakes.com/#person', name: 'Samiul Hoque' }
+            : { '@type': 'Person', name }
+        ),
+        datePublished: String(p.data.year),
+        ...(p.data.venue && { publisher: { '@type': 'Organization', name: p.data.venue } }),
+        ...(p.data.doi && { sameAs: `https://doi.org/${p.data.doi}` }),
+        ...(p.data.url && { url: p.data.url }),
+        ...(p.data.keywords?.length && { keywords: p.data.keywords.join(', ') }),
+      })),
+  ],
+};
 ---
 
-<Base title="Publications" description="Peer-reviewed conference papers and thesis work by Samiul Hoque.">
+<Base title="Publications" description="Peer-reviewed conference papers and thesis work by Samiul Hoque — IoT monitoring, omnidirectional robotics, and holonomic odometry research." jsonLd={jsonLd}>
   <article class="container publications">
     <header>
       <span class="eyebrow">Publications</span>

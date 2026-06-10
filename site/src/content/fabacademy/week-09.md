@@ -85,7 +85,7 @@ The Block Diagram for the ATTINY44, according to the datasheet has four main sec
 
 ### ALU Unit:
 
-The ALU - Arithmetic Logic Unit - operations are divided in some categories like: arithmetic, logical and bit-functions. Status register contains the most recently executed arithmetic instruction.
+The ALU - Arithmetic Logic Unit - operations are divided in some categories like: arithmetic, logical and bit-functions. Status register contains information about the result of the most recently executed arithmetic instruction.
 
 <figure>
   <img src="/images/fabacademy/week-09/datasheet_ALU_SR.jpg" alt="ALU Unit" loading="lazy" />
@@ -392,7 +392,7 @@ stop-   2 watchdog timers (Independent and Window)
 
 ## Making a STM32F103C8T6 board
 
-Making an STM32F103C8T6 is much harder than making a ATMEGA328p or ATTINY44 board because of the large number of peripheral components required. The programming procedure is also quite difficult requiring to load an OS on the device first, then working from there. The OS can be flashed using a JTAG prorammer or an ST-link official programmer.  
+Making an STM32F103C8T6 is much harder than making a ATMEGA328p or ATTINY44 board because of the large number of peripheral components required. The programming procedure is also quite difficult requiring to load a bootloader on the device first, then working from there. The bootloader can be flashed using a JTAG programmer or an ST-link official programmer.  
   
 
 The Minimal circuit for the STM32F103C8T6 can be found in the official ST documentation for [Getting started with STM32F10xxx hardware development](https://www.st.com/resource/en/application_note/cd00164185.pdf) application note.
@@ -428,7 +428,7 @@ The footprint for the STM32F103C8T6 we have at the lab is LQFP48 (7mmx7mm) which
 
 ## Programming the STM32F103C8T6 Development board
 
-I resorted to using an STM32F103C8T6 development board instead of making my breakout board work. It was pretty straightforward from there. It came with all peripheral components on board and Serial/USB and SWIM interface for programming.  
+I resorted to using an STM32F103C8T6 development board instead of making my breakout board work. It was pretty straightforward from there. It came with all peripheral components on board and Serial/USB and SWD interface for programming.  
 All information on these generic STM32F103C8T6 development board, also known as the Blue Pill development board can be found [here.](https://wiki.stm32duino.com/index.php?title=Blue_Pill)
 
 <figure>
@@ -466,12 +466,12 @@ To use the board manager installation method, the following url needs to be adde
 
 #### Uploading a Blink Code:
 
-The blue pill development board is a minimal one and only has one programmable LED on PC13 for test programming. I wrote a blink code for it and uploaded the program using Arduino. The Connection from the SWIM interface on the blue pill to the JTAG breakout on the ST-Link is explained on the [stm32duino wiki.](https://wiki.stm32duino.com/index.php?title=Uploading_a_sketch) The Pinout is as follows;
+The blue pill development board is a minimal one and only has one programmable LED on PC13 for test programming. I wrote a blink code for it and uploaded the program using Arduino. The Connection from the SWD interface on the blue pill to the JTAG breakout on the ST-Link is explained on the [stm32duino wiki.](https://wiki.stm32duino.com/index.php?title=Uploading_a_sketch) The Pinout is as follows;
 
 #### Blue Pill ---------------------ST-Link
 
 -   3v3--------------------------------------pin 1
--   SWO------------------------------------ pin 7
+-   SWDIO------------------------------------ pin 7
 -   SWCLK-----------------------------------pin 9
 -   GND-------------------------------------GND
 
@@ -559,7 +559,7 @@ To upload the .bin file we need to download the [ST link utility](https://www.st
 #### Blue Pill ---------------------ST-Link
 
 -   3v3--------------------------------------pin 1
--   SWO------------------------------------ pin 7
+-   SWDIO------------------------------------ pin 7
 -   SWCLK-----------------------------------pin 9
 -   GND-------------------------------------GND
 

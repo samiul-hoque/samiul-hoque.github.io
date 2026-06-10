@@ -1,8 +1,42 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': 'https://samiulmakes.com/about/#profilepage',
+      url: 'https://samiulmakes.com/about/',
+      name: 'About Samiul Hoque',
+      mainEntity: { '@id': 'https://samiulmakes.com/#person' },
+      isPartOf: { '@id': 'https://samiulmakes.com/#website' },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://samiulmakes.com/#person',
+      name: 'Samiul Hoque',
+      alternateName: 'samiulmakes',
+      url: 'https://samiulmakes.com',
+      description:
+        'Engineer based in Dhaka, Bangladesh, working across electronics, embedded systems, digital fabrication, and full-stack software.',
+      jobTitle: 'Founding Engineer',
+      worksFor: { '@type': 'Organization', name: 'Ghorar Dim Studios' },
+      knowsAbout: ['Electronics', 'PCB Design', 'Embedded Systems', 'Digital Fabrication', 'CNC Machining', '3D Printing', 'IoT', 'Robotics'],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Samiul Hoque', item: 'https://samiulmakes.com/' },
+        { '@type': 'ListItem', position: 2, name: 'About', item: 'https://samiulmakes.com/about/' },
+      ],
+    },
+  ],
+};
 ---
 
-<Base title="About" description="How I came to do this kind of work — hardware, software, and whatever else the project demands.">
+<Base title="About" description="Who Samiul Hoque is and how he came to work across hardware, software, digital fabrication, and whatever else the project demands." jsonLd={jsonLd}>
   <article class="container about">
     <header>
       <span class="eyebrow">About</span>

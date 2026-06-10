@@ -37,7 +37,7 @@ global instructor was Francisco Sanchez (TECSUP).
 Each week is a topic with a new build at the end: laser cutting, vinyl
 cutting, 3D scanning, 3D printing, CNC machining, PCB design, PCB
 fabrication, embedded programming, networking, mechanical design, machine
-design, molding and casting, composites, electronics production,
+design, molding and casting, electronics production,
 input/output devices, interface programming, applications and implications.
 Everything has to be documented to pass.
 
@@ -48,8 +48,9 @@ if you want the depth.
 
 ## Machine Design week
 
-Group project, five of us from very different backgrounds. We built a
-Victorian-era marble maze with a motorised ball-lift mechanism. I was
+Group project, five of us from very different backgrounds. We built two
+marble mazes with servo-controlled tilting mechanisms, one driven by an
+accelerometer glove and the other by a joystick. I was
 notionally on electronics and embedded — that escalated to CAD for the
 mechanism as the week went on. Everyone ended up doing everyone's job. The
 result was, against my expectations, beautiful.

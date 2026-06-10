@@ -64,15 +64,15 @@ We were also added to the class repository, after the first lecture. We'll be us
 
 To access and manage our GitLab repo, we'll be using GIT. To install git, on your terminal, just type
 
-`sudo apt-get git`
+`sudo apt-get install git`
 
 If you're a Windows user, just download the Gitbash installer from here.
 
 #### Setting up your credentials
 
-Now that I have git, I set up my credentials. To add your username, `git config --global "your-username"`
+Now that I have git, I set up my credentials. To add your username, `git config --global user.name "your-username"`
 
-To add an email, `git config --global "your@example.email"`
+To add an email, `git config --global user.email "your@example.email"`
 
 To check if your usename and email are okay, write `git config --list`
 
@@ -239,9 +239,9 @@ Then I created html files for each page I want on my website in their respective
 #### How Links work: Anchor Tags
 
 This is an anchor tag.  
-`<a href=" *link goes here"* > *"text to appear"* />`  
+`<a href=" *link goes here"* > *"text to appear"* </a>`  
 To open something in a new tab, just add a target=\_"blank" to the anchor tag, like this;  
-`<a href=" *link goes here"* target="_blank" > *"text to appear"* />`
+`<a href=" *link goes here"* target="_blank" > *"text to appear"* </a>`
 
 ### Some Basic HTML lingo
 
@@ -251,7 +251,7 @@ For texts, there are header tags and p Tags.
 
   
   
-`<h1>h1 title goes here <h1>   <h2>h1 sub head <h2>   <h3>h1 h3 text here <h3>   <h4>h4 here <h4>   <h5>h5 here <h5>   <h6>h6 here<h6>   `
+`<h1>h1 title goes here </h1>   <h2>h1 sub head </h2>   <h3>h1 h3 text here </h3>   <h4>h4 here </h4>   <h5>h5 here </h5>   <h6>h6 here</h6>   `
 
 <figure>
   <img src="/images/fabacademy/week-02/htmlheaders.png" alt="HTML Header tags" loading="lazy" />
@@ -291,7 +291,7 @@ File Paths in the local Directory are Relative Paths.
 Files Paths on the web are Absolute Paths.  
 `http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/images/fablogo.jpg`  
 To Avoid errors with paths in the GitLab repository, I am using the HTML base tag. (Thanks <3 Fiore!)  
-<base = " *../home repo link here"* />
+<base href=" *../home repo link here"* />
 
 #### Sources
 

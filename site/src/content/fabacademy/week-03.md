@@ -420,7 +420,7 @@ The press/pull operation can select a face and deform the 3D object accordingly.
   <img src="/images/fabacademy/week-03/pull1.jpg" alt="Press Pull" loading="lazy" />
 </figure>
 
-This is how my model looks like after these three operations other than extrude, which I used in week 2.
+This is how my model looks like after these three operations other than extrude, which I used earlier this week.
 
 [Pixel Face Basev2](https://sketchfab.com/3d-models/pixel-face-basev2-b7b8999d5a7e46bc8544abb6ef143dbc?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
 

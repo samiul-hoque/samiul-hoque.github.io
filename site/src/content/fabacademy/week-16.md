@@ -24,7 +24,7 @@ compare as many tool options as possible
 
 ## Objective
 
-The objective for me this week is to create a Control interface for my BLDC drive system which I am working on for my Final project. More details on that can be found [here](/projects/fab-academy/week-15/). I'll be using [Processing](https://processing.org/) for this week's work.
+The objective for me this week is to create a Control interface for my BLDC drive system which I am working on for my Final project. More details on that can be found [here](/projects/fab-academy/week-12/). I'll be using [Processing](https://processing.org/) for this week's work.
 
 ## The Board I'll be using for this week
 
@@ -224,7 +224,7 @@ The Scrollbar Example from which I based my code on can be found [here.](https:/
 
 -   Communicating with my Board via Serial at 9600bauds
 -   Sending the value from a scrollbar to control a BLDC motor(for the scrollbar using the previous Hscrollbar example)
--   Reading A0 pin from the Arduino to create a bargraph on the Processing Sketch, will be using the rec() function in processing to create my own bar graph.
+-   Reading A0 pin from the Arduino to create a bargraph on the Processing Sketch, will be using the rect() function in processing to create my own bar graph.
 
 * * *
 
@@ -244,7 +244,7 @@ The Scrollbar Example from which I based my code on can be found [here.](https:/
 
 ## Exporting my app as a standalone executable
 
-Processing allows you to export your processing application as standalone executables. I find this the most useful feature of processing. Although, the host machine needs to have Java installed on it to run the application.
+Processing allows you to export your processing application as standalone executables. I find this the most useful feature of processing. If you embed Java into the executable like I did, the host machine doesn't need Java installed; otherwise it does.
 
 <figure>
   <img src="/images/fabacademy/week-16/processingExport.jpg" alt="Multi Platform Export Options in Processing" loading="lazy" />

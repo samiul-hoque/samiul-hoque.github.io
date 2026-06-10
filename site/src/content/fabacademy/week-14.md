@@ -26,11 +26,11 @@ Embedded communication is the process of sending information between two MCUs or
 
 #### Synchronous
 
-Sender and receiver use the same clock signal. An example is Serial Communication, where we needed to fix the baude rate for boards to communicate with eachother.
+Sender and receiver use the same clock signal. An example is i2c and SPI, where a clock line (SCL or SCK) is shared between the sender and receiver.
 
 #### Asynchronous:
 
-Sender provides a synchronization signal to the receiver before starting the transfer of each message. And example of this is i2c and SPI where there is a CLK maintains the clock signals.
+Sender provides a synchronization signal to the receiver before starting the transfer of each message. And example of this is Serial Communication, where there is no shared clock, which is why we needed to fix the baude rate for boards to communicate with eachother.
 
 <figure>
   <img src="/images/fabacademy/week-14/synchronous-data-transfer-timing-diagram.jpg" alt="Synchronous data transfer timing diagram - Source" loading="lazy" />
@@ -115,11 +115,11 @@ For this week, I wanted to challenge myself with a networking project. I wanted 
 
 #### First Objective:
 
-Interface the [ADXL345](http://), an i2c accelerometer which works on 3.3v, transfer the accelerometer data using nrF24L01 modules which use SPI communication. I'll have to design a board that works on 3.3v which will be convinient to work with these components.
+Interface the [ADXL345](http://), an i2c accelerometer which works on 3.3v, transfer the accelerometer data using nRF24L01+ modules which use SPI communication. I'll have to design a board that works on 3.3v which will be convinient to work with these components.
 
 #### Second Objective:
 
-Recieve the accelerometer data using another nrF24L01 module, and send it to another board using i2c.
+Recieve the accelerometer data using another nRF24L01+ module, and send it to another board using i2c.
 
 #### Third Objective:
 
@@ -138,7 +138,7 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 #### Features:
 
 -   Atmega328p 8MHz running on 3.3v
--   Onboard Devices: nrF24L01, ADXL345
+-   Onboard Devices: nRF24L01+, ADXL345
 -   Hardware i2c and Serial pinouts
 
 [Download Eagle Project Files](/files/fabacademy/week-14/marbleMaze.zip)
@@ -150,10 +150,10 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 #### Features:
 
 -   Atmega328p 20MHz running on 5v
--   Seperate 3.3v power for nrF24L01
+-   Seperate 3.3v power for nRF24L01+
 -   Seperate power management for MG995 Servos using LM2940
 -   Control Circuit for 12v LED strips using N-Mosfets
--   Onboard Devices: nrF24L01, connecting port for HC-05
+-   Onboard Devices: nRF24L01+, connecting port for HC-05
 -   Hardware i2c and Serial pinouts
 
 [Download Eagle Project Files](/files/fabacademy/week-14/marbleMaze.zip)
@@ -172,11 +172,11 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 
 [Download Eagle Project Files](</files/fabacademy/week-14/pixelFace mainboard.zip>)
 
-## Board 1: Passing accelerometer data through nrF24L01+
+## Board 1: Passing accelerometer data through nRF24L01+
 
 ### Target Board
 
-I designed the board around the ADXL345 and the nRF240L01. As they required 3.3v power and we dont have logic level shifters at the lab, I used an atmega328p with an 8MHz resonator to run at 3.3v. I kept a seperate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF240L01 module as I read that they get a bit fussy if proper power is not supplied.  
+I designed the board around the ADXL345 and the nRF24L01+. As they required 3.3v power and we dont have logic level shifters at the lab, I used an atmega328p with an 8MHz resonator to run at 3.3v. I kept a seperate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF24L01+ module as I read that they get a bit fussy if proper power is not supplied.  
   
 I used Sparkfun's [ADXL345 breakout board](http://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/ADXL345_Breakout.pdf) as a reference for interfacing the ADXL345 chip. I tied pin 7 with VCC which enabled i2c mode and added noise filtering capacitors of 0.1uF and 10uF near the chip.  
   
@@ -219,7 +219,7 @@ To read the accelerometer data, I used the [Sparkfun ADXL345 Library](https://gi
 
 -   ADXL345 adxl = ADXL345(); \[Used to initiate communication in i2c mode\]
 -   adxl.powerOn();
--   adxl.setRangeSetting(2);\[set's the reading range. Lower is more sensitive, higher is more accurate; options are 2,4,8,16\]
+-   adxl.setRangeSetting(2);\[set's the reading range. Lower range gives finer resolution, higher range measures larger accelerations; options are 2,4,8,16\]
 -   adxl.readAccel(&int1 , &int2, & int3); \[Reads and stores accelerometer data into three integers\]
 
   
@@ -236,11 +236,11 @@ To read the accelerometer data, I used the [Sparkfun ADXL345 Library](https://gi
 
   
 
-### nRF240L01 Interfacing
+### nRF24L01+ Interfacing
 
 #### Transmitting an array of 3 integers Using the RF24 Library
 
-For the [nRF240L01](http://tmrh20.github.io/RF24/) modules, I used the RF24 library. I followed [this](https://www.youtube.com/watch?v=JSHJ-RLbNJk) youtube video to use the 'getting started' example to write my own code to transmit an integer array of size 3.  
+For the [nRF24L01+](http://tmrh20.github.io/RF24/) modules, I used the RF24 library. I followed [this](https://www.youtube.com/watch?v=JSHJ-RLbNJk) youtube video to use the 'getting started' example to write my own code to transmit an integer array of size 3.  
   
 The code has two parts, the transmit part and the recieve part. This board will be using the transmit part.
 
@@ -274,7 +274,7 @@ The code has two parts, the transmit part and the recieve part. This board will 
 
 ### Final Code for Board 1:
 
-#### Transmitting ADXL345 data using nrF24L01(merging both of the codes)
+#### Transmitting ADXL345 data using nRF24L01+(merging both of the codes)
 
 [ADXL345\_nrf24\_transmit.ino](/files/fabacademy/week-14/ADXL345_nrf24_transmit.ino)
 
@@ -283,7 +283,7 @@ The code has two parts, the transmit part and the recieve part. This board will 
 ### Target Board:
 
 I designed this board for our upcoming machine design project.  
-It has an nRF240L01 module connected on the SPI bus, header pins for the i2c bus, FTDI pinout and a connector for an HC-05 module which I will be using for this week's group work.  
+It has an nRF24L01+ module connected on the SPI bus, header pins for the i2c bus, FTDI pinout and a connector for an HC-05 module which I will be using for this week's group work.  
   
 It has power management circuitry to drive two high current MG995 servos using LM2940 regulators. It also has two NDS355AN N- mosfets to control two 12v LED strips.
 
@@ -297,7 +297,7 @@ It has power management circuitry to drive two high current MG995 servos using L
 
 > I used a double sided FR1 board to make this board and used the copper on the other side as a common ground plane. This helped me reduce the number of jumper resistors and also provided great thermals.
 
-#### Recieving Accelerometer Data through nRF240L01
+#### Recieving Accelerometer Data through nRF24L01+
 
 [Download nrf\_simpleRecieve.ino](/files/fabacademy/week-14/nrf_simpleRecieve.ino)
 
@@ -317,7 +317,7 @@ It has power management circuitry to drive two high current MG995 servos using L
   
 -   radio.startListening(); \[start listening for data\]
   
--   radio.write( &data , sizeof(int\[3\])) \[Send 'data', an integer array of size 3 \]
+-   radio.read( &data , sizeof(int\[3\])) \[Read the received 'data', an integer array of size 3 \]
 
   
 
@@ -362,7 +362,7 @@ I'll just be using this board I made during the output week to read the data ove
 ### Datasheets:
 
 1.  [ADXL345 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf)
-2.  [nRF24l01+ Datasheet](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf)
+2.  [nRF24L01+ Datasheet](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf)
 3.  [AMS1117 Datasheet](http://www.advanced-monolithic.com/pdf/ds1117.pdf)
 
 ### Eagle Project Folders:
@@ -381,7 +381,7 @@ I'll just be using this board I made during the output week to read the data ove
 
 ## Learning Outcomes
 
--   I learnt how to use the nRF240L01+ modules.
+-   I learnt how to use the nRF24L01+ modules.
 -   I learnt power management for 3.3v components on a 5v board.
 -   I learnt how to use the widely used RF24 library
 -   I learnt how to network between multiple protocols like i2c, serial and rf using RF24.

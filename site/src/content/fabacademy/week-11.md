@@ -186,15 +186,15 @@ The ADXL345 is a 3.3v chip and we don't have any level shifter ICs at the lab, s
 
 -   i2c interface with ADXL345 and all necessary filtering capacitors should be there.
 -   Breakout for an analog joystick module should be present.
--   Interface for communication module (nrF240l1+ and Bluetooth HC-05) should be present
+-   Interface for communication module (nRF24L01+ and Bluetooth HC-05) should be present
 -   The board should be running on 3.3v on external battery power, which means it would need a decent enough power regulation circtuit.
 -   I wanted to keep plug and play style connectors for everything, which would add alot of zero ohm resistors to the board, but none of the connectors needed extra jumper wires.
 
 > More on this board can be found on the [Networking & communication Week](http://) and [Machine Design Week.](http://) I decided to add this documentation here because it is more relevant with Inputs.
 
-With some research I found out the Atmega328p can run only on 8MHz on 3.3v. So I used an 8MHz resonator instead of the usual 16MHz or 20MHz I usually use.
+With some research I found out the Atmega328p isn't rated for a full 16MHz at 3.3v. So I used an 8MHz resonator instead of the usual 16MHz or 20MHz I usually use.
 
-I kept a seperate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF240L01 module as I read that they get a bit fussy if proper power is not supplied.  
+I kept a seperate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF24L01+ module as I read that they get a bit fussy if proper power is not supplied.  
   
 I used Sparkfun's [ADXL345 breakout board](http://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/ADXL345_Breakout.pdf) as a reference for interfacing the ADXL345 chip. I tied pin 7 with VCC which enabled i2c mode and added noise filtering capacitors of 0.1uF and 10uF near the chip.  
   
@@ -288,7 +288,7 @@ To read the accelerometer data, I used the [Sparkfun ADXL345 Library](https://gi
 
 -   ADXL345 adxl = ADXL345(); \[Used to initiate communication in i2c mode\]
 -   adxl.powerOn();
--   adxl.setRangeSetting(2);\[set's the reading range. Lower is more sensitive, higher is more accurate; options are 2,4,8,16\]
+-   adxl.setRangeSetting(2);\[set's the reading range. Lower range gives finer resolution, higher range measures larger accelerations; options are 2,4,8,16\]
 -   adxl.readAccel(&int1 , &int2, & int3); \[Reads and stores accelerometer data into three integers\]
 
   
@@ -329,7 +329,7 @@ First I tried taking count of the encoder data just by taking digital read. I in
 
 ### Using Hardware Interrupts
 
-Rotary Encoders are perfect use cases for external Interrupt pins. They wont clog up your main loop and only execute when the interrupt service routine is executed.(In this case, a rising or falling edge on the encoder pins) This is a main reason why I couldn't use a ATTINY44 based board as the Arduino Serial library for that is based on the ISR. So if you want to use Serial communication, you wont be able to use pin change interrupts. A solution though is to use the USI serial or the hardware serial on the ATTINY44. But I didn't want to make another ATTINY44 board and just switched to using a 328p which I am comfortable with. Now for the ISR based rotary encoder code, I found a very optimized code in [this Instructable.](https://www.instructables.com/id/Improved-Arduino-Rotary-Encoder-Reading/) and will be reusing it.
+Rotary Encoders are perfect use cases for external Interrupt pins. They wont clog up your main loop and only execute when the interrupt service routine is executed.(In this case, a rising or falling edge on the encoder pins) This is a main reason why I couldn't use a ATTINY44 based board as the Arduino Serial library for that is based on the ISR. So if you want to use Serial communication, you wont be able to use pin change interrupts. A solution though is to use the USI serial on the ATTINY44. But I didn't want to make another ATTINY44 board and just switched to using a 328p which I am comfortable with. Now for the ISR based rotary encoder code, I found a very optimized code in [this Instructable.](https://www.instructables.com/id/Improved-Arduino-Rotary-Encoder-Reading/) and will be reusing it.
 
 [Download rotaryEncoderSimple.ino](/files/fabacademy/week-11/rotaryEncoder_optimized.ino)
 

@@ -44,7 +44,7 @@ While I was at it, I wanted to start working on a controller board for my final 
 
 ## Designing my new 328p based board for my Final Project: PxFDuino v1.0
 
-For the microcontroller I chose to use a Atmega 328p. It is the same microcontroller used on the Arduino Uno, so all the code working on an arduino should be compatible to run on it. I did look into the XMega16u2 and XMega16u4, but they seemed harder to program and required more peripheral components to function.
+For the microcontroller I chose to use a Atmega 328p. It is the same microcontroller used on the Arduino Uno, so all the code working on an arduino should be compatible to run on it. I did look into the ATmega16U2 and ATmega16U4, but they seemed harder to program and required more peripheral components to function.
 
 #### The AtMega328p:
 
@@ -52,13 +52,13 @@ High performance micro chip developed by Atmel .It is a 8bit AVR RISC-based micr
 
 #### Specifications:
 
--   28-pin AVR Microcontroller
+-   32-pin (TQFP) AVR Microcontroller
 -   Flash Program Memory: 32 kbytes
 -   EEPROM Data Memory: 1 kbytes
 -   SRAM Data Memory: 2 kbytes
 -   I/O Pins: 23
 -   Timers: Two 8-bit / One 16-bit
--   A/D Converter: 10-bit Six Channel
+-   A/D Converter: 10-bit Eight Channel (TQFP package)
 -   PWM: Six Channels
 -   RTC: Yes with Separate Oscillator
 -   MSSP: SPI and I²C Master and Slave Support
@@ -452,14 +452,14 @@ Then I wrote my own code for the display and made a bargraph for the ESC Speed c
 
 ## Driving WS2812b LEDs
 
-I think that LEDs are the heart of all electronics projects but adding more than a few LEDs to a circuit can become largely difficult with the power consumption, wiring and circuit complexity. An 8x8 matrix of LEDs can be driven by 16 pins, but just to drive 8x8 RGB leds, you'd need 3 times that. Addressable LEDs were the solution to all these problems. Each of these LEDs come with an LED driver built in, for which in an array of addressable LEDs, each of them can be individually accessed in their full RGB glory. The LEDs I'll be using are WS281B and they take 24bit inputs achieve 256 brightness display on 3 colors, giving an option of 16777216 full color in each LED. This makes it ideal for any LED display project with minimal wires and easy power solution.
+I think that LEDs are the heart of all electronics projects but adding more than a few LEDs to a circuit can become largely difficult with the power consumption, wiring and circuit complexity. An 8x8 matrix of LEDs can be driven by 16 pins, but just to drive 8x8 RGB leds, you'd need 3 times that. Addressable LEDs were the solution to all these problems. Each of these LEDs come with an LED driver built in, for which in an array of addressable LEDs, each of them can be individually accessed in their full RGB glory. The LEDs I'll be using are WS2812B and they take 24bit inputs achieve 256 brightness display on 3 colors, giving an option of 16777216 full color in each LED. This makes it ideal for any LED display project with minimal wires and easy power solution.
 
 <figure>
-  <img src="/images/fabacademy/week-12/ws2812b.jpg" alt="WS281b LED- Illustration from Adafruit" loading="lazy" />
-  <figcaption>WS281b LED- Illustration from Adafruit</figcaption>
+  <img src="/images/fabacademy/week-12/ws2812b.jpg" alt="WS2812B LED- Illustration from Adafruit" loading="lazy" />
+  <figcaption>WS2812B LED- Illustration from Adafruit</figcaption>
 </figure>
 
-Adafruit sells these LEDs as [Neopixels](https://www.adafruit.com/category/168), while there are multiple variations of these LEDs, most of them run on the same programming. The Datasheet for WS281b can be found [here.](https://www.pololu.com/file/0J705/WS2812B_datasheet.pdf)
+Adafruit sells these LEDs as [Neopixels](https://www.adafruit.com/category/168), while there are multiple variations of these LEDs, most of them run on the same programming. The Datasheet for WS2812B can be found [here.](https://www.pololu.com/file/0J705/WS2812B_datasheet.pdf)
 
 #### Minimal Interfacing Circuit & Best Practices:
 
@@ -481,7 +481,7 @@ Adafruit sells these LEDs as [Neopixels](https://www.adafruit.com/category/168),
 
 -   [The Neopixel Uberguide by Adafruit](https://learn.adafruit.com/adafruit-neopixel-uberguide)
 
-#### Driving WS281b LEDs with Arduino(Fast LED library)
+#### Driving WS2812B LEDs with Arduino(Fast LED library)
 
 > My Lab didn't have any capacitors bigger than 100nF at the lab, I ordered some and will start working with the addressable LEDs after the capacitors arrive. I know it's probably not a very big deal, but I only have a few of these LEDs and they were pretty hard to source, I reaaally don't want to burn them over a missing capacitor.
 

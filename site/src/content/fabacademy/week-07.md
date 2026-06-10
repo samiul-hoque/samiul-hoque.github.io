@@ -643,7 +643,7 @@ And these are the Settings for PCB outlines,
 -   cut speed: 4
 -   cut depth(mm): 0.6
 -   Stock Thickness(mm): 1.7
--   tool diameter(mm): 0.4
+-   tool diameter(mm): 0.79
 -   number of offsets: 1
 -   offset overlap(%): 50
 -   path error(pixels): 1.1

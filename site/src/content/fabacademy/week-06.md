@@ -43,18 +43,18 @@ Before I get to my 3D printing assignment, I thought of documenting some web res
 
 * * *
 
-Believe it or not, 3D printing may sound like a quite modern manufacturing process, but it's actually way older than you think. Modern 3d printing started with a publication by Hideo Kodima of Nagoya Municipal Industrial Research Institute in 1981.
+Believe it or not, 3D printing may sound like a quite modern manufacturing process, but it's actually way older than you think. Modern 3d printing started with a publication by Hideo Kodama of Nagoya Municipal Industrial Research Institute in 1981.
 
-Four Years later in 1986, Charles Hull patented [Stereolithoraphy](https://en.wikipedia.org/wiki/Stereolithography), and in the following year made [SLA-1](https://3dprint.com/134861/chuck-hull-asme-landmark/), the first ever 3D printer.
+Charles Hull filed a patent for [Stereolithography](https://en.wikipedia.org/wiki/Stereolithography) in 1984, which was granted in 1986, and in the following year made [SLA-1](https://3dprint.com/134861/chuck-hull-asme-landmark/), the first ever 3D printer.
 
 <figure>
   <img src="/images/fabacademy/week-06/sla1.jpg" alt="SLA-1, The first 3D printer" loading="lazy" />
   <figcaption>SLA-1, The first 3D printer</figcaption>
 </figure>
 
-In 1988, Carles Deckard brought a patent for the [SLS technology](https://en.wikipedia.org/wiki/Selective_laser_sintering) , another 3D printing technique in which powder grains are fused together locally by a laser.
+In 1986, Carl Deckard filed a patent for the [SLS technology](https://en.wikipedia.org/wiki/Selective_laser_sintering), granted in 1989, another 3D printing technique in which powder grains are fused together locally by a laser.
 
-In the meantime in 1992, Scott Crump, a co-founder of Stratasys Inc. filed a patent for [Fused Deposition Modelling (FDM)](https://en.wikipedia.org/wiki/Fused_filament_fabrication#Fused_deposition_modeling) : the third of the main 3D printing technologies, in which
+In the meantime in 1992, Scott Crump, a co-founder of Stratasys Inc. was granted a patent for [Fused Deposition Modelling (FDM)](https://en.wikipedia.org/wiki/Fused_filament_fabrication#Fused_deposition_modeling) : the third of the main 3D printing technologies, in which
 
 Over less than ten years, the three main technologies of 3D printing were patented and 3D printing was born!
 
@@ -125,7 +125,7 @@ After the 3D design is made, it has to exported to a file type that is supported
 
 ## Slicing
 
-The second step is to create a g-code from the 3D model we just designed that the 3D printer can understand. Usually this is done by a slicing software like [Cura](https://ultimaker.com/en/products/ultimaker-cura-software), [Meshmixer](http://www.meshmixer.com/download.html), [FlashPrint](http://www.flashforge.com/support-center/flashprint-support/), etc.
+The second step is to create a g-code from the 3D model we just designed that the 3D printer can understand. Usually this is done by a slicing software like [Cura](https://ultimaker.com/en/products/ultimaker-cura-software), [FlashPrint](http://www.flashforge.com/support-center/flashprint-support/), etc.
 
 <figure>
   <img src="/images/fabacademy/week-06/workflowslice.jpg" alt="Slicing Software(FlashPrint)" loading="lazy" />
@@ -270,13 +270,13 @@ With FDM printing, each layer is printed as a set of heated filament threads whi
 
 For the 3D printing week Assignment, I wanted to make a small scale version of the LED arm of my final project. So I went back to my work for [week 1](/projects/fab-academy/week-01/) work.
 
-I knew that I was working with Addressable LEDs, so I have been searching the local market for WS182/SK6812 or anything equivalent. Apparently it's not very popular yet in Ahmedabad, and I couldn't individual 5050 LEDs. But what I did manage to find was this LED strip with ws182b LEDs. It had 12mm spacing between each LED, a bit too much for my liking but it was okay for the first spiral.  
+I knew that I was working with Addressable LEDs, so I have been searching the local market for WS2812/SK6812 or anything equivalent. Apparently it's not very popular yet in Ahmedabad, and I couldn't individual 5050 LEDs. But what I did manage to find was this LED strip with WS2812B LEDs. It had 12mm spacing between each LED, a bit too much for my liking but it was okay for the first spiral.  
   
-I also checked the price for shipping in individual ws182b LEDs with SMD 5050 packaging and it would cost me 40 rupees per piece where I get got 60 LEDs for 19 rupees each on the LED strip.
+I also checked the price for shipping in individual WS2812B LEDs with SMD 5050 packaging and it would cost me 40 rupees per piece where I get got 60 LEDs for 19 rupees each on the LED strip.
 
 <figure>
-  <img src="/images/fabacademy/week-06/ledstrip.jpg" alt="ws182b LED strip, 12mm spacing, 5050 LEDs" loading="lazy" />
-  <figcaption>ws182b LED strip, 12mm spacing, 5050 LEDs</figcaption>
+  <img src="/images/fabacademy/week-06/ledstrip.jpg" alt="WS2812B LED strip, 12mm spacing, 5050 LEDs" loading="lazy" />
+  <figcaption>WS2812B LED strip, 12mm spacing, 5050 LEDs</figcaption>
 </figure>
 
 <figure>
@@ -561,7 +561,7 @@ So I went back to measurements, the 'Pattern Along path' function in Fusion360 t
 
 I simply put the correct distance in the parameter and it worked like a charm.  
   
-Distance = (1/2 \* radius of 1st LED + spacing + 1/2 \* radius of second led)  
+Distance = (1/2 \* diameter of 1st LED + spacing + 1/2 \* diameter of second led)  
 \= (led Size + spacing)
 
 <figure>
@@ -703,11 +703,11 @@ Laser pulse (also called time of flight) 3D scanning technology is based on the 
 
 [Aditya SS's documentation from last Year.](http://archive.fabacademy.org/2018/labs/fablabcept/students/adhitya-ss/week-6.html)
 
-## Skannect
+## Skanect
 
 #### How to Install
 
-There are two requisites we need to install before we can install [Skannect](https://skanect.occipital.com)
+There are two requisites we need to install before we can install [Skanect](https://skanect.occipital.com)
 
 ##### Requisites:
 
@@ -718,7 +718,7 @@ After that, I installed the windows x64 installer downloaded from [here](https:/
 
 ## How to Scan
 
-I used Skannect to scan myself and exported the scan on sketchfab. The free version of Skannect did not let me save my scanned objects locally. I referred to this video for the scanning procedure on skannect.
+I used Skanect to scan myself and exported the scan on sketchfab. The free version of Skanect did not let me save my scanned objects locally. I referred to this video for the scanning procedure on skanect.
 
   
   
@@ -781,7 +781,7 @@ Unfortunately SCANN3D wouldn't let me export my designs or save them either. So 
 
 ### 3D Scanning:
 
-#### Skannect:
+#### Skanect:
 
 [New Skanect Model](https://sketchfab.com/3d-models/new-skanect-model-08b1444912e844bc8dede902bd07a8f7?utm_medium=embed&utm_source=website&utm_campaign=share-popup) by [s026hoque](https://sketchfab.com/s026hoque?utm_medium=embed&utm_source=website&utm_campaign=share-popup) on [Sketchfab](https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup)
 

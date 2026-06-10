@@ -81,7 +81,7 @@ After milling, my PCBs had more than just a few connected traces.
   <img src="/images/fabacademy/week-05/fabispkeyv2output2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
-Then I realized that Andy's images were not of high enough DPI. Since I didn't know much about the settings on [Mods](http://mods.cba.mit.edu/), I thought I was probably making a mistake somewhere. I also realized that there was a logic level shifter, the [TBX0104](http://www.ti.com/lit/ds/symlink/txb0104.pdf) on the board, which was not in our inventory. While doing all this, I was already two days behind schedule.
+Then I realized that Andy's images were not of high enough DPI. Since I didn't know much about the settings on [Mods](http://mods.cba.mit.edu/), I thought I was probably making a mistake somewhere. I also realized that there was a logic level shifter, the [TXB0104](http://www.ti.com/lit/ds/symlink/txb0104.pdf) on the board, which was not in our inventory. While doing all this, I was already two days behind schedule.
 
 #### Brian's Fab ISP
 
@@ -89,7 +89,7 @@ Then I realized that Andy's images were not of high enough DPI. Since I didn't k
 
 Now I was running out of time and I didn't know which design I should follow. It turns out choosing someone's design at random is harder than making your own.  
 So I searched the Fab Academy Archive and found [Brian's](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) design was working for many people. And it was very neatly documented as well.  
-I found the files on [Brian's project page](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) and they were in PNG format with 1200 dpi. I knew these images would work and started milling them.
+I found the files on [Brian's project page](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) and they were in PNG format with 1000 dpi. I knew these images would work and started milling them.
 
 <figure>
   <img src="/images/fabacademy/week-05/fabispbriantrace.png" alt="Brian's Fab ISP" loading="lazy" />
@@ -650,7 +650,7 @@ To install the drivers for your ISP programmer, use [Zadig.](https://zadig.akeo.
 
 Open Git bash and type out the following commands to see if that tool installed properly.
 
-<table class="alt"><tbody><tr><td>Tool</td><td>Command</td><td>Output</td></tr><tr><td>GNU make</td><td>make -v</td><td>GNU Make 3.81<br>Copyright (C) 2006 Free Software Foundation, Inc.<br>...<br>and so on.</td></tr><tr><td>avr-gcc</td><td>avr-gcc --version</td><td>avr-gcc.exe (AVR_8_bit_GNU_Toolchain_3.5.4_1709) 4.9.2<br>...<br>and so on.</td></tr><tr><td>avrdude</td><td>avrdude -c usbasp -p t45</td><td>avrdude.exe: initialization failed, rc=-1<br>...<br>This means that avrdude successfully found your programmer, but failed to talk to a target board (expected because we don't have anything conencted to the programmer right now.)<br>If instead you see:<br>avrdude.exe: Error: Could not find USBtiny device (0x1781/0xc9f)<br>check your USB driver installation (the Zadig steps).<br><br>If you get a "command not found" error, check your installation of avrdude and your path variable.</td></tr></tbody></table>
+<table class="alt"><tbody><tr><td>Tool</td><td>Command</td><td>Output</td></tr><tr><td>GNU make</td><td>make -v</td><td>GNU Make 3.81<br>Copyright (C) 2006 Free Software Foundation, Inc.<br>...<br>and so on.</td></tr><tr><td>avr-gcc</td><td>avr-gcc --version</td><td>avr-gcc.exe (AVR_8_bit_GNU_Toolchain_3.5.4_1709) 4.9.2<br>...<br>and so on.</td></tr><tr><td>avrdude</td><td>avrdude -c usbasp -p t45</td><td>avrdude.exe: initialization failed, rc=-1<br>...<br>This means that avrdude successfully found your programmer, but failed to talk to a target board (expected because we don't have anything conencted to the programmer right now.)<br>If instead you see:<br>avrdude.exe: error: could not find USB device with vid=0x16c0 pid=0x5dc<br>check your USB driver installation (the Zadig steps).<br><br>If you get a "command not found" error, check your installation of avrdude and your path variable.</td></tr></tbody></table>
 
   
 
@@ -681,11 +681,11 @@ If you ever need to remake the file, after editing the makefile, just run the fo
 
 * * *
 
-Then I ran the following command to erase the flash memory on the AtTiny45.  
+Then I ran the following command to flash the firmware onto the AtTiny45.  
   
 `make flash`  
   
-This will erase any existing code on the chip.
+This will erase any existing code on the chip and then write the new firmware to it.
 
 <figure>
   <img src="/images/fabacademy/week-05/makeflash.png" alt="Flashing the FabISP" loading="lazy" />

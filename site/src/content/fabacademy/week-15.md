@@ -56,10 +56,10 @@ More on these boards can be found in my [Networking Week Documentation.](/projec
 ### Features:
 
 -   Atmega328p 20MHz running on 5v
--   Seperate 3.3v power for nrF24L01
+-   Seperate 3.3v power for nRF24L01+
 -   Seperate power management for MG995 Servos using LM2940
 -   Control Circuit for 12v LED strips using N-Mosfets
--   Onboard Devices: nrF24L01, connecting port for HC-05
+-   Onboard Devices: nRF24L01+, connecting port for HC-05
 -   Hardware i2c and Serial pinouts
 
 <figure>
@@ -82,7 +82,7 @@ More on these boards can be found in my [Networking Week Documentation.](/projec
 ### Features:
 
 -   Atmega328p 8MHz running on 3.3v
--   Onboard Devices: nrF24L01, ADXL345
+-   Onboard Devices: nRF24L01+, ADXL345
 -   Hardware i2c and Serial pinouts
 -   Pinout to Connect Joystick Module
 

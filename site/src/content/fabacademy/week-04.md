@@ -495,7 +495,7 @@ I will be using 3mm MDF as material as it was cheap and readily available near t
 #### Through Cut
 
 -   Power: (55,55)
--   Speed: 25
+-   Speed: 15
 
 #### Engraving
 
@@ -556,7 +556,7 @@ Kerf for 3.3mm MDF at power(55,55) and Speed(15) was observed to be 0.9mm. I mad
 #### Through Cut
 
 -   Power: (55,55)
--   Speed: 25
+-   Speed: 15
 
 #### Kerf:
 
@@ -596,7 +596,7 @@ I tried to put a parameter for the number of sides while creating a polygon, and
 
 #### Parameters
 
--   Number of Sides ( <= 3)
+-   Number of Sides ( >= 3)
 -   Diameter of the polygon
 -   Material Thickness
 -   Laser kerf

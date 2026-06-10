@@ -542,7 +542,7 @@ I fastened the material on the sacrificial board using 1" screws and made sure t
 
 ### 12\. Opening & Tightening the Collet
 
-The Collet nut needs to be opened and closed using a spanner and a wrench. Rotating them 'towards' eachother should tighten it while rotating them away from eachother will tighten it.
+The Collet nut needs to be opened and closed using a spanner and a wrench. Rotating them 'towards' eachother should tighten it while rotating them away from eachother will loosen it.
 
 ### 13\. Sending Files to the Shopbot
 
