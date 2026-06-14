@@ -102,6 +102,13 @@ what the trajectory executor needs every 50 Hz) and the **forward
 kinematics** (wheel speeds → body velocity, what the odometry integrator
 uses to track pose).
 
+<a href="/robot-kinematics" class="sim-callout">
+<span class="sim-callout-eyebrow">▶ Interactive companion</span>
+<span class="sim-callout-title">Play with these kinematics in your browser</span>
+<span class="sim-callout-desc">Drive a differential, omniwheel, or mecanum robot and watch the inverse-kinematics equations and per-motor commands update live — the same maths derived below, made interactive.</span>
+<span class="sim-callout-cta">Open the 2D robot kinematics simulator →</span>
+</a>
+
 ### Coordinate frames
 
 Two right-handed frames are used throughout. The **world frame** {W} is

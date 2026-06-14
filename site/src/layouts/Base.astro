@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description = 'Engineer based in Dhaka. Hardware, software, and whatever the project needs.',
   ogImage,
   jsonLd,
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = title === 'Samiul Hoque' ? title : `${title} — Samiul Hoque`;
@@ -45,7 +47,7 @@ const ogUrl = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     {ogUrl && <meta name="twitter:image" content={ogUrl} />}
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />

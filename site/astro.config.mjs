@@ -13,5 +13,10 @@ export default defineConfig({
       theme: 'github-light',
     },
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Keep unlisted/experimental pages out of the sitemap.
+      filter: (page) => !page.includes('/robot-kinematics'),
+    }),
+  ],
 });

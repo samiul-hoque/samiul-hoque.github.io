@@ -1,0 +1,1048 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Robot Kinematics"
+  description="An interactive 2D simulation of the forward kinematics of differential-drive and omniwheel (holonomic) mobile robots."
+  noindex={true}
+>
+  <article class="container rk">
+    <!-- ===================== SIMULATOR ===================== -->
+    <section class="sim" aria-label="Robot simulator">
+      <div class="sim-controls">
+        <div class="sim-title">
+          <span class="eyebrow">Interactive</span>
+          <h1>2D Planar Robot Kinematics</h1>
+        </div>
+
+        <!-- DIFF CONTROLS -->
+        <div class="ctl-group" id="ctl-diff">
+          <p class="ctl-title">Wheel speeds</p>
+          <label class="slider">
+            <span>Left wheel <em id="v-vl">0.00</em></span>
+            <input type="range" id="s-vl" min="-1" max="1" step="0.05" value="0" />
+          </label>
+          <label class="slider">
+            <span>Right wheel <em id="v-vr">0.00</em></span>
+            <input type="range" id="s-vr" min="-1" max="1" step="0.05" value="0" />
+          </label>
+          <p class="ctl-title">Presets</p>
+          <div class="chips">
+            <button class="chip" data-preset="straight">Straight</button>
+            <button class="chip" data-preset="arc">Gentle arc</button>
+            <button class="chip" data-preset="spin">Spin in place</button>
+            <button class="chip" data-preset="pivot">Pivot on a wheel</button>
+          </div>
+        </div>
+
+        <!-- HOLONOMIC CONTROLS (omni + mecanum) -->
+        <div class="ctl-group" id="ctl-holo" hidden>
+          <p class="ctl-title">Body-frame velocity</p>
+          <label class="slider">
+            <span>Forward v<sub>x</sub> <em id="v-vx">0.00</em></span>
+            <input type="range" id="s-vx" min="-1" max="1" step="0.05" value="0" />
+          </label>
+          <label class="slider">
+            <span>Sideways v<sub>y</sub> <em id="v-vy">0.00</em></span>
+            <input type="range" id="s-vy" min="-1" max="1" step="0.05" value="0" />
+          </label>
+          <label class="slider">
+            <span>Rotation ω <em id="v-om">0.00</em></span>
+            <input type="range" id="s-om" min="-2.5" max="2.5" step="0.05" value="0" />
+          </label>
+        </div>
+
+        <!-- PATH PRESETS (autonomous trajectories) -->
+        <p class="ctl-title">Run a path</p>
+        <div class="chips">
+          <button class="chip" data-path="line">Straight 1 m</button>
+          <button class="chip" data-path="arc">Arc 90°</button>
+          <button class="chip" data-path="circle">Circle (r 0.5 m)</button>
+          <button class="chip" data-path="rect">Square 1 m</button>
+        </div>
+
+        <!-- D-PAD (touch / click driving) -->
+        <p class="ctl-title drive-title">Drive it</p>
+        <div class="dpad" id="dpad">
+          <button class="pad" data-act="rotL" aria-label="rotate left">↺</button>
+          <button class="pad" data-act="fwd" aria-label="forward">↑</button>
+          <button class="pad" data-act="rotR" aria-label="rotate right">↻</button>
+          <button class="pad" data-act="left" aria-label="left">←</button>
+          <button class="pad" data-act="back" aria-label="back">↓</button>
+          <button class="pad" data-act="right" aria-label="right">→</button>
+        </div>
+
+        <div class="buttons">
+          <button class="button" id="btn-play">Pause</button>
+          <button class="button" id="btn-stop">Stop</button>
+          <button class="button" id="btn-reset">Reset</button>
+        </div>
+        <label class="toggle"><input type="checkbox" id="chk-trail" checked /> Show path trail</label>
+        <p class="hint kbd-hint"><kbd>WASD</kbd>/arrows drive · <kbd>Q</kbd><kbd>E</kbd> rotate. Sliders hold a steady command.</p>
+      </div>
+
+      <div class="sim-stage">
+        <canvas id="sim-canvas" aria-label="Top-down view of a 2D robot driving on a grid"></canvas>
+        <div class="mode-tabs" role="tablist" aria-label="Drive type">
+          <button class="mode-tab is-active" role="tab" aria-selected="true" data-mode="diff">Differential</button>
+          <button class="mode-tab" role="tab" aria-selected="false" data-mode="omni">Omniwheel</button>
+          <button class="mode-tab" role="tab" aria-selected="false" data-mode="mec">Mecanum</button>
+        </div>
+        <div class="readout" id="readout">
+          <div><span class="rk-label">x</span><span id="r-x">0.00</span> m</div>
+          <div><span class="rk-label">y</span><span id="r-y">0.00</span> m</div>
+          <div><span class="rk-label">θ</span><span id="r-th">0</span>°</div>
+          <div><span class="rk-label">v</span><span id="r-v">0.00</span> m/s</div>
+          <div><span class="rk-label">ω</span><span id="r-w">0.00</span> rad/s</div>
+        </div>
+        <!-- on-canvas d-pad (mobile HUD; reuses the same .pad handlers) -->
+        <div class="dpad dpad-hud" aria-label="Drive (touch)">
+          <button class="pad" data-act="rotL" aria-label="rotate left">↺</button>
+          <button class="pad" data-act="fwd" aria-label="forward">↑</button>
+          <button class="pad" data-act="rotR" aria-label="rotate right">↻</button>
+          <button class="pad" data-act="left" aria-label="left">←</button>
+          <button class="pad" data-act="back" aria-label="back">↓</button>
+          <button class="pad" data-act="right" aria-label="right">→</button>
+        </div>
+      </div>
+
+      <!-- ===================== LIVE EQUATIONS ===================== -->
+      <aside class="eqpanel" aria-label="Live kinematics">
+        <div class="eq-head">Live kinematics</div>
+
+        <!-- DIFFERENTIAL -->
+        <div class="eq-block" id="eq-diff">
+          <p class="eq-sub-head">Body velocity</p>
+          <div class="eqn"><div class="sym">v = (v<sub>R</sub> + v<sub>L</sub>) / 2</div><div class="sub" id="eqd-v"></div></div>
+          <div class="eqn"><div class="sym">ω = (v<sub>R</sub> − v<sub>L</sub>) / L</div><div class="sub" id="eqd-w"></div></div>
+          <div class="eqn"><div class="sym">R = v / ω&nbsp;&nbsp;(turn radius)</div><div class="sub" id="eqd-R"></div></div>
+
+          <p class="eq-sub-head">World-frame pose rate</p>
+          <div class="eqn"><div class="sym">ẋ = v cos θ</div><div class="sub" id="eqd-xd"></div></div>
+          <div class="eqn"><div class="sym">ẏ = v sin θ</div><div class="sub" id="eqd-yd"></div></div>
+          <div class="eqn"><div class="sym">θ̇ = ω</div><div class="sub" id="eqd-thd"></div></div>
+
+          <p class="eq-sub-head">Motor commands</p>
+          <div class="motors">
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Left wheel</span><span class="motor-val" id="m-d-l">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-d-l"></span></div>
+            </div>
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Right wheel</span><span class="motor-val" id="m-d-r">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-d-r"></span></div>
+            </div>
+          </div>
+
+          <p class="eq-const">L = 0.30 m (wheel track) · wheel r = 0.04 m</p>
+        </div>
+
+        <!-- OMNI -->
+        <div class="eq-block" id="eq-omni" hidden>
+          <p class="eq-sub-head">Body velocity</p>
+          <div class="eqn"><div class="sym">v<sub>x</sub>&nbsp;&nbsp;(forward)</div><div class="sub" id="eqo-vx"></div></div>
+          <div class="eqn"><div class="sym">v<sub>y</sub>&nbsp;&nbsp;(sideways)</div><div class="sub" id="eqo-vy"></div></div>
+          <div class="eqn"><div class="sym">ω&nbsp;&nbsp;(rotation)</div><div class="sub" id="eqo-om"></div></div>
+
+          <p class="eq-sub-head">World-frame pose rate</p>
+          <div class="eqn"><div class="sym">ẋ = v<sub>x</sub> cos θ − v<sub>y</sub> sin θ</div><div class="sub" id="eqo-xd"></div></div>
+          <div class="eqn"><div class="sym">ẏ = v<sub>x</sub> sin θ + v<sub>y</sub> cos θ</div><div class="sub" id="eqo-yd"></div></div>
+          <div class="eqn"><div class="sym">θ̇ = ω</div><div class="sub" id="eqo-thd"></div></div>
+
+          <p class="eq-sub-head">Motor commands</p>
+          <p class="eq-note formula">u<sub>i</sub> = −sin β<sub>i</sub> v<sub>x</sub> + cos β<sub>i</sub> v<sub>y</sub> + L ω</p>
+          <div class="motors">
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Motor 1 · 90°</span><span class="motor-val" id="m-o-1">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-o-1"></span></div>
+            </div>
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Motor 2 · 210°</span><span class="motor-val" id="m-o-2">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-o-2"></span></div>
+            </div>
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Motor 3 · 330°</span><span class="motor-val" id="m-o-3">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-o-3"></span></div>
+            </div>
+          </div>
+
+          <p class="eq-const">L = 0.16 m (wheel radius from centre) · wheel r = 0.04 m</p>
+        </div>
+
+        <!-- MECANUM -->
+        <div class="eq-block" id="eq-mec" hidden>
+          <p class="eq-sub-head">Body velocity</p>
+          <div class="eqn"><div class="sym">v<sub>x</sub>&nbsp;&nbsp;(forward)</div><div class="sub" id="eqm-vx"></div></div>
+          <div class="eqn"><div class="sym">v<sub>y</sub>&nbsp;&nbsp;(sideways)</div><div class="sub" id="eqm-vy"></div></div>
+          <div class="eqn"><div class="sym">ω&nbsp;&nbsp;(rotation)</div><div class="sub" id="eqm-om"></div></div>
+
+          <p class="eq-sub-head">World-frame pose rate</p>
+          <div class="eqn"><div class="sym">ẋ = v<sub>x</sub> cos θ − v<sub>y</sub> sin θ</div><div class="sub" id="eqm-xd"></div></div>
+          <div class="eqn"><div class="sym">ẏ = v<sub>x</sub> sin θ + v<sub>y</sub> cos θ</div><div class="sub" id="eqm-yd"></div></div>
+          <div class="eqn"><div class="sym">θ̇ = ω</div><div class="sub" id="eqm-thd"></div></div>
+
+          <p class="eq-sub-head">Motor commands</p>
+          <p class="eq-note formula">u = v<sub>x</sub> ∓ v<sub>y</sub> ± (l<sub>x</sub>+l<sub>y</sub>) ω</p>
+          <div class="motors">
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Front-left</span><span class="motor-val" id="m-m-1">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-m-1"></span></div>
+            </div>
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Front-right</span><span class="motor-val" id="m-m-2">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-m-2"></span></div>
+            </div>
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Rear-left</span><span class="motor-val" id="m-m-3">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-m-3"></span></div>
+            </div>
+            <div class="motor">
+              <div class="motor-top"><span class="motor-name">Rear-right</span><span class="motor-val" id="m-m-4">—</span></div>
+              <div class="motor-bar"><span class="motor-fill" id="mb-m-4"></span></div>
+            </div>
+          </div>
+
+          <p class="eq-const">l<sub>x</sub> = 0.15 m, l<sub>y</sub> = 0.12 m · wheel r = 0.04 m</p>
+        </div>
+      </aside>
+    </section>
+
+  </article>
+</Base>
+
+<style>
+  .rk { padding-top: 1.25rem; padding-bottom: 1.5rem; max-width: 96rem; }
+
+  /* ---- simulator layout: controls | stage | equations ---- */
+  .sim {
+    display: grid;
+    grid-template-columns: 12.5rem minmax(0, 1fr) 18rem;
+    grid-template-areas: "controls stage eq";
+    gap: 1.25rem;
+    align-items: start;
+  }
+  .sim-controls { grid-area: controls; }
+  .sim-stage { grid-area: stage; }
+  .eqpanel { grid-area: eq; }
+  .sim-title { margin-bottom: 0.85rem; }
+  .sim-title h1 { font-size: 1.05rem; margin: 0; line-height: 1.25; }
+  .sim-stage {
+    position: relative;
+    height: min(82vh, 880px);
+    min-height: 460px;
+  }
+  #sim-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #fafafa;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    touch-action: none;
+    cursor: grab;
+  }
+  .mode-tabs {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .mode-tab {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+    border: 0;
+    background: var(--bg);
+    color: var(--ink-mute);
+    cursor: pointer;
+  }
+  .mode-tab + .mode-tab { border-left: 1px solid var(--rule); }
+  .mode-tab.is-active { background: var(--accent); color: var(--bg); }
+
+  .readout {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.9rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.4rem 0.6rem;
+    color: var(--ink);
+    backdrop-filter: blur(2px);
+  }
+  .rk-label { color: var(--ink-mute); margin-right: 0.35em; }
+
+  /* ---- controls ---- */
+  .sim-controls { font-size: 0.82rem; }
+  .ctl-title {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0.7rem 0 0.35rem;
+  }
+  .ctl-group:first-child .ctl-title:first-child { margin-top: 0; }
+  .slider { display: block; margin-bottom: 0.5rem; }
+  .slider span {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    margin-bottom: 0.15rem;
+    color: var(--ink-soft);
+  }
+  .slider em { font-family: var(--mono); font-style: normal; color: var(--ink); }
+  .slider input[type="range"] { width: 100%; accent-color: var(--accent); margin: 0; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.28rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--bg);
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--ink); }
+
+  .dpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.28rem;
+    max-width: 9.5rem;
+  }
+  .pad {
+    font-size: 0.95rem;
+    padding: 0.38rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--bg);
+    color: var(--ink);
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+  }
+  .pad:active, .pad.held { background: var(--accent); color: var(--bg); }
+  .dpad-hud { display: none; } /* shown only as a mobile on-canvas HUD */
+
+  .buttons { display: flex; gap: 0.4rem; margin: 0.7rem 0 0.5rem; }
+  .buttons .button { padding: 0.4rem 0.7rem; font-size: 0.78rem; }
+  .toggle { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--ink-soft); }
+  .toggle input { accent-color: var(--accent); }
+  .hint { font-size: 0.72rem; color: var(--ink-mute); line-height: 1.45; margin-top: 0.6rem; }
+  .sub-hint { margin-top: 0.35rem; }
+  .hint kbd {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.05em 0.35em;
+    margin: 0 1px;
+  }
+
+  /* ---- live equations panel ---- */
+  .eqpanel {
+    border-left: 1px solid var(--rule);
+    padding-left: 1.1rem;
+  }
+  .eq-head {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .eq-sub-head {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0.7rem 0 0.35rem;
+  }
+  .eq-block > .eq-sub-head:first-child { margin-top: 0.2rem; }
+  .eqn { margin-bottom: 0.38rem; }
+  .eqn .sym { /* standard equation — neutral text on grey */
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink);
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.12rem 0.4rem;
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .eqn .sub {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: #dc2626; /* live values */
+    margin-top: 0.1rem;
+    overflow-wrap: anywhere;
+  }
+  .eqn .sub b { color: #b91c1c; font-weight: 600; }
+  .eq-note {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-mute);
+    line-height: 1.4;
+    margin: -0.05rem 0 0.45rem;
+    overflow-wrap: anywhere;
+  }
+  .eq-note.formula { /* standard equation — neutral text on grey */
+    color: var(--ink);
+    font-size: 0.76rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.28rem 0.4rem;
+    display: inline-block;
+  }
+  .eq-const { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-mute); margin-top: 0.7rem; }
+
+  /* per-motor command bars */
+  .motors { display: flex; flex-direction: column; gap: 0.4rem; }
+  .motor-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+  }
+  .motor-name { color: var(--ink-soft); }
+  .motor-val { color: #dc2626; font-weight: 600; } /* live values */
+  .motor-bar {
+    position: relative;
+    height: 7px;
+    margin-top: 4px;
+    background: var(--bg-elev);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .motor-bar::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--ink-mute);
+    opacity: 0.4;
+  }
+  .motor-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    background: var(--accent);
+    transition: left 0.05s linear, width 0.05s linear;
+  }
+  .motor-fill.rev { background: #be185d; }
+
+  @media (max-width: 1180px) {
+    .sim {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      grid-template-areas: "controls stage" "eq eq";
+    }
+    .eqpanel {
+      border-left: 0;
+      border-top: 1px solid var(--rule);
+      padding-left: 0;
+      padding-top: 1.25rem;
+      margin-top: 0.5rem;
+      max-height: none;
+    }
+    .eq-block:not([hidden]) { columns: 2 16rem; column-gap: 2.5rem; }
+    .eq-sub-head { break-after: avoid; }
+    .eqn, .eq-note { break-inside: avoid; }
+  }
+  @media (max-width: 820px) {
+    /* Phones: canvas becomes a sticky HUD that stays pinned while the
+       controls + live equations scroll underneath it. */
+    .rk { padding-left: var(--space-2); padding-right: var(--space-2); } /* fill small screens */
+    .sim {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sim-stage {
+      order: -1;
+      position: sticky;
+      top: 3.4rem;            /* clears the sticky site nav */
+      z-index: 5;
+      width: 100%;
+      height: min(54vh, 440px);
+      min-height: 300px;
+      background: var(--bg);
+      box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
+      border-radius: 4px;
+      overflow: hidden;       /* keep HUD inside the canvas, no page scroll */
+    }
+    .sim-controls { order: 1; min-width: 0; }
+    .eqpanel { order: 2; min-width: 0; }
+
+    /* compact the canvas HUD overlays */
+    .mode-tabs { flex-wrap: wrap; max-width: calc(100% - 1.2rem); }
+    .mode-tab { font-size: 0.7rem; padding: 0.3rem 0.5rem; }
+    .readout { font-size: 0.7rem; max-width: 52%; gap: 0.1rem 0.6rem; padding: 0.35rem 0.5rem; }
+
+    /* on-canvas d-pad; hide the in-panel one and the keyboard hint */
+    #dpad, .drive-title, .kbd-hint { display: none; }
+    .dpad-hud {
+      display: grid;
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.5rem;
+      grid-template-columns: repeat(3, 2.15rem);
+      gap: 0.25rem;
+      z-index: 2;
+    }
+    .dpad-hud .pad {
+      padding: 0.45rem 0;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(2px);
+    }
+    .dpad-hud .pad.held { background: var(--accent); }
+  }
+</style>
+
+<script>
+  // ----- elements -----
+  const canvas = document.getElementById('sim-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  const el = (id: string) => document.getElementById(id)!;
+  const r_x = el('r-x'), r_y = el('r-y'), r_th = el('r-th'), r_v = el('r-v'), r_w = el('r-w');
+  const v_vl = el('v-vl'), v_vr = el('v-vr'), v_vx = el('v-vx'), v_vy = el('v-vy'), v_om = el('v-om');
+  const s_vl = el('s-vl') as HTMLInputElement, s_vr = el('s-vr') as HTMLInputElement;
+  const s_vx = el('s-vx') as HTMLInputElement, s_vy = el('s-vy') as HTMLInputElement, s_om = el('s-om') as HTMLInputElement;
+  const ctlDiff = el('ctl-diff'), ctlHolo = el('ctl-holo');
+  const eqDiff = el('eq-diff'), eqOmni = el('eq-omni'), eqMec = el('eq-mec');
+  const eqd = { v: el('eqd-v'), w: el('eqd-w'), xd: el('eqd-xd'), yd: el('eqd-yd'), thd: el('eqd-thd'), R: el('eqd-R') };
+  const eqo = { vx: el('eqo-vx'), vy: el('eqo-vy'), om: el('eqo-om'), xd: el('eqo-xd'), yd: el('eqo-yd'), thd: el('eqo-thd') };
+  const eqm = { vx: el('eqm-vx'), vy: el('eqm-vy'), om: el('eqm-om'), xd: el('eqm-xd'), yd: el('eqm-yd'), thd: el('eqm-thd') };
+  const motorD = [[el('m-d-l'), el('mb-d-l')], [el('m-d-r'), el('mb-d-r')]];
+  const motorO = [[el('m-o-1'), el('mb-o-1')], [el('m-o-2'), el('mb-o-2')], [el('m-o-3'), el('mb-o-3')]];
+  const motorM = [[el('m-m-1'), el('mb-m-1')], [el('m-m-2'), el('mb-m-2')], [el('m-m-3'), el('mb-m-3')], [el('m-m-4'), el('mb-m-4')]];
+  const tabs = Array.from(document.querySelectorAll('.mode-tab')) as HTMLElement[];
+  const btnPlay = el('btn-play') as HTMLButtonElement;
+  const chkTrail = el('chk-trail') as HTMLInputElement;
+
+  // ----- robot / world params -----
+  const L_DIFF = 0.30;      // wheel separation (m)
+  const R_OMNI = 0.16;      // omni wheel radius from centre (m)
+  const MEC_LX = 0.15;      // mecanum half-length (m, front-back)
+  const MEC_LY = 0.12;      // mecanum half-width (m, left-right)
+  const WHEEL_R = 0.04;     // drive-wheel radius (m), for motor RPM
+  const MOTOR_MAX = 0.8;    // wheel speed (m/s) that fills a motor bar
+  const PPM = 150;          // pixels per metre
+  const DRIVE = 0.6;        // keyboard drive speed (m/s)
+  const TURN_W = 0.45;      // keyboard differential turn (wheel m/s)
+  const OMEGA_K = 1.6;      // keyboard rotation (rad/s)
+  const OMNI_BETA = [Math.PI / 2, Math.PI * 7 / 6, Math.PI * 11 / 6]; // 90,210,330 deg
+
+  // ----- state -----
+  let mode: 'diff' | 'omni' | 'mec' = 'diff';
+  let pose = { x: 0, y: 0, th: 0 };
+  let cam = { x: 0, y: 0 };
+  let path: { x: number; y: number }[] = [];
+  let running = true;
+  let last = performance.now();
+  let viewW = 0, viewH = 0;
+  const active = new Set<string>(); // logical drive actions
+
+  // ----- scripted trajectories (maneuvers) -----
+  // A maneuver is an ordered list of timed segments; each segment's command is
+  // either a fixed raw input or a function of segment-local time (for curves).
+  type Seg = { dur: number; cmd: any };
+  let maneuver: { segs: Seg[]; i: number; t: number } | null = null;
+  let programmatic = false; // guards programmatic slider writes from cancelling
+
+  function getManeuver(name: string): Seg[] | null {
+    const v = 0.4; // nominal speed (m/s) -> straight 1 m takes 1/v seconds
+    if (mode === 'diff') {
+      const wArc = 0.8;                       // R = v/w = 0.5 m
+      const vRa = v + wArc * L_DIFF / 2, vLa = v - wArc * L_DIFF / 2;
+      const wSpin = 2.0, turn90 = (Math.PI / 2) / wSpin; // in-place 90° corner
+      const fwd = { dur: 1 / v, cmd: { vL: v, vR: v } };
+      const corner = { dur: turn90, cmd: { vL: -0.3, vR: 0.3 } };
+      if (name === 'line') return [fwd];
+      if (name === 'arc') return [{ dur: (Math.PI / 2) / wArc, cmd: { vL: vLa, vR: vRa } }];
+      if (name === 'circle') return [{ dur: (2 * Math.PI) / wArc, cmd: { vL: vLa, vR: vRa } }];
+      if (name === 'rect') return [fwd, corner, fwd, corner, fwd, corner, fwd, corner];
+    } else {
+      const r = 0.5, W = v / r;                // orbit angular rate (rad/s)
+      // Heading-fixed orbit: translate so the path is a circle while θ stays 0.
+      const orbit = (t: number) => {
+        const phi = -Math.PI / 2 + W * t;
+        return { vx: -r * W * Math.sin(phi), vy: r * W * Math.cos(phi), w: 0 };
+      };
+      const d = 1 / v;
+      if (name === 'line') return [{ dur: d, cmd: { vx: v, vy: 0, w: 0 } }];
+      if (name === 'arc') return [{ dur: (Math.PI / 2) / W, cmd: orbit }];
+      if (name === 'circle') return [{ dur: (2 * Math.PI) / W, cmd: orbit }];
+      if (name === 'rect') return [
+        { dur: d, cmd: { vx: v, vy: 0, w: 0 } },
+        { dur: d, cmd: { vx: 0, vy: v, w: 0 } },
+        { dur: d, cmd: { vx: -v, vy: 0, w: 0 } },
+        { dur: d, cmd: { vx: 0, vy: -v, w: 0 } },
+      ];
+    }
+    return null;
+  }
+
+  function maneuverCommand() {
+    const seg = maneuver!.segs[maneuver!.i];
+    const raw = typeof seg.cmd === 'function' ? seg.cmd(maneuver!.t) : seg.cmd;
+    if (mode === 'diff') {
+      const vL = raw.vL, vR = raw.vR;
+      return { vL, vR, vx: (vR + vL) / 2, vy: 0, w: (vR - vL) / L_DIFF, v: (vR + vL) / 2 };
+    }
+    return { vL: 0, vR: 0, vx: raw.vx, vy: raw.vy, w: raw.w, v: Math.hypot(raw.vx, raw.vy) };
+  }
+
+  function setSlider(s: HTMLInputElement, val: number) {
+    programmatic = true;
+    s.value = String(val);
+    s.dispatchEvent(new Event('input'));
+    programmatic = false;
+  }
+  function cancelManeuver() { maneuver = null; }
+
+  function startManeuver(name: string) {
+    const segs = getManeuver(name);
+    if (!segs) return;
+    active.clear();
+    document.querySelectorAll('.pad.held').forEach((p) => p.classList.remove('held'));
+    for (const s of [s_vl, s_vr, s_vx, s_vy, s_om]) setSlider(s, 0);
+    pose = { x: 0, y: 0, th: 0 };
+    cam = { x: 0, y: 0 };
+    path = [];
+    maneuver = { segs, i: 0, t: 0 };
+    running = true;
+    btnPlay.textContent = 'Pause';
+  }
+
+  // ----- sizing -----
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(rect.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    viewW = rect.width;
+    viewH = rect.height;
+  }
+  window.addEventListener('resize', resize);
+
+  // ----- command resolution -----
+  function command() {
+    const any = active.size > 0;
+    if (mode === 'diff') {
+      let vL: number, vR: number;
+      if (any) {
+        const drive = (active.has('fwd') ? 1 : 0) - (active.has('back') ? 1 : 0);
+        const ccw = (active.has('left') || active.has('rotL')) ? 1 : 0;
+        const cw = (active.has('right') || active.has('rotR')) ? 1 : 0;
+        const turn = ccw - cw;
+        vL = DRIVE * drive - TURN_W * turn;
+        vR = DRIVE * drive + TURN_W * turn;
+      } else {
+        vL = parseFloat(s_vl.value);
+        vR = parseFloat(s_vr.value);
+      }
+      const v = (vR + vL) / 2;
+      const w = (vR - vL) / L_DIFF;
+      return { vL, vR, vx: v, vy: 0, w, v };
+    } else {
+      let vx: number, vy: number, w: number;
+      if (any) {
+        vx = ((active.has('fwd') ? 1 : 0) - (active.has('back') ? 1 : 0)) * DRIVE;
+        vy = ((active.has('left') ? 1 : 0) - (active.has('right') ? 1 : 0)) * DRIVE;
+        w = ((active.has('rotL') ? 1 : 0) - (active.has('rotR') ? 1 : 0)) * OMEGA_K;
+      } else {
+        vx = parseFloat(s_vx.value);
+        vy = parseFloat(s_vy.value);
+        w = parseFloat(s_om.value);
+      }
+      const v = Math.hypot(vx, vy);
+      return { vL: 0, vR: 0, vx, vy, w, v };
+    }
+  }
+
+  // ----- integration -----
+  function step(dt: number) {
+    if (maneuver) {
+      maneuver.t += dt;
+      while (maneuver && maneuver.t >= maneuver.segs[maneuver.i].dur) {
+        maneuver.t -= maneuver.segs[maneuver.i].dur;
+        maneuver.i++;
+        if (maneuver.i >= maneuver.segs.length) maneuver = null;
+      }
+    }
+    const c = maneuver ? maneuverCommand() : command();
+    const n = 4, h = dt / n;
+    for (let i = 0; i < n; i++) {
+      if (mode === 'diff') {
+        const v = c.v, w = c.w;
+        if (Math.abs(w) < 1e-6) {
+          pose.x += v * Math.cos(pose.th) * h;
+          pose.y += v * Math.sin(pose.th) * h;
+        } else {
+          const thn = pose.th + w * h;
+          pose.x += (v / w) * (Math.sin(thn) - Math.sin(pose.th));
+          pose.y += -(v / w) * (Math.cos(thn) - Math.cos(pose.th));
+          pose.th = thn;
+        }
+      } else {
+        const thm = pose.th + c.w * h * 0.5; // midpoint heading
+        pose.x += (c.vx * Math.cos(thm) - c.vy * Math.sin(thm)) * h;
+        pose.y += (c.vx * Math.sin(thm) + c.vy * Math.cos(thm)) * h;
+        pose.th += c.w * h;
+      }
+    }
+    // trail
+    const lastP = path[path.length - 1];
+    if (!lastP || Math.hypot(pose.x - lastP.x, pose.y - lastP.y) > 0.012) {
+      path.push({ x: pose.x, y: pose.y });
+      if (path.length > 5000) path.shift();
+    }
+    return c;
+  }
+
+  // ----- world <-> screen -----
+  const sx = (wx: number) => (wx - cam.x) * PPM + viewW / 2;
+  const sy = (wy: number) => viewH / 2 - (wy - cam.y) * PPM;
+
+  function drawGrid() {
+    const left = cam.x - (viewW / 2) / PPM, right = cam.x + (viewW / 2) / PPM;
+    const bottom = cam.y - (viewH / 2) / PPM, top = cam.y + (viewH / 2) / PPM;
+    const stepM = 0.5;
+    ctx.lineWidth = 1;
+    for (let gx = Math.floor(left / stepM) * stepM; gx <= right; gx += stepM) {
+      const isAxis = Math.abs(gx) < 1e-6;
+      ctx.strokeStyle = isAxis ? '#cbd5e1' : '#ececef';
+      ctx.beginPath(); ctx.moveTo(sx(gx), 0); ctx.lineTo(sx(gx), viewH); ctx.stroke();
+    }
+    for (let gy = Math.floor(bottom / stepM) * stepM; gy <= top; gy += stepM) {
+      const isAxis = Math.abs(gy) < 1e-6;
+      ctx.strokeStyle = isAxis ? '#cbd5e1' : '#ececef';
+      ctx.beginPath(); ctx.moveTo(0, sy(gy)); ctx.lineTo(viewW, sy(gy)); ctx.stroke();
+    }
+  }
+
+  function drawPath() {
+    if (!chkTrail.checked || path.length < 2) return;
+    ctx.strokeStyle = 'rgba(30,41,59,0.45)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(sx(path[0].x), sy(path[0].y));
+    for (let i = 1; i < path.length; i++) ctx.lineTo(sx(path[i].x), sy(path[i].y));
+    ctx.stroke();
+  }
+
+  function arrow(x1: number, y1: number, x2: number, y2: number, color: string, w = 2) {
+    const a = Math.atan2(y2 - y1, x2 - x1), head = 8;
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = w;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - head * Math.cos(a - 0.4), y2 - head * Math.sin(a - 0.4));
+    ctx.lineTo(x2 - head * Math.cos(a + 0.4), y2 - head * Math.sin(a + 0.4));
+    ctx.closePath(); ctx.fill();
+  }
+
+  function drawICC(c: ReturnType<typeof command>) {
+    if (mode !== 'diff') return;
+    if (Math.abs(c.w) < 1e-3 || Math.abs(c.v) < 1e-4) return;
+    const R = c.v / c.w;
+    if (Math.abs(R) > 6) return;
+    const icx = pose.x - R * Math.sin(pose.th);
+    const icy = pose.y + R * Math.cos(pose.th);
+    ctx.strokeStyle = 'rgba(190,24,93,0.5)';
+    ctx.setLineDash([5, 5]); ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(sx(icx), sy(icy), Math.abs(R) * PPM, 0, Math.PI * 2); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(190,24,93,0.9)';
+    ctx.beginPath(); ctx.arc(sx(icx), sy(icy), 4, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function drawRobot(c: ReturnType<typeof command>) {
+    const cx = sx(pose.x), cy = sy(pose.y);
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(-pose.th); // screen y is flipped
+
+    if (mode === 'diff') {
+      const bodyL = 0.26 * PPM, bodyW = 0.20 * PPM, half = (L_DIFF / 2) * PPM;
+      const wL = 0.10 * PPM, wW = 0.035 * PPM;
+      ctx.fillStyle = '#e2e8f0'; ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.rect(-bodyL / 2, -bodyW / 2, bodyL, bodyW); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(-wL / 2, -half - wW / 2, wL, wW); // left wheel (+y body, drawn up before flip)
+      ctx.fillRect(-wL / 2, half - wW / 2, wL, wW);  // right wheel
+    } else if (mode === 'omni') {
+      const rad = R_OMNI * PPM;
+      ctx.fillStyle = '#e2e8f0'; ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(0, 0, rad, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#1e293b';
+      for (const b of OMNI_BETA) {
+        ctx.save();
+        ctx.rotate(-b);              // to wheel position angle (screen-flipped)
+        ctx.translate(0, -rad);      // out to rim (up = +body)
+        ctx.fillRect(-0.05 * PPM, -0.018 * PPM, 0.10 * PPM, 0.036 * PPM); // tangential wheel
+        ctx.restore();
+      }
+    } else {
+      // mecanum: rectangular body + 4 wheels with 45° roller hatch (X pattern)
+      const bx = MEC_LX * PPM, by = MEC_LY * PPM;
+      ctx.fillStyle = '#e2e8f0'; ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.rect(-bx, -by, 2 * bx, 2 * by); ctx.fill(); ctx.stroke();
+      const wl = 0.11 * PPM, wt = 0.05 * PPM; // wheel length (x) / thickness (y)
+      // [x, y(screen, up=+body-left), rollerSign] — FL & RR one diagonal, FR & RL the other
+      const wheels: [number, number, number][] = [
+        [bx * 0.6, -by, 1], [bx * 0.6, by, -1], [-bx * 0.6, -by, -1], [-bx * 0.6, by, 1],
+      ];
+      for (const [wx, wy, rs] of wheels) {
+        ctx.save();
+        ctx.translate(wx, wy);
+        ctx.fillStyle = '#1e293b';
+        ctx.fillRect(-wl / 2, -wt / 2, wl, wt);
+        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1;
+        for (let o = -wl / 2 + 3; o < wl / 2; o += 4) { // 45° roller hatch
+          ctx.beginPath();
+          ctx.moveTo(o, -wt / 2);
+          ctx.lineTo(o + rs * wt, wt / 2);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+    }
+    ctx.restore();
+
+    // heading arrow (world)
+    const hx = pose.x + 0.22 * Math.cos(pose.th), hy = pose.y + 0.22 * Math.sin(pose.th);
+    arrow(cx, cy, sx(hx), sy(hy), '#1e293b', 2.5);
+
+    // velocity arrow (world) for holonomic drives, when distinct from heading
+    if (mode !== 'diff') {
+      const wvx = c.vx * Math.cos(pose.th) - c.vy * Math.sin(pose.th);
+      const wvy = c.vx * Math.sin(pose.th) + c.vy * Math.cos(pose.th);
+      const sp = Math.hypot(wvx, wvy);
+      if (sp > 0.02) {
+        const k = 0.4 / sp; // scale arrow length
+        arrow(cx, cy, sx(pose.x + wvx * k), sy(pose.y + wvy * k), '#2563eb', 2.5);
+      }
+    }
+  }
+
+  // ----- readouts -----
+  function updateReadouts(c: ReturnType<typeof command>) {
+    r_x.textContent = pose.x.toFixed(2);
+    r_y.textContent = pose.y.toFixed(2);
+    let deg = (pose.th * 180 / Math.PI) % 360; if (deg > 180) deg -= 360; if (deg < -180) deg += 360;
+    r_th.textContent = deg.toFixed(0);
+    r_v.textContent = c.v.toFixed(2);
+    r_w.textContent = c.w.toFixed(2);
+    if (mode === 'diff') {
+      v_vl.textContent = c.vL.toFixed(2);
+      v_vr.textContent = c.vR.toFixed(2);
+    } else {
+      v_vx.textContent = c.vx.toFixed(2);
+      v_vy.textContent = c.vy.toFixed(2);
+      v_om.textContent = c.w.toFixed(2);
+    }
+  }
+
+  // ----- live equation substitution -----
+  const fmt = (n: number) => n.toFixed(2);
+  const rpm = (v: number) => (v / (2 * Math.PI * WHEEL_R)) * 60;
+  function setMotor(pair: HTMLElement[], v: number) {
+    pair[0].textContent = `${fmt(v)} m/s · ${Math.round(rpm(v))} rpm`;
+    const frac = Math.max(-1, Math.min(1, v / MOTOR_MAX));
+    const half = Math.abs(frac) * 50;
+    pair[1].style.left = (frac >= 0 ? 50 : 50 - half) + '%';
+    pair[1].style.width = half + '%';
+    pair[1].classList.toggle('rev', v < -1e-4);
+  }
+  function updateEquations(c: ReturnType<typeof command>) {
+    let deg = (pose.th * 180 / Math.PI) % 360;
+    if (deg > 180) deg -= 360; if (deg < -180) deg += 360;
+    const d = deg.toFixed(0);
+    const ct = Math.cos(pose.th), st = Math.sin(pose.th);
+    if (mode === 'diff') {
+      const xd = c.v * ct, yd = c.v * st;
+      eqd.v.innerHTML = `= (${fmt(c.vR)} + ${fmt(c.vL)}) / 2 = <b>${fmt(c.v)}</b> m/s`;
+      eqd.w.innerHTML = `= (${fmt(c.vR)} − ${fmt(c.vL)}) / ${fmt(L_DIFF)} = <b>${fmt(c.w)}</b> rad/s`;
+      eqd.xd.innerHTML = `= ${fmt(c.v)} · cos ${d}° = <b>${fmt(xd)}</b> m/s`;
+      eqd.yd.innerHTML = `= ${fmt(c.v)} · sin ${d}° = <b>${fmt(yd)}</b> m/s`;
+      eqd.thd.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
+      if (Math.abs(c.w) < 1e-3) eqd.R.innerHTML = `→ <b>∞</b> (straight line)`;
+      else eqd.R.innerHTML = `= ${fmt(c.v)} / ${fmt(c.w)} = <b>${fmt(c.v / c.w)}</b> m`;
+      setMotor(motorD[0], c.vL);
+      setMotor(motorD[1], c.vR);
+    } else {
+      // shared holonomic body velocity + world-frame pose rate (omni & mecanum)
+      const E = mode === 'omni' ? eqo : eqm;
+      const xd = c.vx * ct - c.vy * st, yd = c.vx * st + c.vy * ct;
+      E.vx.innerHTML = `= <b>${fmt(c.vx)}</b> m/s`;
+      E.vy.innerHTML = `= <b>${fmt(c.vy)}</b> m/s`;
+      E.om.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
+      E.xd.innerHTML = `= ${fmt(c.vx)} cos ${d}° − ${fmt(c.vy)} sin ${d}° = <b>${fmt(xd)}</b>`;
+      E.yd.innerHTML = `= ${fmt(c.vx)} sin ${d}° + ${fmt(c.vy)} cos ${d}° = <b>${fmt(yd)}</b>`;
+      E.thd.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
+      if (mode === 'omni') {
+        const u = OMNI_BETA.map((b) => -Math.sin(b) * c.vx + Math.cos(b) * c.vy + R_OMNI * c.w);
+        for (let i = 0; i < 3; i++) setMotor(motorO[i], u[i]);
+      } else {
+        const k = MEC_LX + MEC_LY;
+        const u = [
+          c.vx - c.vy - k * c.w, // front-left
+          c.vx + c.vy + k * c.w, // front-right
+          c.vx + c.vy - k * c.w, // rear-left
+          c.vx - c.vy + k * c.w, // rear-right
+        ];
+        for (let i = 0; i < 4; i++) setMotor(motorM[i], u[i]);
+      }
+    }
+  }
+
+  // ----- main loop -----
+  function frame(now: number) {
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    const c = running ? step(dt) : (maneuver ? maneuverCommand() : command());
+    // smooth camera follow
+    cam.x += (pose.x - cam.x) * 0.12;
+    cam.y += (pose.y - cam.y) * 0.12;
+
+    ctx.clearRect(0, 0, viewW, viewH);
+    drawGrid();
+    drawPath();
+    drawICC(c);
+    drawRobot(c);
+    updateReadouts(c);
+    updateEquations(c);
+    requestAnimationFrame(frame);
+  }
+
+  // ----- mode switching -----
+  function setMode(m: 'diff' | 'omni' | 'mec') {
+    mode = m;
+    active.clear();
+    cancelManeuver();
+    document.querySelectorAll('.pad.held').forEach((p) => p.classList.remove('held'));
+    const isDiff = m === 'diff';
+    ctlDiff.hidden = !isDiff; ctlHolo.hidden = isDiff;
+    eqDiff.hidden = m !== 'diff';
+    eqOmni.hidden = m !== 'omni';
+    eqMec.hidden = m !== 'mec';
+    tabs.forEach((t) => {
+      const on = t.dataset.mode === m;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+  }
+  tabs.forEach((t) => t.addEventListener('click', () => setMode(t.dataset.mode as 'diff' | 'omni' | 'mec')));
+
+  // ----- slider labels (a real drag also cancels any running path) -----
+  const bind = (s: HTMLInputElement, lbl: HTMLElement) => {
+    const upd = () => {
+      lbl.textContent = parseFloat(s.value).toFixed(2);
+      if (!programmatic) cancelManeuver();
+    };
+    s.addEventListener('input', upd); upd();
+  };
+  bind(s_vl, v_vl); bind(s_vr, v_vr); bind(s_vx, v_vx); bind(s_vy, v_vy); bind(s_om, v_om);
+
+  // ----- velocity presets (set steady wheel speeds) -----
+  const presets: Record<string, [number, number]> = {
+    straight: [0.5, 0.5],
+    arc: [0.35, 0.6],
+    spin: [-0.5, 0.5],
+    pivot: [0, 0.6],
+  };
+  document.querySelectorAll('[data-preset]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const p = presets[(chip as HTMLElement).dataset.preset!];
+      if (!p) return;
+      cancelManeuver();
+      active.clear();
+      setSlider(s_vl, p[0]); setSlider(s_vr, p[1]);
+    });
+  });
+
+  // ----- path trajectories (scripted, mode-aware) -----
+  document.querySelectorAll('[data-path]').forEach((b) => {
+    b.addEventListener('click', () => startManeuver((b as HTMLElement).dataset.path!));
+  });
+
+  // ----- buttons -----
+  btnPlay.addEventListener('click', () => {
+    running = !running;
+    btnPlay.textContent = running ? 'Pause' : 'Play';
+  });
+  el('btn-stop').addEventListener('click', () => {
+    cancelManeuver();
+    active.clear();
+    for (const s of [s_vl, s_vr, s_vx, s_vy, s_om]) setSlider(s, 0);
+  });
+  el('btn-reset').addEventListener('click', () => {
+    cancelManeuver();
+    pose = { x: 0, y: 0, th: 0 }; cam = { x: 0, y: 0 }; path = [];
+  });
+
+  // ----- keyboard -----
+  const keymap: Record<string, string> = {
+    KeyW: 'fwd', ArrowUp: 'fwd', KeyS: 'back', ArrowDown: 'back',
+    KeyA: 'left', ArrowLeft: 'left', KeyD: 'right', ArrowRight: 'right',
+    KeyQ: 'rotL', KeyE: 'rotR',
+  };
+  const isTyping = (t: EventTarget | null) =>
+    t instanceof HTMLElement && ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName);
+  window.addEventListener('keydown', (e) => {
+    const a = keymap[e.code];
+    if (!a || isTyping(e.target)) return;
+    e.preventDefault();
+    cancelManeuver();
+    active.add(a);
+  });
+  window.addEventListener('keyup', (e) => {
+    const a = keymap[e.code];
+    if (a) active.delete(a);
+  });
+
+  // ----- on-screen d-pad -----
+  document.querySelectorAll('.pad').forEach((pad) => {
+    const act = (pad as HTMLElement).dataset.act!;
+    const down = (e: Event) => { e.preventDefault(); cancelManeuver(); active.add(act); pad.classList.add('held'); };
+    const up = () => { active.delete(act); pad.classList.remove('held'); };
+    pad.addEventListener('pointerdown', down);
+    pad.addEventListener('pointerup', up);
+    pad.addEventListener('pointerleave', up);
+    pad.addEventListener('pointercancel', up);
+  });
+
+  // ----- pointer drag to pan camera offset? keep centred; just init -----
+  resize();
+  requestAnimationFrame(frame);
+</script>

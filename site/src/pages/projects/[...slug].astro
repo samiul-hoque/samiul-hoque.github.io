@@ -325,6 +325,55 @@ const jsonLd = {
   .body :global(.section-images a:hover img) {
     opacity: 0.85;
   }
+  /* highlighted interactive-companion callout (used in body markdown) */
+  .body :global(.sim-callout) {
+    display: block;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    border-left-width: 4px;
+    border-radius: 4px;
+    background: var(--accent-soft);
+    padding: 1rem 1.25rem;
+    margin: 1.75rem 0;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .body :global(.sim-callout:hover) {
+    background: rgba(30, 41, 59, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -10px rgba(30, 41, 59, 0.5);
+  }
+  .body :global(.sim-callout-eyebrow) {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .body :global(.sim-callout-title) {
+    display: block;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+  .body :global(.sim-callout-desc) {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 0.65rem;
+  }
+  .body :global(.sim-callout-cta) {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
   .links h2 {
     border-top: 1px solid var(--rule);
     padding-top: 1rem;
