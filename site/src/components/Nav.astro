@@ -71,7 +71,8 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
   }
 
   @media (max-width: 480px) {
-    ul { gap: 1rem; }
+    .nav-inner { flex-wrap: wrap; row-gap: 0.5rem; }
+    ul { gap: 1rem; flex-wrap: wrap; }
     .brand { font-size: 1rem; }
     ul a { font-size: 0.8125rem; }
   }

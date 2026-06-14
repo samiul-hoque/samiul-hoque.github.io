@@ -287,10 +287,11 @@ const jsonLd = {
     text-decoration: none;
     border-bottom: 1px solid var(--accent);
     padding-bottom: 1px;
+    overflow-wrap: anywhere; /* let long DOIs break instead of overflowing */
   }
 
   @media (max-width: 720px) {
-    .pub { grid-template-columns: 1fr; gap: 0.5rem; }
+    .pub { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
     .pub-meta { flex-direction: row; gap: 0.75rem; align-items: baseline; }
   }
 </style>

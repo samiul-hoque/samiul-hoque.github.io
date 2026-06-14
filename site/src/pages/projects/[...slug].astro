@@ -310,7 +310,7 @@ const jsonLd = {
     grid-template-columns: 1fr;
   }
   .body :global(.section-images.remainder) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
     border-top: 1px solid var(--rule);
     padding-top: 1.25rem;
     margin-top: 1.5rem;
