@@ -253,9 +253,10 @@ const jsonLd = {
   }
   .body-with-toc {
     display: grid;
-    grid-template-columns: 1fr 14rem;
+    grid-template-columns: minmax(0, 1fr) 14rem;
     gap: 3rem;
   }
+  .body { min-width: 0; }
   .toc-sidebar {
     align-self: stretch;
   }
@@ -444,7 +445,7 @@ const jsonLd = {
 
   @media (max-width: 960px) {
     .body-with-toc {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
     .toc-sidebar {
       display: none;

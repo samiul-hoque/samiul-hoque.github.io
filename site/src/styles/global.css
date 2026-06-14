@@ -100,6 +100,13 @@ code, kbd, samp {
   padding: 0 var(--space-4);
 }
 
+@media (max-width: 600px) {
+  .container {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}
+
 .prose {
   max-width: var(--measure);
   margin-left: auto;
