@@ -10,7 +10,7 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="/" class="brand">Samiul Hoque</a>
+    <a href="/" class="brand"><span>Samiul</span> <span>Hoque</span></a>
     <ul>
       {links.map((link) => {
         const target = link.href.replace(/\/$/, '') || '/';
@@ -36,6 +36,7 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
@@ -70,10 +71,22 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
     border-bottom-color: var(--accent);
   }
 
-  @media (max-width: 480px) {
-    .nav-inner { flex-wrap: wrap; row-gap: 0.5rem; }
-    ul { gap: 1rem; flex-wrap: wrap; }
-    .brand { font-size: 1rem; }
+  @media (max-width: 540px) {
+    /* Treat the name as a stacked two-line wordmark, clearly distinct from
+       the nav links, with the links pushed to the right. */
+    .nav-inner { gap: 1rem; }
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .brand span { display: block; }
+    ul {
+      gap: 0.75rem 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
     ul a { font-size: 0.8125rem; }
   }
 </style>
