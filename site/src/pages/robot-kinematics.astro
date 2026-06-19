@@ -4,8 +4,7 @@ import Base from '../layouts/Base.astro';
 
 <Base
   title="Robot Kinematics"
-  description="An interactive 2D simulation of the forward kinematics of differential-drive and omniwheel (holonomic) mobile robots."
-  noindex={true}
+  description="An interactive 2D simulation of the forward kinematics of differential-drive, omniwheel, and mecanum (holonomic) mobile robots."
 >
   <article class="container rk">
     <!-- ===================== SIMULATOR ===================== -->
@@ -53,13 +52,25 @@ import Base from '../layouts/Base.astro';
           </label>
         </div>
 
-        <!-- PATH PRESETS (autonomous trajectories) -->
-        <p class="ctl-title">Run a path</p>
-        <div class="chips">
-          <button class="chip" data-path="line">Straight 1 m</button>
-          <button class="chip" data-path="arc">Arc 90°</button>
-          <button class="chip" data-path="circle">Circle (r 0.5 m)</button>
-          <button class="chip" data-path="rect">Square 1 m</button>
+        <!-- PATH PRESETS (autonomous trajectories) — mode-aware, matched to the real robot's repertoire -->
+        <div id="path-diff">
+          <p class="ctl-title">Run a path</p>
+          <div class="chips">
+            <button class="chip" data-path="line">Straight 2 m</button>
+            <button class="chip" data-path="rect">Square 0.8 m</button>
+            <button class="chip" data-path="circle">Circle (r 0.5 m)</button>
+            <button class="chip" data-path="spin">Spin 360°</button>
+          </div>
+        </div>
+        <div id="path-holo" hidden>
+          <p class="ctl-title">Run a path</p>
+          <div class="chips">
+            <button class="chip" data-path="line">Straight 2 m</button>
+            <button class="chip" data-path="strafe-sq">Strafe square 0.8 m</button>
+            <button class="chip" data-path="rotate-sq">Rotate square 0.8 m</button>
+            <button class="chip" data-path="circle">Circle (r 0.5 m)</button>
+            <button class="chip" data-path="spin">Spin 360°</button>
+          </div>
         </div>
 
         <!-- D-PAD (touch / click driving) -->
@@ -203,7 +214,7 @@ import Base from '../layouts/Base.astro';
             </div>
           </div>
 
-          <p class="eq-const">l<sub>x</sub> = 0.15 m, l<sub>y</sub> = 0.12 m · wheel r = 0.04 m</p>
+          <p class="eq-const">l<sub>x</sub> = 0.1175 m (½ track) · l<sub>y</sub> = 0.0953 m (½ wheelbase) · wheel r = 0.04 m · Open Omnibot</p>
         </div>
       </aside>
     </section>
@@ -398,6 +409,11 @@ import Base from '../layouts/Base.astro';
     overflow-wrap: anywhere;
   }
   .eqn .sub b { color: #b91c1c; font-weight: 600; }
+  .eqn.is-active .sym { /* the body-velocity line currently doing the work */
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
   .eq-note {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -536,6 +552,7 @@ import Base from '../layouts/Base.astro';
   const s_vl = el('s-vl') as HTMLInputElement, s_vr = el('s-vr') as HTMLInputElement;
   const s_vx = el('s-vx') as HTMLInputElement, s_vy = el('s-vy') as HTMLInputElement, s_om = el('s-om') as HTMLInputElement;
   const ctlDiff = el('ctl-diff'), ctlHolo = el('ctl-holo');
+  const pathDiff = el('path-diff'), pathHolo = el('path-holo');
   const eqDiff = el('eq-diff'), eqOmni = el('eq-omni'), eqMec = el('eq-mec');
   const eqd = { v: el('eqd-v'), w: el('eqd-w'), xd: el('eqd-xd'), yd: el('eqd-yd'), thd: el('eqd-thd'), R: el('eqd-R') };
   const eqo = { vx: el('eqo-vx'), vy: el('eqo-vy'), om: el('eqo-om'), xd: el('eqo-xd'), yd: el('eqo-yd'), thd: el('eqo-thd') };
@@ -550,8 +567,11 @@ import Base from '../layouts/Base.astro';
   // ----- robot / world params -----
   const L_DIFF = 0.30;      // wheel separation (m)
   const R_OMNI = 0.16;      // omni wheel radius from centre (m)
-  const MEC_LX = 0.15;      // mecanum half-length (m, front-back)
-  const MEC_LY = 0.12;      // mecanum half-width (m, left-right)
+  const MEC_LX = 0.0953;    // mecanum half-wheelbase (m, front-back) — Open Omnibot
+  const MEC_LY = 0.1175;    // mecanum half-track (m, left-right) — Open Omnibot
+  // NOTE: these code names are drawing-axis-oriented (x=front-back, y=left-right).
+  // The robot's spec sheet labels them the other way (Lx = ½ track, Ly = ½ wheelbase);
+  // only the sum (lx+ly) enters the kinematics, so both conventions agree.
   const WHEEL_R = 0.04;     // drive-wheel radius (m), for motor RPM
   const MOTOR_MAX = 0.8;    // wheel speed (m/s) that fills a motor bar
   const PPM = 150;          // pixels per metre
@@ -578,17 +598,24 @@ import Base from '../layouts/Base.astro';
   let programmatic = false; // guards programmatic slider writes from cancelling
 
   function getManeuver(name: string): Seg[] | null {
-    const v = 0.4; // nominal speed (m/s) -> straight 1 m takes 1/v seconds
+    const v = 0.4;            // nominal speed (m/s) -> straight 1 m takes 1/v seconds
+    const wSpin = 1.5;        // in-place rotation rate (rad/s)
+    const side = 0.8;         // square side length (m) — matches the robot's preset
+    const turn90 = (Math.PI / 2) / wSpin;
+    const cornerWheel = wSpin * L_DIFF / 2; // diff wheel speed giving an in-place ω = wSpin
+    // 360° spin in place — mode-aware command
+    if (name === 'spin') {
+      const cmd = mode === 'diff' ? { vL: -cornerWheel, vR: cornerWheel } : { vx: 0, vy: 0, w: wSpin };
+      return [{ dur: (2 * Math.PI) / wSpin, cmd }];
+    }
     if (mode === 'diff') {
       const wArc = 0.8;                       // R = v/w = 0.5 m
       const vRa = v + wArc * L_DIFF / 2, vLa = v - wArc * L_DIFF / 2;
-      const wSpin = 2.0, turn90 = (Math.PI / 2) / wSpin; // in-place 90° corner
-      const fwd = { dur: 1 / v, cmd: { vL: v, vR: v } };
-      const corner = { dur: turn90, cmd: { vL: -0.3, vR: 0.3 } };
-      if (name === 'line') return [fwd];
-      if (name === 'arc') return [{ dur: (Math.PI / 2) / wArc, cmd: { vL: vLa, vR: vRa } }];
+      const fwd = { dur: side / v, cmd: { vL: v, vR: v } };
+      const corner = { dur: turn90, cmd: { vL: -cornerWheel, vR: cornerWheel } };
+      if (name === 'line') return [{ dur: 2 / v, cmd: { vL: v, vR: v } }];          // straight 2 m
       if (name === 'circle') return [{ dur: (2 * Math.PI) / wArc, cmd: { vL: vLa, vR: vRa } }];
-      if (name === 'rect') return [fwd, corner, fwd, corner, fwd, corner, fwd, corner];
+      if (name === 'rect') return [fwd, corner, fwd, corner, fwd, corner, fwd, corner]; // square by turning
     } else {
       const r = 0.5, W = v / r;                // orbit angular rate (rad/s)
       // Heading-fixed orbit: translate so the path is a circle while θ stays 0.
@@ -596,16 +623,17 @@ import Base from '../layouts/Base.astro';
         const phi = -Math.PI / 2 + W * t;
         return { vx: -r * W * Math.sin(phi), vy: r * W * Math.cos(phi), w: 0 };
       };
-      const d = 1 / v;
-      if (name === 'line') return [{ dur: d, cmd: { vx: v, vy: 0, w: 0 } }];
-      if (name === 'arc') return [{ dur: (Math.PI / 2) / W, cmd: orbit }];
-      if (name === 'circle') return [{ dur: (2 * Math.PI) / W, cmd: orbit }];
-      if (name === 'rect') return [
-        { dur: d, cmd: { vx: v, vy: 0, w: 0 } },
-        { dur: d, cmd: { vx: 0, vy: v, w: 0 } },
-        { dur: d, cmd: { vx: -v, vy: 0, w: 0 } },
-        { dur: d, cmd: { vx: 0, vy: -v, w: 0 } },
+      const fwd = { dur: side / v, cmd: { vx: v, vy: 0, w: 0 } };
+      const turn = { dur: turn90, cmd: { vx: 0, vy: 0, w: wSpin } };
+      if (name === 'line') return [{ dur: 2 / v, cmd: { vx: v, vy: 0, w: 0 } }];    // straight 2 m
+      if (name === 'circle') return [{ dur: (2 * Math.PI) / W, cmd: orbit }];        // heading-fixed circle r=0.5
+      if (name === 'strafe-sq') return [                                            // square, heading fixed (strafe)
+        { dur: side / v, cmd: { vx: v, vy: 0, w: 0 } },
+        { dur: side / v, cmd: { vx: 0, vy: v, w: 0 } },
+        { dur: side / v, cmd: { vx: -v, vy: 0, w: 0 } },
+        { dur: side / v, cmd: { vx: 0, vy: -v, w: 0 } },
       ];
+      if (name === 'rotate-sq') return [fwd, turn, fwd, turn, fwd, turn, fwd, turn]; // square by turning at corners
     }
     return null;
   }
@@ -813,28 +841,39 @@ import Base from '../layouts/Base.astro';
         ctx.restore();
       }
     } else {
-      // mecanum: rectangular body + 4 wheels with 45° roller hatch (X pattern)
-      const bx = MEC_LX * PPM, by = MEC_LY * PPM;
+      // mecanum: chassis + 4 corner wheels with 45° roller hatch (X configuration)
+      const bx = MEC_LX * PPM;     // half-wheelbase (front-back, +x = forward)
+      const by = MEC_LY * PPM;     // half-track (left-right)
+      const wl = 0.08 * PPM;       // wheel rolling length along x (≈ 80 mm dia)
+      const wt = 0.045 * PPM;      // wheel thickness along y (axle direction)
+      // chassis, tucked just inside the wheels on the sides
       ctx.fillStyle = '#e2e8f0'; ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.rect(-bx, -by, 2 * bx, 2 * by); ctx.fill(); ctx.stroke();
-      const wl = 0.11 * PPM, wt = 0.05 * PPM; // wheel length (x) / thickness (y)
-      // [x, y(screen, up=+body-left), rollerSign] — FL & RR one diagonal, FR & RL the other
+      ctx.beginPath();
+      ctx.rect(-bx, -(by - wt * 0.4), 2 * bx, 2 * (by - wt * 0.4));
+      ctx.fill(); ctx.stroke();
+      // wheel centres sit at the four corners (±half-wheelbase, ±half-track).
+      // rollerSign: FL & RR share one 45° diagonal, FR & RL the other -> X pattern.
+      // [x, y(screen: +y = body-right), rollerSign]
       const wheels: [number, number, number][] = [
-        [bx * 0.6, -by, 1], [bx * 0.6, by, -1], [-bx * 0.6, -by, -1], [-bx * 0.6, by, 1],
+        [bx, -by, 1], [bx, by, -1], [-bx, -by, -1], [-bx, by, 1],
       ];
       for (const [wx, wy, rs] of wheels) {
         ctx.save();
         ctx.translate(wx, wy);
         ctx.fillStyle = '#1e293b';
         ctx.fillRect(-wl / 2, -wt / 2, wl, wt);
+        // 45° rollers, clipped to the wheel rectangle
+        ctx.save();
+        ctx.beginPath(); ctx.rect(-wl / 2, -wt / 2, wl, wt); ctx.clip();
         ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1;
-        for (let o = -wl / 2 + 3; o < wl / 2; o += 4) { // 45° roller hatch
+        for (let o = -wl / 2 - wt; o < wl / 2 + wt; o += 3.5) { // 45° roller hatch
           ctx.beginPath();
           ctx.moveTo(o, -wt / 2);
           ctx.lineTo(o + rs * wt, wt / 2);
           ctx.stroke();
         }
-        ctx.restore();
+        ctx.restore(); // remove clip
+        ctx.restore(); // wheel transform
       }
     }
     ctx.restore();
@@ -875,6 +914,8 @@ import Base from '../layouts/Base.astro';
 
   // ----- live equation substitution -----
   const fmt = (n: number) => n.toFixed(2);
+  const ACT_EPS = 0.03; // deadband: a body-velocity line lights up when its component exceeds this
+  const setActive = (sub: HTMLElement, on: boolean) => sub.parentElement!.classList.toggle('is-active', on);
   const rpm = (v: number) => (v / (2 * Math.PI * WHEEL_R)) * 60;
   function setMotor(pair: HTMLElement[], v: number) {
     pair[0].textContent = `${fmt(v)} m/s · ${Math.round(rpm(v))} rpm`;
@@ -896,6 +937,8 @@ import Base from '../layouts/Base.astro';
       eqd.xd.innerHTML = `= ${fmt(c.v)} · cos ${d}° = <b>${fmt(xd)}</b> m/s`;
       eqd.yd.innerHTML = `= ${fmt(c.v)} · sin ${d}° = <b>${fmt(yd)}</b> m/s`;
       eqd.thd.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
+      setActive(eqd.v, Math.abs(c.v) > ACT_EPS);  // light the body-velocity line(s) in play
+      setActive(eqd.w, Math.abs(c.w) > ACT_EPS);
       if (Math.abs(c.w) < 1e-3) eqd.R.innerHTML = `→ <b>∞</b> (straight line)`;
       else eqd.R.innerHTML = `= ${fmt(c.v)} / ${fmt(c.w)} = <b>${fmt(c.v / c.w)}</b> m`;
       setMotor(motorD[0], c.vL);
@@ -910,6 +953,9 @@ import Base from '../layouts/Base.astro';
       E.xd.innerHTML = `= ${fmt(c.vx)} cos ${d}° − ${fmt(c.vy)} sin ${d}° = <b>${fmt(xd)}</b>`;
       E.yd.innerHTML = `= ${fmt(c.vx)} sin ${d}° + ${fmt(c.vy)} cos ${d}° = <b>${fmt(yd)}</b>`;
       E.thd.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
+      setActive(E.vx, Math.abs(c.vx) > ACT_EPS); // forward line
+      setActive(E.vy, Math.abs(c.vy) > ACT_EPS); // sideways/strafe line
+      setActive(E.om, Math.abs(c.w) > ACT_EPS);  // rotation line
       if (mode === 'omni') {
         const u = OMNI_BETA.map((b) => -Math.sin(b) * c.vx + Math.cos(b) * c.vy + R_OMNI * c.w);
         for (let i = 0; i < 3; i++) setMotor(motorO[i], u[i]);
@@ -953,6 +999,7 @@ import Base from '../layouts/Base.astro';
     document.querySelectorAll('.pad.held').forEach((p) => p.classList.remove('held'));
     const isDiff = m === 'diff';
     ctlDiff.hidden = !isDiff; ctlHolo.hidden = isDiff;
+    pathDiff.hidden = !isDiff; pathHolo.hidden = isDiff;
     eqDiff.hidden = m !== 'diff';
     eqOmni.hidden = m !== 'omni';
     eqMec.hidden = m !== 'mec';
