@@ -152,9 +152,9 @@ import Base from '../layouts/Base.astro';
         <!-- OMNI -->
         <div class="eq-block" id="eq-omni" hidden>
           <p class="eq-sub-head">Body velocity</p>
-          <div class="eqn"><div class="sym">v<sub>x</sub>&nbsp;&nbsp;(forward)</div><div class="sub" id="eqo-vx"></div></div>
-          <div class="eqn"><div class="sym">v<sub>y</sub>&nbsp;&nbsp;(sideways)</div><div class="sub" id="eqo-vy"></div></div>
-          <div class="eqn"><div class="sym">ω&nbsp;&nbsp;(rotation)</div><div class="sub" id="eqo-om"></div></div>
+          <div class="eqn"><div class="sym">v<sub>x</sub> = (−2u<sub>1</sub> + u<sub>2</sub> + u<sub>3</sub>) / 3</div><div class="sub" id="eqo-vx"></div></div>
+          <div class="eqn"><div class="sym">v<sub>y</sub> = (u<sub>3</sub> − u<sub>2</sub>) / √3</div><div class="sub" id="eqo-vy"></div></div>
+          <div class="eqn"><div class="sym">ω = (u<sub>1</sub> + u<sub>2</sub> + u<sub>3</sub>) / 3L</div><div class="sub" id="eqo-om"></div></div>
 
           <p class="eq-sub-head">World-frame pose rate</p>
           <div class="eqn"><div class="sym">ẋ = v<sub>x</sub> cos θ − v<sub>y</sub> sin θ</div><div class="sub" id="eqo-xd"></div></div>
@@ -184,9 +184,9 @@ import Base from '../layouts/Base.astro';
         <!-- MECANUM -->
         <div class="eq-block" id="eq-mec" hidden>
           <p class="eq-sub-head">Body velocity</p>
-          <div class="eqn"><div class="sym">v<sub>x</sub>&nbsp;&nbsp;(forward)</div><div class="sub" id="eqm-vx"></div></div>
-          <div class="eqn"><div class="sym">v<sub>y</sub>&nbsp;&nbsp;(sideways)</div><div class="sub" id="eqm-vy"></div></div>
-          <div class="eqn"><div class="sym">ω&nbsp;&nbsp;(rotation)</div><div class="sub" id="eqm-om"></div></div>
+          <div class="eqn"><div class="sym">v<sub>x</sub> = (FL + FR + RL + RR) / 4</div><div class="sub" id="eqm-vx"></div></div>
+          <div class="eqn"><div class="sym">v<sub>y</sub> = (−FL + FR + RL − RR) / 4</div><div class="sub" id="eqm-vy"></div></div>
+          <div class="eqn"><div class="sym">ω = (−FL + FR − RL + RR) / 4(l<sub>x</sub>+l<sub>y</sub>)</div><div class="sub" id="eqm-om"></div></div>
 
           <p class="eq-sub-head">World-frame pose rate</p>
           <div class="eqn"><div class="sym">ẋ = v<sub>x</sub> cos θ − v<sub>y</sub> sin θ</div><div class="sub" id="eqm-xd"></div></div>
@@ -369,6 +369,7 @@ import Base from '../layouts/Base.astro';
   .eqpanel {
     border-left: 1px solid var(--rule);
     padding-left: 1.1rem;
+    min-width: 0; /* let equation text wrap instead of overflowing its track */
   }
   .eq-head {
     font-family: var(--mono);
@@ -947,28 +948,35 @@ import Base from '../layouts/Base.astro';
       // shared holonomic body velocity + world-frame pose rate (omni & mecanum)
       const E = mode === 'omni' ? eqo : eqm;
       const xd = c.vx * ct - c.vy * st, yd = c.vx * st + c.vy * ct;
-      E.vx.innerHTML = `= <b>${fmt(c.vx)}</b> m/s`;
-      E.vy.innerHTML = `= <b>${fmt(c.vy)}</b> m/s`;
-      E.om.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
+      // world-frame pose rate (same for both holonomic drives)
       E.xd.innerHTML = `= ${fmt(c.vx)} cos ${d}° − ${fmt(c.vy)} sin ${d}° = <b>${fmt(xd)}</b>`;
       E.yd.innerHTML = `= ${fmt(c.vx)} sin ${d}° + ${fmt(c.vy)} cos ${d}° = <b>${fmt(yd)}</b>`;
       E.thd.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
-      setActive(E.vx, Math.abs(c.vx) > ACT_EPS); // forward line
-      setActive(E.vy, Math.abs(c.vy) > ACT_EPS); // sideways/strafe line
-      setActive(E.om, Math.abs(c.w) > ACT_EPS);  // rotation line
       if (mode === 'omni') {
+        // wheel speeds (inverse), then echo body velocity (forward kinematics)
         const u = OMNI_BETA.map((b) => -Math.sin(b) * c.vx + Math.cos(b) * c.vy + R_OMNI * c.w);
+        E.vx.innerHTML = `= <b>${fmt(c.vx)}</b> m/s`;
+        E.vy.innerHTML = `= <b>${fmt(c.vy)}</b> m/s`;
+        E.om.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
         for (let i = 0; i < 3; i++) setMotor(motorO[i], u[i]);
       } else {
         const k = MEC_LX + MEC_LY;
         const u = [
-          c.vx - c.vy - k * c.w, // front-left
-          c.vx + c.vy + k * c.w, // front-right
-          c.vx + c.vy - k * c.w, // rear-left
-          c.vx - c.vy + k * c.w, // rear-right
+          c.vx - c.vy - k * c.w, // front-left  (FL)
+          c.vx + c.vy + k * c.w, // front-right (FR)
+          c.vx + c.vy - k * c.w, // rear-left   (RL)
+          c.vx - c.vy + k * c.w, // rear-right  (RR)
         ];
+        // forward kinematics (wheel speeds -> body velocity); the four live wheel
+        // numbers are in the bars below, so keep these result rows compact
+        E.vx.innerHTML = `= <b>${fmt(c.vx)}</b> m/s`;
+        E.vy.innerHTML = `= <b>${fmt(c.vy)}</b> m/s`;
+        E.om.innerHTML = `= <b>${fmt(c.w)}</b> rad/s`;
         for (let i = 0; i < 4; i++) setMotor(motorM[i], u[i]);
       }
+      setActive(E.vx, Math.abs(c.vx) > ACT_EPS); // forward line
+      setActive(E.vy, Math.abs(c.vy) > ACT_EPS); // sideways/strafe line
+      setActive(E.om, Math.abs(c.w) > ACT_EPS);  // rotation line
     }
   }
 
