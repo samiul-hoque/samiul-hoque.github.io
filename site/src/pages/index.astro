@@ -162,22 +162,31 @@ const teaching = [
       <a href="/publications/" class="see-all">Full list →</a>
     </div>
     <ul class="pub-mini">
-      {publications.map((p) => (
-        <li>
-          <span class="pm-year">{p.data.year}</span>
-          <div class="pm-body">
-            <a href={p.data.url ?? `https://doi.org/${p.data.doi}`} target="_blank" rel="noopener" class="pm-title">
-              {p.data.title}
-            </a>
-            <p class="pm-meta">
-              {p.data.authors.join(', ')}
-              <br />
-              <em>{p.data.venueShort ?? p.data.venue}</em>
-              {p.data.location && <> · {p.data.location}</>}
-            </p>
-          </div>
-        </li>
-      ))}
+      {publications.map((p) => {
+        const related = p.data.relatedProject ? bySlug[p.data.relatedProject] : null;
+        // Fall back to the project page when a paper has no external URL/DOI yet
+        // (e.g. the thesis, pending acceptance), then to the publications list.
+        const href = p.data.url
+          ?? (p.data.doi ? `https://doi.org/${p.data.doi}` : null)
+          ?? (related ? `/projects/${related.id}/` : '/publications/');
+        const external = href.startsWith('http');
+        return (
+          <li>
+            <span class="pm-year">{p.data.year}</span>
+            <div class="pm-body">
+              <a href={href} {...(external ? { target: '_blank', rel: 'noopener' } : {})} class="pm-title">
+                {p.data.title}
+              </a>
+              <p class="pm-meta">
+                {p.data.authors.join(', ')}
+                <br />
+                <em>{p.data.venueShort ?? p.data.venue}</em>
+                {p.data.location && <> · {p.data.location}</>}
+              </p>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   </section>
 
