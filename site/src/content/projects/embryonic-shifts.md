@@ -92,7 +92,7 @@ revolution. The rest of this page is about making that true.
 <figcaption>The bottom layer from above, with the tower removed. This is the whole animation laid out flat: 24 lotus forms around the rim, each a further stage of opening than the one before it, so a single frame of the loop is a single object. Spinning the platter and flashing once per object is what turns the ring back into a sequence.</figcaption>
 </figure>
 
-## The rig
+## Mechanical assembly
 
 <figure>
 <img src="/images/embryonic-shifts/DWG001_Zoetrope_Labelled.png" alt="DWG001 — general arrangement of the zoetrope: box top, acrylic window, two figure rings on the centre tower, Oldham coupler, lazy susan bearing and BLDC" />
@@ -169,7 +169,7 @@ time.
 <figcaption>The two Snapmaker U1s and the Sunlu S4 Pro dryer that fed them — roughly 1700 hours of print time between the machines, from the 72 sculpted objects down to the sensor bracket. Pre-ordered for this project; the first two U1s in the country.</figcaption>
 </figure>
 
-## The magnets are a clock, not a ruler
+## Index timing and error correction
 
 This is the part the whole exhibit lives or dies on, and it is the part the
 first build got wrong.
@@ -242,7 +242,7 @@ far away, or **fitted the wrong way round**. An A3144 is unipolar and only
 answers one pole, so a slot that shows intervals but no dwell is a reversed
 magnet — a five-second diagnosis instead of an afternoon.
 
-## The strobe
+## Strobe electronics
 
 <figure>
 <img src="/images/embryonic-shifts/DWG003_Zoetrope_Electrical.png" alt="DWG003 — electrical and electronics: sectioned elevation, strobe sync timing, mains ladder and the two-channel driver board as built" />
@@ -281,7 +281,7 @@ firmware treats the strobe as two channels that must rise together.
 <figcaption>A light mount moved through its travel. Each emitter sits in a printed ball joint that pans, tilts and locks, so the four beams can be aimed onto the figure ring after the box is assembled and then left alone. Aiming is a mechanical adjustment on purpose — nothing about where the light lands is in software. Silent clip.</figcaption>
 </figure>
 
-### The driver board
+### Driver board
 
 <figure>
 <img src="/images/embryonic-shifts/strobe-driver-schematic.svg" alt="Schematic of the two-channel strobe driver board: power entry with J1, bulk capacitors C1 and C2 at 4700 microfarads, C3 at 1 microfarad and bleed resistor Rb, then two identical channels each with paired 2.2 ohm 5 W ballast resistors, a torch LED, a 1N5822 clamp diode and an IRLB8721 MOSFET, fed from a shared gate bus with 100 ohm damping resistors and a 4.7 k pulldown" loading="lazy" />
@@ -337,7 +337,7 @@ The only DC reference between the box-top boards and the controller under the
 platter is the Cat5e ground. If phantom index triggers ever show up, that is
 the path to suspect first — not the hall sensor.
 
-## Firmware — what interrupt context will not forgive
+## Firmware: interrupt-context constraints
 
 The exhibition build crash-looped for an afternoon over two rules, so they
 are written at the top of the handover doc now.
@@ -392,7 +392,7 @@ for a strobe self-test with the motor off, `1` for one flash per revolution,
 interval *and* a dwell, then ramp the motor and `c` until calibration reports
 `APPLIED`.
 
-## Safety
+## Safety systems
 
 40 Hz sits inside the flicker band associated with photosensitive seizures,
 on a piece that faces the public in a dark room. Visitors sensitive to
@@ -425,7 +425,7 @@ When a ceiling bites, the pulse narrows — which from the floor looks like the
 boards dimming for no reason. So it is reported rather than silent: a console
 line on the transition, and a red `clamped` label on the dashboard.
 
-## In the room
+## Installation
 
 <div class="photo-grid wide natural">
   <img src="/images/embryonic-shifts/assembled-in-room.jpg" alt="The finished zoetrope standing in the gallery — a dark upholstered plinth with a clear acrylic vitrine above it, the three lit layers turning inside, power and E-stop buttons on the front of the plinth" loading="lazy" />
@@ -448,7 +448,7 @@ the half-second before it starts turning.
 <figcaption>The invite. Opening 6:00 pm, 22 August 2026; open 1:00–9:00 pm through the 29th at SHALA Neighbourhood Art Space, Aloki — 211 Tejgaon-Gulshan Link Road, Dhaka.</figcaption>
 </figure>
 
-## Credits and thanks
+## Acknowledgements
 
 *Embryonic Shifts (Rupantor)* is by **Saiq'a Shabnam Chowdhury** and
 **Samiul Hoque**, produced by [Ghorar Dim
