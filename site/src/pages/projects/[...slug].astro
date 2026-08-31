@@ -122,6 +122,26 @@ const jsonLd = {
       </aside>
     )}
 
+    {data.press.length > 0 && (
+      <section class="press">
+        <h2>In the press</h2>
+        <ul>
+          {data.press.map((item) => (
+            <li>
+              <span class="press-outlet">
+                {item.outlet}
+                {item.lang === 'bn' && <span class="press-lang">বাংলা</span>}
+              </span>
+              <div class="press-body">
+                <a href={item.url} target="_blank" rel="noopener">{item.title}</a>
+                {item.date && <span class="press-date">{item.date}</span>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     {data.externalLinks.length > 0 && (
       <section class="links">
         <h2>Links</h2>
@@ -198,8 +218,149 @@ const jsonLd = {
     body.appendChild(figure);
   }
 
-  interleaveGallery();
-  document.addEventListener('astro:after-swap', interleaveGallery);
+  /* ------------------------------------------------------------------ *
+   * Lightbox — click any body image to open it full-screen.
+   * Arrow keys / swipe to move through the page's images, Esc to close.
+   * No dependencies; re-initialises cleanly after a view transition.
+   * ------------------------------------------------------------------ */
+  let lbItems: { src: string; caption: string }[] = [];
+  let lbIndex = 0;
+  let lbEl: HTMLElement | null = null;
+
+  function captionFor(img: HTMLImageElement): string {
+    const cap = img.closest('figure')?.querySelector('figcaption');
+    if (!cap) return img.alt || '';
+    // Drop link text ("Full sheet as PDF ↗") — the links aren't clickable
+    // inside the overlay, so their labels only clutter the caption.
+    const clone = cap.cloneNode(true) as HTMLElement;
+    clone.querySelectorAll('a').forEach((a) => a.remove());
+    return clone.textContent?.replace(/\s+/g, ' ').trim() || img.alt || '';
+  }
+
+  function buildLightbox(): HTMLElement {
+    const el = document.createElement('div');
+    el.className = 'lightbox';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.setAttribute('aria-label', 'Image viewer');
+    el.innerHTML = `
+      <button class="lb-close" aria-label="Close">&times;</button>
+      <button class="lb-prev" aria-label="Previous image">&#8249;</button>
+      <button class="lb-next" aria-label="Next image">&#8250;</button>
+      <figure class="lb-stage">
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+      <span class="lb-count"></span>`;
+
+    el.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.closest('.lb-prev')) { step(-1); return; }
+      if (t.closest('.lb-next')) { step(1); return; }
+      // clicking the backdrop (anything that isn't the image itself) closes
+      if (!t.closest('.lb-stage img')) closeLightbox();
+    });
+
+    let touchX = 0;
+    el.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+    el.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function render() {
+    if (!lbEl) return;
+    const item = lbItems[lbIndex];
+    const img = lbEl.querySelector<HTMLImageElement>('.lb-stage img')!;
+    const cap = lbEl.querySelector<HTMLElement>('.lb-stage figcaption')!;
+    const count = lbEl.querySelector<HTMLElement>('.lb-count')!;
+    img.src = item.src;
+    img.alt = item.caption;
+    cap.textContent = item.caption;
+    cap.hidden = !item.caption;
+    count.textContent = lbItems.length > 1 ? `${lbIndex + 1} / ${lbItems.length}` : '';
+    lbEl.classList.toggle('single', lbItems.length < 2);
+  }
+
+  function step(delta: number) {
+    if (lbItems.length < 2) return;
+    lbIndex = (lbIndex + delta + lbItems.length) % lbItems.length;
+    render();
+  }
+
+  function openLightbox(index: number) {
+    if (!lbEl) lbEl = buildLightbox();
+    lbIndex = index;
+    render();
+    lbEl.classList.add('open');
+    document.body.classList.add('lb-locked');
+    lbEl.querySelector<HTMLElement>('.lb-close')?.focus();
+  }
+
+  function closeLightbox() {
+    lbEl?.classList.remove('open');
+    document.body.classList.remove('lb-locked');
+  }
+
+  function onKey(e: KeyboardEvent) {
+    if (!lbEl?.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowRight') step(1);
+    else if (e.key === 'ArrowLeft') step(-1);
+  }
+
+  function initLightbox() {
+    const body = document.querySelector<HTMLElement>('.project .body');
+    if (!body) return;
+
+    // Every body image is zoomable, in document order, except the hero and
+    // except an image whose wrapping link points at something that is not an
+    // image — a PDF drawing, a repo, another page. Those keep their link; the
+    // lightbox only takes the click when the anchor points back at the image
+    // itself, which is the gallery/grid pattern.
+    const isImageHref = (a: HTMLAnchorElement) =>
+      /\.(png|jpe?g|gif|webp|avif|svg)$/i.test(new URL(a.href, location.href).pathname);
+
+    const imgs = Array.from(body.querySelectorAll<HTMLImageElement>('img')).filter((img) => {
+      if (img.closest('.hero')) return false;
+      const a = img.closest('a');
+      return !a || isImageHref(a);
+    });
+    if (!imgs.length) return;
+
+    lbItems = imgs.map((img) => ({ src: img.currentSrc || img.src, caption: captionFor(img) }));
+
+    imgs.forEach((img, i) => {
+      if (img.dataset.lbBound) return;
+      img.dataset.lbBound = '1';
+      img.classList.add('zoomable');
+      const target: HTMLElement = img.closest('a') ?? img;
+      target.addEventListener('click', (e) => {
+        const me = e as MouseEvent;
+        if (me.metaKey || me.ctrlKey || me.shiftKey || me.button !== 0) return;
+        e.preventDefault();
+        openLightbox(i);
+      });
+    });
+  }
+
+  function initAll() {
+    interleaveGallery();
+    initLightbox();
+  }
+
+  initAll();
+  document.addEventListener('keydown', onKey);
+  document.addEventListener('astro:after-swap', () => {
+    lbEl?.remove();
+    lbEl = null;
+    closeLightbox();
+    initAll();
+  });
 </script>
 
 <style>
@@ -375,6 +536,138 @@ const jsonLd = {
     border-bottom: 1px solid var(--accent);
     padding-bottom: 1px;
   }
+  /* photo grid — paste one <img> per photo inside a
+     <div class="photo-grid"> in the markdown body */
+  .body :global(.photo-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+    gap: 0.5rem;
+    margin: 1.25rem 0;
+  }
+  .body :global(.photo-grid.tight) {
+    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+  }
+  .body :global(.photo-grid.wide) {
+    grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+  }
+  .body :global(.photo-grid img) {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    transition: opacity 0.2s ease;
+  }
+  .body :global(.photo-grid.natural img) {
+    aspect-ratio: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .body :global(.photo-grid img:hover) {
+    opacity: 0.85;
+  }
+
+  /* video figures — 16:9 responsive embed without inline styles */
+  .body :global(.video) {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .body :global(.video iframe) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* self-hosted silent clips — sized by their own aspect, not forced to 16:9.
+     The cap goes on the video, not the figure, so the clip centres in the
+     column while the figcaption still gets the full width to wrap in. */
+  .body :global(.clip video) {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+  }
+  .body :global(.clip.portrait video) {
+    max-width: 320px;
+  }
+  .body :global(.clip.small video) {
+    max-width: 420px;
+  }
+
+  /* press coverage */
+  .press h2 {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+  }
+  .press ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .press li {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0;
+  }
+  .press-outlet {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .press-lang {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink-mute);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0 0.35rem;
+  }
+  .press-body a {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .press-body a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .press-body a::after {
+    content: ' ↗';
+    color: var(--ink-mute);
+    border: 0;
+  }
+  .press-date {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-mute);
+    margin-top: 0.3rem;
+  }
+
   .links h2 {
     border-top: 1px solid var(--rule);
     padding-top: 1rem;
@@ -457,6 +750,10 @@ const jsonLd = {
       gap: 0.1rem 0;
     }
     .meta-grid dt { padding-top: 0.75rem; }
+    .press li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
   }
 
   :global(article[data-slug="holonomic-odometry-testbed"] .body figure:not(.hero):not(.section-images)) {

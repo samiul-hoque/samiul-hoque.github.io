@@ -1,0 +1,174 @@
+<svg width="1360" height="1260" viewBox="0 0 680 630" xmlns="http://www.w3.org/2000/svg">
+<title>Zoetrope strobe driver board, two channels, as built</title>
+<desc>Power entry with bulk capacitors and bleed resistor, two identical LED channels each with paired ballast resistors, screw terminals, torch LED, 1N5822 clamp diode and IRLB8721 MOSFET, plus a shared gate bus with damping resistors and pulldown.</desc>
+<style>
+  text { font-family: "DejaVu Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; fill: #24231F; }
+  .ts { font-size: 12px; }
+  .th { font-size: 13px; font-weight: 600; }
+  .wire { stroke: #4A4843; fill: none; }
+  .zone { fill: none; stroke: #B6B2A8; stroke-width: 0.7; stroke-dasharray: 4 4; }
+  .pass { fill: #F3F1EC; stroke: #4A4843; stroke-width: 1; }
+  .plate { stroke: #4A4843; stroke-width: 1.5; }
+  .fet { fill: #DCE9F8; stroke: #3B7CC4; stroke-width: 1; }
+  .term { fill: #DFEEE3; stroke: #3E8F5E; stroke-width: 1; }
+  .dio { stroke: #D85A30; fill: none; }
+  .node { fill: #4A4843; }
+  .dnode { fill: #D85A30; }
+</style>
+
+<rect x="0" y="0" width="680" height="630" fill="#FFFFFF"/>
+
+<rect class="zone" x="45" y="60" width="170" height="440" rx="8"/>
+<rect class="zone" x="235" y="60" width="180" height="440" rx="8"/>
+<rect class="zone" x="440" y="60" width="180" height="440" rx="8"/>
+<text class="th" x="130" y="50" text-anchor="middle">Power entry and bulk</text>
+<text class="th" x="325" y="50" text-anchor="middle">Channel 1</text>
+<text class="th" x="530" y="50" text-anchor="middle">Channel 2</text>
+
+<line class="wire" x1="55" y1="90" x2="600" y2="90" stroke-width="1.5"/>
+<line class="wire" x1="55" y1="470" x2="600" y2="470" stroke-width="1.5"/>
+<text class="ts" x="640" y="84" text-anchor="end">+5 V</text>
+<text class="ts" x="640" y="486" text-anchor="end">GND</text>
+
+<rect class="term" x="52" y="250" width="36" height="50" rx="4"/>
+<text class="ts" x="70" y="279" text-anchor="middle">J1</text>
+<line class="wire" x1="70" y1="250" x2="70" y2="90" stroke-width="1.5"/>
+<line class="wire" x1="70" y1="300" x2="70" y2="470" stroke-width="1.5"/>
+
+<line class="wire" x1="105" y1="90" x2="105" y2="270" stroke-width="1"/>
+<line class="plate" x1="95" y1="270" x2="115" y2="270"/>
+<line class="plate" x1="95" y1="280" x2="115" y2="280"/>
+<line class="wire" x1="105" y1="280" x2="105" y2="470" stroke-width="1"/>
+<text class="ts" x="105" y="306" text-anchor="middle">C1</text>
+
+<line class="wire" x1="137" y1="90" x2="137" y2="270" stroke-width="1"/>
+<line class="plate" x1="127" y1="270" x2="147" y2="270"/>
+<line class="plate" x1="127" y1="280" x2="147" y2="280"/>
+<line class="wire" x1="137" y1="280" x2="137" y2="470" stroke-width="1"/>
+<text class="ts" x="137" y="322" text-anchor="middle">C2</text>
+
+<line class="wire" x1="167" y1="90" x2="167" y2="270" stroke-width="1"/>
+<line class="plate" x1="157" y1="270" x2="177" y2="270"/>
+<line class="plate" x1="157" y1="280" x2="177" y2="280"/>
+<line class="wire" x1="167" y1="280" x2="167" y2="470" stroke-width="1"/>
+<text class="ts" x="167" y="306" text-anchor="middle">C3</text>
+
+<line class="wire" x1="197" y1="90" x2="197" y2="255" stroke-width="1"/>
+<rect class="pass" x="186" y="255" width="22" height="40" rx="2"/>
+<line class="wire" x1="197" y1="295" x2="197" y2="470" stroke-width="1"/>
+<text class="ts" x="197" y="322" text-anchor="middle">Rb</text>
+
+<line class="wire" x1="290" y1="90" x2="290" y2="112" stroke-width="1"/>
+<line class="wire" x1="268" y1="112" x2="312" y2="112" stroke-width="1"/>
+<line class="wire" x1="268" y1="112" x2="268" y2="118" stroke-width="1"/>
+<line class="wire" x1="312" y1="112" x2="312" y2="118" stroke-width="1"/>
+<rect class="pass" x="257" y="118" width="22" height="40" rx="2"/>
+<rect class="pass" x="301" y="118" width="22" height="40" rx="2"/>
+<text class="ts" x="268" y="174" text-anchor="middle">R1a</text>
+<text class="ts" x="312" y="174" text-anchor="middle">R1b</text>
+<line class="wire" x1="268" y1="158" x2="268" y2="185" stroke-width="1"/>
+<line class="wire" x1="312" y1="158" x2="312" y2="185" stroke-width="1"/>
+<line class="wire" x1="268" y1="185" x2="312" y2="185" stroke-width="1"/>
+<line class="wire" x1="290" y1="185" x2="290" y2="192" stroke-width="1"/>
+<rect class="term" x="278" y="192" width="24" height="12" rx="2"/>
+<line class="wire" x1="290" y1="204" x2="290" y2="215" stroke-width="1"/>
+<polygon points="276,215 304,215 290,243" fill="none" stroke="#4A4843" stroke-width="1.2"/>
+<line class="plate" x1="276" y1="243" x2="304" y2="243"/>
+<text class="ts" x="314" y="232">LED 1</text>
+<line class="wire" x1="290" y1="243" x2="290" y2="256" stroke-width="1"/>
+<rect class="term" x="278" y="256" width="24" height="12" rx="2"/>
+<text class="ts" x="264" y="200" text-anchor="end">T1</text>
+<text class="ts" x="264" y="268" text-anchor="end">T1</text>
+<line class="wire" x1="290" y1="268" x2="290" y2="300" stroke-width="1"/>
+
+<line class="dio" x1="290" y1="300" x2="370" y2="300" stroke-width="1.2"/>
+<line class="dio" x1="370" y1="300" x2="370" y2="228" stroke-width="1.2"/>
+<polygon points="358,228 382,228 370,205" fill="none" stroke="#D85A30" stroke-width="1.4"/>
+<line class="dio" x1="358" y1="205" x2="382" y2="205" stroke-width="2"/>
+<line class="dio" x1="370" y1="205" x2="370" y2="90" stroke-width="1.2"/>
+<text class="ts" x="386" y="220">D1</text>
+
+<rect class="fet" x="255" y="300" width="70" height="60" rx="6"/>
+<text class="ts" x="290" y="334" text-anchor="middle">Q1</text>
+<line class="wire" x1="290" y1="360" x2="290" y2="470" stroke-width="1.5"/>
+<line class="wire" x1="240" y1="330" x2="255" y2="330" stroke-width="1"/>
+<line class="wire" x1="240" y1="330" x2="240" y2="380" stroke-width="1"/>
+<rect class="pass" x="229" y="380" width="22" height="40" rx="2"/>
+<text class="ts" x="256" y="404">Rg1</text>
+<line class="wire" x1="240" y1="420" x2="240" y2="530" stroke-width="1"/>
+
+<line class="wire" x1="502" y1="90" x2="502" y2="112" stroke-width="1"/>
+<line class="wire" x1="480" y1="112" x2="524" y2="112" stroke-width="1"/>
+<line class="wire" x1="480" y1="112" x2="480" y2="118" stroke-width="1"/>
+<line class="wire" x1="524" y1="112" x2="524" y2="118" stroke-width="1"/>
+<rect class="pass" x="469" y="118" width="22" height="40" rx="2"/>
+<rect class="pass" x="513" y="118" width="22" height="40" rx="2"/>
+<text class="ts" x="480" y="174" text-anchor="middle">R2a</text>
+<text class="ts" x="524" y="174" text-anchor="middle">R2b</text>
+<line class="wire" x1="480" y1="158" x2="480" y2="185" stroke-width="1"/>
+<line class="wire" x1="524" y1="158" x2="524" y2="185" stroke-width="1"/>
+<line class="wire" x1="480" y1="185" x2="524" y2="185" stroke-width="1"/>
+<line class="wire" x1="502" y1="185" x2="502" y2="192" stroke-width="1"/>
+<rect class="term" x="490" y="192" width="24" height="12" rx="2"/>
+<line class="wire" x1="502" y1="204" x2="502" y2="215" stroke-width="1"/>
+<polygon points="488,215 516,215 502,243" fill="none" stroke="#4A4843" stroke-width="1.2"/>
+<line class="plate" x1="488" y1="243" x2="516" y2="243"/>
+<text class="ts" x="526" y="232">LED 2</text>
+<line class="wire" x1="502" y1="243" x2="502" y2="256" stroke-width="1"/>
+<rect class="term" x="490" y="256" width="24" height="12" rx="2"/>
+<text class="ts" x="476" y="200" text-anchor="end">T2</text>
+<text class="ts" x="476" y="268" text-anchor="end">T2</text>
+<line class="wire" x1="502" y1="268" x2="502" y2="300" stroke-width="1"/>
+
+<line class="dio" x1="502" y1="300" x2="582" y2="300" stroke-width="1.2"/>
+<line class="dio" x1="582" y1="300" x2="582" y2="228" stroke-width="1.2"/>
+<polygon points="570,228 594,228 582,205" fill="none" stroke="#D85A30" stroke-width="1.4"/>
+<line class="dio" x1="570" y1="205" x2="594" y2="205" stroke-width="2"/>
+<line class="dio" x1="582" y1="205" x2="582" y2="90" stroke-width="1.2"/>
+<text class="ts" x="598" y="220">D2</text>
+
+<rect class="fet" x="467" y="300" width="70" height="60" rx="6"/>
+<text class="ts" x="502" y="334" text-anchor="middle">Q2</text>
+<line class="wire" x1="502" y1="360" x2="502" y2="470" stroke-width="1.5"/>
+<line class="wire" x1="452" y1="330" x2="467" y2="330" stroke-width="1"/>
+<line class="wire" x1="452" y1="330" x2="452" y2="380" stroke-width="1"/>
+<rect class="pass" x="441" y="380" width="22" height="40" rx="2"/>
+<text class="ts" x="468" y="404">Rg2</text>
+<line class="wire" x1="452" y1="420" x2="452" y2="530" stroke-width="1"/>
+
+<line class="wire" x1="160" y1="530" x2="452" y2="530" stroke-width="1"/>
+<line class="wire" x1="100" y1="530" x2="160" y2="530" stroke-width="1"/>
+<rect class="pass" x="149" y="485" width="22" height="40" rx="2"/>
+<line class="wire" x1="160" y1="470" x2="160" y2="485" stroke-width="1"/>
+<line class="wire" x1="160" y1="525" x2="160" y2="530" stroke-width="1"/>
+<text class="ts" x="176" y="510">Rpd</text>
+<text class="ts" x="96" y="534" text-anchor="end">gate in</text>
+<text class="ts" x="50" y="556">Cat5e from ESP32. 100 ohm series sits at the ESP32 end, off board.</text>
+
+<circle class="node" cx="70" cy="90" r="3"/>
+<circle class="node" cx="105" cy="90" r="3"/>
+<circle class="node" cx="137" cy="90" r="3"/>
+<circle class="node" cx="167" cy="90" r="3"/>
+<circle class="node" cx="197" cy="90" r="3"/>
+<circle class="node" cx="290" cy="90" r="3"/>
+<circle class="dnode" cx="370" cy="90" r="3"/>
+<circle class="node" cx="502" cy="90" r="3"/>
+<circle class="dnode" cx="582" cy="90" r="3"/>
+<circle class="node" cx="70" cy="470" r="3"/>
+<circle class="node" cx="105" cy="470" r="3"/>
+<circle class="node" cx="137" cy="470" r="3"/>
+<circle class="node" cx="167" cy="470" r="3"/>
+<circle class="node" cx="197" cy="470" r="3"/>
+<circle class="node" cx="290" cy="470" r="3"/>
+<circle class="node" cx="502" cy="470" r="3"/>
+<circle class="node" cx="160" cy="470" r="3"/>
+<circle class="dnode" cx="290" cy="300" r="3"/>
+<circle class="dnode" cx="502" cy="300" r="3"/>
+<circle class="node" cx="240" cy="530" r="3"/>
+<circle class="node" cx="452" cy="530" r="3"/>
+<circle class="node" cx="160" cy="530" r="3"/>
+
+<text class="ts" x="50" y="586">C1, C2 = 4700 uF  |  C3 = 1 uF  |  Rb = 470 ohm  |  Rpd = 4.7 kohm</text>
+<text class="ts" x="50" y="602">R1a, R1b, R2a, R2b = 2.2 ohm 5 W, paired in parallel = 1.1 ohm per channel</text>
+<text class="ts" x="50" y="618">D1, D2 = 1N5822  |  Q1, Q2 = IRLB8721  |  Rg1, Rg2 = 100 ohm</text>
+</svg>

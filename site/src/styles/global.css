@@ -189,3 +189,117 @@ code, kbd, samp {
   background: var(--accent);
   color: var(--bg);
 }
+
+/* ---------------------------------------------------------------- *
+ * Lightbox — built at runtime by the project page script, so it
+ * lives outside any component and its styles have to be global.
+ * ---------------------------------------------------------------- */
+.zoomable {
+  cursor: zoom-in;
+}
+
+body.lb-locked {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 4rem;
+  background: rgba(10, 10, 10, 0.94);
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lb-stage {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lb-stage img {
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: var(--bg);
+  cursor: default;
+}
+
+.lb-stage figcaption {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #d4d4d8;
+  text-align: center;
+  max-width: 60ch;
+}
+
+.lightbox button {
+  position: absolute;
+  background: none;
+  border: 0;
+  color: #d4d4d8;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.15s ease;
+}
+
+.lightbox button:hover {
+  color: #fff;
+}
+
+.lb-close {
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+.lb-prev,
+.lb-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+}
+
+.lb-prev { left: 0.5rem; }
+.lb-next { right: 0.5rem; }
+
+.lightbox.single .lb-prev,
+.lightbox.single .lb-next {
+  display: none;
+}
+
+.lb-count {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #71717a;
+}
+
+@media (max-width: 600px) {
+  .lightbox { padding: 3rem 0.75rem; }
+  .lb-prev, .lb-next { font-size: 2.25rem; }
+  .lb-stage img { max-height: calc(100vh - 10rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

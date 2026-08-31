@@ -26,6 +26,19 @@ const projects = defineCollection({
     externalLinks: z
       .array(z.object({ label: z.string(), url: z.string().url() }))
       .default([]),
+    // Newspaper / magazine / broadcast coverage. Rendered as its own
+    // "In the press" section, separate from the plain externalLinks list.
+    press: z
+      .array(
+        z.object({
+          outlet: z.string(),
+          title: z.string(),
+          url: z.string().url(),
+          date: z.string().optional(),
+          lang: z.string().optional(),
+        })
+      )
+      .default([]),
     relatedPublication: z.string().optional(),
     draft: z.boolean().default(false),
   }),
