@@ -22,6 +22,9 @@ const {
 const fullTitle = title === 'Samiul Hoque' ? title : `${title} — Samiul Hoque`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogUrl = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
+// JSON.stringify escapes neither `<` nor `/`, so a value containing `</script>`
+// would close the tag early. Escape it back into a JSON unicode escape.
+const jsonLdJson = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : undefined;
 ---
 
 <!doctype html>
@@ -51,8 +54,10 @@ const ogUrl = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {jsonLd && <script type="application/ld+json" set:html={jsonLdJson} />}
   </head>
   <body>
     <Nav />
