@@ -95,7 +95,7 @@ And if I get the chance, I would like to try some NLP. **IMAGINE HAVING AN ALEXA
 -   Getting the wire connections to the LEDs through the moving axis using 'slip rings'
 -   Mapping the 32bit POV effect
 -   Making a simplified interfacing option
--   If I do the NLP part.... figuring all that out.
+-   If I do the NLP part... figuring all that out.
 
 ## Inspirations
 

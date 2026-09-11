@@ -468,12 +468,13 @@ To use the board manager installation method, the following url needs to be adde
 
 The blue pill development board is a minimal one and only has one programmable LED on PC13 for test programming. I wrote a blink code for it and uploaded the program using Arduino. The Connection from the SWD interface on the blue pill to the JTAG breakout on the ST-Link is explained on the [stm32duino wiki.](https://wiki.stm32duino.com/index.php?title=Uploading_a_sketch) The Pinout is as follows;
 
-#### Blue Pill ---------------------ST-Link
-
--   3v3--------------------------------------pin 1
--   SWDIO------------------------------------ pin 7
--   SWCLK-----------------------------------pin 9
--   GND-------------------------------------GND
+```text
+Blue Pill ---------------------ST-Link
+3v3--------------------------------------pin 1
+SWDIO------------------------------------ pin 7
+SWCLK-----------------------------------pin 9
+GND-------------------------------------GND
+```
 
 <figure>
   <img src="/images/fabacademy/week-09/jtag_con.jpg" alt="Pin Diagram for Jtag Connector on ST-Link V2" loading="lazy" />
@@ -556,12 +557,13 @@ The Blue Pill board has 64KB memory, while the nucleo has 128kb. So after we cli
 
 To upload the .bin file we need to download the [ST link utility](https://www.st.com/en/development-tools/stsw-link004.html) Once downloaded, the utility program can be run and should look like this. Connect your Blue pill with the ST-link, the pinout diagram is the same as when we connected it to upload code using STM32duino.
 
-#### Blue Pill ---------------------ST-Link
-
--   3v3--------------------------------------pin 1
--   SWDIO------------------------------------ pin 7
--   SWCLK-----------------------------------pin 9
--   GND-------------------------------------GND
+```text
+Blue Pill ---------------------ST-Link
+3v3--------------------------------------pin 1
+SWDIO------------------------------------ pin 7
+SWCLK-----------------------------------pin 9
+GND-------------------------------------GND
+```
 
 Click on Connect, the device memory table should show up on the utility.
 
@@ -595,12 +597,13 @@ Now click on Program verify and click 'start', the program should be uploaded.
 
 To view the UART output, connect the FTDI module with the blue pill dev. board, make sure the FTDI is in 3.3v mode or you'll destroy the board. The connection should be;
 
-#### Blue Pill ---------------------FTDI
-
--   3v3--------------------------------------3.3v
--   A3--------------------------------------- TX
--   A2----------------------------------------RX
--   GND-------------------------------------GND
+```text
+Blue Pill ---------------------FTDI
+3v3--------------------------------------3.3v
+A3--------------------------------------- TX
+A2----------------------------------------RX
+GND-------------------------------------GND
+```
 
 <figure>
   <img src="/images/fabacademy/week-09/ftdi.jpg" alt="Blue Pill ---------------------FTDI" loading="lazy" />

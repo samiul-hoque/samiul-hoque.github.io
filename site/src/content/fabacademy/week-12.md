@@ -100,12 +100,14 @@ Following the block diagram I started to create the schematic for my 328p based 
 
 #### Connectors I needed for my Final Project:
 
--   Addressable LEDs------> 3 Pin Connector (GND,VCC,Data)
--   ESC--------------------------> 3 Pin Connector (GND,VCC,Data)
--   Encoders------------------>4 Pin Connecor (GND, VCC, D1, D2) \[Requires Hardware interrupt pins\]
--   FTDI Connector---------> 6 Pin Connector (GND,GND,VCC,TX,RX,DTR)
--   AVR ISP Connector-----> 3x2 Pin Connector
--   I2c----------------------------> 4 Pin Connector (GND,VCC,SDA,SCL)
+```text
+Addressable LEDs------> 3 Pin Connector (GND,VCC,Data)
+ESC--------------------------> 3 Pin Connector (GND,VCC,Data)
+Encoders------------------>4 Pin Connecor (GND, VCC, D1, D2) [Requires Hardware interrupt pins]
+FTDI Connector---------> 6 Pin Connector (GND,GND,VCC,TX,RX,DTR)
+AVR ISP Connector-----> 3x2 Pin Connector
+I2c----------------------------> 4 Pin Connector (GND,VCC,SDA,SCL)
+```
 
 #### Minimal Required Peripherals:
 

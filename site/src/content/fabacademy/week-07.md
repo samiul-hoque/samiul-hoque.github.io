@@ -330,10 +330,10 @@ I decided to choose between KiCAD and Eagle and chose Eagle after trying out KiC
 
 Here are the main perks for eagle:
 
--   Cross-platform -- EAGLE can run on anything: Windows, Mac, even Linux. This is a feature not too many other PCB design softwares can boast.
--   Lightweight -- EAGLE is about as svelte as PCB design software gets. It requires anywhere from 50-200MB of disk space (compared to the 10+GB more advanced tools might require). The installer is about 25MB. So you can go from download to install to making a PCB in minutes.
--   Free/Low-Cost -- The freeware version of EAGLE provides enough utility to design almost any PCB in the SparkFun catalog. An upgrade to the next license tier (if you want to make a profit off your design) costs at least two orders of magnitude less than most high-end tools.
--   Community support -- For those reasons, and others, EAGLE has become one of the go-to tools for PCB design in the hobbyist community. Whether you want to study the design of an Arduino board or import a popular sensor into your design, somebody has probably already made it in EAGLE and shared it.
+-   Cross-platform --- EAGLE can run on anything: Windows, Mac, even Linux. This is a feature not too many other PCB design softwares can boast.
+-   Lightweight --- EAGLE is about as svelte as PCB design software gets. It requires anywhere from 50-200MB of disk space (compared to the 10+GB more advanced tools might require). The installer is about 25MB. So you can go from download to install to making a PCB in minutes.
+-   Free/Low-Cost --- The freeware version of EAGLE provides enough utility to design almost any PCB in the SparkFun catalog. An upgrade to the next license tier (if you want to make a profit off your design) costs at least two orders of magnitude less than most high-end tools.
+-   Community support --- For those reasons, and others, EAGLE has become one of the go-to tools for PCB design in the hobbyist community. Whether you want to study the design of an Arduino board or import a popular sensor into your design, somebody has probably already made it in EAGLE and shared it.
 
 ## Eagle Workflow
 

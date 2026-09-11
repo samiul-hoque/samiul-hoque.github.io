@@ -278,7 +278,7 @@ The bits that were given to us for this week were the following: (from left to r
 
 I am not good at design, or atleast I was not. But I learned to use fusion 360 and learnt the basics of 3D and 2D designing in our [Computer Aided Design Week.](/projects/fab-academy/week-03/)  
 I wanted to show off what I learnt a bit and ended up selecting this mesmerizing yet complex [Iris Lamp](https://www.instructables.com/id/Iris-Lamp/) Design by [Jonathon Odom](https://jonatron.portfoliobox.net/).  
-But I guess I overestimated my newly learnt design skills a bit. But still.... imagine a BIG version of this amazing lamp!
+But I guess I overestimated my newly learnt design skills a bit. But still... imagine a BIG version of this amazing lamp!
 
 <figure>
   <img src="/images/fabacademy/week-08/irislamp.gif" alt="Iris Lamp by Jon-a-Tron" loading="lazy" />
@@ -289,7 +289,7 @@ But I guess I overestimated my newly learnt design skills a bit. But still.... i
 
 * * *
 
-I started with downloading John's design files, including his f3d file in fusion 360. But his design was full of missing reference sketches, dimensions were missing. I tried to make the iris design myself, but I couldn't figure out the inner and outer diameter ratio, the curvature of the arms and the fillets on the iris petals....
+I started with downloading John's design files, including his f3d file in fusion 360. But his design was full of missing reference sketches, dimensions were missing. I tried to make the iris design myself, but I couldn't figure out the inner and outer diameter ratio, the curvature of the arms and the fillets on the iris petals...
 
 <figure>
   <img src="/images/fabacademy/week-08/jon-a-tron-design.jpg" alt="Broken references all over the design, dimension sketches missing" loading="lazy" />

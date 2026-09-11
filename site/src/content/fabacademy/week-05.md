@@ -494,7 +494,7 @@ To put it simply, the glue on the copper tape is not strong enough to hold down 
 
 At first I tried using some translucent Epoxy glue to secure my circuit. (do this after checking your circuit and uploading code)  
   
-I probably didn't need to smother so much onto it, but....  
+I probably didn't need to smother so much onto it, but...  
   
 yeah.. you learn these things only after you mess up. :|
 
@@ -621,9 +621,10 @@ For the software installations required to program the ISP, linux is highly reco
 Installation of Git and avrdude is pretty straight forward. Make sure to use the default installation location. But for the Atmel GNU toolchain, it is quite hard to find on the official Atmel website. I guess many have faced this problem and so someone put it up on github. Feel free to download it from [here.](https://github.com/eerimoq/avr-toolchain-windows) Also download [avrdude.](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/avrdude-win-64bit.zip)  
 Now unzip the avr tool chain and avrdude and place them on the following directories;  
   
-avr toolchain in -----> C:\\Program Files\\avr8-gnu-toolchain  
-  
-avrdude in -----------> C:\\Program Files\\avrdude  
+```text
+avr toolchain in -----> C:\Program Files\avr8-gnu-toolchain
+avrdude in -----------> C:\Program Files\avrdude
+```
 
 #### Adding Path variables:
 

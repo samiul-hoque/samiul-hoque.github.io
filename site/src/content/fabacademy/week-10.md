@@ -494,7 +494,7 @@ Our Instructor was not here either and the only thing we could do was check our 
   <img src="/images/fabacademy/week-10/disaster.jpg" alt="Disaster Strikes Again: Error on Shopbot Control Software" loading="lazy" />
 </figure>
 
-## Milling Failure.... Again
+## Milling Failure... Again
 
 In partworks, I used two bits for my toolpaths. And one of which was that insanely long bit. My Rouging toolpath went all well, but when I swapped the bit I had to re-home the Z axis. But this bit was not long enough and I didn't notice the clearance. The collet touched the outer wall and broke it. And this machine job was a failure as well. This happened earlier on Wednesday afternoon and now I was completely out of options on how to present for this week.
 

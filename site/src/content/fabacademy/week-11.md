@@ -303,12 +303,15 @@ To read the accelerometer data, I used the [Sparkfun ADXL345 Library](https://gi
 
 The Joystick Module was much easier to interface. In my schematic, x and y were connected to ADC6 and ADC7 respectively. The corresponding Arduino pins for the are A6 and A7. The connection Diagram so far was;
 
--   Joystick ------ Controller Board
--   X--------------A6
--   Y--------------A7
--   VCC(3.3v)------VCC
--   GND------------GND
--   SW-------------N/C
+```text
+Joystick ------ Controller Board
+X--------------A6
+Y--------------A7
+VCC(3.3v)------VCC
+GND------------GND
+SW-------------N/C
+```
+
 ( I left the pushbutton not connected as I had no use for it)
 
 Then I wrote a simple code to read analog data from pin A6 and A7 and print it on Serial.
@@ -384,10 +387,12 @@ Quadrature encoders are perfect sensors to probe with an oscilloscope.
 
 ### Connection:
 
--   Board ----------------Oscilloscope
--   GND ----------------- GND probe for both channel 1 and channel 2
--   CLK ----------------- Channel 1 positive probe
--   DT ----------------- Channel 2 positive probe
+```text
+Board ----------------Oscilloscope
+GND ----------------- GND probe for both channel 1 and channel 2
+CLK ----------------- Channel 1 positive probe
+DT ----------------- Channel 2 positive probe
+```
 
 Then we pressed 'autoset' on the scope to give us the following video
 

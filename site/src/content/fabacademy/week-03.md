@@ -218,7 +218,7 @@ Then I transferred the file to the laser cutter. After a fancy light show, I was
   <img src="/images/fabacademy/week-03/illustratorcutouts.png" alt="paper Cutouts" loading="lazy" />
 </figure>
 
- After some intense glue work, I literally have my fingerprints stuck on the cardboards.....  
+ After some intense glue work, I literally have my fingerprints stuck on the cardboards...  
 
 <figure>
   <img src="/images/fabacademy/week-03/illustratorPixelFacemodel.png" alt="Adobe Illustrator" loading="lazy" />
