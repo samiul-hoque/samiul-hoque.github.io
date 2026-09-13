@@ -5,6 +5,9 @@
 User-agent: *
 Allow: /
 
+# Unlisted scratch space — not part of the site
+Disallow: /sandbox/
+
 Sitemap: https://samiulmakes.com/sitemap-index.xml
 
 # Pointer for LLM-oriented crawlers

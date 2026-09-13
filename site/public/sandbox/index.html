@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Sandbox</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #fbfbf9;
+    color: #1a1a1a;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #14140f; color: #ece9e2; }
+    code { background: #ffffff14; }
+  }
+  main { max-width: 34rem; padding: 2rem 1.25rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  p { margin: .5rem 0; }
+  .muted { opacity: .65; font-size: .9rem; }
+  code {
+    background: #0000000d;
+    padding: .15em .4em;
+    border-radius: 4px;
+    font-size: .875em;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1>Sandbox</h1>
+    <p>This page is live but unlisted — nothing on the site links here and it is
+       excluded from the sitemap and from robots.txt.</p>
+    <p>Drop files into <code>site/public/sandbox/</code> and push to
+       <code>master</code>; they are served verbatim under <code>/sandbox/</code>.</p>
+    <p class="muted" id="stamp"></p>
+  </main>
+  <script>
+    document.getElementById('stamp').textContent =
+      'Rendered ' + new Date().toISOString();
+  </script>
+</body>
+</html>
