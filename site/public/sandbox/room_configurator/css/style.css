@@ -191,11 +191,112 @@ body {
   font-weight: 600;
 }
 
+/* Strike-through means "this node is missing from the .glb" — see verifyNodes. */
 .option:disabled {
   opacity: .4;
   cursor: not-allowed;
   text-decoration: line-through;
 }
+
+/* Room buttons are only ever disabled while a model is downloading, which is
+   temporary and not an error — so no strike-through there. */
+#rooms .option:disabled {
+  opacity: .5;
+  cursor: progress;
+  text-decoration: none;
+}
+
+#rooms .option {
+  font-size: 14px;
+}
+
+/* --- image controls -------------------------------------------------------- */
+
+.slider {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: var(--ink-dim);
+  font-size: 12px;
+}
+
+.slider-label output {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--panel-edge);
+  outline: none;
+  /* OrbitControls sets touch-action:none on the canvas, but the slider needs
+     the browser's own drag handling back or it won't move under a finger. */
+  touch-action: pan-y;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.toggle input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink-dim);
+  font: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-btn:hover { color: var(--ink); }
 
 /* --- footer ---------------------------------------------------------------- */
 

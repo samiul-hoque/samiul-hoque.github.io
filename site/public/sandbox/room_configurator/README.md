@@ -1,9 +1,19 @@
 # Room Configurator
 
-A local room configurator for `room-configurator.glb`. Two mutually-exclusive button
-groups — **Furniture** (4 options) and **Roof** (6 options) — each show one
-layer of the model at a time and hide the rest. The room shell (`base 1`) stays
-visible throughout.
+A local room configurator for two room types, each its own `.glb`:
+
+| Button | File |
+| --- | --- |
+| Room Type 1 | `room configrator.glb` |
+| Room Type 2 | `room type 2.glb` |
+
+Picking a room type loads that model and rebuilds the option panel from its own
+config. Within a room, two mutually-exclusive button groups — **Furniture**
+(4 options) and **Roof** (6 options) — each show one layer at a time and hide
+the rest. The room shell (`base 1`) stays visible throughout.
+
+Both models currently use identical group and node names, but `config.js`
+defines them separately so they can diverge without affecting each other.
 
 Everything runs offline: three.js r160 is vendored under `vendor/`, so there is
 no CDN and no npm install.
@@ -53,7 +63,7 @@ Python, Node or npm needed.
 | --- | --- |
 | `index.html` | Page shell and the import map pointing at `vendor/` |
 | `css/style.css` | All styling |
-| `js/config.js` | **The file you edit** — rooms, groups, layer node names |
+| `js/config.js` | **The file you edit** — the `ROOMS` array: room types, groups, layer node names |
 | `js/main.js` | Builds the buttons, drives layer visibility |
 | `js/viewer.js` | three.js scene, lighting, model loading, camera framing |
 | `vendor/three/` | three.js r160 (build + GLTFLoader, OrbitControls, BufferGeometryUtils, RoomEnvironment) |
@@ -110,7 +120,7 @@ are logged to the console.
 
 ## The model
 
-`room-configurator.glb` is 28.6 MB: 2836 nodes, 1300 meshes, 57 materials and 20
+`room configrator.glb` is 28.6 MB: 2836 nodes, 1300 meshes, 57 materials and 20
 embedded textures. Sixteen of the 57 materials carry maps; the rest are flat
 colours needing no UVs.
 
@@ -140,6 +150,51 @@ intent that's fine; if not, the roofs are where the next export pass should go.
 
 All base-colour textures are fully opaque, so the `alphaMode: MASK` that SimLab
 writes on every material is harmless here — no alpha-test cut-outs.
+
+### Why it looks whiter than the SketchUp reference
+
+Two separate causes, both in the model rather than the viewer:
+
+**The green feature wall is inside `Furniture 4`.** Eight of the model's green
+materials (`*`, `*3`, `*4`, `*6`, `*9`, `*10`, `*11`, `*12`) belong to meshes
+under the `Furniture 4` group, so selecting any other furniture option hides the
+green wall along with it. Select Furniture 4 and the wall appears. If the wall
+is meant to be part of the room rather than one furniture variant, it needs to
+move into `base 1` in SimLab. Greens are scattered elsewhere too — `base 1` has
+`*16`/`*62`, `Roof Board 3` has `*16`/`*62`, `Roof Metal 2` has `*6` — so the
+grouping may be intentional; worth a look either way.
+
+**Material-less meshes render white** (see the table above). That is most of
+every roof option, and it is the other half of the "too plain and white" gap.
+No renderer setting can colour geometry that carries no material.
+
+### Look and image controls
+
+`viewer.js` adds a gradient sky, a shadow-catching ground plane, a shadow-
+casting key light, and a post-processing chain:
+
+```
+RenderPass → SSAOPass → OutputPass → BrightnessContrast
+```
+
+`OutputPass` does the tone mapping and sRGB encode, so everything before it
+works in linear HDR. Contrast is applied *after* it, because the shader pivots
+around 0.5 and that only means something on display-referred values.
+
+The panel exposes:
+
+- **Brightness** — driven through `renderer.toneMappingExposure`, not a
+  post-hoc add. Scaling light *before* the ACES curve lets highlights roll off
+  instead of clipping to flat white.
+- **Contrast** — the `BrightnessContrastShader` pass.
+- **Ambient occlusion** — toggles `SSAOPass`. It renders the scene a second
+  time for depth and normals, so it is the most expensive thing here; turn it
+  off on weak hardware.
+
+One non-obvious setting: every model material gets `envMapIntensity = 0.45` in
+`_prepareModel`. r160 has no `Scene.environmentIntensity`, and at full strength
+the white `RoomEnvironment` drowns the albedo and makes everything read as
+white plastic.
 
 ### Performance note
 
@@ -176,8 +231,16 @@ Node names in the current file:
 
 ## Adding more rooms
 
-`config.js` currently exports a single `ROOM`. To support the other rooms,
-export a keyed map of room objects, have `main.js` read a room id (from a
-`?room=` query param or a picker), and call `viewer.load()` with that room's
-`file`. `viewer.clear()` already disposes the previous model's geometry,
-materials and textures, so switching rooms will not leak GPU memory.
+Append another entry to the `ROOMS` array in `js/config.js` — `id`, `label`,
+`file`, and its own `groups`. A button appears automatically and everything
+else follows. Nothing in `main.js` needs changing.
+
+Two details worth knowing about room switching:
+
+- `viewer.clear()` disposes the previous model's geometry, materials and
+  textures before the new one is added, so switching does not leak GPU memory.
+- Each load carries a token, and a result is discarded if a different room has
+  been requested since. Without that, a slow 28 MB download could land after
+  the user had already moved on and silently replace the room they are looking
+  at. The room buttons are also disabled while a load is in flight, so two
+  large fetches never race.

@@ -37,7 +37,32 @@
       <h1 id="room-name"></h1>
     </header>
 
+    <section class="group" id="rooms">
+      <h2 id="rooms-label">Room type</h2>
+    </section>
+
     <div id="groups"></div>
+
+    <section class="group" id="image-controls">
+      <h2 id="image-controls-label">Image</h2>
+
+      <label class="slider" for="brightness">
+        <span class="slider-label">Brightness <output id="brightness-out">1.00</output></span>
+        <input type="range" id="brightness" min="0.2" max="3" step="0.01" value="1">
+      </label>
+
+      <label class="slider" for="contrast">
+        <span class="slider-label">Contrast <output id="contrast-out">0.00</output></span>
+        <input type="range" id="contrast" min="-0.5" max="0.5" step="0.01" value="0">
+      </label>
+
+      <label class="toggle" for="ao">
+        <input type="checkbox" id="ao" checked>
+        <span>Ambient occlusion</span>
+      </label>
+
+      <button type="button" id="reset-image" class="link-btn">Reset image settings</button>
+    </section>
 
     <footer>
       <p id="summary"></p>
