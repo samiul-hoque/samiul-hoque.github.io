@@ -14,7 +14,9 @@ heroImage: "/images/flute-mic-clamps/full-set.jpg"
 # images through the page a second time.
 gallery: []
 oneLiner: "3D printed clamps that mount a NUX B-6 Pro wireless saxophone mic onto bamboo and metal flutes. Five clamp sizes, ten TPU spacers, quick-swap between songs."
-externalLinks: []
+externalLinks:
+  - label: "Print your own — STLs and Fusion source"
+    url: "https://github.com/samiul-hoque/nux-b6-flute-mount"
 draft: false
 ---
 
@@ -189,9 +191,11 @@ which covers a good part of the usual range. If your flute falls between
 sizes the fix is a spacer at your diameter, not a new clamp, and that is a
 five-minute change to one parameter.
 
-If that is useful to you, get in touch.
+All of it is published: fifteen STLs and the parametric Fusion file are at
+[samiul-hoque/nux-b6-flute-mount](https://github.com/samiul-hoque/nux-b6-flute-mount).
+Print the pair that matches your flute, or open the source and change the
+bore if it does not.
 
-<!-- TODO: files. Decided shape is a GitHub repo (F3D + STLs, see HANDOVER),
-     linked from externalLinks here and referenced from the closing section
-     above, which currently ends on "get in touch" as the fallback. -->
+If you build one, get in touch.
+
 
