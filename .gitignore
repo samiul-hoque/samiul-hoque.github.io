@@ -16,3 +16,7 @@ desktop.ini
 # Logs
 *.log
 npm-debug.log*
+
+# Camera originals kept beside the web-ready copies by scripts/import-photos.mjs.
+# HEICs are large, unusable in browsers, and carry EXIF GPS. Never commit them.
+site/public/images/**/_originals/
