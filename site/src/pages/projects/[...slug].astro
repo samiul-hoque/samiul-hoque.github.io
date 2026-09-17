@@ -776,4 +776,14 @@ const jsonLd = {
     grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
     gap: 0.35rem;
   }
+  /* Grid items stretch to the row height by default, so a short image next to
+     a tall one leaves the page background showing under it. Nothing here is
+     cropped, so the images are paired by aspect ratio instead and the panoramic
+     ones span the full width. */
+  :global(article[data-slug="flute-mic-clamps"] .body .section-images) {
+    align-items: start;
+  }
+  :global(article[data-slug="flute-mic-clamps"] .body .section-images .wide) {
+    grid-column: 1 / -1;
+  }
 </style>

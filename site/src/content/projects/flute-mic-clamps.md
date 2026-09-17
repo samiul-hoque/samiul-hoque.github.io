@@ -33,12 +33,12 @@ copper, brass. During a set he swaps between them, and he does not stand
 still while he plays. He walks the stage.
 
 <figure class="section-images">
-  <a href="/images/flute-mic-clamps/full-set-overhead.jpg"><img src="/images/flute-mic-clamps/full-set-overhead.jpg" alt="The full collection of flutes laid out with clamps fitted, with the NUX case and transmitter" loading="lazy" /></a>
-  <a href="/images/flute-mic-clamps/bamboo-flutes.jpg"><img src="/images/flute-mic-clamps/bamboo-flutes.jpg" alt="The large bamboo flutes, bound with thread and tape, each with a clamp fitted" loading="lazy" /></a>
+  <a class="wide" href="/images/flute-mic-clamps/full-set-overhead.jpg"><img src="/images/flute-mic-clamps/full-set-overhead.jpg" alt="The full collection of flutes laid out with clamps fitted, with the NUX case and transmitter" loading="lazy" /></a>
   <a href="/images/flute-mic-clamps/large-flutes-clamped.jpg"><img src="/images/flute-mic-clamps/large-flutes-clamped.jpg" alt="Large bamboo flutes with clamps fitted at different positions along each body" loading="lazy" /></a>
-  <a href="/images/flute-mic-clamps/small-flutes.jpg"><img src="/images/flute-mic-clamps/small-flutes.jpg" alt="The smaller flutes in copper, aluminium and brass, each with a clamp fitted" loading="lazy" /></a>
   <a href="/images/flute-mic-clamps/clamps-fitted-wide.jpg"><img src="/images/flute-mic-clamps/clamps-fitted-wide.jpg" alt="The full range of flutes with clamps fitted, from long bamboo down to short metal" loading="lazy" /></a>
-  <a href="/images/flute-mic-clamps/clamps-fitted-angle.jpg"><img src="/images/flute-mic-clamps/clamps-fitted-angle.jpg" alt="The same set photographed at an angle, showing the clamp on every instrument" loading="lazy" /></a>
+  <a href="/images/flute-mic-clamps/bamboo-flutes.jpg"><img src="/images/flute-mic-clamps/bamboo-flutes.jpg" alt="The large bamboo flutes, bound with thread and tape, each with a clamp fitted" loading="lazy" /></a>
+  <a href="/images/flute-mic-clamps/small-flutes.jpg"><img src="/images/flute-mic-clamps/small-flutes.jpg" alt="The smaller flutes in copper, aluminium and brass, each with a clamp fitted" loading="lazy" /></a>
+  <a class="wide" href="/images/flute-mic-clamps/clamps-fitted-angle.jpg"><img src="/images/flute-mic-clamps/clamps-fitted-angle.jpg" alt="The same set photographed at an angle, showing the clamp on every instrument" loading="lazy" /></a>
   <figcaption>The thirteen he performs with, photographed at his place after the show. Bamboo, aluminium, copper, brass and resin, across a spread of diameters wide enough that one clamp was never going to cover it.</figcaption>
 </figure>
 
