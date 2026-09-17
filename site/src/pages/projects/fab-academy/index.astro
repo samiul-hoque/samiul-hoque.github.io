@@ -69,6 +69,24 @@ const jsonLd = {
         instructor was Francisco Sanchez (TECSUP).
       </p>
       <p>
+        My final project was <a href="/projects/fab-academy-final-project/">PixelFace</a>,
+        a volumetric persistence-of-vision display. It has its own page; most
+        of the weeks below fed parts into it.
+      </p>
+      <p>
+        Machine design week was the other one worth singling out. Five of us
+        from very different backgrounds built two marble mazes with
+        servo-controlled tilting mechanisms, one driven by an accelerometer
+        glove and the other by a joystick. I was notionally on electronics and
+        embedded, which escalated to CAD for the mechanism as the week went on.
+        Everyone ended up doing everyone's job.
+      </p>
+      <p>
+        I graduated in 2019. The intention was to bring Fab Academy back to Fab
+        Lab IUB and run it there; bureaucratic issues blocked that, and I left
+        IUB shortly after.
+      </p>
+      <p>
         The weeks below are the full build logs — scraped from the original
         submission and re-hosted here because the source CSS broke. Content is
         mine; the Fab Academy programme is by the Fab Foundation.
@@ -143,6 +161,12 @@ const jsonLd = {
     margin: 0 0 0.75rem;
   }
   .context p:last-child { margin-bottom: 0; }
+  .context a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .context a:hover { border-bottom-color: var(--accent); }
   .section-label {
     font-family: var(--mono);
     font-size: 0.8125rem;

@@ -32,7 +32,8 @@ I work across electronics, embedded systems, digital fabrication, and full-stack
 - [BlackHorse HAB](https://samiulmakes.com/projects/blackhorse-hab/) (2015): High-altitude balloon that sent a Bangladeshi flag to 32.45 km. Built onboard electronics, ground antenna, and payload.
 - [Fab Lab IUB](https://samiulmakes.com/projects/fab-lab-iub/) (2017–2018): Drafted the proposal for a USD 200,000 World Bank grant to set up a digital fabrication lab at IUB. Lab is still operational.
 - [WiFi Picchi](https://samiulmakes.com/projects/wifi-picchi/) (2017–2019): Community internet hotspots at slum tea shops in Dhaka. OpenWRT, CoovaChilli, Diameter AAA, SDN fleet management.
-- [Fab Academy 2019](https://samiulmakes.com/projects/fab-academy/): 19-week digital fabrication programme at Fab Lab CEPT, Ahmedabad. Final project: PixelFace, a POV-display robot head.
+- [Fab Academy 2019](https://samiulmakes.com/projects/fab-academy/): 19-week digital fabrication programme at Fab Lab CEPT, Ahmedabad. Weekly build logs.
+- [PixelFace](https://samiulmakes.com/projects/fab-academy-final-project/) (2019): Fab Academy final project. Volumetric persistence-of-vision display: 14 WS2812B LEDs on acrylic arms spinning at 1100 RPM, home-made slip ring, ATmega328P, BLDC drive.
 - [Lumo CAN bus HAT](https://samiulmakes.com/projects/lumo/) (TeroLabs era): Raspberry Pi HAT for vehicle CAN bus data extraction and driver behaviour analytics.
 - [TurtleSense](https://samiulmakes.com/projects/turtlesense/) (pro-bono): ESP32/8266 sensor mesh for the Creative Conservation Alliance's wild tortoise programme.
 - Ghorar Dim Studios (2022–present): Kinetic animation devices — spinoscopes, praxinoscopes, zoetropes, and a Bangla word clock.
