@@ -214,10 +214,17 @@ which pair a DX207 takes without going back to the pictures — and Tony
 Dixon have changed tube stock between production runs before. Callipers
 across the point where you want the mic, then pick from the table above.
 
-All of it is published: eighteen STLs and the parametric Fusion files are at
+All of it is published under CC BY 4.0: eighteen STLs and the parametric
+Fusion files are at
 [samiul-hoque/nux-b6-flute-mount](https://github.com/samiul-hoque/nux-b6-flute-mount).
 Print the pair that matches your flute, or open the source and change the
-bore if it does not.
+bore if it does not. Use them for whatever you like, including selling the
+prints, as long as you credit me.
+
+Everything here was printed at 0.2 mm, PETG for the clamps and screws with
+four walls, TPU for the spacers. The four walls are the setting that
+matters: the clamping load runs straight through the wall either side of
+the screw.
 
 If you build one, get in touch.
 
