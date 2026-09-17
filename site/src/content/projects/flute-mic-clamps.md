@@ -4,7 +4,7 @@ year: 2026
 role: "Design and fabrication — measurement, CAD, printing, fitting"
 client: "Nazm Anwr (Kaaktaal)"
 category: "fabrication"
-tags: ["NUX B-6 Pro", "microphone mount", "wireless microphone", "flute", "wind instrument", "3D printing", "PETG", "TPU", "parametric design", "live sound"]
+tags: ["NUX B-6 Pro", "microphone mount", "wireless microphone", "flute", "tin whistle", "wind instrument", "Tony Dixon", "Tony Dixon DX207", "Tony Dixon TB014", "Tony Dixon DX001", "Generation whistle", "Clarke whistle", "3D printing", "PETG", "TPU", "parametric design", "live sound"]
 featured: false
 proBono: true
 order: 32
@@ -31,8 +31,11 @@ He owns more flutes than he performs with. Thirteen of them go out with him
 for a show, and they are not one instrument in different sizes. The largest
 is about three feet long and the smallest is a few inches. Some are bamboo,
 bound with thread and tape. The rest are metal or black resin: aluminium,
-copper, brass. During a set he swaps between them, and he does not stand
-still while he plays. He walks the stage.
+copper, brass. Among them are a Tony Dixon DX207 in A and another in G, a
+Tony Dixon TB014 tenor flute, a Tony Dixon DX001 soprano whistle, a brass
+Generation whistle in Eb and a tin Clarke whistle in C. During a set he
+swaps between them, and he does not stand still while he plays. He walks
+the stage.
 
 <figure class="section-images">
   <a class="wide" href="/images/flute-mic-clamps/full-set-overhead.jpg"><img src="/images/flute-mic-clamps/full-set-overhead.jpg" alt="The full collection of flutes laid out with clamps fitted, with the NUX case and transmitter" loading="lazy" /></a>
@@ -71,7 +74,8 @@ that do two different jobs.
 
 The outer layer is rigid, printed in PETG. It is a split ring with a boss
 on one side that reproduces the mount the B-6 expects to find on a
-saxophone, closed by printed screws and nuts.
+saxophone, closed by a printed thumb screw that threads straight into the
+ring.
 
 The inner layer is flexible, printed in TPU. It takes up the difference
 between the clamp bore and the actual flute, and it grips without marking
@@ -100,8 +104,8 @@ TPU spacers that step each clamp down to whichever flutes fall under it.
 | 30 mm | 27.5 |
 | 35 mm | 30, 33 |
 
-Five clamps, ten spacers. Everything printed, including the screws and the
-nuts. Printed fasteners were not a purity exercise: it meant no hardware
+Five clamps, ten spacers. Everything printed, including the screws.
+Printed fasteners were not a purity exercise: it meant no hardware
 run on the day, nothing metal to lose in a green room, and a thumb screw
 big enough to turn by hand, which is the part that matters when the swap
 has to happen between songs.
@@ -191,7 +195,26 @@ which covers a good part of the usual range. If your flute falls between
 sizes the fix is a spacer at your diameter, not a new clamp, and that is a
 five-minute change to one parameter.
 
-All of it is published: fifteen STLs and the parametric Fusion file are at
+### Instruments in the set
+
+Most of Nazm's flutes are handmade bamboo, which have no model number and no
+two alike. The shop-bought ones do, so if you play one of these, these
+clamps have been fitted to that exact instrument:
+
+- **Tony Dixon DX207**, key of A — aluminium
+- **Tony Dixon DX207**, key of G — aluminium
+- **Tony Dixon TB014** tenor flute — polymer
+- **Tony Dixon DX001** soprano whistle — polymer
+- **Generation** whistle, key of Eb — brass
+- **Clarke** whistle, key of C — tin
+
+Measure yours anyway before you print. We recorded the clamp and spacer
+pairing per flute on the photographs, not per model, so I cannot tell you
+which pair a DX207 takes without going back to the pictures — and Tony
+Dixon have changed tube stock between production runs before. Callipers
+across the point where you want the mic, then pick from the table above.
+
+All of it is published: eighteen STLs and the parametric Fusion files are at
 [samiul-hoque/nux-b6-flute-mount](https://github.com/samiul-hoque/nux-b6-flute-mount).
 Print the pair that matches your flute, or open the source and change the
 bore if it does not.
