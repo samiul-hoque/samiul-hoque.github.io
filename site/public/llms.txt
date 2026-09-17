@@ -35,6 +35,7 @@ I work across electronics, embedded systems, digital fabrication, and full-stack
 - [Fab Academy 2019](https://samiulmakes.com/projects/fab-academy/): 19-week digital fabrication programme at Fab Lab CEPT, Ahmedabad. Weekly build logs.
 - [PixelFace](https://samiulmakes.com/projects/fab-academy-final-project/) (2019): Fab Academy final project. Volumetric persistence-of-vision display: 14 WS2812B LEDs on acrylic arms spinning at 1100 RPM, home-made slip ring, ATmega328P, BLDC drive.
 - [Lumo CAN bus HAT](https://samiulmakes.com/projects/lumo/) (TeroLabs era): Raspberry Pi HAT for vehicle CAN bus data extraction and driver behaviour analytics.
+- [Flute Mic Clamps for the NUX B-6](https://samiulmakes.com/projects/flute-mic-clamps/) (2026): 3D printed clamps that mount a NUX B-6 Pro wireless saxophone microphone onto bamboo and metal flutes. Rigid PETG split ring carrying the standard B-6 clip, soft TPU spacer sized per instrument. Five bores (22, 24, 28, 30, 35 mm), ten spacers down to 15 mm. Built in one day for Nazm Anwr of the band Kaaktaal.
 - [TurtleSense](https://samiulmakes.com/projects/turtlesense/) (pro-bono): ESP32/8266 sensor mesh for the Creative Conservation Alliance's wild tortoise programme.
 - Ghorar Dim Studios (2022–present): Kinetic animation devices — spinoscopes, praxinoscopes, zoetropes, and a Bangla word clock.
 

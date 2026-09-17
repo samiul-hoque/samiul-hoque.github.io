@@ -764,4 +764,16 @@ const jsonLd = {
   :global(article[data-slug="holonomic-odometry-testbed"] .body figure:not(.hero):not(.section-images) img) {
     width: 100%;
   }
+
+  /* Flute mic clamps — this page places its photo groups by hand instead of
+     letting the gallery script scatter them, so the groups need captions and
+     one of them needs to be denser. The fitting series is twelve near-identical
+     workbench shots; they read as a contact sheet, not as twelve figures. */
+  :global(article[data-slug="flute-mic-clamps"] .body .section-images figcaption) {
+    grid-column: 1 / -1;
+  }
+  :global(article[data-slug="flute-mic-clamps"] .body .contact-sheet) {
+    grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+    gap: 0.35rem;
+  }
 </style>
