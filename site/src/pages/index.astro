@@ -27,6 +27,7 @@ const selectedHydrated = selectedSlugs
  * Ghorar Dim and CCSE shown as text plates since we don't have logo files.
  */
 const affiliations = [
+  { name: 'Leveor', logo: '/images/leveorlogo.png', href: 'https://www.leveor.xyz/', color: true },
   { name: 'Ghorar Dim Studios', text: true, href: null },
   { name: 'TeroLabs', logo: '/images/terolabslogo.png', href: 'https://www.terolabs.org/' },
   { name: 'Universal Machine', logo: '/images/universalmachinelogo.png', href: 'https://universalmachine.io/' },
@@ -47,8 +48,8 @@ const personJsonLd = {
       url: 'https://samiulmakes.com',
       image: 'https://samiulmakes.com/images/landing-workshop.jpg',
       description: 'Engineer based in Dhaka, Bangladesh, working across electronics, embedded systems, digital fabrication, and full-stack software.',
-      jobTitle: 'Founding Engineer',
-      worksFor: { '@type': 'Organization', name: 'Ghorar Dim Studios' },
+      jobTitle: 'Connected Systems Engineer',
+      worksFor: { '@type': 'Organization', name: 'Leveor', url: 'https://www.leveor.xyz/' },
       alumniOf: [
         { '@type': 'CollegeOrUniversity', name: 'Independent University Bangladesh' },
         { '@type': 'EducationalOrganization', name: 'Fab Academy' },
@@ -100,11 +101,11 @@ const teaching = [
           Mostly whatever the project needs.
         </p>
         <p class="intro">
-          I'm an engineer based in Bangladesh. I work across electronics,
-          embedded systems, fabrication, and full-stack software — usually
-          all of them at once, because the projects I end up on tend to
-          need it. Fab Academy graduate, founding engineer at Ghorar Dim,
-          and on the lookout for interesting opportunities.
+          I'm an engineer based in Bangladesh, building things professionally
+          since 2014. I work across electronics, embedded systems, fabrication,
+          and full-stack software, usually all of them at once, because the
+          projects I end up on tend to need it.
+          CS and Fab Academy graduate, <strong>Connected Systems Engineer</strong> at Leveor.
         </p>
         <ul class="actions">
           <li><a class="button accent" href="/about/">Longer story</a></li>
@@ -119,11 +120,11 @@ const teaching = [
 
   <!-- CURRENTLY -->
   <section class="currently container">
-    <h2 class="section-label">Currently</h2>
+    <h2 class="section-label">Professional experience</h2>
     <ul class="now-list">
-      <li><span class="now-tag">2022 →</span> Founding engineer, <strong>Ghorar Dim Studios</strong> — kinetic animation devices, spinoscopes, praxinoscopes, a Bangla word clock. Saiqa makes the art; I figure out how to turn it into product.</li>
-      <li><span class="now-tag">Background</span> CS graduate. Been building things professionally since 2014.</li>
-      <li><span class="now-tag">Open</span> On the lookout for substantive work where the breadth of what I do is the point, not a problem to manage.</li>
+      <li><span class="now-tag">2026–now</span> <span><strong>Connected Systems Engineer</strong>, <strong>Leveor</strong>: building the company's IoT practice, covering hardware selection, system architecture and field deployment. The first engagement is BLE tracking for a fleet of beverage coolers, integrated with the client's ERP.</span></li>
+      <li><span class="now-tag">2022–2026</span> <span>Founding engineer, <strong>Ghorar Dim Studios</strong>: kinetic animation devices, spinoscopes, praxinoscopes, a Bangla word clock. Saiqa made the art; I figured out how to turn it into product.</span></li>
+      <li><span class="now-tag">2020–2024</span> <span>Engineer, <strong>TeroLabs / Universal Machine</strong>, a California venture studio, working remotely. Built the <a href="/projects/lumo/">Lumo CAN bus HAT</a> and OBD-to-BLE telematics devices, integrated e-bikes with apps, ran Celo validators with zero downtime, built monitoring backends, and worked on Opera MiniPay projects.</span></li>
     </ul>
   </section>
 
@@ -199,7 +200,7 @@ const teaching = [
         const inner = a.text ? (
           <span class="text-plate">{a.name}</span>
         ) : (
-          <img src={a.logo} alt={a.name} title={a.name} loading="lazy" />
+          <img src={a.logo} alt={a.name} title={a.name} loading="lazy" class:list={[{ color: a.color }]} />
         );
         return a.href ? (
           <a class="logo-cell" href={a.href} target="_blank" rel="noopener" aria-label={a.name}>
@@ -508,6 +509,8 @@ const teaching = [
     opacity: 0.7;
     transition: filter 0.2s ease, opacity 0.2s ease;
   }
+  /* Current employer keeps its brand colour instead of the greyed default. */
+  .logo-cell img.color,
   .logo-cell:hover img {
     filter: grayscale(0%) contrast(1);
     opacity: 1;

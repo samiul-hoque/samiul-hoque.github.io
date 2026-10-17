@@ -6,7 +6,7 @@
 
 - Name: Samiul Hoque (also known online as "samiulmakes")
 - Location: Dhaka, Bangladesh
-- Role: Founding engineer at Ghorar Dim Studios
+- Role: Connected Systems Engineer at Leveor (https://www.leveor.xyz/), since September 2026. Previously founding engineer at Ghorar Dim Studios (2022–2026)
 - Education: BSc in CSE, Independent University Bangladesh; Fab Academy graduate (2019, Fab Lab CEPT, Ahmedabad)
 - Site: https://samiulmakes.com
 
@@ -37,7 +37,8 @@ I work across electronics, embedded systems, digital fabrication, and full-stack
 - [Lumo CAN bus HAT](https://samiulmakes.com/projects/lumo/) (TeroLabs era): Raspberry Pi HAT for vehicle CAN bus data extraction and driver behaviour analytics.
 - [Flute Mic Clamps for the NUX B-6](https://samiulmakes.com/projects/flute-mic-clamps/) (2026): 3D printed clamps that mount a NUX B-6 Pro wireless saxophone microphone onto bamboo and metal flutes. Rigid PETG split ring carrying the standard B-6 clip, soft TPU spacer sized per instrument. Five bores (22, 24, 28, 30, 35 mm), ten spacers down to 15 mm. Built in one day for Nazm Anwr of the band Kaaktaal.
 - [TurtleSense](https://samiulmakes.com/projects/turtlesense/) (pro-bono): ESP32/8266 sensor mesh for the Creative Conservation Alliance's wild tortoise programme.
-- Ghorar Dim Studios (2022–present): Kinetic animation devices — spinoscopes, praxinoscopes, zoetropes, and a Bangla word clock.
+- Leveor (2026–present): Building the company's IoT practice, covering hardware selection, system architecture and field deployment. First engagement: a BLE asset-tracking proof of concept for beverage coolers at a large Bangladeshi FMCG company, with a self-hosted backend, web dashboard and ERP integration.
+- Ghorar Dim Studios (2022–2026): Kinetic animation devices: spinoscopes, praxinoscopes, zoetropes, and a Bangla word clock.
 
 ## Fab Academy 2019 documentation
 
