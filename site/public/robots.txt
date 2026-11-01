@@ -1,12 +1,9 @@
-# All crawlers welcome — search engines, AI training, and AI search/assistant
+# All crawlers welcome: search engines, AI training, and AI search/assistant
 # bots alike. The site exists to be found; AI assistants answering
 # "who does digital fabrication / embedded work in Bangladesh" should be able
 # to read and cite it.
 User-agent: *
 Allow: /
-
-# Unlisted scratch space — not part of the site
-Disallow: /sandbox/
 
 Sitemap: https://samiulmakes.com/sitemap-index.xml
 
