@@ -12,7 +12,7 @@ gallery: []
 write an application that interfaces with an input &/or output device that you made.  
   
 
-#### [Group assignment](http://fab.academany.org/2019/labs/cept/interfaceapplicationdesign.html)
+#### [Group assignment](https://fab.academany.org/2019/labs/cept/interfaceapplicationdesign.html)
 
 compare as many tool options as possible
 
@@ -52,7 +52,7 @@ Installation is pretty straight forward. The current stable release, [Processing
 
 ## Basic Usage
 
-Processing is alot like arduino. If you are familiar with the basic syntax in arduino, almost all of it work on processing. The new things which you will need to get used to is the basics of the GUI programming.
+Processing is a lot like arduino. If you are familiar with the basic syntax in arduino, almost all of it work on processing. The new things which you will need to get used to is the basics of the GUI programming.
 
 ## Creating a Simple Window that closes when a keypress is detected
 
@@ -102,7 +102,7 @@ Event initiated when a keystroke is detected.
     
 -   #### [background(rgb)](https://processing.org/reference/background_.html)
     
-    The background() function sets the color used for the background of the Processing window. The default background is light gray. This function is typically used within draw() to clear the display window at the beginning of each frame, but it can be used inside setup() to set the background on the first frame of animation or if the backgound need only be set once.
+    The background() function sets the color used for the background of the Processing window. The default background is light gray. This function is typically used within draw() to clear the display window at the beginning of each frame, but it can be used inside setup() to set the background on the first frame of animation or if the background need only be set once.
     
 -   #### [exit()](https://processing.org/reference/exit_.html)
     
@@ -111,14 +111,14 @@ Event initiated when a keystroke is detected.
 
 ## The Serial Library
 
-The Serial library reads and writes data to and from exnternal devices using Serial Communication. I will be using this library to communicate with my board.
+The Serial library reads and writes data to and from external devices using Serial Communication. I will be using this library to communicate with my board.
 
 ### Writing a Serial code that Reads an analog value from my arduino and sends a value to my board to blink an LED
 
 To explore the Serial library I'll do the following in this program;
 
 -   Detect and Connect to a serial device, in this case which is my board
--   Read data fom analog pin 0
+-   Read data from analog pin 0
 -   Send '0' or '1' by detecting keystroke and blink an LED on the board.
 
 #### The Code:
@@ -142,7 +142,7 @@ Returns a string array of names of all the serial objects connected to the machi
 -   #### [serialEvent(Serial obj)](https://processing.org/reference/libraries/serial/serialEvent_.html)
     
 
-This event is triggered everytime a serial event occurs. It may be when serial data is received.
+This event is triggered every time a serial event occurs. It may be when serial data is received.
 
 -   #### [serial.read()](https://processing.org/reference/libraries/serial/Serial_read_.html)
     
@@ -169,7 +169,7 @@ Writes bytes, chars, ints, bytes\[\], Strings to the serial port
 
 ### Explanation:
 
-Here I am reading from serial if I am recieving 1 or not, If i do recieve it, I will light up the LED on which is connected on pin 13.  
+Here I am reading from serial if I am receiving 1 or not, If i do receive it, I will light up the LED on which is connected on pin 13.  
   
 On the other hand, I am also reading analog data from pin A0, and writing it on serial after every 25ms.
 
@@ -196,7 +196,7 @@ On the other hand, I am also reading analog data from pin A0, and writing it on 
 
 -   #### Hscrollbar(xPosition, yPosition, width, height, inertia)
     
-    The constructor class for the Hscrollbar example, it accepts 5 parameters. The xPosition and the yPosition is co-ordinates from where the scrollbar will be drawn from. The width defines the horizontal length of the scrollbar while the height defines the height. The last inertia paramter adds inertia to te scoll wheel.
+    The constructor class for the Hscrollbar example, it accepts 5 parameters. The xPosition and the yPosition is co-ordinates from where the scrollbar will be drawn from. The width defines the horizontal length of the scrollbar while the height defines the height. The last inertia parameter adds inertia to te scroll wheel.
     
 -   #### scrollbar.getPos()
     

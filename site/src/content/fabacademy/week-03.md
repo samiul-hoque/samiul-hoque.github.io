@@ -10,7 +10,7 @@ gallery: []
 * * *
 
 This week the Assignment was to model(raster, vector, 2D, 3D, render, animate, simulate, ...) a possible final project and explore as many software tools possible while doing that.  
-In addition to that, my Regional Instructor told me to explore atleast 2 new software tools, that I didn't previously use.  
+In addition to that, my Regional Instructor told me to explore at least 2 new software tools, that I didn't previously use.  
 
 > Before I start, I'll be honest here, I am quite the newbie when it comes to designing stuff. Most of my design work is not very complicated and I usually just depend on other people for designs. I take 'making' as something like cooking. I just follow the recipes from Instructables or thingiverse, and I end up making them.  
 > So, this week is probably going to be quite challenging to me while I try to get a grasp of how the CAD process actually works and I hope I will be able to start creating my own design.
@@ -37,7 +37,7 @@ Raster images are bitmap images which are comprised of individual pixels. So an 
 
   
 
-Vector Images are made of mathematical equations instead of bitmapms of pixels. Which makes them scalable infintely. All vector images are just mathematical equations resulting in paths. Think of it like a formula that describes an image which can be scaled to any size.
+Vector Images are made of mathematical equations instead of bitmapms of pixels. Which makes them scalable infinitely. All vector images are just mathematical equations resulting in paths. Think of it like a formula that describes an image which can be scaled to any size.
 
 <figure>
   <img src="/images/fabacademy/week-03/vectorsample.gif" alt="Raster image in MSpaint" loading="lazy" />
@@ -85,7 +85,7 @@ Here's a 4x video of the total workprocess.
 
 * * *
 
-I would't really recomend MS paint for anything but rough sketches, but this app is probably the lightest and easiest to use out there. It is definitely underrated compared to it's capabilities.
+I wouldn't really recommend MS paint for anything but rough sketches, but this app is probably the lightest and easiest to use out there. It is definitely underrated compared to it's capabilities.
 
 Another nifty thing you could do with MS paint is quick convert between image types. Just right click and click on edit on any image,  
   
@@ -149,7 +149,7 @@ A nifty plugin of GIMP can be installed with [BIMP](https://alessandrofrancescon
   <img src="/images/fabacademy/week-03/photoshop.png" alt="Adobe Photoshop" class="logo" loading="lazy" />
 </figure>
 
-Adobe Photoshop is probably the most powerfull raster graphics software out there which is widely accepted by professionals. It has many tools and features that I have yet to discover, but I use it's "export for web" feature alot to export/convert/resize graphics files. But, other than that, I am quite oblivious to it. Since I did some struggling with GIMP, I decided to watch some beginner tutorials first, which I found here, before starting to draw using Photoshop.
+Adobe Photoshop is probably the most powerful raster graphics software out there which is widely accepted by professionals. It has many tools and features that I have yet to discover, but I use it's "export for web" feature a lot to export/convert/resize graphics files. But, other than that, I am quite oblivious to it. Since I did some struggling with GIMP, I decided to watch some beginner tutorials first, which I found here, before starting to draw using Photoshop.
 
 After you open photoshop, you'll get a prompt which will help you create a new file. There are many available presets ready for you here. For now I'll just go with a 720p preset.
 
@@ -232,7 +232,7 @@ Here's a screencapture of my whole work process in illustrator.
 
 * * *
 
-### Comparison betweeen all the 2D software I tried
+### Comparison between all the 2D software I tried
 
 |  | MS Paint | GIMP | Adobe Photoshop CC | Adobe Illustrator CC |
 | --- | --- | --- | --- | --- |
@@ -240,13 +240,13 @@ Here's a screencapture of my whole work process in illustrator.
 | Graphic Type | Raster | Raster | Raster/Vector | Vector |
 | License | Free | Free | Paid | Paid |
 | Learning curve | Very easy | Slightly difficult | difficult | Slightly difficult |
-| Best feature | Built into Windows, highly optimized. Useful for quick edits. | Cross platform, free to use and has almost all tools to compete with photoshop. | The Profesional Standard in graphics work. Has every tool necessary for this line of work. | Built into the Adobe creative cloud. UI is clean and similar to photoshop. Can generate a wide range of output files. |
+| Best feature | Built into Windows, highly optimized. Useful for quick edits. | Cross platform, free to use and has almost all tools to compete with photoshop. | The Professional Standard in graphics work. Has every tool necessary for this line of work. | Built into the Adobe creative cloud. UI is clean and similar to photoshop. Can generate a wide range of output files. |
 | What I would use it for | Quick and fast edits on single file. | Batch Image manipulation | Creating posters, banners and online content. | Create vectors for Laser cutting, CNC etc |
 | Output | <img src="/images/fabacademy/week-03/mspaintPixelFace.png" alt="PixelFace drawn in MS Paint" loading="lazy" /> | <img src="/images/fabacademy/week-03/gimpPixelFace.png" alt="PixelFace in GIMP" loading="lazy" /> | <img src="/images/fabacademy/week-03/pixeFace-Photoshop-Output.png" alt="PixelFace in Photoshop" loading="lazy" /> | <img src="/images/fabacademy/week-03/illustratorpixelFace.png" alt="PixelFace in Illustrator" loading="lazy" /> |
 
 ### 3D Designing
 
-3D designing is completely new domain for me. So I asked my instructor for some newbie advice and he recomended fusion 360 and then explore other stuff as well.  
+3D designing is completely new domain for me. So I asked my instructor for some newbie advice and he recommended fusion 360 and then explore other stuff as well.  
 I am also planning to explore generative design tools because I am a huge fan it, I mean, it looks **alien.**
 
 #### Fusion 360
@@ -309,8 +309,8 @@ With that I was ready with the 3D model of my base. I decided not to complicate 
 | Graphic type | 3D/2D | 3D |
 | License | Educational Version is free | Free |
 | Learning Curve | Very Intuitive | Very easy |
-| Best Feature | Combines 2D design with 3D, parametric, Easy to run on low spec Machine | Free to use, can be used to generate shapes in 3D objects desgined in f360 |
-| What I would use it for | Make 3D designs for my project, share and collaborate with others using a360 and the mobile app. | Since Generative feature in Fusion 360 is not free, I'll use MeshMixer to optimize my Desingns through trial and error. |
+| Best Feature | Combines 2D design with 3D, parametric, Easy to run on low spec Machine | Free to use, can be used to generate shapes in 3D objects designed in f360 |
+| What I would use it for | Make 3D designs for my project, share and collaborate with others using a360 and the mobile app. | Since Generative feature in Fusion 360 is not free, I'll use MeshMixer to optimize my Designs through trial and error. |
 | Output | <img src="/images/fabacademy/week-03/f360output.png" alt="PixelFace base in Fusion 360" loading="lazy" /> | <img src="/images/fabacademy/week-03/meshmixerOutput.png" alt="PixelFace base optimized in MeshMixer" loading="lazy" /> |
 
 ### Mistakes Made this week

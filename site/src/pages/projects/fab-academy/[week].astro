@@ -46,7 +46,7 @@ const keywordsStr = weekKeywords.join(', ');
 
 const slug = `week-${String(data.week).padStart(2, '0')}`;
 const pageUrl = new URL(`/projects/fab-academy/${slug}/`, Astro.site).toString();
-const pageTitle = `${data.title} — Fab Academy 2019`;
+const pageTitle = `${data.title} | Fab Academy 2019`;
 // Keyword-rich, specific meta description trimmed to ~158 chars on a word
 // boundary (Google truncates around 160).
 function trimDesc(s: string, max = 158): string {
@@ -56,7 +56,7 @@ function trimDesc(s: string, max = 158): string {
   return (sp > 60 ? cut.slice(0, sp) : cut).replace(/[\s,;:.—-]+$/, '') + '…';
 }
 const metaDesc = trimDesc(
-  `${data.title} — Fab Academy 2019 Week ${data.week} at Fab Lab CEPT.`
+  `${data.title}: Fab Academy 2019, Week ${data.week}, at Fab Lab CEPT.`
   + (keywordsStr ? ` ${keywordsStr}.` : ` ${data.assignment}`),
 );
 
@@ -66,7 +66,7 @@ const jsonLd = {
     {
       '@type': 'Article',
       '@id': `${pageUrl}#article`,
-      headline: `${data.title} — Fab Academy 2019 Week ${data.week}`,
+      headline: `${data.title}: Fab Academy 2019, Week ${data.week}`,
       description: data.assignment,
       url: pageUrl,
       ...(data.heroImage && { image: new URL(data.heroImage, Astro.site).toString() }),

@@ -9,7 +9,7 @@ gallery: []
 
 * * *
 
-#### [Group Assignment](http://fab.academany.org/2019/labs/cept/electronicsproduction.html) :
+#### [Group Assignment](https://fab.academany.org/2019/labs/cept/electronicsproduction.html) :
 
 -   Characterize the design rules for your PCB production process
   
@@ -28,10 +28,10 @@ gallery: []
 
 ## A bit of Context
 
-The FabISP is a 100% fabable ISP programmer based on the [FabTinyStar](http://fabacademy.org/archives/2015/doc/projects/FabTinyStar/) board which again was based on Lady Ada's [USBTinyISP.](https://learn.adafruit.com/usbtinyisp) Here's a picture of Limor Fried aka Lady Ada, just because I am a fanboy :')  
+The FabISP is a 100% fabable ISP programmer based on the [FabTinyStar](https://fabacademy.org/archives/2015/doc/projects/FabTinyStar/) board which again was based on Lady Ada's [USBTinyISP.](https://learn.adafruit.com/usbtinyisp) Here's a picture of Limor Fried aka Lady Ada, just because I am a fanboy :')  
   
 
-I recomend reading this paper: [Demystifying the FabISP](http://fab.cba.mit.edu/classes/863.16/doc/tutorials/FabISP/FabISP_Demystified.html), To understand the role of each component on the FabISP  
+I recommend reading this paper: [Demystifying the FabISP](https://fab.cba.mit.edu/classes/863.16/doc/tutorials/FabISP/FabISP_Demystified.html), To understand the role of each component on the FabISP  
 We will basically be using the FabISP to program our circuits in the coming weeks.
 
 <figure>
@@ -47,7 +47,7 @@ For this week, we were suggested to select a design from the Fab Academy archive
 
 * * *
 
-At first I decided to go with the [Fab ISP key](http://fab.cba.mit.edu/content/archive/projects/fabispkey/index.html) by [Andy bardagjy](http://bardagjy.com/)
+At first I decided to go with the [Fab ISP key](https://fab.cba.mit.edu/content/archive/projects/fabispkey/index.html) by [Andy bardagjy](https://bardagjy.com/)
 
 <figure>
   <img src="/images/fabacademy/week-05/fabispkeytracev2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
@@ -81,15 +81,15 @@ After milling, my PCBs had more than just a few connected traces.
   <img src="/images/fabacademy/week-05/fabispkeyv2output2.png" alt="First Failure of the week: Andy's FabISPkey v2.3" loading="lazy" />
 </figure>
 
-Then I realized that Andy's images were not of high enough DPI. Since I didn't know much about the settings on [Mods](http://mods.cba.mit.edu/), I thought I was probably making a mistake somewhere. I also realized that there was a logic level shifter, the [TXB0104](http://www.ti.com/lit/ds/symlink/txb0104.pdf) on the board, which was not in our inventory. While doing all this, I was already two days behind schedule.
+Then I realized that Andy's images were not of high enough DPI. Since I didn't know much about the settings on [Mods](https://mods.cba.mit.edu/), I thought I was probably making a mistake somewhere. I also realized that there was a logic level shifter, the [TXB0104](https://www.ti.com/lit/ds/symlink/txb0104.pdf) on the board, which was not in our inventory. While doing all this, I was already two days behind schedule.
 
 #### Brian's Fab ISP
 
 * * *
 
 Now I was running out of time and I didn't know which design I should follow. It turns out choosing someone's design at random is harder than making your own.  
-So I searched the Fab Academy Archive and found [Brian's](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) design was working for many people. And it was very neatly documented as well.  
-I found the files on [Brian's project page](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) and they were in PNG format with 1000 dpi. I knew these images would work and started milling them.
+So I searched the Fab Academy Archive and found [Brian's](https://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) design was working for many people. And it was very neatly documented as well.  
+I found the files on [Brian's project page](https://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/) and they were in PNG format with 1000 dpi. I knew these images would work and started milling them.
 
 <figure>
   <img src="/images/fabacademy/week-05/fabispbriantrace.png" alt="Brian's Fab ISP" loading="lazy" />
@@ -107,7 +107,7 @@ I found the files on [Brian's project page](http://fab.cba.mit.edu/classes/863.1
 
 ## PCB Milling
 
-PCB milling also known as 'isolation milling', is the process of removing copper from a sheet of printed circuit board material to recreate the pads, sinal straces and structures according to a layout. We will be using FR1 boards for the milling process.
+PCB milling also known as 'isolation milling', is the process of removing copper from a sheet of printed circuit board material to recreate the pads, signal traces and structures according to a layout. We will be using FR1 boards for the milling process.
 
 <figure>
   <img src="/images/fabacademy/week-05/pcbmilling.jpg" alt="PCB milling on a Roland MDX-20" loading="lazy" />
@@ -147,7 +147,7 @@ I tried installing the Fab Modules server on WSL alongside my windows installati
 
 I also Installed fab modules on a Raspberry Pi running Ubuntu mate. It is working fine and has no extra steps for installation.  
 I configured the mod\_server.js file according to the documentation so I could access the npm server over my local wifi network.  
-I had no trouble running fab modules from my laptop through the raspberry pi, but I eventually switched back to the lab computer running ubuntu because getting the monitor and adapter plugged in everytime was a hassle. This method could definitely come in handy if any lab wants to dedicate a raspberry pi to each machine instead of a full laptop.  
+I had no trouble running fab modules from my laptop through the raspberry pi, but I eventually switched back to the lab computer running ubuntu because getting the monitor and adapter plugged in every time was a hassle. This method could definitely come in handy if any lab wants to dedicate a raspberry pi to each machine instead of a full laptop.  
   
 
 <figure>
@@ -165,7 +165,7 @@ I had no trouble running fab modules from my laptop through the raspberry pi, bu
 
 ## 2\. Requisites
 
-The instalation procedure is well documented on the [Fab Modules Wiki.](https://github.com/FabModules/fabmodules-html5/wiki/How-to-install) Before we can install Fab Modules, we need to install the following requisites.
+The installation procedure is well documented on the [Fab Modules Wiki.](https://github.com/FabModules/fabmodules-html5/wiki/How-to-install) Before we can install Fab Modules, we need to install the following requisites.
 
 | Package | Install Command |
 | --- | --- |
@@ -201,7 +201,7 @@ Thanks to Ludusrusso for the solution [here.](https://github.com/FabModules/fabm
 
 You need to first install [node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).  
   
-Install the [http-server](https://www.npmjs.com/package/http-server) npm package. Including '-g' sets the installs the package gloabally, allowing you to use it as a command line tool:  
+Install the [http-server](https://www.npmjs.com/package/http-server) npm package. Including '-g' sets the installs the package globally, allowing you to use it as a command line tool:  
 `npm install http-server -g`  
   
 
@@ -223,7 +223,7 @@ Open a browser tab and go to `127.0.0.1:8080` which is the same as `http://local
 
 -   Start Fab Modules Server:  
     `sudo npm start`
-//You dont need sudo if you change the port to someonething greater than 1024-   go to [http://mods.cba.mit.edu/](http://mods.cba.mit.edu/)
+//You dont need sudo if you change the port to something greater than 1024-   go to [https://mods.cba.mit.edu/](https://mods.cba.mit.edu/)
 -   Right click and open 'programs'>'open server program'> Roland >mill> MDX-20 > PCB png
 -   Open the png file from here and you can set the PCB defaults to mill traces with the 1/64 bit or mill outline with the 1/32 bit
 
@@ -240,9 +240,9 @@ Open a browser tab and go to `127.0.0.1:8080` which is the same as `http://local
 
 -   Start Fab Modules Server:  
     `sudo npm start`
-//You dont need sudo if you change the port to someonething greater than 1024-   Go to [http://fabmodules.org/](http://fabmodules.org/)
+//You dont need sudo if you change the port to something greater than 1024-   Go to [http://fabmodules.org/](https://web.archive.org/web/2019/http://fabmodules.org/)
 -   Select the PNG file
--   Choose ouptut format as Roland Mill (.rml)
+-   Choose output format as Roland Mill (.rml)
 -   Process> PCB trace(1/64) for traces
 -   Process> PCB Outline(1/32) for outlines and drill holes
 
@@ -274,7 +274,7 @@ Here's the outline settings,
 -   number of offsets: 1
 -   offset overlap(%): 50
 -   path error(pixels): 1.1
--   image threshhold: .5
+-   image threshold: .5
 
 And these are the Settings for PCB outlines,
 
@@ -282,7 +282,7 @@ And these are the Settings for PCB outlines,
 
 ## Setting the Origin
 
-Place your PCB material on the sacrificial bed. Make sure to clean any remaining glue or debris on the plate. Try to lay out your board as flat as possible. Use the Output section on fab modules to jog your spindle to where you want the origin to be at. Remember, this is the origin for x and y, we will have to set the z origin seperately later.
+Place your PCB material on the sacrificial bed. Make sure to clean any remaining glue or debris on the plate. Try to lay out your board as flat as possible. Use the Output section on fab modules to jog your spindle to where you want the origin to be at. Remember, this is the origin for x and y, we will have to set the z origin separately later.
 
 ## Setting the Z Origin
 
@@ -420,14 +420,14 @@ For the sheet, I used epoxy film beneath the copper layer. This doesn't give me 
   <img src="/images/fabacademy/week-05/vinylsettings.png" alt="Machine Settings" loading="lazy" />
 </figure>
 
-### Ouptut
+### Output
 
 * * *
 
 The output should look like this.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylcutoutput.png" alt="Ouptut" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylcutoutput.png" alt="Output" loading="lazy" />
 </figure>
 
   
@@ -438,7 +438,7 @@ The output should look like this.
 
 -   This is all about patience. If your settings were right, this job should be easy.
 -   Try to roll away the weeded part instead of pulling them.
--   Use tweezers if any part is not comming out properly.
+-   Use tweezers if any part is not coming out properly.
 
 <figure>
   <img src="/images/fabacademy/week-05/vinylweeding.png" alt="Weeding" loading="lazy" />
@@ -450,16 +450,16 @@ The output should look like this.
 
   
 
-#### Transfering the PCB
+#### Transferring the PCB
 
-Since I used an epoxy film vinyl beneath the copper, I can just cut that portion out and stick it to a a surface. The only downside is that I cant make transparent circuits this way, but the white background is obviously an improvement compared to the FR1 boards.
+Since I used an epoxy film vinyl beneath the copper, I can just cut that portion out and stick it to a surface. The only downside is that I can't make transparent circuits this way, but the white background is obviously an improvement compared to the FR1 boards.
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylpcboutput.png" alt="Transfering the PCB" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylpcboutput.png" alt="Transferring the PCB" loading="lazy" />
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-05/vinylpcbonacryllic.png" alt="Transfering the PCB" loading="lazy" />
+  <img src="/images/fabacademy/week-05/vinylpcbonacryllic.png" alt="Transferring the PCB" loading="lazy" />
 </figure>
 
 I tried to transfer the copper using transfer tape, but the copper adhesive on the epoxy film adheres more strongly than the adhesive power of the transfer tape. It was not possible to transfer it that way.
@@ -510,7 +510,7 @@ yeah.. you learn these things only after you mess up. :|
 
 * * *
 
-Clear Epoxy gave much better results, and it's barely noticable.  
+Clear Epoxy gave much better results, and it's barely noticeable.  
   
 Make sure to smother your 6 pin connector with Epoxy. This is the part that actually needs the protection.
 
@@ -557,7 +557,7 @@ Soldering is all about patience and practice. It is tough at first but it become
 -   Make sure to tin your tip as soon as you clean it.
 -   Try avoiding contact between the solder and the soldering iron you're just fuming away your flux. Use the copper/trace/pad to flow the solder in.
 
-For more tutorials on Soldering, feel free to refer to this playlist. These 9 vidoes cover almost all the soldering basics. It's quite hard to belive these were made back in the 80s.  
+For more tutorials on Soldering, feel free to refer to this playlist. These 9 vidoes cover almost all the soldering basics. It's quite hard to believe these were made back in the 80s.  
   
   
 Here are some quick videos of soldering various components.
@@ -603,7 +603,7 @@ I used a multimeter to check for shorts using it's continuity function.
 
 ## Programming the ISP
 
-For the software installations required to program the ISP, linux is highly recomended. But since i have a windows work environment, I took the long route and installed it all on windows.
+For the software installations required to program the ISP, linux is highly recommended. But since i have a windows work environment, I took the long route and installed it all on windows.
 
 ### Installing the GNU AVR toolchain on windows 10
 
@@ -618,7 +618,7 @@ For the software installations required to program the ISP, linux is highly reco
 
 #### Installation & where to install:
 
-Installation of Git and avrdude is pretty straight forward. Make sure to use the default installation location. But for the Atmel GNU toolchain, it is quite hard to find on the official Atmel website. I guess many have faced this problem and so someone put it up on github. Feel free to download it from [here.](https://github.com/eerimoq/avr-toolchain-windows) Also download [avrdude.](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/avrdude-win-64bit.zip)  
+Installation of Git and avrdude is pretty straight forward. Make sure to use the default installation location. But for the Atmel GNU toolchain, it is quite hard to find on the official Atmel website. I guess many have faced this problem and so someone put it up on github. Feel free to download it from [here.](https://github.com/eerimoq/avr-toolchain-windows) Also download [avrdude.](https://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/avrdude-win-64bit.zip)  
 Now unzip the avr tool chain and avrdude and place them on the following directories;  
   
 ```text
@@ -651,7 +651,7 @@ To install the drivers for your ISP programmer, use [Zadig.](https://zadig.akeo.
 
 Open Git bash and type out the following commands to see if that tool installed properly.
 
-<table class="alt"><tbody><tr><td>Tool</td><td>Command</td><td>Output</td></tr><tr><td>GNU make</td><td>make -v</td><td>GNU Make 3.81<br>Copyright (C) 2006 Free Software Foundation, Inc.<br>...<br>and so on.</td></tr><tr><td>avr-gcc</td><td>avr-gcc --version</td><td>avr-gcc.exe (AVR_8_bit_GNU_Toolchain_3.5.4_1709) 4.9.2<br>...<br>and so on.</td></tr><tr><td>avrdude</td><td>avrdude -c usbasp -p t45</td><td>avrdude.exe: initialization failed, rc=-1<br>...<br>This means that avrdude successfully found your programmer, but failed to talk to a target board (expected because we don't have anything conencted to the programmer right now.)<br>If instead you see:<br>avrdude.exe: error: could not find USB device with vid=0x16c0 pid=0x5dc<br>check your USB driver installation (the Zadig steps).<br><br>If you get a "command not found" error, check your installation of avrdude and your path variable.</td></tr></tbody></table>
+<table class="alt"><tbody><tr><td>Tool</td><td>Command</td><td>Output</td></tr><tr><td>GNU make</td><td>make -v</td><td>GNU Make 3.81<br>Copyright (C) 2006 Free Software Foundation, Inc.<br>...<br>and so on.</td></tr><tr><td>avr-gcc</td><td>avr-gcc --version</td><td>avr-gcc.exe (AVR_8_bit_GNU_Toolchain_3.5.4_1709) 4.9.2<br>...<br>and so on.</td></tr><tr><td>avrdude</td><td>avrdude -c usbasp -p t45</td><td>avrdude.exe: initialization failed, rc=-1<br>...<br>This means that avrdude successfully found your programmer, but failed to talk to a target board (expected because we don't have anything connected to the programmer right now.)<br>If instead you see:<br>avrdude.exe: error: could not find USB device with vid=0x16c0 pid=0x5dc<br>check your USB driver installation (the Zadig steps).<br><br>If you get a "command not found" error, check your installation of avrdude and your path variable.</td></tr></tbody></table>
 
   
 
@@ -667,7 +667,7 @@ Now you should see your power LED on the FabISP light up.
 
 * * *
 
-Download and build the firmware from Brian's page [here.](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/fts_firmware_bdm_v1.zip) Extract the files, and open makefile with your preferred notepad. I used Visual Studio Code.  
+Download and build the firmware from Brian's page [here.](https://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/fts_firmware_bdm_v1.zip) Extract the files, and open makefile with your preferred notepad. I used Visual Studio Code.  
 Edit the Programmer and replace it with  
 `usbasp`  
 Save and quit.  
@@ -792,7 +792,7 @@ And follow through the same process again. For me everything went well and now I
 
 #### What I'll need to explore more
 
--   I need to make better PCB designs for a personalized Fab ISP. My design this time didn't have the USB trace footprint because I couldn't locate the library, I ended up using a mini USB but the copper tape couldn't keep it down on the acryllic. I couldn't use epoxy to secure it because it kinda leaked into the port and rendered it useless.
+-   I need to make better PCB designs for a personalized Fab ISP. My design this time didn't have the USB trace footprint because I couldn't locate the library, I ended up using a mini USB but the copper tape couldn't keep it down on the acrylic. I couldn't use epoxy to secure it because it kinda leaked into the port and rendered it useless.
 
   
 

@@ -9,7 +9,7 @@ gallery: []
 
 * * *
 
-[Group Assignment](http://fab.academany.org/2019/labs/cept/computercontrolledcutting.html)-   Characterize your lasercutter's focus, power, speed, rate, kerf, and joint clearance
+[Group Assignment](https://fab.academany.org/2019/labs/cept/computercontrolledcutting.html)-   Characterize your lasercutter's focus, power, speed, rate, kerf, and joint clearance
 
 ### Individual assignment:
 
@@ -45,7 +45,7 @@ gallery: []
 
 I started with the Vinyl Cutter. Because it kinda seemed abandoned in one corner of the lab, while all the other machines had long queues on them to work on.  
   
-We have a [Roland GX-24](https://www.rolanddga.com/support/products/cutting/camm-1-gx-24-24-vinyl-cutter) Vinyl cutter here. The official resources on the roland site was very helpful for getting the machine prepped to work with my design files. Which can be found[](https://www.rolanddga.com/support/products/cutting/camm-1-gx-24-24-vinyl-cutter)
+We have a [Roland GX-24](https://www.rolanddga.com/support/products/cutting/camm-1-gx-24-24-vinyl-cutter) Vinyl cutter here. The official resources on the roland site was very helpful for getting the machine prepped to work with my design files. They can be found [here](https://www.rolanddga.com/support/products/cutting/camm-1-gx-24-24-vinyl-cutter).
 
 ### Materials
 
@@ -55,7 +55,7 @@ We have a [Roland GX-24](https://www.rolanddga.com/support/products/cutting/camm
 
 The Vinyl Materials we had at the lab were;
 
--   Red, Green, Blue & Yello Vinyl
+-   Red, Green, Blue & Yellow Vinyl
 -   Copper Tape
 -   Transfer Tape
 -   Unknown material that I assume is to sandwich multilayer PCBs with.
@@ -183,7 +183,7 @@ Too much force will cut through the material along with the vinyl.
 
 #### Too Less force
 
-Too less force wont cut the vinyl properly, and I had trouble taking the parts out.
+Too less force won't cut the vinyl properly, and I had trouble taking the parts out.
 
 ### Designing Files for the Vinyl Cutter
 
@@ -234,7 +234,7 @@ The final product came out like this.
 
 ### Transfer Tape
 
-I foudn this video on using transfer tape very useful.
+I found this video on using transfer tape very useful.
 
 Now bear in mind that you are supposed to take out the negatives before you put the transfer tape on.  
 BUT! for very detailed designs like PCBs, its much easier to remove the negative after you transfer the vinyl on the intended surface. 
@@ -271,7 +271,7 @@ This was definitely not going to work.
 
 ### Mounting copper tape on a better base.
 
-For the next copper tape, I decided to use an acryllic base, found that from the waste bin.
+For the next copper tape, I decided to use an acrylic base, found that from the waste bin.
 
 <figure>
   <img src="/images/fabacademy/week-04/copperonacryl.png" alt="Mounting copper tape on a better base." loading="lazy" />
@@ -298,8 +298,8 @@ This time it was coming off nicely. And seemed very satisfactory to me.
 
 ### Sources I found Useful
 
--   [Originially inspired by Honghao Den's Fab Academy work with the vinyl cutter.](http://fab.cba.mit.edu/classes/863.17/Harvard/people/HonghaoDeng/project-3/project-3.html)
--   [This article on making a Vinylcut copper & fabric PCB](https://www.kobakant.at/DIY/?p=1132)
+-   [Originally inspired by Honghao Den's Fab Academy work with the vinyl cutter.](https://fab.cba.mit.edu/classes/863.17/Harvard/people/HonghaoDeng/project-3/project-3.html)
+-   [This article on making a Vinylcut copper & fabric PCB](https://web.archive.org/web/20190825152608/https://www.kobakant.at/DIY/?p=1132)
 -   [Jie Qi's Flikr](https://www.flickr.com/photos/jieq/sets/72157625670797923/)
 -   [Simon de Bakkar's instructions](http://v2.nl/lab/blog/cutout-circuit-board)
 
@@ -330,7 +330,7 @@ The Laser cutter seemed like the most used tool in the FabLab to me. There was a
     -   Wood (for engraving)
     -   Veneers
     
-    #### Prohibitted Materials
+    #### Prohibited Materials
     
     -   Polystyrene, polypropylene, polycarbonate
     -   Plastics containing chlorine and fluorine content based material
@@ -387,7 +387,7 @@ source: [Epilog's Website.](http://www.engravingconcepts.com/index.php/products/
 -   Graphics file support: .PLT, .CDR, .AI, .DWG, .DXF, .DST, .BMP, .JPEG, .TIFF, .GIF, .PCX, etc
 .
 
-source: [Last year's Week 4 group work.](http://fab.academany.org/2018/labs/fablabcept/week-04-computer-controlled-cutting.html)
+source: [Last year's Week 4 group work.](https://fab.academany.org/2018/labs/fablabcept/week-04-computer-controlled-cutting.html)
 
 <figure>
   <img src="/images/fabacademy/week-04/lasersil.jpg" alt="Specs" loading="lazy" />
@@ -395,7 +395,7 @@ source: [Last year's Week 4 group work.](http://fab.academany.org/2018/labs/fabl
 
 ### Designing a Test Template
 
-I started with making this simple template on Adobe Illustrator. I wanted to check what the kerf was, how the laser worked with circles and text. This tutorial was especially helpfull for preparing laser cutting files in Adobe Illustrator.
+I started with making this simple template on Adobe Illustrator. I wanted to check what the kerf was, how the laser worked with circles and text. This tutorial was especially helpful for preparing laser cutting files in Adobe Illustrator.
 
 <figure>
   <img src="/images/fabacademy/week-04/laserFirstTest.png" alt="Designing a Test Template" loading="lazy" />
@@ -437,7 +437,7 @@ Nesting is the process of arranging your cuts in order to reduce material waste.
 
 #### Checking for Errors: Overlapping lines, un-joint vectors
 
-Error checking on your file can be done before sending it to your laser and wasting material using the error checking tools. Most of the erros can also be fixed from RDworks so you don't have to jump between CAD and CAM tools.
+Error checking on your file can be done before sending it to your laser and wasting material using the error checking tools. Most of the errors can also be fixed from RDworks so you don't have to jump between CAD and CAM tools.
 
 <figure>
   <img src="/images/fabacademy/week-04/rderror.jpg" alt="Checking for Errors: Overlapping lines, un-joint vectors" loading="lazy" />
@@ -451,7 +451,7 @@ Error checking on your file can be done before sending it to your laser and wast
 
 The Laser power and Speed Settings can be found on the right side of the screen. You put your design on any specific layer and set the Power(min,max), Speed and Mode/Output for each layer.  
 Power sets the wattage of the laser, a 55% power will result in 55% of the total output power of the laser. The Min and Max settings lets the power to vary in quick successions when moving in very small areas. This results in sharper edges and cuts.  
-More on Output modes, Speed and power settings can be found in our [Group work page](http://fab.academany.org/2019/labs/cept/computercontrolledcutting.html) for this week.
+More on Output modes, Speed and power settings can be found in our [Group work page](https://fab.academany.org/2019/labs/cept/computercontrolledcutting.html) for this week.
 
 <figure>
   <img src="/images/fabacademy/week-04/rdpower.jpg" alt="Laser Power and Speed Settings" loading="lazy" />
@@ -547,7 +547,7 @@ Kerf for 3.3mm MDF at power(55,55) and Speed(15) was observed to be 0.9mm. I mad
 -   For 3.3mm MDF, I found the laser power at 55 max, 55 min and Speed 15 to be perfect. The kerf was minimum for this setting which was 0.9 mm.
 -   The Outside Dimension of the cut seemed to be perfect while the inner dimension had the kerf. Which means the laser was doing Inside cuts. I'll have to keep this in consideration when Designing the press fit kit.
 -   My first two cuts didn't cut through as the speed was at 25.
--   Multiple passes can be done by making lines on top of eachother.
+-   Multiple passes can be done by making lines on top of each other.
 
 * * *
 
@@ -569,7 +569,7 @@ Kerf for 3.3mm MDF at power(55,55) and Speed(15) was observed to be 0.9mm. I mad
 
 ### Contribution to Group Work:
 
-These settings were further verified in the group work template we made, which can be found [here.](http://fab.academany.org/2019/labs/cept/computercontrolledcutting.html#mdf)
+These settings were further verified in the group work template we made, which can be found [here.](https://fab.academany.org/2019/labs/cept/computercontrolledcutting.html#mdf)
 
 ## Parametric Press Fit Kit.
 
@@ -740,7 +740,7 @@ From what I could gather, none of the machines had a filter on them and the exha
 
 -   I explored the vinyl cutter and tried to test parameters to make flexible PCBs
 -   I learnt to use the Laser Cutting Machine
--   I learnt about kerf, actual and design dimension erros and parametric design.
+-   I learnt about kerf, actual and design dimension errors and parametric design.
 
 #### What I'd Like to explore further
 

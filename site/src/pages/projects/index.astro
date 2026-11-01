@@ -9,7 +9,7 @@ const projects = await getCollection('projects', ({ data }) => !data.draft);
 // inventory is honest.
 const upcoming = [
   { slug: 'bangla-word-clock', title: 'Bangla Word Clock', year: '2024', oneLiner: 'A clock that tells time in Bangla words. With Ghorar Dim Studios.', category: 'art' },
-  { slug: 'spinoscope', title: 'Spinoscope / Praxinoscope', year: '2022–', oneLiner: 'The other kinetic animation devices for Ghorar Dim Studios — the ones that aren’t the Embryonic Shifts zoetrope.', category: 'art' },
+  { slug: 'spinoscope', title: 'Spinoscope / Praxinoscope', year: '2022–', oneLiner: 'The other kinetic animation devices for Ghorar Dim Studios, besides the Embryonic Shifts zoetrope.', category: 'art' },
   { slug: 'e-braille', title: 'E-Braille', year: '2014', oneLiner: 'Tactile feedback Braille reader. Won the first Make-a-Thon in Bangladesh.', image: '/images/ebraille/banner.jpg', category: 'hardware' },
   { slug: 'argus-helmet', title: 'Argus Helmet', year: '2017', oneLiner: 'Smart helmet hackathon entry at Maker’s Lab, hosted by Toru.', image: '/images/argushelmet/banner.jpg', category: 'hardware' },
   { slug: 'ccse-makerspace', title: 'CCSE Makerspace', year: '2016–2019', oneLiner: 'Built and ran the makerspace inside the CCSE lab at IUB.', image: '/images/ccse-makerspace/ccsemakerspace1.jpg', category: 'community' },
@@ -29,8 +29,8 @@ const collectionJsonLd = {
     {
       '@type': 'CollectionPage',
       '@id': 'https://samiulmakes.com/projects/#collection',
-      name: 'Projects — Samiul Hoque',
-      description: 'Hardware, fabrication, software, research, and art. Fifteen years of project work by Samiul Hoque (samiulmakes).',
+      name: 'Projects | Samiul Hoque',
+      description: 'Hardware, fabrication, software, research, and art. Twelve years of project work by Samiul Hoque (samiulmakes).',
       url: 'https://samiulmakes.com/projects/',
       author: { '@id': 'https://samiulmakes.com/#person' },
       isPartOf: { '@id': 'https://samiulmakes.com/#website' },
@@ -46,14 +46,13 @@ const collectionJsonLd = {
 };
 ---
 
-<Base title="Projects" description="Hardware, fabrication, software, research, art. Fifteen years of saying yes to interesting problems." jsonLd={collectionJsonLd}>
+<Base title="Projects" description="Hardware, fabrication, software, research, art. Twelve years of saying yes to interesting problems." jsonLd={collectionJsonLd}>
   <section class="container intro">
     <span class="eyebrow">Projects</span>
     <h1>What I've built.</h1>
     <p class="lede">
       A working archive. Some of these have full pages; others are stubs
-      while I write them up. Roughly chronological, organised by what kind
-      of work it was.
+      while I write them up.
     </p>
   </section>
 

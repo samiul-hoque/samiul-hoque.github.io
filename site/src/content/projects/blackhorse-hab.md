@@ -1,7 +1,7 @@
 ---
 title: "BlackHorse HAB"
 year: 2015
-role: "Technical Engineer — onboard electronics, payload fabrication, recovery"
+role: "Technical engineer: onboard electronics, payload fabrication, recovery"
 client: "Black Horse Energy Drink (via Dogs Day)"
 category: "hardware"
 tags: ["high-altitude balloon", "telemetry", "GPS tracking", "RF", "embedded"]

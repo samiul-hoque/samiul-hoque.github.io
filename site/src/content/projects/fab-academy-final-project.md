@@ -1,7 +1,7 @@
 ---
 title: "PixelFace"
 year: 2019
-role: "Everything — concept, CAD, fabrication, PCB design, firmware"
+role: "Everything: concept, CAD, fabrication, PCB design, firmware"
 client: "Fab Academy 2019 final project, Fab Lab CEPT, Ahmedabad"
 category: "fabrication"
 tags: ["POV display", "persistence of vision", "volumetric display", "WS2812B", "ATmega328P", "slip ring", "BLDC", "Fusion 360", "fab academy"]
@@ -20,9 +20,9 @@ gallery:
   - "/images/fabacademy/week-13/rotatingarmhighspeed.jpg"
 oneLiner: "A volumetric persistence-of-vision display. Fourteen addressable LEDs on a pair of acrylic arms spinning at 1100 RPM, drawing a face in the air around a cylinder."
 externalLinks:
-  - label: "Final project page — Fab Academy archive"
+  - label: "Final project page (Fab Academy archive)"
     url: "https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/finalproject.html"
-  - label: "Project development — full build log"
+  - label: "Project development (full build log)"
     url: "https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/projectdevelopment.html"
   - label: "All project files (.zip)"
     url: "https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/projects/PixelFaceAllFiles.zip"
@@ -32,7 +32,7 @@ externalLinks:
 
 PixelFace is a volumetric persistence-of-vision display. Two vertical
 acrylic arms carrying fourteen WS2812B LEDs spin around a central axis at
-about 1100 RPM. The LEDs are re-written fast enough that the eye stops
+about 1100 RPM. The LEDs are rewritten fast enough that the eye stops
 seeing fourteen moving dots and starts seeing a cylinder of pixels hanging
 in the air. What it draws on that cylinder is a face.
 
@@ -75,7 +75,7 @@ of being re-drawn. The machine splits into three parts.
 
 **The base assembly** holds the motor, the gear drive, the electronics and
 all the wiring. The base plate and top cover are laser-cut 5mm acrylic;
-the side ring is 3D printed PLA with cooling grills around it and a
+the side ring is 3D-printed PLA with cooling grilles around it and a
 cutout for the power jack.
 
 <figure>
@@ -93,9 +93,9 @@ schedule, which collides with everything else that is time-critical here.
 More on that below.
 
 A third 15-tooth gear carries the encoder wheel, which holds a neodymium
-magnet that passes a 44E hall effect sensor once per revolution. That is
+magnet that passes a 44E Hall-effect sensor once per revolution. That is
 the positional reference the whole display is timed against. Each of the
-15-tooth gears runs on a pair of 608zz bearings with printed caps locking
+15-tooth gears runs on a pair of 608ZZ bearings with printed caps locking
 the inner races to the base.
 
 **The slip ring** was the part I expected to buy and ended up making. It
@@ -152,8 +152,8 @@ main loop entirely. The ATtiny44 does nothing but run the ESC, and the
   <img src="/images/pixelface/tinyESC.jpg" alt="tinyESC, the ATtiny44 motor subsystem board" loading="lazy" />
 </figure>
 
-**The 44E breakout** is a breakout for the hall effect sensor with a 10k
-pullup between the output and 5V. Nothing clever, but it needed to sit in
+**The 44E breakout** carries the Hall-effect sensor with a 10k
+pull-up between the output and 5V. Nothing clever, but it needed to sit in
 a printed mount at a fixed distance from the magnet.
 
 ## Firmware
@@ -192,8 +192,9 @@ enough iterations to be settled.
 ## Outcome
 
 PixelFace was submitted and passed as the 2019 final project. It has not
-been rebuilt since. Bangladesh had no full fab lab at the time, so the
-follow-up work on the arm material never had a workshop to happen in.
+been rebuilt since. Bangladesh had no lab in the Fab Lab network at the time and nowhere
+running Fab Academy, so the follow-up work on the arm material never got
+picked up.
 
 The parts worth taking away are transferable: a home-made slip ring that
 passes clean addressable-LED data across a rotating joint, a way to fit a

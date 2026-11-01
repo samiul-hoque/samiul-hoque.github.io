@@ -7,7 +7,7 @@ gallery: []
 ---
 ## Assignment:
 
-[Group Work](http://fab.academany.org/2019/labs/cept/computercontrolledmachining.html)-   Test runout, alignment, speeds, feeds, and toolpaths for your machine
+[Group Work](https://fab.academany.org/2019/labs/cept/computercontrolledmachining.html)-   Test runout, alignment, speeds, feeds, and toolpaths for your machine
 
 #### Individual Assignment:
 
@@ -45,7 +45,7 @@ The CNC I run there is a 4ft x 4ft KingCut XPro. As the name sugeggests, it is c
 
 * * *
 
-This wall clock was made on a 12" oak plank and then finished with linchseed oil.
+This wall clock was made on a 12" oak plank and then finished with linseed oil.
 
 > See how the wood texture can come alive just by using a finish.
 
@@ -181,7 +181,7 @@ My Startup, [WiFi Picchi,](https://samiul-hoque.github.io/blog/2018/08/02/Box-Fu
 
 #### What Paid for my Fab Academy Tuitions
 
-Infact, my Fab Academy Tuitions were paid from going to many community product showcasing events hosted by [Made in Bangladesh.](https://www.facebook.com/inbangladesh1971/)
+In fact, my Fab Academy Tuitions were paid from going to many community product showcasing events hosted by [Made in Bangladesh.](https://www.facebook.com/inbangladesh1971/)
 
   
 
@@ -201,7 +201,7 @@ Infact, my Fab Academy Tuitions were paid from going to many community product s
 
 ### 2\. Machine Specs
 
-I was really excited to be working on a 8x4 CNC and a ShopBot at that. First thing I did was I checked the Machine specs, the cam options and the softwares available to us.
+I was really excited to be working on a 8x4 CNC and a ShopBot at that. First thing I did was I checked the Machine specs, the cam options and the software available to us.
 
 #### ShopBot PRS Alpha 96-48 closed loop
 
@@ -251,7 +251,7 @@ I was really excited to be working on a 8x4 CNC and a ShopBot at that. First thi
 
 ### 3\. Bits & Collets
 
-The collets we have at our lab are Imperial ER-25 collets which came originally with ShopBot. They were in dire condition when we got our hands on it. Some good old fashioned scrubbing with wd-40 helped with solving that. From the wear and tear, I would assume the 1/8" collet gets used alot and it was almost destroyed. The Bigger ones look like are not used much in this lab.
+The collets we have at our lab are Imperial ER-25 collets which came originally with ShopBot. They were in dire condition when we got our hands on it. Some good old fashioned scrubbing with wd-40 helped with solving that. From the wear and tear, I would assume the 1/8" collet gets used a lot and it was almost destroyed. The Bigger ones look like are not used much in this lab.
 
 <figure>
   <img src="/images/fabacademy/week-08/collets.jpg" alt="Collet set" loading="lazy" />
@@ -276,7 +276,7 @@ The bits that were given to us for this week were the following: (from left to r
 
 ### 4\. Design Selection
 
-I am not good at design, or atleast I was not. But I learned to use fusion 360 and learnt the basics of 3D and 2D designing in our [Computer Aided Design Week.](/projects/fab-academy/week-03/)  
+I am not good at design, or at least I was not. But I learned to use fusion 360 and learnt the basics of 3D and 2D designing in our [Computer Aided Design Week.](/projects/fab-academy/week-03/)  
 I wanted to show off what I learnt a bit and ended up selecting this mesmerizing yet complex [Iris Lamp](https://www.instructables.com/id/Iris-Lamp/) Design by [Jonathon Odom](https://jonatron.portfoliobox.net/).  
 But I guess I overestimated my newly learnt design skills a bit. But still... imagine a BIG version of this amazing lamp!
 
@@ -296,7 +296,7 @@ I started with downloading John's design files, including his f3d file in fusion
   <figcaption>Broken references all over the design, dimension sketches missing</figcaption>
 </figure>
 
-It was a full scale disaster, I had the cut files ready but I could not reproduce them myself. I asked my regional instructor about referencing someone's work, and he said I need to reproduce or modify atleast 60% of the original work. Which seemed quite impossible at the moment.
+It was a full scale disaster, I had the cut files ready but I could not reproduce them myself. I asked my regional instructor about referencing someone's work, and he said I need to reproduce or modify at least 60% of the original work. Which seemed quite impossible at the moment.
 
 <figure>
   <img src="/images/fabacademy/week-08/iris1.jpg" alt="Trying to create the Iris in fusion" loading="lazy" />
@@ -438,7 +438,7 @@ Now that I was done with the design, I had to start thinking about the Milling f
 
 ### 8\. Laser Cutting a half Scaled Model
 
-I laser cut a half scaled model first before milling it. I used 6mm cardboard and the scale was half of the original. I exported DXF files of the three components from Fusion and cut them seperately.
+I laser cut a half scaled model first before milling it. I used 6mm cardboard and the scale was half of the original. I exported DXF files of the three components from Fusion and cut them separately.
 
 <figure>
   <img src="/images/fabacademy/week-08/scale1.jpg" alt="Laser Cut Output" loading="lazy" />
@@ -483,7 +483,7 @@ I would honestly prefer some Plywood for this design, since I did not put any ho
 
 ### 10\. Generating Toolpaths in Partworks
 
-I took the .dxf file generated from Fusion 360 and opened it on Partworks to generate the toolpaths. I did try using fusion 360 to generate the toolpaths, but it seemed like alot of work and I was running out of time for this week.
+I took the .dxf file generated from Fusion 360 and opened it on Partworks to generate the toolpaths. I did try using fusion 360 to generate the toolpaths, but it seemed like a lot of work and I was running out of time for this week.
 
 I made two toolpaths, one for inside profile cut and the other for outside profile cut using the 1/8" upcut bit. The toolpaths generated are of .sbp format. Make sure your unit is matching your control box software. For us which is in inch.
 
@@ -542,7 +542,7 @@ I fastened the material on the sacrificial board using 1" screws and made sure t
 
 ### 12\. Opening & Tightening the Collet
 
-The Collet nut needs to be opened and closed using a spanner and a wrench. Rotating them 'towards' eachother should tighten it while rotating them away from eachother will loosen it.
+The Collet nut needs to be opened and closed using a spanner and a wrench. Rotating them 'towards' each other should tighten it while rotating them away from each other will loosen it.
 
 ### 13\. Sending Files to the Shopbot
 
@@ -633,7 +633,7 @@ I took out all the cut parts, sanded them lightly and pressed fit them together.
 
 -   [Fusion360](https://www.autodesk.com/products/fusion-360/free-trial)
 -   Partworks (paid software, license bought under CEPT University)
--   [Shopbot Control Software](http://www.shopbottools.com/files/Setup_Sb3_8_50.exe)
+-   [Shopbot Control Software](https://www.shopbottools.com/files/Setup_Sb3_8_50.exe)
 
 ### Files
 

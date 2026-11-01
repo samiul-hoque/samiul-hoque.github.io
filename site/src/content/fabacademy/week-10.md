@@ -7,7 +7,7 @@ gallery: []
 ---
 ## Assignment
 
-[Group assignment](http://fab.academany.org/2019/labs/cept/moldingcasting.html)  
+[Group assignment](https://fab.academany.org/2019/labs/cept/moldingcasting.html)  
   
 Review the safety data sheets for each of your molding and casting materials, then make and compare test casts with each of them
 
@@ -145,7 +145,7 @@ I decided to use recycled machinable wax for my mold. This was done for two reas
 
 First I tried to find a safe melting point for my wax which I could use in our convection oven. Since the container I was using was made out of Stainless Steel, I had to make sure the oven was running in convection mode not in microwave mode.  
   
-I found the safety datasheet for the specific machinable wax I was using which can be found [here](https://www.machinablewax.com/docs/SDS-MachinableWax_BLUE_F-14.pdf) . The Melting point for this wax was at 115.6 degrees Celcius and the flash point for it was 301.7 degrees Celcius. After some trial and error, I used 250 degree celcius and it took about 50 minutes to completely melt and get liquid enough to get rid of the bubbles.
+I found the safety datasheet for the specific machinable wax I was using which can be found [here](https://www.machinablewax.com/docs/SDS-MachinableWax_BLUE_F-14.pdf) . The Melting point for this wax was at 115.6 degrees Celsius and the flash point for it was 301.7 degrees Celsius. After some trial and error, I used 250 degree Celsius and it took about 50 minutes to completely melt and get liquid enough to get rid of the bubbles.
 
 <figure>
   <img src="/images/fabacademy/week-10/wax2.jpg" alt="Melting Machineable Wax in a Convection Oven" loading="lazy" />
@@ -153,11 +153,11 @@ I found the safety datasheet for the specific machinable wax I was using which c
 
 ## Making Machineable Wax Ingots
 
-I made some molds out of waste acryllic sheets at the lab and assembled them with masking tape and a light coating of acryllic glue to make it water tight. The surface of the acryllic seemed smooth enough for making the wax ingot motds. After that I carefully poured the molten wax in it and let it cool down. As the machinable wax cools, I found that it shrinks a bit, which made removal of the wax amazingly easy. The Acryllic molds were reusable and didn't even need to be taken apart to take out the wax.
+I made some molds out of waste acrylic sheets at the lab and assembled them with masking tape and a light coating of acrylic glue to make it water tight. The surface of the acrylic seemed smooth enough for making the wax ingot motds. After that I carefully poured the molten wax in it and let it cool down. As the machinable wax cools, I found that it shrinks a bit, which made removal of the wax amazingly easy. The Acrylic molds were reusable and didn't even need to be taken apart to take out the wax.
 
 <figure>
-  <img src="/images/fabacademy/week-10/wax3.jpg" alt="Cuting Acryllic Pieces to make Wax Ingot molds" loading="lazy" />
-  <figcaption>Cuting Acryllic Pieces to make Wax Ingot molds</figcaption>
+  <img src="/images/fabacademy/week-10/wax3.jpg" alt="Cutting Acrylic Pieces to make Wax Ingot molds" loading="lazy" />
+  <figcaption>Cutting Acrylic Pieces to make Wax Ingot molds</figcaption>
 </figure>
 
 <figure>
@@ -218,7 +218,7 @@ I started with the ER-20 collet by physically measuring it and adding all the di
 
 #### The Reeaaally Long 3mm Endmill I never found a use for back in Machining Week
 
-During our Machining week, I found a 3mm endmill which seemed excessively long to me. I didn't really think it would be appropriate to use this bit becase the lateral force on a long bit like this while cutting hard materials would make it bend.  
+During our Machining week, I found a 3mm endmill which seemed excessively long to me. I didn't really think it would be appropriate to use this bit because the lateral force on a long bit like this while cutting hard materials would make it bend.  
   
 
 > Machineable wax and Foam are the perfect materials for this sort of endmill because it gives you a long clearance to work with.
@@ -315,7 +315,7 @@ I depended on the simulation option to optimize as much as possible and get a wo
 
 ## Adaptive Clearing: Roughing Pass
 
-For generating the Finishing Toolpath, I used the Countour Operation. This is the best strategy for finishing steep walls but can be used for semi-finish and finish machining on the more vertical areas of a part.  
+For generating the Finishing Toolpath, I used the Contour Operation. This is the best strategy for finishing steep walls but can be used for semi-finish and finish machining on the more vertical areas of a part.  
   
 If a slope angle is specified, for example 30 to 90 degrees, the steeper areas are machined, leaving the shallower areas up to 30 degrees for more appropriate strategies.
 
@@ -331,7 +331,7 @@ If a slope angle is specified, for example 30 to 90 degrees, the steeper areas a
 
 #### Roughing Toolpath Settings
 
-These are the settings I used for the the contour toolpath. My selection of the contour process for finishing was probably not the best of ideas. The result from this finishing was worse than the roughing toolpath.  
+These are the settings I used for the contour toolpath. My selection of the contour process for finishing was probably not the best of ideas. The result from this finishing was worse than the roughing toolpath.  
 The Simulation did show me rough edges, but I didn't think they would vary so much.
 
 <figure>
@@ -380,8 +380,8 @@ Exporting to the shopbot is super easy from Fusion360. All you have to do is cli
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-10/post2.jpg" alt="Post Processor Settngs for our Shopbot" loading="lazy" />
-  <figcaption>Post Processor Settngs for our Shopbot</figcaption>
+  <img src="/images/fabacademy/week-10/post2.jpg" alt="Post Processor Settings for our Shopbot" loading="lazy" />
+  <figcaption>Post Processor Settings for our Shopbot</figcaption>
 </figure>
 
 ## Machining
@@ -488,7 +488,7 @@ Then I generated my toolpath in Partworks using the same feedrate and spindle sp
 ## Disaster Strikes Again: Error on Shopbot Control Software
 
 Someone had fiddled with the Shopbot Control Software and it kept getting an error that the limit switches on X and Y were on. None of our G-codes were working. It was a disaster! It was Tuesday and none of our Machining was done, let alone testing the casting materials.  
-Our Instructor was not here either and the only thing we could do was check our previous year's documentation on the default settings of the shopbot. And we found something on [Aditya's Week 8](http://archive.fabacademy.org/2018/labs/fablabcept/students/adhitya-ss/week-8.html) documentation. The limit switches 2 and 3 were always on, on his images as well. That's why even going back to the default settings were not working. So I disabled the limit switches and the machine started to work again.
+Our Instructor was not here either and the only thing we could do was check our previous year's documentation on the default settings of the shopbot. And we found something on [Aditya's Week 8](https://archive.fabacademy.org/2018/labs/fablabcept/students/adhitya-ss/week-8.html) documentation. The limit switches 2 and 3 were always on, on his images as well. That's why even going back to the default settings were not working. So I disabled the limit switches and the machine started to work again.
 
 <figure>
   <img src="/images/fabacademy/week-10/disaster.jpg" alt="Disaster Strikes Again: Error on Shopbot Control Software" loading="lazy" />
@@ -499,8 +499,8 @@ Our Instructor was not here either and the only thing we could do was check our 
 In partworks, I used two bits for my toolpaths. And one of which was that insanely long bit. My Rouging toolpath went all well, but when I swapped the bit I had to re-home the Z axis. But this bit was not long enough and I didn't notice the clearance. The collet touched the outer wall and broke it. And this machine job was a failure as well. This happened earlier on Wednesday afternoon and now I was completely out of options on how to present for this week.
 
 <figure>
-  <img src="/images/fabacademy/week-10/millingfailure1.jpg" alt="Collet hit the stock with smaller Ballnose bit on finishin pass" loading="lazy" />
-  <figcaption>Collet hit the stock with smaller Ballnose bit on finishin pass</figcaption>
+  <img src="/images/fabacademy/week-10/millingfailure1.jpg" alt="Collet hit the stock with smaller Ballnose bit on finishing pass" loading="lazy" />
+  <figcaption>Collet hit the stock with smaller Ballnose bit on finishing pass</figcaption>
 </figure>
 
 ## Going back to Fab Modules & the Roland MDX-20
@@ -518,13 +518,13 @@ I wasn't using the modella because I wanted to explore Fusion's CAM tools. While
   <figcaption>It stopped responding after clicking on 'Calculate Height Map'</figcaption>
 </figure>
 
-Fab Modules seemed to be working for the 2017 batch as well, as per their documentation, but none of our models were working. In 2017 batch, [Siddharta Arya](http://archive.fabacademy.org/fabacademy2017/fablabcept/students/183/Wkly/w12.html), mentioned in his documentation that fab modules didn't work if the height was too much.
+Fab Modules seemed to be working for the 2017 batch as well, as per their documentation, but none of our models were working. In 2017 batch, [Siddharta Arya](https://archive.fabacademy.org/fabacademy2017/fablabcept/students/183/Wkly/w12.html), mentioned in his documentation that fab modules didn't work if the height was too much.
 
 * * *
 
 #### Older Fab Modules
 
-So we went back to 2016's documentation and saw that an older version of fab modules, which was completly offline, worked for [Rudraprakash Solank](http://archive.fabacademy.org/fabacademy2016/fablabcept/students/472/week-12.html). We located the laptop he used and found the local fab modules program, ran our files in that, and it worked perfectly.
+So we went back to 2016's documentation and saw that an older version of fab modules, which was completely offline, worked for [Rudraprakash Solank](https://archive.fabacademy.org/fabacademy2016/fablabcept/students/472/week-12.html). We located the laptop he used and found the local fab modules program, ran our files in that, and it worked perfectly.
 
 <figure>
   <img src="/images/fabacademy/week-10/oldfab.jpg" alt="Older Fab Modules" loading="lazy" />
@@ -540,7 +540,7 @@ Since I got ample time to mess up and see how everyone else's work came out, I m
 
 Finally, I milled the new design using the old fab modules. First I used the Rough cut, with the default settings.  
   
-Then I used a Finish cut, with 0.85 overlap. The total milling took about 3 and a half hours. I was sititng infront of the machine with a vaccum the whole time, since I had no option for it to go wrong this time.
+Then I used a Finish cut, with 0.85 overlap. The total milling took about 3 and a half hours. I was sititng in front of the machine with a vacuum the whole time, since I had no option for it to go wrong this time.
 
 <figure>
   <img src="/images/fabacademy/week-10/oldfab1.jpg" alt="Rough Cut" loading="lazy" />
@@ -734,7 +734,7 @@ I googled a bit for probable reason for the bubbling, because it didn't happen f
 
 ## Casting wax
 
-Next I tried casting wax, since we had alot of machineable wax chips everywhere, I just melted the and poured it into my mold. The Oomoo30 product page specifies that wax can be cast in it, so I just went along with it and I was really impressed with the output this time. There was no leakage from the mold, the edges came out sharp and the finishing was exactly as the mold.
+Next I tried casting wax, since we had a lot of machineable wax chips everywhere, I just melted the and poured it into my mold. The Oomoo30 product page specifies that wax can be cast in it, so I just went along with it and I was really impressed with the output this time. There was no leakage from the mold, the edges came out sharp and the finishing was exactly as the mold.
 
 <figure>
   <img src="/images/fabacademy/week-10/waxcast.jpg" alt="Casting wax" loading="lazy" />

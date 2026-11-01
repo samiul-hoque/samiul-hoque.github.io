@@ -58,16 +58,16 @@ My plan for the week was to make a multi layered PCB using vinyl cut copper. But
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-18/9.jpg" alt="Soldering the Layers on top of eachother" loading="lazy" />
-  <figcaption>Soldering the Layers on top of eachother</figcaption>
+  <img src="/images/fabacademy/week-18/9.jpg" alt="Soldering the Layers on top of each other" loading="lazy" />
+  <figcaption>Soldering the Layers on top of each other</figcaption>
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-18/10.jpg" alt="Soldering the Layers on top of eachother" loading="lazy" />
-  <figcaption>Soldering the Layers on top of eachother</figcaption>
+  <img src="/images/fabacademy/week-18/10.jpg" alt="Soldering the Layers on top of each other" loading="lazy" />
+  <figcaption>Soldering the Layers on top of each other</figcaption>
 </figure>
 
-And for the Base I wanted to create a 3 layered Copper PCB using a regular one sided PCB, one acryllic PCB with two layers made with the vinyl cutter.
+And for the Base I wanted to create a 3 layered Copper PCB using a regular one sided PCB, one acrylic PCB with two layers made with the vinyl cutter.
 
 <figure>
   <img src="/images/fabacademy/week-18/11.jpg" alt="Trying to Create layers for 4x4 LED matrix using Vinyl Cutter" loading="lazy" />
@@ -116,7 +116,7 @@ Then I went to the Laser Cutter to test out various power and speed Settings. To
   <figcaption>Cheese Test Template</figcaption>
 </figure>
 
-After alot of testing, (for science) I came up with this test template for anyone who would like to make his cheese sandwich at the lab.
+After a lot of testing, (for science) I came up with this test template for anyone who would like to make his cheese sandwich at the lab.
 
 <figure>
   <img src="/images/fabacademy/week-18/finaltemplate.jpg" alt="Different Power & Speed Settings I tried in Scan Mode" loading="lazy" />

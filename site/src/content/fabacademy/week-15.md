@@ -7,7 +7,7 @@ gallery: []
 ---
 ## Assignment
 
-[Group Assignment](http://fab.academany.org/2019/labs/cept/mechanicaldesign.html)  
+[Group Assignment](https://fab.academany.org/2019/labs/cept/mechanicaldesign.html)  
   
 
 -   Design a machine that includes mechanism+actuation+automation.
@@ -42,7 +42,7 @@ With our Fab Lab group being mostly design students, I was given the responsibil
 
 ## Groupwork: Designing the boards
 
-Since I am a lazy person, I decided to make a single pair of boards which would work for both the groups. I made the schematics for the controller and the control board while considering that the control board will be the same for both the groups while the controller would have pinouts for both tht accelerometer and the joystick module and these are what I came up with.
+Since I am a lazy person, I decided to make a single pair of boards which would work for both the groups. I made the schematics for the controller and the control board while considering that the control board will be the same for both the groups while the controller would have pinouts for both the accelerometer and the joystick module and these are what I came up with.
 
 More on these boards can be found in my [Networking Week Documentation.](/projects/fab-academy/week-14/)
 
@@ -56,8 +56,8 @@ More on these boards can be found in my [Networking Week Documentation.](/projec
 ### Features:
 
 -   Atmega328p 20MHz running on 5v
--   Seperate 3.3v power for nRF24L01+
--   Seperate power management for MG995 Servos using LM2940
+-   Separate 3.3v power for nRF24L01+
+-   Separate power management for MG995 Servos using LM2940
 -   Control Circuit for 12v LED strips using N-Mosfets
 -   Onboard Devices: nRF24L01+, connecting port for HC-05
 -   Hardware i2c and Serial pinouts

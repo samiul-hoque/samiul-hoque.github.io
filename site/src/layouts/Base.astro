@@ -19,7 +19,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title === 'Samiul Hoque' ? title : `${title} — Samiul Hoque`;
+const fullTitle = title === 'Samiul Hoque' ? title : `${title} | Samiul Hoque`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogUrl = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
 // JSON.stringify escapes neither `<` nor `/`, so a value containing `</script>`

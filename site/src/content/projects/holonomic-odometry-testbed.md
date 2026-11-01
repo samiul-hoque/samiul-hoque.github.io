@@ -1,8 +1,8 @@
 ---
 title: "Holonomic Odometry Testbed"
 year: 2026
-role: "Lead — platform, firmware, dashboard, analysis, thesis"
-client: "Independent University, Bangladesh — undergraduate thesis, supervised by Dr. Md. Tarek Habib"
+role: "Lead: platform, firmware, dashboard, analysis, thesis"
+client: "Independent University, Bangladesh: undergraduate thesis, supervised by Dr. Md. Tarek Habib"
 category: "research"
 tags:
   - "Holonomic drive"
@@ -20,7 +20,7 @@ featured: true
 order: 7
 heroImage: "/images/holonomic-testbed/hero.jpg"
 gallery: []
-oneLiner: "Built a four-mecanum-wheel robot to understand holonomic kinematics hands-on — how the math works, where wheels slip, and what it takes to correct for it in firmware."
+oneLiner: "Built a four-mecanum-wheel robot to understand holonomic kinematics hands-on: how the maths works, where wheels slip, and what it takes to correct for it in firmware."
 externalLinks:
   - label: "GitHub"
     url: "https://github.com/samiul-hoque/open-omnibot"
@@ -28,11 +28,11 @@ relatedPublication: "thesis-2026-holonomic-odometry"
 draft: false
 ---
 
-I chose mecanum wheels for this project mostly because the math behind
+I chose mecanum wheels for this project mostly because the maths behind
 them is worth working through properly. A mecanum robot can translate
-in any direction without rotating first — strafe sideways, move
-diagonally, spin on the spot — and all of it falls out of a single
-kinematic model derived from first principles. That model is elegant.
+in any direction without rotating first (strafe sideways, move
+diagonally, spin on the spot), and all of it falls out of a single
+kinematic model derived from first principles.
 Implementing it on real hardware, and then trying to localise accurately
 with it, is where it gets interesting.
 
@@ -43,14 +43,14 @@ not in the model. It accumulates into heading drift and position error
 over a run. Real platforms deal with this through laser range-finders,
 external cameras, or UWB anchors. The goal here was to understand the
 problem from the ground up: derive the kinematics by hand, build a
-testbed to run them on, and then layer feedback — per-wheel PID, then
-IMU fusion — to see how much of that error each layer can cancel. The
+testbed to run them on, and then layer feedback (per-wheel PID, then
+IMU fusion) to see how much of that error each layer can cancel. The
 platform and all its software are open-source as
 [open-omnibot](https://github.com/samiul-hoque/open-omnibot).
 
 ## Building the platform
 
-![The finished chassis — mecanum wheels, 3D-printed PETG frame, ESP32 stack](/images/holonomic-testbed/robot-photo.jpg)
+![The finished chassis: mecanum wheels, 3D-printed PETG frame, ESP32 stack](/images/holonomic-testbed/robot-photo.jpg)
 
 The chassis is a 3D-printed PETG frame carrying four 80 mm-diameter
 mecanum wheels in the standard X-configuration: left-side rollers at
@@ -58,7 +58,7 @@ mecanum wheels in the standard X-configuration: left-side rollers at
 independent DCGM-3865 brushed DC gearmotor with a 42:1 gear reduction.
 The motors carry 13-pulse-per-revolution quadrature encoders on the
 motor shaft; after the gearbox and 2× edge counting on one channel,
-this yields **1092 counts per wheel revolution** — about 0.23 mm per
+this yields **1092 counts per wheel revolution**, about 0.23 mm per
 count of linear resolution.
 
 The chassis went through several iterations; the final version has
@@ -66,7 +66,7 @@ adjustable motor-mount heights to level the wheel contact plane after
 assembly, compensating for variance in 3D-print dimensional accuracy.
 
 **Power.** The power system is a commercial 20 V cordless-drill battery
-on a custom 3D-printed mount — overbuilt for the load, field-replaceable,
+on a custom 3D-printed mount: overbuilt for the load, field-replaceable,
 and protected by an integrated BMS. A 300 W buck converter regulates to
 12 V for the motors; two downstream converters derive 5 V for the ESP32
 and 3.3 V for the IMU and encoder logic.
@@ -75,13 +75,13 @@ and 3.3 V for the IMU and encoder logic.
 modules, one per motor pair. The ESP32 generates PWM on its LEDC peripheral
 at 1 kHz with 8-bit resolution. Direction lines for the eight motor channels
 are driven through an MCP23017 16-bit I²C GPIO expander rather than directly
-from ESP32 pins — this was a deliberate choice to reserve the
+from ESP32 pins. This was a deliberate choice to reserve the
 interrupt-capable GPIO pins for the encoder channels, which need two pins
 each. The I²C direction writes happen only when a motor's direction actually
 changes, roughly once per second, so the bandwidth penalty is negligible.
 
 **Sensing.** The BNO055 IMU sits on a dedicated 3D-printed bracket
-fastened to the geometric centre of the chassis — underneath, between the
+fastened to the geometric centre of the chassis, underneath, between the
 four wheel footprints. Placing it there keeps the IMU coincident with the
 instantaneous centre of rotation under pure-yaw commands, minimising the
 centripetal acceleration it sees during turns. The firmware runs the
@@ -98,14 +98,14 @@ Working through the kinematics from first principles is the core of what
 this project is about. The kinematic model connects the four wheel angular
 velocities ω₁…ω₄ to the body-frame planar velocity (ẋ, ẏ, θ̇). Two maps
 come out of it: the **inverse kinematics** (body velocity → wheel speeds,
-what the trajectory executor needs every 50 Hz) and the **forward
+what the trajectory executor needs at 50 Hz) and the **forward
 kinematics** (wheel speeds → body velocity, what the odometry integrator
 uses to track pose).
 
 <a href="/robot-kinematics" class="sim-callout">
 <span class="sim-callout-eyebrow">▶ Interactive companion</span>
 <span class="sim-callout-title">Play with these kinematics in your browser</span>
-<span class="sim-callout-desc">Drive a differential, omniwheel, or mecanum robot and watch the inverse-kinematics equations and per-motor commands update live — the same maths derived below, made interactive.</span>
+<span class="sim-callout-desc">Drive a differential, omniwheel, or mecanum robot and watch the inverse-kinematics equations and per-motor commands update live. It is the same maths derived below, made interactive.</span>
 <span class="sim-callout-cta">Open the 2D robot kinematics simulator →</span>
 </a>
 
@@ -179,8 +179,8 @@ cos γᵢ and substituting tan γᵢ = ±1:
 
 <div style="background:#f4f4f5;color:#0a0a0a;padding:0.75rem 1rem;border-radius:2px;overflow-x:auto;line-height:1.6;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;white-space:pre;font-size:0.9em;margin:0.75rem 0;">r·ωᵢ = (ẋ − θ̇·yᵢ) − (ẏ + θ̇·xᵢ)·tan γᵢ</div>
 
-This is the per-wheel constraint equation. Everything else — IK and FK —
-is just this equation applied four times.
+This is the per-wheel constraint equation. Everything else, IK and FK,
+is this equation applied four times.
 
 ### Inverse kinematics
 
@@ -205,12 +205,12 @@ This matrix J_IK maps commanded body velocity to target wheel speeds.
 **Verification by pure motions:**
 
 - **Pure forward** (ẋ > 0, ẏ = θ̇ = 0): all four wheels spin forward at ωᵢ = ẋ/r.
-- **Pure left strafe** (ẏ > 0, ẋ = θ̇ = 0): ω₁, ω₄ < 0 and ω₂, ω₃ > 0 — the characteristic X-pattern that generates lateral force.
+- **Pure left strafe** (ẏ > 0, ẋ = θ̇ = 0): ω₁, ω₄ < 0 and ω₂, ω₃ > 0, the characteristic X-pattern that generates lateral force.
 - **Pure CCW rotation** (θ̇ > 0, ẋ = ẏ = 0): ω₁, ω₃ < 0 (left wheels back) and ω₂, ω₄ > 0 (right wheels forward).
 
 ### Forward kinematics via pseudo-inverse
 
-J_IK is 4×3 — more equations than unknowns — so no exact inverse exists.
+J_IK is 4×3 (more equations than unknowns), so no exact inverse exists.
 The Moore-Penrose pseudo-inverse gives the least-squares body velocity
 consistent with the four measured wheel speeds:
 
@@ -245,7 +245,7 @@ velocity is the differential between diagonal pairs {ω₂, ω₃} and {ω₁, �
 angular velocity is the right-minus-left differential scaled by 1/L.
 
 The pseudo-inverse also reveals where the model breaks down. J_IKᵀ has a
-null space — wheel-speed combinations that look like zero body motion but
+null space: wheel-speed combinations that look like zero body motion but
 correspond to roller slip. A mecanum wheel scuffs its rollers any time the
 contact force has a component along the roller axis; that scuff never
 registers in encoder counts, so it is invisible to the forward kinematics.
@@ -262,8 +262,8 @@ pose, these are rotated by the current heading using R(θ) and integrated:
 ẏ_W = ẋ·sin θ + ẏ·cos θ
 θ̇   = ωz</div>
 
-The cross-coupling between (ẋ, ẏ) and θ makes this a nonlinear system —
-which is exactly why the EKF is the natural estimator when external
+The cross-coupling between (ẋ, ẏ) and θ makes this a nonlinear system,
+which is why the EKF is the natural estimator when external
 reference measurements are added later.
 
 **Euler vs midpoint integration.** The simplest discrete update is Euler:
@@ -305,13 +305,13 @@ negligibly to the odometry error budget.
 Residual errors that accumulate in Tier 1 encoder odometry fall into
 two categories:
 
-**Systematic errors** — inaccuracies in r, Lₓ, Lᵧ, or the nominal ±45°
-roller angles — bias the odometry in a repeatable way and can in principle
+**Systematic errors**, inaccuracies in r, Lₓ, Lᵧ, or the nominal ±45°
+roller angles, bias the odometry in a repeatable way and can in principle
 be reduced by calibration.
 
-**Non-systematic errors** — mecanum roller slip (especially during lateral
+**Non-systematic errors**, mecanum roller slip (especially during lateral
 motion), surface irregularities, load variations, and per-motor velocity
-spread — are stochastic and bounded from below by the physics of the
+spread, are stochastic and bounded from below by the physics of the
 platform rather than the model. Both classes accumulate unboundedly during
 open-loop integration: position error grows linearly with distance travelled,
 and heading error causes position error to grow quadratically over time.
@@ -323,11 +323,11 @@ and a future UWB-anchored tier are the two routes for bounding this drift.
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
   <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
     src="https://www.youtube-nocookie.com/embed/H9lzJVEVBNo"
-    title="Circle trajectory — holonomic motion on the mecanum testbed"
+    title="Circle trajectory: holonomic motion on the mecanum testbed"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
 </div>
-<figcaption>Circle trajectory (Tier 2). The robot sweeps a continuous circle by blending forward and lateral velocity simultaneously — a motion class unavailable to differential-drive platforms.</figcaption>
+<figcaption>Circle trajectory (Tier 2). The robot sweeps a continuous circle by blending forward and lateral velocity at the same time, which a differential-drive platform cannot do.</figcaption>
 </figure>
 
 ## The firmware
@@ -378,16 +378,16 @@ benefits from the bias it learned during previous segments.
 <figcaption>Figure: Per-wheel velocity PID control loop.</figcaption>
 </figure>
 
-**Motor calibration.** Per-motor manufacturing variance — brush contact,
-gearbox backlash, winding resistance — produces different wheel velocities at
+**Motor calibration.** Per-motor manufacturing variance (brush contact,
+gearbox backlash, winding resistance) produces different wheel velocities at
 the same applied PWM. On a mecanum platform this projects directly into
 body-frame yaw or strafe bias. An automated calibration routine sweeps six
 PWM test points (±100, ±160, ±220), measures encoder counts at each, and
 computes per-motor per-direction gain factors that bring all four motors to
 the group mean. Gains are stored in ESP32 non-volatile memory and reloaded
-on every boot. Critically, the gain is applied on the **commanded PWM side**,
-not the measurement side — the motor physically receives a corrected PWM and
-the encoders honestly report what the wheel is actually doing.
+on every boot. The gain is applied on the **commanded PWM side**, not the
+measurement side: the motor physically receives a corrected PWM and the
+encoders report what the wheel is actually doing.
 
 <figure>
 <img src="/images/holonomic-testbed/motor-cal-state-machine.png" alt="Motor calibration state machine" />
@@ -401,7 +401,7 @@ the encoders honestly report what the wheel is actually doing.
 
 **Encoder overflow.** The ESP32 PCNT peripheral maintains a signed 16-bit
 counter per encoder channel. At 1092 counts per revolution, this overflows
-every 30 wheel revolutions — about 3.8 m of forward travel at typical speeds. The firmware detects wraps by checking whether consecutive
+every 30 wheel revolutions, about 3.8 m of forward travel at typical speeds. The firmware detects wraps by checking whether consecutive
 inter-tick deltas exceed half the counter range (a physically impossible jump),
 and applies a ±65,536 correction to a running overflow accumulator. This logic
 is covered by unit tests that exercise zero-crossing, threshold-boundary, and
@@ -412,13 +412,13 @@ direction-inversion cases.
 <figcaption>Figure: Encoder overflow correction logic.</figcaption>
 </figure>
 
-**Three tiers of error correction.** Three localization modes are implemented on the same hardware, each adding one layer of compensation for the structural slip the kinematics cannot model:
+**Three tiers of error correction.** Three localisation modes are implemented on the same hardware, each adding one layer of compensation for the structural slip the kinematics cannot model:
 
-- **Tier 0 (open-loop):** fixed-PWM lookup table per cardinal direction. No sensor feedback, no pose estimation. Timer-based segment execution only. This is the baseline — pure kinematics with no correction, so all roller slip and motor variance accumulates unchecked.
+- **Tier 0 (open-loop):** fixed-PWM lookup table per cardinal direction. No sensor feedback, no pose estimation. Timer-based segment execution only. This is the baseline: pure kinematics with no correction, so all roller slip and motor variance accumulates unchecked.
 - **Tier 1 (encoder odometry):** per-wheel velocity PID closes the loop on wheel speed; the mecanum forward kinematics then integrates encoder deltas into (x, y, θ) using midpoint integration. This corrects for PWM-to-velocity nonlinearity and motor variance, but roller slip is still invisible to the encoders, so heading drift remains.
 - **Tier 2 (complementary filter):** same as Tier 1 for position, but heading is fused: θ_fused = (1 − α)·θ_odom + α·(θ_IMU − θ_offset) with α = 0.98. The IMU has 98% authority over heading, which is the component most corrupted by slip; a heading-hold proportional controller also engages on translation segments to actively suppress uncommanded yaw.
 
-EKF or UKF fusion alongside an external reference — UWB anchors or an overhead camera — is the natural next step for closing the gap that roller scuff leaves open.
+EKF or UKF fusion alongside an external reference (UWB anchors or an overhead camera) is the natural next step for closing the gap that roller scuff leaves open.
 
 <figure>
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
@@ -428,29 +428,29 @@ EKF or UKF fusion alongside an external reference — UWB anchors or an overhead
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
 </div>
-<figcaption>Straight-line run — Tier 0 (open-loop) vs Tier 1 (encoder odometry) vs Tier 2 (complementary filter). Each tier visibly reduces heading drift over the same segment.</figcaption>
+<figcaption>Straight-line run: Tier 0 (open-loop) vs Tier 1 (encoder odometry) vs Tier 2 (complementary filter). Each tier visibly reduces heading drift over the same segment.</figcaption>
 </figure>
 
 <figure>
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
   <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
     src="https://www.youtube-nocookie.com/embed/eFW1CiQnIWs"
-    title="Square path — rotation variant"
+    title="Square path, rotation variant"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
 </div>
-<figcaption>Square path — rotation variant. The robot rotates at each corner to realign heading with the next edge.</figcaption>
+<figcaption>Square path, rotation variant. The robot rotates at each corner to realign heading with the next edge.</figcaption>
 </figure>
 
 <figure>
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
   <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
     src="https://www.youtube-nocookie.com/embed/vdCFkQ1Tqys"
-    title="Square path — strafe variant"
+    title="Square path, strafe variant"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
 </div>
-<figcaption>Square path — strafe variant. The robot translates sideways at each corner without rotating, using the lateral holonomic freedom that the rotation variant forgoes.</figcaption>
+<figcaption>Square path, strafe variant. The robot translates sideways at each corner without rotating, using the lateral holonomic freedom that the rotation variant forgoes.</figcaption>
 </figure>
 
 ## The dashboard and pipeline
@@ -459,7 +459,7 @@ A Node.js server on the host laptop bridges robot WebSocket frames to the
 browser dashboard, logs every run to CSV, and orchestrates the ground-truth
 capture workflow. The browser dashboard handles manual driving, motor
 calibration, preflight diagnostics, experiment execution, and in-app
-documentation — all without a separate toolchain; any browser on the local
+documentation, all without a separate toolchain; any browser on the local
 Wi-Fi can drive the robot.
 
 Every run is logged to CSV at 20 Hz. After a campaign, an offline-replay
@@ -474,14 +474,16 @@ without re-running the robot.
 
 ## Status
 
-Thesis defended and graded, Spring 2026. The platform, firmware, server,
+Thesis defended and graded, Spring 2026. A paper on the platform and its
+self-calibration routine was presented at IECON 2026 in Doha, Qatar, in
+October 2026. The platform, firmware, server,
 browser dashboard, and offline analysis pipeline are open-source at
 **[samiul-hoque/open-omnibot](https://github.com/samiul-hoque/open-omnibot)**
-as a testbed for evaluating sensor-fusion and localization algorithms on
+as a testbed for evaluating sensor-fusion and localisation algorithms on
 four-wheeled holonomic robots.
 
-A video walkthrough of the kinematics — inverse kinematics, forward
-kinematics, and the slip problem — is in progress. It will be linked here
+A video walkthrough of the kinematics (inverse kinematics, forward
+kinematics, and the slip problem) is in progress. It will be linked here
 when it is up.
 
 <!-- VIDEO: replace the comment below with the YouTube embed once the video is live
@@ -489,7 +491,7 @@ when it is up.
   <iframe
     style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
     src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
-    title="Holonomic drive kinematics — IK, FK, and wheel slip"
+    title="Holonomic drive kinematics: IK, FK, and wheel slip"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
   ></iframe>
@@ -500,7 +502,7 @@ when it is up.
 
 A small earlier RC-controlled pick-and-place build on a mecanum-wheel chassis
 was written up by classmates and published at ICIPRoB 2024 (see
-[Omnidirectional Pick-and-Place Robot — ICIPRoB 2024](https://ieeexplore.ieee.org/document/10544036)).
+[Omnidirectional Pick-and-Place Robot, ICIPRoB 2024](https://ieeexplore.ieee.org/document/10544036)).
 The thesis platform is a distinct build with a different controller, sensors,
-and firmware — but it sits in the same line of work on mecanum-wheel holonomic
+and firmware, but it sits in the same line of work on mecanum-wheel holonomic
 robots at IUB.

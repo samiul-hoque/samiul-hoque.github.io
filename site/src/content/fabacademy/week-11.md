@@ -11,7 +11,7 @@ gallery: []
 
 Measure something: add a sensor to a microcontroller board that you have designed and read it.  
   
-[Group assignment](http://fab.academany.org/2019/labs/cept/inputdevices.html)
+[Group assignment](https://fab.academany.org/2019/labs/cept/inputdevices.html)
 
 Probe an input device's analog levels and digital signals
 
@@ -188,15 +188,15 @@ The ADXL345 is a 3.3v chip and we don't have any level shifter ICs at the lab, s
 -   Breakout for an analog joystick module should be present.
 -   Interface for communication module (nRF24L01+ and Bluetooth HC-05) should be present
 -   The board should be running on 3.3v on external battery power, which means it would need a decent enough power regulation circtuit.
--   I wanted to keep plug and play style connectors for everything, which would add alot of zero ohm resistors to the board, but none of the connectors needed extra jumper wires.
+-   I wanted to keep plug and play style connectors for everything, which would add a lot of zero ohm resistors to the board, but none of the connectors needed extra jumper wires.
 
 > More on this board can be found on the [Networking & communication Week](http://) and [Machine Design Week.](http://) I decided to add this documentation here because it is more relevant with Inputs.
 
 With some research I found out the Atmega328p isn't rated for a full 16MHz at 3.3v. So I used an 8MHz resonator instead of the usual 16MHz or 20MHz I usually use.
 
-I kept a seperate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF24L01+ module as I read that they get a bit fussy if proper power is not supplied.  
+I kept a separate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF24L01+ module as I read that they get a bit fussy if proper power is not supplied.  
   
-I used Sparkfun's [ADXL345 breakout board](http://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/ADXL345_Breakout.pdf) as a reference for interfacing the ADXL345 chip. I tied pin 7 with VCC which enabled i2c mode and added noise filtering capacitors of 0.1uF and 10uF near the chip.  
+I used Sparkfun's [ADXL345 breakout board](https://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/ADXL345_Breakout.pdf) as a reference for interfacing the ADXL345 chip. I tied pin 7 with VCC which enabled i2c mode and added noise filtering capacitors of 0.1uF and 10uF near the chip.  
   
 The board can be run on battery power as the voltage level needs to be just above 3.3 to work.
 
@@ -265,7 +265,7 @@ The board can be run on battery power as the voltage level needs to be just abov
 
 #### \->Checking if Accelerometer is Detected:
 
-Since this was the first time I soldered a component without any legs, I wanted to check if my accelerometer was being detected as an i2c device, so I used the i2c Scanner code from [Arduino Playground](https://playground.arduino.cc/Main/I2cScanner/) and it seemed to be getting detected at addres 0x53.
+Since this was the first time I soldered a component without any legs, I wanted to check if my accelerometer was being detected as an i2c device, so I used the i2c Scanner code from [Arduino Playground](https://playground.arduino.cc/Main/I2cScanner/) and it seemed to be getting detected at address 0x53.
 
 [Download i2c Scanner.ino](/files/fabacademy/week-11/i2c-scanner.ino)
 
@@ -326,13 +326,13 @@ The PxFDuino is the board I made with my Final Project in Mind. All the relevant
 
 ### Using digitalRead:
 
-First I tried taking count of the encoder data just by taking digital read. I incremented the counter when channel 1 was leading and decremented when chanel 2 was leading. The logic of the code was as simple as that. Reference to where I got the idea from can be found [here.](https://playground.arduino.cc/Main/RotaryEncoders/)
+First I tried taking count of the encoder data just by taking digital read. I incremented the counter when channel 1 was leading and decremented when channel 2 was leading. The logic of the code was as simple as that. Reference to where I got the idea from can be found [here.](https://playground.arduino.cc/Main/RotaryEncoders/)
 
 [Download rotaryEncoderSimple.ino](/files/fabacademy/week-11/rotaryEncoder_simple.ino)
 
 ### Using Hardware Interrupts
 
-Rotary Encoders are perfect use cases for external Interrupt pins. They wont clog up your main loop and only execute when the interrupt service routine is executed.(In this case, a rising or falling edge on the encoder pins) This is a main reason why I couldn't use a ATTINY44 based board as the Arduino Serial library for that is based on the ISR. So if you want to use Serial communication, you wont be able to use pin change interrupts. A solution though is to use the USI serial on the ATTINY44. But I didn't want to make another ATTINY44 board and just switched to using a 328p which I am comfortable with. Now for the ISR based rotary encoder code, I found a very optimized code in [this Instructable.](https://www.instructables.com/id/Improved-Arduino-Rotary-Encoder-Reading/) and will be reusing it.
+Rotary Encoders are perfect use cases for external Interrupt pins. They won't clog up your main loop and only execute when the interrupt service routine is executed.(In this case, a rising or falling edge on the encoder pins) This is a main reason why I couldn't use an ATTINY44 based board as the Arduino Serial library for that is based on the ISR. So if you want to use Serial communication, you won't be able to use pin change interrupts. A solution though is to use the USI serial on the ATTINY44. But I didn't want to make another ATTINY44 board and just switched to using a 328p which I am comfortable with. Now for the ISR based rotary encoder code, I found a very optimized code in [this Instructable.](https://www.instructables.com/id/Improved-Arduino-Rotary-Encoder-Reading/) and will be reusing it.
 
 [Download rotaryEncoderSimple.ino](/files/fabacademy/week-11/rotaryEncoder_optimized.ino)
 
@@ -354,7 +354,7 @@ First attempt to interface this sensor literally went up in smoke, the photodiod
   <img src="/images/fabacademy/week-11/opticalencodernewordered.jpg" alt="Interfacing Generic Chinese Optical Encoders with the PxFDuino" loading="lazy" />
 </figure>
 
-The new encoders that I recieved did not burn out as soon as I connected them, but they were not working either. I was only getting gibberish data. I read about encoder wheel alignment from [this](http://www.amscontrols.com/knowledgebase/troubleshooting-encoder-alignment) article by [amscontrols](https://www.amscontrols.com/) and ended up 3d printing a mount for my enocder to match with the wheel. All the files regarding this can be found [here](projects/mechanical.html) on my final project page.
+The new encoders that I received did not burn out as soon as I connected them, but they were not working either. I was only getting gibberish data. I read about encoder wheel alignment from [this](http://www.amscontrols.com/knowledgebase/troubleshooting-encoder-alignment) article by [amscontrols](https://www.amscontrols.com/) and ended up 3d printing a mount for my encoder to match with the wheel. All the files regarding this can be found [here](projects/mechanical.html) on my final project page.
 
 <figure>
   <img src="/images/fabacademy/week-11/optical mount.jpg" alt="Interfacing Generic Chinese Optical Encoders with the PxFDuino" loading="lazy" />

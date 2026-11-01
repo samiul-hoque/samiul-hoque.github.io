@@ -7,9 +7,9 @@ gallery: []
 ---
 ## Assignment
 
--   #### [Group project](http://fab.academany.org/2019/labs/cept/electronicsdesign.html) :
+-   #### [Group project](https://fab.academany.org/2019/labs/cept/electronicsdesign.html) :
     
-    Using the test equipment in your lab to observe the operation of a microcontroller circuit board. Which can be found [here.](http://fab.academany.org/2019/labs/cept/electronicsdesign.html)
+    Using the test equipment in your lab to observe the operation of a microcontroller circuit board. Which can be found [here.](https://fab.academany.org/2019/labs/cept/electronicsdesign.html)
 -   #### Individual project:
     
     1.  Redraw the echo hello-world board
@@ -68,7 +68,7 @@ This Infographic by Codrey illustrates Active vs Passive Electronics devices/com
 
 Learning what each of these components do is a long and tedious process. But to get started, I found [this tutorial](https://www.sparkfun.com/tutorials/57) by Sparkfun Electronics very helpful.  
 
-As for my own introduction to electronics back in 2012, I read [Robotics By Beginners,](https://www.apress.com/in/book/9781430227489)by David Cook which was available at my local library.  
+As for my own introduction to electronics back in 2012, I read [Robot Building for Beginners](https://www.apress.com/in/book/9781430227489) by David Cook, which was available at my local library.  
 [The Art of Electronics](https://artofelectronics.net/) is a really good one, which I wish I had read earlier.
 
 <figure>
@@ -91,11 +91,11 @@ As for my own introduction to electronics back in 2012, I read [Robotics By Begi
 
 * * *
 
-To make life easier for us electronics enthusiasts, there is a myriad of circuit design softwares. Some of them are free, some of them have limited capabilities , while some are industry grade, like [Altium](http://), which can cost upto 7,500$ for a one year license.  
+To make life easier for us electronics enthusiasts, there is a myriad of circuit design software. Some of them are free, some of them have limited capabilities , while some are industry grade, like [Altium](http://), which can cost upto 7,500$ for a one year license.  
 
 ##### Workflow:
 
-Despite of having many electronics design softwares, most of them work on the same basic workflow.
+Despite of having many electronics design software, most of them work on the same basic workflow.
 
 1.  First you make a Schematic of your circuit
 2.  Then you pick appropriate parts for your schematic
@@ -122,7 +122,7 @@ Despite of having many electronics design softwares, most of them work on the sa
       <figcaption>Decapping an IC- illustration by SparkFun</figcaption>
     </figure>
     
-    For ease of use electronic components usually come in some generalized package dimensions. As for example, the ATTINY44 we work with at our lab comes in the SOIC-14 package. These packages make it very convinient for the components to be used in Electronics Design softwares.  
+    For ease of use electronic components usually come in some generalized package dimensions. As for example, the ATTINY44 we work with at our lab comes in the SOIC-14 package. These packages make it very convenient for the components to be used in Electronics Design software.  
       
     A component footprint on the other hand is the design/placement of a component on copper on a circuit board. It is the same size as the package of the component and sometimes, for rare components you might have to make your own component footprints.
     
@@ -137,7 +137,7 @@ Despite of having many electronics design softwares, most of them work on the sa
     
 -   ##### Component Library
     
-    A component Library is a a collection of the pin mapping and the PCB footprints of an electronic component. This makes designing PCBs an easy process for us all. Component Libraries will vary for different design softwares. A good source of component libraries for KiCAD and Eagle is [SnapEDA.](https://www.snapeda.com/)
+    A component Library is a collection of the pin mapping and the PCB footprints of an electronic component. This makes designing PCBs an easy process for us all. Component Libraries will vary for different design software. A good source of component libraries for KiCAD and Eagle is [SnapEDA.](https://www.snapeda.com/)
     
 
 #### Links
@@ -154,7 +154,7 @@ Despite of having many electronics design softwares, most of them work on the sa
     
 -   ##### Routing
     
-    The process of connecting these traces is called routing. It is done according to the schematic and can be done automatically in some design softwares.
+    The process of connecting these traces is called routing. It is done according to the schematic and can be done automatically in some design software.
     
 -   ##### Layers
     
@@ -165,7 +165,7 @@ Despite of having many electronics design softwares, most of them work on the sa
 
 -   [PCB Basics by SparkFun Electronics](https://learn.sparkfun.com/tutorials/pcb-basics)
 
-## 2\. Disecting Neil's Hello Echo Board
+## 2\. Dissecting Neil's Hello Echo Board
 
 Here is all I could find about Neil's Hello Echo board.
 
@@ -188,7 +188,7 @@ Here is all I could find about Neil's Hello Echo board.
 
 #### ATTiny44:
 
-The board is centered around a [ATTiny44](http://fab.cba.mit.edu/classes/863.09/people/ryan/week5/ATtiny44%20Data%20Sheet.pdf) microcontroller.  
+The board is centered around an [ATtiny44](https://fab.cba.mit.edu/classes/863.09/people/ryan/week5/ATtiny44%20Data%20Sheet.pdf) microcontroller.  
 The Specs for it can be found on [microchip's website.](https://www.microchip.com/wwwproducts/en/ATtiny44)
 
 <figure>
@@ -229,7 +229,7 @@ The 6pin ISP programmer connector is used to program the ATTINY44. If you look b
 
 #### FTDI Connector
 
-The FTDI connector is for communication with a FTDI USB Serial chip. Luckily I have one, but I assume that we are going to make one in the communications week.
+The FTDI connector is for communication with an FTDI USB Serial chip. Luckily I have one, but I assume that we are going to make one in the communications week.
 
 ## \> Schematic of the original hello echo board
 
@@ -242,7 +242,7 @@ After analyzing the circuit, this is the schematic I came up with.
 
 ## \> Checking the hello echo firmware by Neil
 
-I was not sure about the Tx and Rx pins so I had a look at Neil's firmware code for the hello Echo board. Which can be found [here.](http://academy.cba.mit.edu/classes/embedded_programming/hello.ftdi.44.echo.c) [Download as .ino](/files/fabacademy/week-07/helloEchoFirmware.ino) And I found PA0 was defined the serial pin in  
+I was not sure about the Tx and Rx pins so I had a look at Neil's firmware code for the hello Echo board. Which can be found [here.](https://academy.cba.mit.edu/classes/embedded_programming/hello.ftdi.44.echo.c) [Download as .ino](/files/fabacademy/week-07/helloEchoFirmware.ino) And I found PA0 was defined the serial pin in  
 PA1 was defined as serial pin out.
 
 ## 3\. Planning out my Circuit
@@ -301,7 +301,7 @@ I wanted to add a power LED to my board because I wanted to have a visual repres
 
 * * *
 
-For the two Programmable LEDs, I connected their ground pin to GND, and the positive terminal went to a Microcontoller input through a 1k resistor.
+For the two Programmable LEDs, I connected their ground pin to GND, and the positive terminal went to a Microcontroller input through a 1k resistor.
 
 <figure>
   <img src="/images/fabacademy/week-07/leds.jpg" alt="Power LED Circuit" loading="lazy" />
@@ -312,7 +312,7 @@ After Planning out my Circuit, I went on to design everything on a Circuit Desig
 
 ## 4\. Software Selection
 
-For the Electronics Design software, I had multiple options. I have some experience working with [Proteus](https://www.labcenter.com/) and [Eagle](https://www.autodesk.com/products/eagle/overview) as my previous workplace used them quite extensively. There was [KiCAD](http://kicad-pcb.org) , [EasyEDA](https://easyeda.com/) , [tinkerCAD](https://www.tinkercad.com/) which all had their own perks.  
+For the Electronics Design software, I had multiple options. I have some experience working with [Proteus](https://www.labcenter.com/) and [Eagle](https://www.autodesk.com/products/eagle/overview) as my previous workplace used them quite extensively. There was [KiCAD](https://www.kicad.org/) , [EasyEDA](https://easyeda.com/) , [tinkerCAD](https://www.tinkercad.com/) which all had their own perks.  
   
 
 ## 5\. Eagle CAD
@@ -330,10 +330,10 @@ I decided to choose between KiCAD and Eagle and chose Eagle after trying out KiC
 
 Here are the main perks for eagle:
 
--   Cross-platform --- EAGLE can run on anything: Windows, Mac, even Linux. This is a feature not too many other PCB design softwares can boast.
--   Lightweight --- EAGLE is about as svelte as PCB design software gets. It requires anywhere from 50-200MB of disk space (compared to the 10+GB more advanced tools might require). The installer is about 25MB. So you can go from download to install to making a PCB in minutes.
--   Free/Low-Cost --- The freeware version of EAGLE provides enough utility to design almost any PCB in the SparkFun catalog. An upgrade to the next license tier (if you want to make a profit off your design) costs at least two orders of magnitude less than most high-end tools.
--   Community support --- For those reasons, and others, EAGLE has become one of the go-to tools for PCB design in the hobbyist community. Whether you want to study the design of an Arduino board or import a popular sensor into your design, somebody has probably already made it in EAGLE and shared it.
+-   Cross-platform: EAGLE can run on anything (Windows, Mac, even Linux). This is a feature not too many other PCB design software can boast.
+-   Lightweight: EAGLE is about as svelte as PCB design software gets. It requires anywhere from 50-200MB of disk space (compared to the 10+GB more advanced tools might require). The installer is about 25MB. So you can go from download to install to making a PCB in minutes.
+-   Free/Low-Cost: The freeware version of EAGLE provides enough utility to design almost any PCB in the SparkFun catalog. An upgrade to the next license tier (if you want to make a profit off your design) costs at least two orders of magnitude less than most high-end tools.
+-   Community support: For those reasons, and others, EAGLE has become one of the go-to tools for PCB design in the hobbyist community. Whether you want to study the design of an Arduino board or import a popular sensor into your design, somebody has probably already made it in EAGLE and shared it.
 
 ## Eagle Workflow
 
@@ -358,7 +358,7 @@ Eagle is not a free Circuit Design Software. But there is a free version availab
 
   
 
-I will be using the free version of Eagle as it gets all my work done without any issues. It can be downloaded for multiple platforms from[](https://www.autodesk.com/products/eagle/free-download)
+I will be using the free version of Eagle as it gets all my work done without any issues. It can be downloaded for multiple platforms from [Autodesk](https://www.autodesk.com/products/eagle/free-download).
 
 <figure>
   <img src="/images/fabacademy/week-07/eagleversions.jpg" alt="Different Eagle Versions" loading="lazy" />
@@ -509,8 +509,8 @@ Routing Can be done by clicking on the route tool, the pads that need to be conn
 </figure>
 
 <figure>
-  <img src="/images/fabacademy/week-07/routing2.jpg" alt="Routing- pads higlighted" loading="lazy" />
-  <figcaption>Routing- pads higlighted</figcaption>
+  <img src="/images/fabacademy/week-07/routing2.jpg" alt="Routing- pads highlighted" loading="lazy" />
+  <figcaption>Routing- pads highlighted</figcaption>
 </figure>
 
 ## Auto-Router
@@ -591,7 +591,7 @@ More info on Eagle Scripts can be found in Eagle's built in Documentation. Click
 
 ## The One Click PCB export Script
 
-After a bit of experimenting, I wrote a one click method to export PCBs from Eagle. This script works for single layer layer boards with the board border drawn on the Dimension layer. Change the directory of your exports accordingly and it should work.
+After a bit of experimenting, I wrote a one click method to export PCBs from Eagle. This script works for single-layer boards with the board border drawn on the Dimension layer. Change the directory of your exports accordingly and it should work.
 
  `DISPLAY ALL  RATSNEST  DISPLAY None  DISPLAY Top Pads  set palette white;  EXPORT IMAGE D:\pcb_top.png MONOCHROME 1200;              DISPLAY None  DISPLAY Dimension  EXPORT IMAGE D:\pcb_bottom.png MONOCHROME 800;  DISPLAY ALL  set palette black;    ` 
 
@@ -647,7 +647,7 @@ And these are the Settings for PCB outlines,
 -   number of offsets: 1
 -   offset overlap(%): 50
 -   path error(pixels): 1.1
--   image threshhold: .5
+-   image threshold: .5
 
 <figure>
   <img src="/images/fabacademy/week-07/mill1.jpg" alt="Outlines (1/32)" loading="lazy" />
@@ -681,8 +681,8 @@ I like to collect my SMD components in masking tape. It makes it easier to colle
 With my component collection done, I was ready to solder. I prepared with all the necessary tools and it took about 30 minutes to solder the whole board.
 
 <figure>
-  <img src="/images/fabacademy/week-07/solderingprep.jpg" alt="Soldering Preperation" loading="lazy" />
-  <figcaption>Soldering Preperation</figcaption>
+  <img src="/images/fabacademy/week-07/solderingprep.jpg" alt="Soldering Preparation" loading="lazy" />
+  <figcaption>Soldering Preparation</figcaption>
 </figure>
 
 <figure>
@@ -710,7 +710,7 @@ Arduino can be downloaded free from the official website [here.](https://www.ard
 
 ## Adding TinyCore (support for ATTiny MCU Series to Arduino)
 
-To program the ATTINY microcontroller family using Arduino, I will be using [ATTinyCore,](https://github.com/SpenceKonde/ATTinyCore) which is an Arduino core for ATtiny 1634, 828, x313, x4, x41, x5, x61, x7 and x8 series of microntrollers. The installation instructions are given on the github page and I just followed the Instructions for the Boards Manager Installation Method.
+To program the ATTINY microcontroller family using Arduino, I will be using [ATTinyCore,](https://github.com/SpenceKonde/ATTinyCore) which is an Arduino core for ATtiny 1634, 828, x313, x4, x41, x5, x61, x7 and x8 series of microcontrollers. The installation instructions are given on the github page and I just followed the Instructions for the Boards Manager Installation Method.
 
 <figure>
   <img src="/images/fabacademy/week-07/tinycore.jpg" alt="TinyCore Installation" loading="lazy" />

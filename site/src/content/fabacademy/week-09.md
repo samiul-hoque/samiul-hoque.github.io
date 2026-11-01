@@ -11,7 +11,7 @@ gallery: []
 
 Read a microcontroller data sheet program your board to do something, with as many different programming languages and programming environments as possible
 
-#### [Group assignment](http://fab.academany.org/2019/labs/cept/embeddedprogramming.html) :
+#### [Group assignment](https://fab.academany.org/2019/labs/cept/embeddedprogramming.html) :
 
 Compare the performance and development workflows for other architectures
 
@@ -40,7 +40,7 @@ The Atmel ATtiny24/44/84 provides the following features:
 2/4/8K bytes of in-system programmable flash, 128/256/512 bytes EEPROM, 128/256/512 bytes SRAM, 12 general purpose I/O lines, 32 general purpose working registers, an 8-bit Timer/Counter with two PWM channels, a 16-bit Timer/Counter with two PWM channels, internal and external interrupts, an 8-channel 10-bit ADC, programmable gain stage (1x, 20x) for 12 differential ADC channel pairs, a programmable watchdog timer with internal oscillator, internal calibrated oscillator, and three software selectable power saving modes  
   
 
-The best way to know about a microcontroller and Instruction set is reading its Datasheet.we will get all the information from the Datasheet , only problem is that its not beginner friendly. I started Reading ATtiny44 Datasheet that I got from the [Micorchip's website as it was a part of the assignment this week.](http://ww1.microchip.com/downloads/en/devicedoc/Atmel-7701_Automotive-Microcontrollers-ATtiny24-44-84_Datasheet.pdf).
+The best way to know about a microcontroller and Instruction set is reading its Datasheet.we will get all the information from the Datasheet , only problem is that its not beginner friendly. I started Reading ATtiny44 Datasheet that I got from the [Micorchip's website as it was a part of the assignment this week.](https://ww1.microchip.com/downloads/en/devicedoc/Atmel-7701_Automotive-Microcontrollers-ATtiny24-44-84_Datasheet.pdf).
 
 <figure>
   <img src="/images/fabacademy/week-09/datasheet1.jpg" alt="Reading a Datasheet: ATTINY44" loading="lazy" />
@@ -147,7 +147,7 @@ Arduino can be downloaded free from the official website [here.](https://www.ard
 
 ### Adding TinyCore (support for ATTiny MCU Series to Arduino)
 
-To program the ATTINY microcontroller family using Arduino, I will be using [ATTinyCore,](https://github.com/SpenceKonde/ATTinyCore) which is an Arduino core for ATtiny 1634, 828, x313, x4, x41, x5, x61, x7 and x8 series of microntrollers. The installation instructions are given on the github page and I just followed the Instructions for the Boards Manager Installation Method.
+To program the ATTINY microcontroller family using Arduino, I will be using [ATTinyCore,](https://github.com/SpenceKonde/ATTinyCore) which is an Arduino core for ATtiny 1634, 828, x313, x4, x41, x5, x61, x7 and x8 series of microcontrollers. The installation instructions are given on the github page and I just followed the Instructions for the Boards Manager Installation Method.
 
   
 
@@ -204,11 +204,11 @@ The generated HEX can be exported from arduino by clicking on the 'Export Compil
 
 #### Download Files:
 
-[Download Arduino Project Folder (Compiled Binary inlcuded)](/files/fabacademy/week-09/at44_test_arduino.zip)
+[Download Arduino Project Folder (Compiled Binary included)](/files/fabacademy/week-09/at44_test_arduino.zip)
 
 ## Programming the ATTINY44 with GCC C
 
-AVR microcontrollers can be programmed using GCC C. I'll be using Atmel Studio as the IDE. Most of Neil's code is written in C, which I have been having a hard time understanding. Hopefully after tinkering with Atmel Studio a bit, I'll be able to write my onw C code.
+AVR microcontrollers can be programmed using GCC C. I'll be using Atmel Studio as the IDE. Most of Neil's code is written in C, which I have been having a hard time understanding. Hopefully after tinkering with Atmel Studio a bit, I'll be able to write my own C code.
 
 <figure>
   <img src="/images/fabacademy/week-09/atmelstudio.jpg" alt="Programming the ATTINY44 with GCC C" loading="lazy" />
@@ -293,7 +293,7 @@ The FABISP needs to be added as an external tool to Atmel Studio if we want to u
 |  | Arduino | Atmel Studio |
 | --- | --- | --- |
 | Ease of Installation: | One Click Installation. | Based on Visual Studio, takes a long time to install. |
-| Ease of Use: | Very intuiitive UI, very easy to use | Complicated UI but has alot of features |
+| Ease of Use: | Very intuiitive UI, very easy to use | Complicated UI but has a lot of features |
 | Debugging: | No Debugging tools, Serial monitor built in. | Debugging tool present, but takes a while to get used to |
 | HEX Footprint Size: | Huge HEX footprint, about 60 line(930 bytes) | Much Smaller HEX footprint, just 13 lines (182 bytes) |
 
@@ -517,7 +517,7 @@ Getting started with Mbed is easy, just sign up for and account at their [sign u
 
 #### Adding Hardware for Generic Blue Pill in our console:
 
-After you sign up, You should be able to navigate to your [console.](https://console.mbed.com/)Before we can get started with programming, we need to add our device to the hardware list in our console. The generic blue pill development board for the STM32F103C8T6 is not supported officially by mbed. So we have to add it as a [Nucleo-F103RB](https://os.mbed.com/platforms/ST-Nucleo-F103RB). It uses the same chip but has 128kb flash memory instead of our 64kb board. I found this nifty [guide](https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/), on how to program our generic board using Mbed.
+After you sign up, You should be able to navigate to your [console](https://console.mbed.com/). Before we can get started with programming, we need to add our device to the hardware list in our console. The generic blue pill development board for the STM32F103C8T6 is not supported officially by mbed. So we have to add it as a [Nucleo-F103RB](https://os.mbed.com/platforms/ST-Nucleo-F103RB). It uses the same chip but has 128kb flash memory instead of our 64kb board. I found this nifty [guide](https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/), on how to program our generic board using Mbed.
 
 <figure>
   <img src="/images/fabacademy/week-09/mbed1.jpg" alt="Mbed Console UI" loading="lazy" />
@@ -526,7 +526,7 @@ After you sign up, You should be able to navigate to your [console.](https://con
 
 #### Using the Online Mbed Compiler
 
-The compiler UI is a bit confusing at first. I would recomend using the many example programs given by Mbed and writing your own code by modifying the templates. First we'll create a new program, and I named it "HelloWorld\_blinky" and is based on the 'Display a message on PC using UART' example.  
+The compiler UI is a bit confusing at first. I would recommend using the many example programs given by Mbed and writing your own code by modifying the templates. First we'll create a new program, and I named it "HelloWorld\_blinky" and is based on the 'Display a message on PC using UART' example.  
 The program project folder will be created along with the 'main.c' file, which we will be editing to write our own code. The example code looks a bit like this, but it didn't work out of the box because the default Serial Tx/Rx pins for the nucleo and the blue pill are different. So after going through the [Generic Blue Pill Guide for Mbed](https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/), I wrote the following code.
 
 <figure>
@@ -615,7 +615,7 @@ GND-------------------------------------GND
 
 ## Downloads
 
-<table class="alt"><tbody><tr><td>ATTINY44- Arduino</td><td><a href="/files/fabacademy/week-09/at44_test_arduino.zip" class="button primary " target="_blank" rel="noopener noreferrer" download="">Download Arduino Project Folder (Compiled Binary inlcuded)</a></td></tr><tr><td>ATTINY44- Atmel Studio</td><td><a href="/files/fabacademy/week-09/at44_test_atmelStudio.zip" class="button primary " target="_blank" rel="noopener noreferrer" download="">Download Atmel Studio Project Folder</a></td></tr><tr><td>STM32F103C8T6- STM32Duino</td><td><a href="/files/fabacademy/week-09/st32_test.zip" class="button primary " download="" target="_blank" rel="noopener noreferrer">Download STM32duino Project folder(compiled binary included)</a></td></tr><tr><td>STM32F103C8T6- Arm Mbed</td><td><a href="/files/fabacademy/week-09/HelloWorld_Blinky_zip_nucleo_f103rb.zip" class="button primary " target="_blank" rel="noopener noreferrer">Download HelloWorld_Blinky_zip_nucleo_f103rb.zip</a></td></tr></tbody></table>
+<table class="alt"><tbody><tr><td>ATTINY44- Arduino</td><td><a href="/files/fabacademy/week-09/at44_test_arduino.zip" class="button primary " target="_blank" rel="noopener noreferrer" download="">Download Arduino Project Folder (Compiled Binary included)</a></td></tr><tr><td>ATTINY44- Atmel Studio</td><td><a href="/files/fabacademy/week-09/at44_test_atmelStudio.zip" class="button primary " target="_blank" rel="noopener noreferrer" download="">Download Atmel Studio Project Folder</a></td></tr><tr><td>STM32F103C8T6- STM32Duino</td><td><a href="/files/fabacademy/week-09/st32_test.zip" class="button primary " download="" target="_blank" rel="noopener noreferrer">Download STM32duino Project folder(compiled binary included)</a></td></tr><tr><td>STM32F103C8T6- Arm Mbed</td><td><a href="/files/fabacademy/week-09/HelloWorld_Blinky_zip_nucleo_f103rb.zip" class="button primary " target="_blank" rel="noopener noreferrer">Download HelloWorld_Blinky_zip_nucleo_f103rb.zip</a></td></tr></tbody></table>
 
 ## Learning Outcomes
 

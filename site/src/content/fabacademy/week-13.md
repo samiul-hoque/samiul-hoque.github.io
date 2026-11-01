@@ -30,11 +30,11 @@ It will be a POV display capable of displaying emojis. POV displays do so by rot
 
 ## Who's Done What beforehand?
 
-A few POV displays have been tried before in Fab Academy. Even according to Neil they are very hard to pull off because of so many major variables in play. Among the one's already attempted, I really liked [Shaunta Butler's](http://fab.cba.mit.edu/classes/863.14/people/shaunta_butler//finalproject/) one because of the mechanical complexity she tried to tackle.
+A few POV displays have been tried before in Fab Academy. Even according to Neil they are very hard to pull off because of so many major variables in play. Among the one's already attempted, I really liked [Shaunta Butler's](https://fab.cba.mit.edu/classes/863.14/people/shaunta_butler//finalproject/) one because of the mechanical complexity she tried to tackle.
 
 ## Shaunta Butler's Fab Academy Project
 
-Shaunta tried to make a [POV hat](http://fab.cba.mit.edu/classes/863.14/people/shaunta_butler//finalproject/) which would be mounted to the head and would create that POV display around someone's face. Usually POV displays are suspended horizontally, usually these types of displays have the LEDs on a thin flexible PCB arm. They commercially available and there are tons of instructables on how to make such 'POV clocks'. If they're suspended vertically, they're usually locked on the top and the bottom end to reduce vibration and add structutal strength. Staying stable enough for a POV display while rotating at 1000 RPM is definitely no easy feat.
+Shaunta tried to make a [POV hat](https://fab.cba.mit.edu/classes/863.14/people/shaunta_butler//finalproject/) which would be mounted to the head and would create that POV display around someone's face. Usually POV displays are suspended horizontally, usually these types of displays have the LEDs on a thin flexible PCB arm. They commercially available and there are tons of instructables on how to make such 'POV clocks'. If they're suspended vertically, they're usually locked on the top and the bottom end to reduce vibration and add structutal strength. Staying stable enough for a POV display while rotating at 1000 RPM is definitely no easy feat.
 
 <figure>
   <img src="/images/fabacademy/week-13/povclock.jpg" alt="An example of the commonly seen Horizontal POV displays- by Cornell ECE Dept." loading="lazy" />
@@ -46,7 +46,7 @@ Shaunta tried to make a [POV hat](http://fab.cba.mit.edu/classes/863.14/people/s
   <figcaption>POV cylinder Display. (locked from both ends) -image from Arduino Project Hubs</figcaption>
 </figure>
 
-Shaunta tried to mount her POV display on just one end. I took inspiration from this but it would add alot of complexities later to my mechanical assembly.
+Shaunta tried to mount her POV display on just one end. I took inspiration from this but it would add a lot of complexities later to my mechanical assembly.
 
 * * *
 
@@ -66,7 +66,7 @@ This project is an example of a classic POV led display and it is well documente
 
 ## Motor Assembly
 
-The Motor Assembly will be crucial to produce the POV effect. Since almost ALL POV displays use simple DC motors, I decided to complicate things by using a BLDC motor and an ESC. I did regret the decision quite alot later, but I learnt alot along the way. POV is a very time critical thing, and adding an ESC which required PWM was just asking for time critical errors.
+The Motor Assembly will be crucial to produce the POV effect. Since almost ALL POV displays use simple DC motors, I decided to complicate things by using a BLDC motor and an ESC. I did regret the decision quite a lot later, but I learnt a lot along the way. POV is a very time critical thing, and adding an ESC which required PWM was just asking for time critical errors.
 
 ## 3 Channel Slip Ring
 
@@ -88,7 +88,7 @@ For the Electronics I wanted to use the 328p microcontroller as the brains. I wo
 
 | Component | Justification to Buy |
 | --- | --- |
-| BLDC Motor | It would be quite impossible to make by myself, atleast during this time period. |
+| BLDC Motor | It would be quite impossible to make by myself, at least during this time period. |
 | ESC | "It's a good learning exercise to make your own, but ESCs have become so commoditized that they're now around the incremental cost to make your own" - said by Neil himself on [this Issue.](https://gitlab.fabcloud.org/academany/fabacademy/2019/class/issues/35)  
 We also didn't have any H-Bridge drivers at the lab except the l293D. So my logical choice here was to buy a commercial ESC. |
 | Optical Encoders | This is something I am still not sure about. I really want to work with optical encoders, but they're very expensive. I could get the same result by using an hall effect sensor, but an optical encoder will give me perfect positional feedback for the BLDC motor, basically a closed loop. Which I was always fascinated about, creating my own closed loop servos. |
@@ -121,7 +121,7 @@ I am planning to 3D print where needed and laser cut where I can get away with.
 
 ## Component Sourcing
 
-Components will come from local shops as a proper supply channel does not exist from china to Ahmedabad. Most of the items I'll be buying has to be available off the shelf, I wont be able to custom order specific components which will make my life particularly difficult.
+Components will come from local shops as a proper supply channel does not exist from china to Ahmedabad. Most of the items I'll be buying has to be available off the shelf, I won't be able to custom order specific components which will make my life particularly difficult.
 
 I ordered parts from these online shops as well;
 
@@ -131,7 +131,7 @@ I ordered parts from these online shops as well;
 
 ## Material Sourcing
 
-Materials will be sourced from the local stationary shop at CEPT University. This being a Design College, they have a good supply of available materials such as acryllic, mdf and various sorts of paper sheets.
+Materials will be sourced from the local stationary shop at CEPT University. This being a Design College, they have a good supply of available materials such as acrylic, mdf and various sorts of paper sheets.
 
 ## How much will they cost?
 
@@ -153,9 +153,9 @@ Materials will be sourced from the local stationary shop at CEPT University. Thi
 
 -   The Slip Ring Assembly will pass Power, Ground and the Data Signal to my LEDs through it.
 -   I have used 2409 Bearings as they offer quite a bit of space through the inner ring.
--   Each of the Bearings are seperated Using Acryllic Spacers.
--   To Ensure Conductivity, I made Vinyl Cut Copper brushes which will connect the inner and outer rings. The Acryllic Spacers in between will provide adequate pressure to keep contact between the inner, outer rings and the copper brushes.
--   These Copper brushes are made using copper tape and 1mm acryllic as base.
+-   Each of the Bearings are separated Using Acrylic Spacers.
+-   To Ensure Conductivity, I made Vinyl Cut Copper brushes which will connect the inner and outer rings. The Acrylic Spacers in between will provide adequate pressure to keep contact between the inner, outer rings and the copper brushes.
+-   These Copper brushes are made using copper tape and 1mm acrylic as base.
 
 ## Rotating Arm Assembly
 
@@ -171,19 +171,19 @@ Materials will be sourced from the local stationary shop at CEPT University. Thi
 
 ## Laser Cutting
 
-Laser Cutting was used to create the top and bottom of the Base Assembly with 5mm acryllic.
+Laser Cutting was used to create the top and bottom of the Base Assembly with 5mm acrylic.
 
-The Rotating Arm assembly has laser cut parts which are made of 2mm acryllic.
+The Rotating Arm assembly has laser cut parts which are made of 2mm acrylic.
 
 ## Vinyl Cutting
 
-Vinyl Cutting was used to cut copper tape and 1mm acryllic to create these very thin copper brushes.
+Vinyl Cutting was used to cut copper tape and 1mm acrylic to create these very thin copper brushes.
 
 ## 3D printing
 
 The whole project has 17x 3D printed parts.
 
-I will create a seperate Mostly printed version of this project for instructables to reduce the number of processes used later.
+I will create a separate Mostly printed version of this project for instructables to reduce the number of processes used later.
 
 ## What questions need to be answered?
 
@@ -193,7 +193,7 @@ It did, and it worked out perfectly.
 
 ## Will the Rotating Arm Assembly be stable enough?
 
-It wasn't perfectly stable. 1100RPM was too much for acryllic. It worked but the acryllic bent quite alot. This high speed photo explains it well.
+It wasn't perfectly stable. 1100RPM was too much for acrylic. It worked but the acrylic bent quite a lot. This high speed photo explains it well.
 
 <figure>
   <img src="/images/fabacademy/week-13/rotatingarmhighspeed.jpg" alt="Will the Rotating Arm Assembly be stable enough?" loading="lazy" />
@@ -207,7 +207,7 @@ It did not. The Chinese Optical Encoders I bought did not give proper Data. I la
 
 ## Will the LED refresh rate be fast enough for the POV effect?
 
-I was quite worried about this, but it turns out, for only 14 LEDs, the refresh rate is more than fast enough. My Atmega328p is running at 20Mhz and the rotating arm is running at 1100rpm. Which is roughly 18 rotations per second. Each Rotation has about 24 frames according to my code, which meant around 440 updates to the LEDs per second. Thats a whole 2.27 milliseconds to update the LEDs.
+I was quite worried about this, but it turns out, for only 14 LEDs, the refresh rate is more than fast enough. My Atmega328p is running at 20Mhz and the rotating arm is running at 1100rpm. Which is roughly 18 rotations per second. Each Rotation has about 24 frames according to my code, which meant around 440 updates to the LEDs per second. That's a whole 2.27 milliseconds to update the LEDs.
 
 I used the [NeoPixelBus](https://github.com/Makuna/NeoPixelBus) library which made it possible for me to use the LED library in a non blocking way, the regular [FastLED](https://github.com/FastLED/FastLED) library would not have worked.
 
@@ -215,7 +215,7 @@ I used the [NeoPixelBus](https://github.com/Makuna/NeoPixelBus) library which ma
 
 ## Getting the Mechanical Assembly working
 
-It worked perfectly. Maybe the LED arms need to be made out of a composite material that doesn't flex instead of acryllic, but everything else worked perfectly.
+It worked perfectly. Maybe the LED arms need to be made out of a composite material that doesn't flex instead of acrylic, but everything else worked perfectly.
 
 ## Getting the Slip Ring Working
 
@@ -229,7 +229,7 @@ It was a bit difficult as all three of my operations turned out to be time criti
 -   PWM signal for the Motor
 -   Sending data to the LEDs
 
-I got it working by making a seperate motor control sub-system using an ATtiny44. The ATTINY44 generated a PWM signal for the ESC if it recieved a signal from the 328p. Thus taking immense load off my main loop.
+I got it working by making a separate motor control sub-system using an ATtiny44. The ATTINY44 generated a PWM signal for the ESC if it received a signal from the 328p. Thus taking immense load off my main loop.
 
 ## Creating the POV effect
 

@@ -1,7 +1,7 @@
 ---
 title: "TurtleSense"
 year: 2019
-role: "Engineer (pro-bono)"
+role: "Engineer (pro bono)"
 client: "Creative Conservation Alliance"
 category: "research"
 tags: ["ESP32", "ESP8266", "Node-RED", "sensor mesh", "conservation"]
@@ -33,10 +33,10 @@ friend from BRAC University who'd been working with them as a photographer.
 
 Years earlier I'd helped them with a turtle-egg incubator. The hatchlings
 from that build are now part of an active recovery effort for an endangered
-species — which is probably the most disproportionate outcome I've ever
-gotten out of a small hardware project.
+species. That is the biggest result I have had from a small hardware
+project.
 
-TurtleSense is the next thing. A mesh of environmental sensors around the
+TurtleSense is the next thing: a mesh of environmental sensors around the
 preservation centre to monitor conditions across the reserve.
 
 ## What I'm doing
@@ -47,8 +47,8 @@ a forest" conditions; that constraint went away. So the architecture is
 just ESP32 and ESP8266 nodes over 2.4 GHz back to a NanoPi gateway running
 Node-RED. A few dozen sensors is well within what that stack handles.
 
-Sensor coverage is the open question — what's worth measuring, where, how
-often. The preservation team knows the biology; I'm there for the
+Sensor coverage is the open question: what's worth measuring, where, and
+how often. The preservation team knows the biology; I'm there for the
 electronics. We'll see what surfaces.
 
 ## Outcome
@@ -58,5 +58,5 @@ update here.
 
 ---
 
-This is pro-bono work, not commercial. Listed here because the engineering
+This is pro bono work, not commercial. Listed here because the engineering
 problem is real and I'm fond of it.

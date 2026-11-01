@@ -11,7 +11,7 @@ gallery: []
 
 Design, build, and connect wired or wireless node(s) with network or bus addresses  
   
-[Group Work](http://fab.academany.org/2019/labs/cept/networkingcommunication.html)  
+[Group Work](https://fab.academany.org/2019/labs/cept/networkingcommunication.html)  
 Send a message between two projects
 
 ## What I made this Week
@@ -30,7 +30,7 @@ Sender and receiver use the same clock signal. An example is i2c and SPI, where 
 
 #### Asynchronous:
 
-Sender provides a synchronization signal to the receiver before starting the transfer of each message. And example of this is Serial Communication, where there is no shared clock, which is why we needed to fix the baude rate for boards to communicate with eachother.
+Sender provides a synchronization signal to the receiver before starting the transfer of each message. And example of this is Serial Communication, where there is no shared clock, which is why we needed to fix the baude rate for boards to communicate with each other.
 
 <figure>
   <img src="/images/fabacademy/week-14/synchronous-data-transfer-timing-diagram.jpg" alt="Synchronous data transfer timing diagram - Source" loading="lazy" />
@@ -78,14 +78,14 @@ The Basic Selling point is Seamless internet experience for 3 hours in 5tk, that
 
 ## Weather Balloon Tracking
 
-Back in 2015, I had the privilige to work for a weather balloon launch. I made a GPS tracking system for a weather balloon using a Radiometrix [NTX-2b](http://www.radiometrix.com/content/ntx2b), a 433MHz RF transmitter. The mainboard was based on a raspberry Pi, the GPS device used was a [Ublox-Neo 6](https://www.u-blox.com/en/product/neo-6-series). The onboard camera later recovered gave us some amazing footage. The vertical distance traversed was 32450.1 meters and the total displacement was 68.8km. The Communication device was able to keep track of it during the full journey while surviving extreme temperatures from - 25.312 Degree Centigrade to 40 Degrees.All the details about this project can be found [here.](https://samiul-hoque.github.io/blog/2015/10/15/High-Altitude-Balloon-Project-For-Black-Horse)
+Back in 2015, I had the privilege to work for a weather balloon launch. I made a GPS tracking system for a weather balloon using a Radiometrix [NTX-2b](https://www.radiometrix.com/content/ntx2b), a 433MHz RF transmitter. The mainboard was based on a raspberry Pi, the GPS device used was a [Ublox-Neo 6](https://www.u-blox.com/en/product/neo-6-series). The onboard camera later recovered gave us some amazing footage. The vertical distance traversed was 32450.1 meters and the total displacement was 68.8km. The Communication device was able to keep track of it during the full journey while surviving extreme temperatures from - 25.312 Degree Centigrade to 40 Degrees.All the details about this project can be found [here.](https://samiul-hoque.github.io/blog/2015/10/15/High-Altitude-Balloon-Project-For-Black-Horse)
 
 <figure>
   <img src="/images/fabacademy/week-14/balloon.jpg" alt="Picture taken at 32.45 KM" loading="lazy" />
   <figcaption>Picture taken at 32.45 KM</figcaption>
 </figure>
 
-The Recieving Yagi Antenna was made using locally available materials such as copper rods and PVC sheets. Here are some of the notable data from the launch:
+The Receiving Yagi Antenna was made using locally available materials such as copper rods and PVC sheets. Here are some of the notable data from the launch:
 
 -   Total Flight Time : 3 Hours 26 Minutes 41 seconds.
 -   Total ascend Time: 2 Hours 07 minutes 12 seconds.
@@ -101,8 +101,8 @@ The Recieving Yagi Antenna was made using locally available materials such as co
 * * *
 
 <figure>
-  <img src="/images/fabacademy/week-14/Yagi.jpg" alt="Recieving Yagi Antenna made using local materials" loading="lazy" />
-  <figcaption>Recieving Yagi Antenna made using local materials</figcaption>
+  <img src="/images/fabacademy/week-14/Yagi.jpg" alt="Receiving Yagi Antenna made using local materials" loading="lazy" />
+  <figcaption>Receiving Yagi Antenna made using local materials</figcaption>
 </figure>
 
 ## This week's Objective
@@ -115,15 +115,15 @@ For this week, I wanted to challenge myself with a networking project. I wanted 
 
 #### First Objective:
 
-Interface the [ADXL345](http://), an i2c accelerometer which works on 3.3v, transfer the accelerometer data using nRF24L01+ modules which use SPI communication. I'll have to design a board that works on 3.3v which will be convinient to work with these components.
+Interface the [ADXL345](http://), an i2c accelerometer which works on 3.3v, transfer the accelerometer data using nRF24L01+ modules which use SPI communication. I'll have to design a board that works on 3.3v which will be convenient to work with these components.
 
 #### Second Objective:
 
-Recieve the accelerometer data using another nRF24L01+ module, and send it to another board using i2c.
+Receive the accelerometer data using another nRF24L01+ module, and send it to another board using i2c.
 
 #### Third Objective:
 
-Recieve Data using i2c, and writing it on Serial so I can see it on the Serial Monitor.
+Receive Data using i2c, and writing it on Serial so I can see it on the Serial Monitor.
 
 <figure>
   <img src="/images/fabacademy/week-14/flowchart.jpg" alt="Third Objective" loading="lazy" />
@@ -150,8 +150,8 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 #### Features:
 
 -   Atmega328p 20MHz running on 5v
--   Seperate 3.3v power for nRF24L01+
--   Seperate power management for MG995 Servos using LM2940
+-   Separate 3.3v power for nRF24L01+
+-   Separate power management for MG995 Servos using LM2940
 -   Control Circuit for 12v LED strips using N-Mosfets
 -   Onboard Devices: nRF24L01+, connecting port for HC-05
 -   Hardware i2c and Serial pinouts
@@ -165,7 +165,7 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 #### Features:
 
 -   Atmega328p 20MHz running on 5v
--   Seperate High Current Power management for Addressable LED strips
+-   Separate High Current Power management for Addressable LED strips
 -   Hardware i2c and Serial pinouts
 -   Pinouts for ESC to drive a BLDC motor
 -   Pinouts for Optical Encoders on Interrupt pins
@@ -176,9 +176,9 @@ Recieve Data using i2c, and writing it on Serial so I can see it on the Serial M
 
 ### Target Board
 
-I designed the board around the ADXL345 and the nRF24L01+. As they required 3.3v power and we dont have logic level shifters at the lab, I used an atmega328p with an 8MHz resonator to run at 3.3v. I kept a seperate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF24L01+ module as I read that they get a bit fussy if proper power is not supplied.  
+I designed the board around the ADXL345 and the nRF24L01+. As they required 3.3v power and we dont have logic level shifters at the lab, I used an atmega328p with an 8MHz resonator to run at 3.3v. I kept a separate [AMS1117](http://www.advanced-monolithic.com/pdf/ds1117.pdf) to power the nRF24L01+ module as I read that they get a bit fussy if proper power is not supplied.  
   
-I used Sparkfun's [ADXL345 breakout board](http://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/ADXL345_Breakout.pdf) as a reference for interfacing the ADXL345 chip. I tied pin 7 with VCC which enabled i2c mode and added noise filtering capacitors of 0.1uF and 10uF near the chip.  
+I used Sparkfun's [ADXL345 breakout board](https://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/ADXL345_Breakout.pdf) as a reference for interfacing the ADXL345 chip. I tied pin 7 with VCC which enabled i2c mode and added noise filtering capacitors of 0.1uF and 10uF near the chip.  
   
 The board can be run on battery power as the voltage level needs to be just above 3.3 to work.
 
@@ -196,7 +196,7 @@ The board can be run on battery power as the voltage level needs to be just abov
 
 #### \->Checking if Accelerometer is Detected:
 
-Since this was the first time I soldered a component without any legs, I wanted to check if my accelerometer was being detected as an i2c device, so I used the i2c Scanner code from [Arduino Playground](https://playground.arduino.cc/Main/I2cScanner/) and it seemed to be getting detected at addres 0x53.
+Since this was the first time I soldered a component without any legs, I wanted to check if my accelerometer was being detected as an i2c device, so I used the i2c Scanner code from [Arduino Playground](https://playground.arduino.cc/Main/I2cScanner/) and it seemed to be getting detected at address 0x53.
 
 [Download i2c Scanner.ino](/files/fabacademy/week-14/i2c-scanner.ino)
 
@@ -240,15 +240,15 @@ To read the accelerometer data, I used the [Sparkfun ADXL345 Library](https://gi
 
 #### Transmitting an array of 3 integers Using the RF24 Library
 
-For the [nRF24L01+](http://tmrh20.github.io/RF24/) modules, I used the RF24 library. I followed [this](https://www.youtube.com/watch?v=JSHJ-RLbNJk) youtube video to use the 'getting started' example to write my own code to transmit an integer array of size 3.  
+For the [nRF24L01+](https://tmrh20.github.io/RF24/) modules, I used the RF24 library. I followed [this](https://www.youtube.com/watch?v=JSHJ-RLbNJk) youtube video to use the 'getting started' example to write my own code to transmit an integer array of size 3.  
   
-The code has two parts, the transmit part and the recieve part. This board will be using the transmit part.
+The code has two parts, the transmit part and the receive part. This board will be using the transmit part.
 
 [Download nrf\_simpleTransmit.ino](/files/fabacademy/week-14/nrf_simpleTransmit.ino)
 
 #### Important LibraryFunctions Used
 
--   RF24 radio(7,8); \[Used to initate the nRF module, CE/CS pins)
+-   RF24 radio(7,8); \[Used to initiate the nRF module, CE/CS pins)
   
 -   byte addresses\[\]\[6\] = {"1Node","2Node"}; \[Assigning the addresses on the radios used\]
   
@@ -258,7 +258,7 @@ The code has two parts, the transmit part and the recieve part. This board will 
     radio.setChannel(124); \[set the channel to transmit the data to\]
   
 -   radio.openWritingPipe(addresses\[1\]);  
-    radio.openReadingPipe(1, addresses\[0\]); \[Open the writing and reading pipes, a bit like tx and rx in serial. Use alternating addresses in the recieve part of the code.\]
+    radio.openReadingPipe(1, addresses\[0\]); \[Open the writing and reading pipes, a bit like tx and rx in serial. Use alternating addresses in the receive part of the code.\]
   
 -   radio.stopListening(); \[Stop listening before sending data\]
   
@@ -278,7 +278,7 @@ The code has two parts, the transmit part and the recieve part. This board will 
 
 [ADXL345\_nrf24\_transmit.ino](/files/fabacademy/week-14/ADXL345_nrf24_transmit.ino)
 
-## Board 2: Recieving the data and passing it through i2c
+## Board 2: Receiving the data and passing it through i2c
 
 ### Target Board:
 
@@ -297,13 +297,13 @@ It has power management circuitry to drive two high current MG995 servos using L
 
 > I used a double sided FR1 board to make this board and used the copper on the other side as a common ground plane. This helped me reduce the number of jumper resistors and also provided great thermals.
 
-#### Recieving Accelerometer Data through nRF24L01+
+#### Receiving Accelerometer Data through nRF24L01+
 
 [Download nrf\_simpleRecieve.ino](/files/fabacademy/week-14/nrf_simpleRecieve.ino)
 
 #### Important LibraryFunctions Used
 
--   RF24 radio(7,8); \[Used to initate the nRF module, CE/CS pins)
+-   RF24 radio(7,8); \[Used to initiate the nRF module, CE/CS pins)
   
 -   byte addresses\[\]\[6\] = {"1Node","2Node"}; \[Assigning the addresses on the radios used\]
   
@@ -337,7 +337,7 @@ It has power management circuitry to drive two high current MG995 servos using L
 
 ### Final Code for Board 2
 
-## Board 3: Recieving i2c data and Writing it on Serial Monitor
+## Board 3: Receiving i2c data and Writing it on Serial Monitor
 
 ### Target Board:
 
@@ -347,7 +347,7 @@ I'll just be using this board I made during the output week to read the data ove
   <img src="/images/fabacademy/week-14/pxfboard.jpg" alt="Target Board" loading="lazy" />
 </figure>
 
-#### Recieving data from i2c bus: (slave side) and printing it on serial
+#### Receiving data from i2c bus: (slave side) and printing it on serial
 
 [Download simple\_i2c\_slave\_array.ino](/files/fabacademy/week-14/simple_i2c_slave_array.ino)
 

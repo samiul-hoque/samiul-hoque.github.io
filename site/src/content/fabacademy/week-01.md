@@ -1,5 +1,5 @@
 ---
-title: "Principles & Practices — Project Proposal"
+title: "Principles & Practices: Project Proposal"
 week: 1
 assignment: "Plan and sketch a potential final project."
 heroImage: "/images/fabacademy/week-01/initial_sketch.png"
@@ -38,7 +38,7 @@ So I decided to take matters into my own hands and designing a head with a “ka
 
 ## Goals
 
--   The head will be interractive; it will react to external stimuli via a proximity sensor and possibly a mic.
+-   The head will be interactive; it will react to external stimuli via a proximity sensor and possibly a mic.
 -   The head will be able to express basic emotions using emojis displayed on a POV display
 -   The head will be easily programmable so it can be interfaced very easily with existing projects.
 -   If possible I'd like to add some minimal sentiment analysis capabilities to the head, so it can display emojis accordingly depending on surrounding sound.
@@ -86,7 +86,7 @@ And if I get the chance, I would like to try some NLP. **IMAGINE HAVING AN ALEXA
 -   Any microcontroller that can handle the refresh rate of the display.
 -   Enclosure assembly.
 -   Power management and other peripheral electronics.
--   A seperate voice recognition unit using a Raspberry Pi and a mic.
+-   A separate voice recognition unit using a Raspberry Pi and a mic.
 
 ## Challenges
 

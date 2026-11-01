@@ -13,7 +13,7 @@ Add an output device to a microcontroller board you've designed, and program it 
 
 ### Group Assignment:
 
-Measure the power consumption of an output device, which can be found following the link below. [Output Week Group Assignment](http://fab.academany.org/2019/labs/cept/outputdevices.html)
+Measure the power consumption of an output device, which can be found following the link below. [Output Week Group Assignment](https://fab.academany.org/2019/labs/cept/outputdevices.html)
 
 ## What I made this Week
 
@@ -44,7 +44,7 @@ While I was at it, I wanted to start working on a controller board for my final 
 
 ## Designing my new 328p based board for my Final Project: PxFDuino v1.0
 
-For the microcontroller I chose to use a Atmega 328p. It is the same microcontroller used on the Arduino Uno, so all the code working on an arduino should be compatible to run on it. I did look into the ATmega16U2 and ATmega16U4, but they seemed harder to program and required more peripheral components to function.
+For the microcontroller I chose to use an ATmega328P. It is the same microcontroller used on the Arduino Uno, so all the code working on an arduino should be compatible to run on it. I did look into the ATmega16U2 and ATmega16U4, but they seemed harder to program and required more peripheral components to function.
 
 #### The AtMega328p:
 
@@ -225,7 +225,7 @@ To export the brd file as a png, I used the eagle script I wrote in [Electronics
 
 #### Milling the traces(1/64 bit)
 
-I imported the image into Fab Modules, Inverted the color since it had a white background, and hit calculate. But as you can see, fabmodules was missing some toolpaths seperating each pad for the ATMega328p. Then after multiple iterations on fixing it by changing the footprint, I found a solution, which was;-   Using the ATmega88 footprint on the Fab Library
+I imported the image into Fab Modules, Inverted the color since it had a white background, and hit calculate. But as you can see, fabmodules was missing some toolpaths separating each pad for the ATMega328p. Then after multiple iterations on fixing it by changing the footprint, I found a solution, which was;-   Using the ATmega88 footprint on the Fab Library
 -   Changing the tool diameter from 0.4 to 0.38
 
 <figure>
@@ -489,7 +489,7 @@ Adafruit sells these LEDs as [Neopixels](https://www.adafruit.com/category/168),
 
 ## Measuring Power Consumption
 
-Power consumption is measured in watts. We can find the power consumption of a device by measuring the ammount of current going through it multiplied by the voltage.
+Power consumption is measured in watts. We can find the power consumption of a device by measuring the amount of current going through it multiplied by the voltage.
 
 ## From the Benchtop Power Supply
 
@@ -529,12 +529,12 @@ For the Highest speed,(140), the power consumption was 0.701 at 12v. Therefore t
 
 ## Downloads
 
-<table class="alt"><tbody><tr><td>Eagle Project for my 328p Based board:</td><td><a href="/files/fabacademy/week-12/pixelFace mainboard.zip" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download .zip</a></td></tr><tr><td>CN1584 Library I made:</td><td><a href="/files/fabacademy/week-12/CN1584.lbr" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download CN1584.lbr</a></td></tr><tr><td>Alternating SMD 0.1" header library</td><td><a href="/files/fabacademy/week-12/smd_con.lbr" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download smd_con.lbr</a></td></tr><tr><td>Eagle Script to export traces, drill and outline</td><td><a href="/files/fabacademy/week-12/Export_trace_drill_outline.scr" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download Export_trace_drill_outline.scr</a></td></tr><tr><td>Flex Connectors Eagle Project</td><td><a href="/files/fabacademy/week-12/connectors.zip" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download connectors.zip</a></td></tr><tr><td>RC_RAMP example from <a href="https://github.com/RB-ENantel/RC_ESC" target="_blank" rel="noopener noreferrer"></a>RC_ESC library</td><td><a href="/files/fabacademy/week-12/ESC_Ramp.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ESC_Ramp.ino</a></td></tr><tr><td>ESC Controller over Serial code</td><td><a href="/files/fabacademy/week-12/ESC_Controller_serial.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ESC_Controller_serial.ino</a></td></tr><tr><td>ssd1306_128x32_i2c example from <a href="https://github.com/adafruit/Adafruit_SSD1306/" target="_blank" rel="noopener noreferrer">Adafruit SSD1306 Library</a></td><td><a href="/files/fabacademy/week-12/ssd1306_128x32_i2c.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ssd1306_128x32_i2c.ino</a></td></tr><tr><td>Bargraph in OLED with ESC controller over Serial Code</td><td><a href="/files/fabacademy/week-12/ESC_controller_serial_i2c_display.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ESC_controller_serial_i2c_display.ino</a></td></tr></tbody></table>
+<table class="alt"><tbody><tr><td>Eagle Project for my 328p Based board:</td><td><a href="/files/fabacademy/week-12/pixelFace mainboard.zip" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download .zip</a></td></tr><tr><td>CN1584 Library I made:</td><td><a href="/files/fabacademy/week-12/CN1584.lbr" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download CN1584.lbr</a></td></tr><tr><td>Alternating SMD 0.1" header library</td><td><a href="/files/fabacademy/week-12/smd_con.lbr" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download smd_con.lbr</a></td></tr><tr><td>Eagle Script to export traces, drill and outline</td><td><a href="/files/fabacademy/week-12/Export_trace_drill_outline.scr" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download Export_trace_drill_outline.scr</a></td></tr><tr><td>Flex Connectors Eagle Project</td><td><a href="/files/fabacademy/week-12/connectors.zip" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download connectors.zip</a></td></tr><tr><td>RC_RAMP example from <a href="https://github.com/RB-ENantel/RC_ESC" target="_blank" rel="noopener noreferrer">RC_ESC library</a></td><td><a href="/files/fabacademy/week-12/ESC_Ramp.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ESC_Ramp.ino</a></td></tr><tr><td>ESC Controller over Serial code</td><td><a href="/files/fabacademy/week-12/ESC_Controller_serial.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ESC_Controller_serial.ino</a></td></tr><tr><td>ssd1306_128x32_i2c example from <a href="https://github.com/adafruit/Adafruit_SSD1306/" target="_blank" rel="noopener noreferrer">Adafruit SSD1306 Library</a></td><td><a href="/files/fabacademy/week-12/ssd1306_128x32_i2c.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ssd1306_128x32_i2c.ino</a></td></tr><tr><td>Bargraph in OLED with ESC controller over Serial Code</td><td><a href="/files/fabacademy/week-12/ESC_controller_serial_i2c_display.ino" class="button primary" target="_blank" rel="noopener noreferrer" download="">Download ESC_controller_serial_i2c_display.ino</a></td></tr></tbody></table>
 
 ## Learning Outcomes
 
 -   I learnt how to mill complicated components like the 328p on the modella
--   I made a block diagram of my final project, figured out how to manage and regulate the power on board and how to seperate the logic supply from the power supply lines.
+-   I made a block diagram of my final project, figured out how to manage and regulate the power on board and how to separate the logic supply from the power supply lines.
 -   I learnt how to make custom libraries in eagle.
 -   I learnt to make my own 328p based arduino and load custom bootloaders onto it.
 -   I learnt how to interface a BLDC motor and ESC with arduino and program my own board to do it.
@@ -543,7 +543,7 @@ For the Highest speed,(140), the power consumption was 0.701 at 12v. Therefore t
 
 -   I need to work on the addressable LEDs as soon as my components arrive.
 -   I need to consider making a motor assembly to reduce vibrations when the motor spins.
--   I need to start integrating the optical encoders with the motor control to make it a closed loop system or atleast get some rotational feedback data.
+-   I need to start integrating the optical encoders with the motor control to make it a closed loop system or at least get some rotational feedback data.
 
   
 

@@ -14,7 +14,7 @@ gallery: []
 
 ## GitLab Access
 
-For Fab Academy we'll be using GitLab for project management. This post is about all the necessary steps to publish my HTML website on the [Fab Academy Archive.](http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/)
+For Fab Academy we'll be using GitLab for project management. This post is about all the necessary steps to publish my HTML website on the [Fab Academy Archive.](https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/)
 
 #### Step 1
 
@@ -131,7 +131,7 @@ Then I went ahead and wrote my project proposal for week 1 in the markdown templ
   <figcaption>my mkdocs.yml file</figcaption>
 </figure>
 
-After working on it for a week, I found makrdown very limiting when it comes to handling images and freedom to design your website. I was already facing this issue on my [Personal blog](https://samiul-hoque.github.io/) based on jekyll. So I took the opportunity to learn some html code. Thanks to [babken](http://fabacademy.org/2019/labs/dilijan/students/babken-chugaszyan/#) from Dilijan Fablab at Armenia, I found some free templates to work on at [HTML5up.](https://html5up.net/)
+After working on it for a week, I found makrdown very limiting when it comes to handling images and freedom to design your website. I was already facing this issue on my [Personal blog](https://samiul-hoque.github.io/) based on jekyll. So I took the opportunity to learn some html code. Thanks to [babken](https://fabacademy.org/2019/labs/dilijan/students/babken-chugaszyan/#) from Dilijan Fablab at Armenia, I found some free templates to work on at [HTML5up.](https://html5up.net/)
 
 ### Wiping Mkdocs from GitLab
 
@@ -289,15 +289,15 @@ And thisis how it looks like.
 File Paths in the local Directory are Relative Paths.  
 `../image/fablogo.png`  
 Files Paths on the web are Absolute Paths.  
-`http://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/images/fablogo.jpg`  
+`https://archive.fabacademy.org/2019/labs/cept/students/samiul-hoque/images/fablogo.jpg`  
 To Avoid errors with paths in the GitLab repository, I am using the HTML base tag. (Thanks <3 Fiore!)  
-<base href=" *../home repo link here"* />
+`<base href="../home repo link here" />`
 
 #### Sources
 
 I referred to [W3Schools](https://www.w3schools.com/) for basic HTML tutorials.
 
-These tutorials helped me alot  
+These tutorials helped me a lot  
 [HTML & CSS Tutorials for Beginners](https://www.youtube.com/playlist?list=PL0eyrZgxdwhwNC5ppZo_dYGVjerQY3xYU)  
 [How to build a responsive site from scratch](https://www.youtube.com/playlist?list=PLqGj3iMvMa4KQZUkRjfwMmTq_f1fbxerI)
 
@@ -308,7 +308,7 @@ These tutorials helped me alot
 
 #### What I need to look into more:
 
--   I need to customize my site more and add personal elemets to it rather than using all the template designs.
+-   I need to customize my site more and add personal elements to it rather than using all the template designs.
 -   This site uses sass to generate css, I need to learn more about that.
 -   I need to learn how to use javascript to add fun features to my site.
 

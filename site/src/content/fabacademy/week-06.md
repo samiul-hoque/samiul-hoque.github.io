@@ -11,7 +11,7 @@ gallery: []
 
 We had two assignments three week.  
 
-1.  The Group Assignment was to test the design rules for your 3D printer(s Which can be found [here.](http://fab.academany.org/2019/labs/cept/3dscanningprinting.html)  
+1.  The Group Assignment was to test the design rules for your 3D printer(s Which can be found [here.](https://fab.academany.org/2019/labs/cept/3dscanningprinting.html)  
     
   
 3.  design and 3D print an object (small, few cm3, limited by printer time) that could not be made subtractively
@@ -28,7 +28,7 @@ We had two assignments three week.
 
 -   Parametrically Designed
 -   Can't be produced easily with any other manufacturing process.  
-    It would require 4 seperate parts for the same output.
+    It would require 4 separate parts for the same output.
 -   More images [here](/projects/fab-academy/week-06/)
 
 <figure>
@@ -67,17 +67,17 @@ But things slowed down quite a bit after that until 2004 with the [Reprap Projec
 -   [Autodesk: History of 3d Printing](https://www.autodesk.com/redshift/history-of-3d-printing/)
 -   [Sculpteo: The history of 3d printing techniques from the 80s to today](< https://www.sculpteo.com/blog/2016/12/14/the-history-of-3d-printing-3d-printing-technologies-from-the-80s-to-today/
                                         >)
--   [Timeline of major 3D printing Achievments by avplastics](http://www.avplastics.co.uk/3d-printing-history)
+-   [Timeline of major 3D printing Achievements by avplastics](https://web.archive.org/web/20190103123745/http://www.avplastics.co.uk/3d-printing-history)
 
 ## 3D Print Techniques
 
-Over the time there's been a myriad of 3D printing techniques that developped. You can find about it all in [this](https://www.3dhubs.com/knowledge-base/additive-manufacturing-technologies-overview) very well made article by 3Dhubs. [3dhubs.](https://www.3dhubs.com/)
+Over the time there's been a myriad of 3D printing techniques that developed. You can find about it all in [this](https://www.3dhubs.com/knowledge-base/additive-manufacturing-technologies-overview) very well made article by 3Dhubs. [3dhubs.](https://www.3dhubs.com/)
 
 This illustration can explains it all. It's freely available for download from [here.](https://www.3dhubs.com/get/am-technologies/)
 
 <figure>
-  <img src="/images/fabacademy/week-06/3dtechniques.jpg" alt="3D Printing Techinques, Illustration by 3dhubs" loading="lazy" />
-  <figcaption>3D Printing Techinques, Illustration by 3dhubs</figcaption>
+  <img src="/images/fabacademy/week-06/3dtechniques.jpg" alt="3D Printing Techniques, Illustration by 3dhubs" loading="lazy" />
+  <figcaption>3D Printing Techniques, Illustration by 3dhubs</figcaption>
 </figure>
 
   
@@ -125,7 +125,7 @@ After the 3D design is made, it has to exported to a file type that is supported
 
 ## Slicing
 
-The second step is to create a g-code from the 3D model we just designed that the 3D printer can understand. Usually this is done by a slicing software like [Cura](https://ultimaker.com/en/products/ultimaker-cura-software), [FlashPrint](http://www.flashforge.com/support-center/flashprint-support/), etc.
+The second step is to create a g-code from the 3D model we just designed that the 3D printer can understand. Usually this is done by a slicing software like [Cura](https://ultimaker.com/en/products/ultimaker-cura-software), [FlashPrint](https://www.flashforge.com/support-center/flashprint-support/), etc.
 
 <figure>
   <img src="/images/fabacademy/week-06/workflowslice.jpg" alt="Slicing Software(FlashPrint)" loading="lazy" />
@@ -158,7 +158,7 @@ There are two settings to infil which need to be remembered.
 
 -   #### Infil Style or pattern:
     
-The Infil Style is how Materials is layed out in the infil. Most common patterns are line, hexagon and cubic.  
+The Infil Style is how Materials is laid out in the infil. Most common patterns are line, hexagon and cubic.  
   
 -   #### Infil Density
     
@@ -184,7 +184,7 @@ The Infil Density refers to how much material will be put inside. This setting c
 
 Wall thickness, also known as shell thickness, is the thickness of the outer walls of your design. In manufacturing, you always want to use as little material as possible, or just as much as you need.This goes for 3D printing, as well. The added luxury is that you can decide the material thickness of your project’s walls, top, and bottom when you prepare the 3D print file for your 3D printer.  
   
-The wall thickness parameter can siginificantly increase or decrease print time.
+The wall thickness parameter can significantly increase or decrease print time.
 
 <figure>
   <img src="/images/fabacademy/week-06/wallthickness.jpg" alt="Wall Thickness Illustration by All3dp" loading="lazy" />
@@ -223,7 +223,7 @@ All 3D printing processes build parts layer by layer. Due to the additive nature
 
 #### Brim:
 
-A brim is a special type of skirt that is attached to the edges of the model. Typically it is printed with a increased number of outlines to create a large ring around the part.  
+A brim is a special type of skirt that is attached to the edges of the model. Typically it is printed with an increased number of outlines to create a large ring around the part.  
 Brims are used to hold down the edges of your part, which can prevent warping and help with bed adhesion.
 
 #### Skirt:
@@ -294,7 +294,7 @@ Now with my LED strip, I was ready to start designing a small scale version of m
 I started by analyzing my initial Sketch and came up with this in rough sketch in Fusion360 for the arm.  
 I wanted the arc length to be parametric, so first I created the inner, mid and outer arcs with a concentric constraint.  
   
-Then I extended the arcs with lines and made a tangent constraint with the lines. I made the lines parallel and equal to eachother. This ensured the lines were always constrained together.  
+Then I extended the arcs with lines and made a tangent constraint with the lines. I made the lines parallel and equal to each other. This ensured the lines were always constrained together.  
 After that, I closed the area in between and added an 'arm thickness' parameter for the distance between the arcs.
 
 #### Parameters Used:
@@ -304,7 +304,7 @@ After that, I closed the area in between and added an 'arm thickness' parameter 
 -   BaseDiameter
 -   armThickness
 
-I played around with the parameters a bit to see if I could make any of them dependant on eachother, and made  
+I played around with the parameters a bit to see if I could make any of them dependent on each other, and made  
 
 ##### armCurvature = baseDiameter \* 0.9
 
@@ -322,7 +322,7 @@ I played around with the parameters a bit to see if I could make any of them dep
 
 * * *
 
-Then I extruded the the sketch to make the initial 3D object. I used a parameter an 'armWidth' parameter for the extrusion. Since I extruded from both sides, I used the distance as (armWidth/2)
+Then I extruded the sketch to make the initial 3D object. I used a parameter an 'armWidth' parameter for the extrusion. Since I extruded from both sides, I used the distance as (armWidth/2)
 
 #### Parameters Used:
 
@@ -340,7 +340,7 @@ Then I extruded the the sketch to make the initial 3D object. I used a parameter
 
 #### Sketch:
 
-I started by creating a sketch on the x-y plane, right at the center. I found that it's convinient in using the center to align my design.  
+I started by creating a sketch on the x-y plane, right at the center. I found that it's convenient in using the center to align my design.  
   
 I made two circles, the outer one for the arm, the inner one for a connector hole.
 
@@ -361,7 +361,7 @@ I made two circles, the outer one for the arm, the inner one for a connector hol
 
 #### Extrusion 1(join):
 
-I extruded the the area between the outer circle and the inner circle. The extrusion type was join.
+I extruded the area between the outer circle and the inner circle. The extrusion type was join.
 
 ##### Parameters Used:
 
@@ -545,7 +545,7 @@ The first problem I had was design related. I used the wrong distance spacing be
   <figcaption>First Print Output: LEDs are not aligning</figcaption>
 </figure>
 
-So I went back to measurements, the 'Pattern Along path' function in Fusion360 takes one distance paramter, and the spacing was from center to center. My initial Setting was just the spacing I measured from the LED strip.
+So I went back to measurements, the 'Pattern Along path' function in Fusion360 takes one distance parameter, and the spacing was from center to center. My initial Setting was just the spacing I measured from the LED strip.
 
 <figure>
   <img src="/images/fabacademy/week-06/p1patterndistance2.jpg" alt="Spacing" loading="lazy" />
@@ -701,7 +701,7 @@ Laser pulse (also called time of flight) 3D scanning technology is based on the 
 
 #### Links:
 
-[Aditya SS's documentation from last Year.](http://archive.fabacademy.org/2018/labs/fablabcept/students/adhitya-ss/week-6.html)
+[Aditya SS's documentation from last Year.](https://archive.fabacademy.org/2018/labs/fablabcept/students/adhitya-ss/week-6.html)
 
 ## Skanect
 
@@ -711,8 +711,8 @@ There are two requisites we need to install before we can install [Skanect](http
 
 ##### Requisites:
 
--   [Kinect for Windows SDK (version 1.8)](http://download.microsoft.com/download/E/1/D/E1DEC243-0389-4A23-87BF-F47DE869FC1A/KinectSDK-v1.8-Setup.exe)
--   [Updated Drivers for your NVidia Graphics card](https://www.nvidia.com/Download/index.aspx)(if want GPU reconstruction)
+-   [Kinect for Windows SDK (version 1.8)](https://download.microsoft.com/download/E/1/D/E1DEC243-0389-4A23-87BF-F47DE869FC1A/KinectSDK-v1.8-Setup.exe)
+-   [Updated Drivers for your NVidia Graphics card](https://www.nvidia.com/Download/index.aspx) (if you want GPU reconstruction)
 
 After that, I installed the windows x64 installer downloaded from [here](https://skanect.occipital.com/download/).
 
@@ -800,7 +800,7 @@ Unfortunately SCANN3D wouldn't let me export my designs or save them either. So 
 
 #### What I need to improve on
 
--   I need to solve my dimension error casued due to 3D printer and material limitations.
+-   I need to solve my dimension error caused due to 3D printer and material limitations.
 
   
 

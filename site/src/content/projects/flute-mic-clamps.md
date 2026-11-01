@@ -1,7 +1,7 @@
 ---
 title: "Flute Mic Clamps for the NUX B-6"
 year: 2026
-role: "Design and fabrication — measurement, CAD, printing, fitting"
+role: "Design and fabrication: measurement, CAD, printing, fitting"
 client: "Nazm Anwr (Kaaktaal)"
 category: "fabrication"
 tags: ["NUX B-6 Pro", "microphone mount", "wireless microphone", "flute", "tin whistle", "wind instrument", "Tony Dixon", "Tony Dixon DX207", "Tony Dixon TB014", "Tony Dixon DX001", "Generation whistle", "Clarke whistle", "3D printing", "PETG", "TPU", "parametric design", "live sound"]
@@ -13,9 +13,9 @@ heroImage: "/images/flute-mic-clamps/full-set.jpg"
 # empty on purpose. Filling it makes the interleave script scatter the same
 # images through the page a second time.
 gallery: []
-oneLiner: "3D printed clamps that mount a NUX B-6 Pro wireless saxophone mic onto bamboo and metal flutes. Five clamp sizes, ten TPU spacers, quick-swap between songs."
+oneLiner: "3D-printed clamps that mount a NUX B-6 Pro wireless saxophone mic onto bamboo and metal flutes. Five clamp sizes, ten TPU spacers, quick to swap between songs."
 externalLinks:
-  - label: "Print your own — STLs and Fusion source"
+  - label: "Print your own: STLs and Fusion source"
     url: "https://github.com/samiul-hoque/nux-b6-flute-mount"
 draft: false
 ---
@@ -105,7 +105,7 @@ TPU spacers that step each clamp down to whichever flutes fall under it.
 | 35 mm | 30, 33 |
 
 Five clamps, ten spacers. Everything printed, including the screws.
-Printed fasteners were not a purity exercise: it meant no hardware
+Printed fasteners were not a purity exercise: they meant no hardware
 run on the day, nothing metal to lose in a green room, and a thumb screw
 big enough to turn by hand, which is the part that matters when the swap
 has to happen between songs.
@@ -146,7 +146,7 @@ instruments rather than needing one of each.
 
 It is a crude system and it worked. The photo roll became the mapping
 document, which is worth more than it sounds: without it the set is fifteen
-anonymous black rings and a pile of flutes, and matching them up again
+anonymous rings and a pile of flutes, and matching them up again
 means redoing the measuring.
 
 ## One day
@@ -184,9 +184,9 @@ whole set. That is an idea at the moment, not a project.
 ## If you have a B-6 and a flute
 
 This is a common enough problem that it is worth spelling out what these
-parts are. A NUX B-6 or B-6 Pro expects a saxophone bell. If you play any
-transverse flute, a bamboo one, a metal one, a whistle, there is nothing on
-the instrument for it to hold. These clamps sit between the two: a printed
+parts are. A NUX B-6 or B-6 Pro expects a saxophone bell. If you play a
+flute or a whistle, bamboo or metal, there is nothing on the instrument
+for it to hold. These clamps sit between the two: a printed
 split ring that carries the standard B-6 clip, and a soft TPU liner sized
 to your tube.
 
@@ -201,16 +201,16 @@ Most of Nazm's flutes are handmade bamboo, which have no model number and no
 two alike. The shop-bought ones do, so if you play one of these, these
 clamps have been fitted to that exact instrument:
 
-- **Tony Dixon DX207**, key of A — aluminium
-- **Tony Dixon DX207**, key of G — aluminium
-- **Tony Dixon TB014** tenor flute — polymer
-- **Tony Dixon DX001** soprano whistle — polymer
-- **Generation** whistle, key of Eb — brass
-- **Clarke** whistle, key of C — tin
+- **Tony Dixon DX207**, key of A, aluminium
+- **Tony Dixon DX207**, key of G, aluminium
+- **Tony Dixon TB014** tenor flute, polymer
+- **Tony Dixon DX001** soprano whistle, polymer
+- **Generation** whistle, key of Eb, brass
+- **Clarke** whistle, key of C, tin
 
 Measure yours anyway before you print. We recorded the clamp and spacer
 pairing per flute on the photographs, not per model, so I cannot tell you
-which pair a DX207 takes without going back to the pictures — and Tony
+which pair a DX207 takes without going back to the pictures, and Tony
 Dixon have changed tube stock between production runs before. Callipers
 across the point where you want the mic, then pick from the table above.
 

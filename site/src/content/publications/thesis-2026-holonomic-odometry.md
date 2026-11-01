@@ -2,7 +2,7 @@
 title: "Comparative Analysis of Sensor Fusion Techniques for Odometry Estimation in a Four-Wheeled Holonomic Drive Robot Using Wheel Encoders and IMU"
 authors:
   - "Samiul Hoque"
-venue: "Undergraduate Thesis, Department of Computer Science & Engineering, Independent University, Bangladesh — supervised by Dr. Md. Tarek Habib"
+venue: "Undergraduate thesis supervised by Dr. Md. Tarek Habib, Department of Computer Science & Engineering, Independent University, Bangladesh"
 venueShort: "BSc Thesis, IUB"
 location: "Dhaka, Bangladesh"
 year: 2026
