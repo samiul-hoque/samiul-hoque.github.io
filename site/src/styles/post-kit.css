@@ -1,0 +1,620 @@
+/* ------------------------------------------------------------------ *
+ * Post kit: interactive figures for long-form posts.
+ *
+ * Ported from the Leveor BLE post's primitives (scroll reveals, staggered
+ * entry, odometer numbers, pull quotes, a page-wide pause toggle), restyled
+ * to this site's locked theme: sans throughout, weight 600, compact spacing,
+ * 2px corners, mono uppercase labels. Pure CSS, no JS.
+ *
+ * Everything is scoped under .pk so it never touches the site's own styles.
+ * Colours are --pk-* tokens below and nowhere else; SVG markup carries no
+ * colours, only classes. The site is light-only, so there is no dark block.
+ *
+ * Motion: animations always play (the same choice as the Leveor post).
+ * Looping figures must sit on a page with a <Figure pausable> toggle, which
+ * pauses every loop on the page (WCAG 2.2.2). data-motion="off" on a .pk
+ * wrapper switches one figure off entirely.
+ *
+ * Components that use this live in src/components/post/.
+ * ------------------------------------------------------------------ */
+
+/* ============================== TOKENS ============================== */
+.pk {
+  /* PROVISIONAL: the site has no colour beyond slate ink, so infographics
+     get one highlight plus three signal colours. To be settled on the
+     specimen page (/sandbox/kit/). */
+  --pk-ink: var(--ink);
+  --pk-accent: var(--accent);
+  --pk-highlight: #2563eb;
+  --pk-good: #15803d;
+  --pk-bad: #be123c;
+  --pk-warn: #b45309;
+  --pk-on-fill: #ffffff;
+
+  --pk-muted: var(--ink-mute);
+  --pk-soft: var(--ink-soft);
+  --pk-card: var(--bg-elev);
+  --pk-border: var(--rule);
+  --pk-line: color-mix(in srgb, var(--ink) 26%, transparent);
+  --pk-highlight-soft: color-mix(in srgb, var(--pk-highlight) 12%, transparent);
+
+  --pk-mono: var(--mono);
+  --pk-radius: 2px;
+
+  /* Categorical series, in this fixed order (validated light-mode set:
+     lightness band, chroma floor, CVD and normal-vision separation). */
+  --pk-s1: #2563eb;
+  --pk-s2: #c2410c;
+  --pk-s3: #7c3aed;
+}
+
+/* =============================== BASE =============================== */
+.pk { margin: 1.5rem 0; font-size: 0.9375rem; line-height: 1.5; }
+.pk *, .pk *::before, .pk *::after { box-sizing: border-box; }
+.pk p { margin: 0; }
+.pk ul, .pk ol { list-style: none; margin: 0; padding: 0; }
+.pk li { margin: 0; padding: 0; }
+
+.pk-card {
+  background: var(--pk-card);
+  border: 1px solid var(--pk-border);
+  border-radius: var(--pk-radius);
+  padding: 1.25rem;
+}
+.pk-kicker {
+  display: block;
+  font-family: var(--pk-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pk-muted);
+}
+.pk-caption {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--pk-mono);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--pk-muted);
+  text-align: center;
+}
+.pk-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* SVG figures: shapes take colour from classes, text from currentColor.
+   Give every <svg> a width attribute equal to its viewBox width: it then
+   draws at 1:1 (labels match body text) and only shrinks on narrow screens. */
+.pk-svg { display: block; max-width: 100%; height: auto; margin: 0 auto; overflow: visible; }
+.pk-svg text { fill: currentColor; font-family: var(--sans); }
+.pk-svg .pk-t { font-size: 13px; font-weight: 600; }
+.pk-svg .pk-ts { font-size: 11px; fill: var(--pk-muted); }
+.pk-svg .pk-tm { font-family: var(--pk-mono); font-size: 9px; letter-spacing: 0.12em; fill: var(--pk-muted); }
+.pk-svg .pk-line { fill: none; stroke: var(--pk-line); stroke-width: 1.5; }
+.pk-svg .pk-fill-hl { fill: var(--pk-highlight); }
+.pk-svg .pk-fill-soft { fill: var(--pk-highlight-soft); }
+
+/* ========================= REVEAL ON SCROLL ========================= */
+/* Scroll-driven where supported (Chrome, Edge, Safari); a one-off fade on
+   load elsewhere (Firefox). --pk-i staggers siblings. */
+@keyframes pk-rise { from { opacity: 0; transform: translateY(14px); } }
+.pk-reveal {
+  animation: pk-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--pk-i, 0) * 90ms);
+}
+@supports (animation-timeline: view()) {
+  .pk-reveal {
+    animation-timeline: view();
+    animation-duration: auto;
+    animation-delay: 0s;
+    animation-range: entry calc(var(--pk-i, 0) * 6%) entry calc(70% + var(--pk-i, 0) * 6%);
+  }
+}
+
+/* ============================ PULL QUOTE ============================ */
+.pk-quote {
+  margin: 0;
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 3px solid var(--pk-accent);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: var(--pk-ink);
+}
+
+/* ====================== STAT STRIP (odometer) ====================== */
+/* Each digit is a window (.pk-roll) over a strip of 0-9 three times that
+   slides up and lands in the third run (--pk-to = 20 + digit). Columns
+   settle left to right (--pk-k). Armed by scroll: --pk-play flips from
+   paused to running as the strip enters view. */
+.pk-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.25rem;
+}
+.pk-stat { padding: 1rem 0.75rem; }
+.pk-stat-big {
+  display: block;
+  font-size: 1.625rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--pk-ink);
+  font-variant-numeric: tabular-nums;
+}
+.pk-stat-label {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--pk-muted);
+}
+@property --pk-play { syntax: "paused | running"; initial-value: running; inherits: true; }
+@keyframes pk-arm { from { --pk-play: paused; } to { --pk-play: running; } }
+@supports (animation-timeline: view()) {
+  .pk-stats { animation: pk-arm linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+}
+.pk-roll {
+  display: inline-block;
+  height: 1.1em;
+  overflow: hidden;
+  vertical-align: top;
+  -webkit-mask-image: linear-gradient(transparent, black 14%, black 86%, transparent);
+  mask-image: linear-gradient(transparent, black 14%, black 86%, transparent);
+}
+.pk-roll-strip {
+  display: block;
+  width: 1ch;
+  line-height: 1.1em;
+  word-break: break-all;
+  text-align: center;
+  transform: translateY(calc(var(--pk-to, 20) * -1.1em));
+  animation: pk-roll 1.3s cubic-bezier(0.12, 0.8, 0.22, 1.04) both;
+  animation-duration: calc(1.3s + var(--pk-k, 0) * 0.28s);
+  animation-play-state: var(--pk-play, running);
+}
+.pk-roll-strip::before { content: "012345678901234567890123456789"; }
+@keyframes pk-roll {
+  from { transform: translateY(0); filter: blur(0); }
+  20% { filter: blur(1.2px); }
+  75% { filter: blur(0); }
+}
+
+/* =========================== LOOPS (SVG) =========================== */
+/* .pk-flow: a dashed line that marches along its path, for "data moves
+   from here to there". .pk-pulse: a ring that swells and fades, for "this
+   is live". Both loop, so the page needs a pausable Figure. */
+@keyframes pk-march { to { stroke-dashoffset: -24; } }
+.pk-svg .pk-flow {
+  fill: none;
+  stroke: var(--pk-highlight);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  animation: pk-march 1s linear infinite;
+}
+@keyframes pk-pulse {
+  from { transform: scale(1); opacity: 0.6; }
+  to { transform: scale(2.2); opacity: 0; }
+}
+.pk-svg .pk-pulse {
+  fill: none;
+  stroke: var(--pk-highlight);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pk-pulse 1.8s ease-out infinite;
+}
+
+/* ========================= FIGURE + PAUSE ========================= */
+.pk-figure { position: relative; }
+.pk-figbar { display: flex; justify-content: flex-end; margin-bottom: 0.4rem; }
+.pk-motion {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--pk-border);
+  border-radius: var(--pk-radius);
+  background: var(--bg);
+  color: var(--pk-muted);
+  font-family: var(--pk-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  cursor: pointer;
+  user-select: none;
+}
+.pk-motion:hover { color: var(--pk-ink); border-color: var(--pk-ink); }
+.pk-motion input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; }
+.pk-motion:has(input:focus-visible) { outline: 2px solid var(--pk-accent); outline-offset: 2px; }
+.pk-motion-play { display: none; }
+.pk-motion:has(input:checked) .pk-motion-pause { display: none; }
+.pk-motion:has(input:checked) .pk-motion-play { display: inline; }
+
+/* One toggle pauses every loop on the page. One-shot entrances (reveals,
+   the odometer) are left alone so the page never sticks half-drawn. */
+body:has(.pk-motion input:checked) .pk *:not(.pk-reveal):not(.pk-stats):not(.pk-roll-strip):not(.pk-tl-bar),
+body:has(.pk-motion input:checked) .pk *::before,
+body:has(.pk-motion input:checked) .pk *::after {
+  animation-play-state: paused !important;
+}
+
+/* Per-figure off switch: everything lands in its final state. */
+.pk[data-motion="off"] *,
+.pk[data-motion="off"] *::before,
+.pk[data-motion="off"] *::after,
+.pk[data-motion="off"].pk-reveal {
+  animation: none !important;
+}
+.pk[data-motion="off"] .pk-motion { display: none; }
+
+/* ============================ CALLOUTS ============================ */
+.pk-callout {
+  border: 1px solid var(--pk-border);
+  border-left: 3px solid var(--pk-accent);
+  border-radius: var(--pk-radius);
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+}
+.pk-callout[data-kind="you"] { border-left-color: var(--pk-s1); }
+.pk-callout[data-kind="partner"] { border-left-color: var(--pk-s2); }
+.pk-callout .pk-kicker { margin-bottom: 0.35rem; }
+.pk-callout p, .pk-callout li { font-size: 0.9375rem; line-height: 1.6; }
+.pk-callout p + p { margin-top: 0.5rem; }
+.pk-callout ul { list-style: disc; padding-left: 1.1rem; }
+.pk-callout li + li { margin-top: 0.25rem; }
+
+/* ========================== IDEA NAVIGATOR ========================== */
+.pk-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+}
+.pk-nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--pk-ink);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.pk-nav-card:hover { border-color: var(--pk-ink); transform: translateY(-2px); }
+.pk-nav-num {
+  font-family: var(--pk-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--pk-muted);
+}
+.pk-nav-title { font-size: 1rem; font-weight: 600; line-height: 1.3; }
+.pk-nav-line { font-size: 0.875rem; line-height: 1.5; color: var(--pk-soft); }
+.pk-nav-facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.75rem;
+  margin: 0.25rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--pk-border);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+.pk-nav-facts dt {
+  font-family: var(--pk-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pk-muted);
+  padding-top: 0.1rem;
+}
+.pk-nav-facts dd { margin: 0; }
+.pk-nav-go {
+  margin-top: auto;
+  font-family: var(--pk-mono);
+  font-size: 0.75rem;
+  color: var(--pk-muted);
+}
+.pk-nav-card:hover .pk-nav-go { color: var(--pk-ink); }
+
+/* ============================= TIMELINE ============================= */
+/* Gantt rows over a fixed number of weeks. Bars grow from their start as
+   the chart scrolls in. --s / --e are start and end weeks (0-based, end
+   exclusive), --n the total. */
+.pk-tl { display: grid; gap: 0.4rem; }
+.pk-tl-axis, .pk-tl-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 13rem) 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+.pk-tl-axis .pk-tl-track { height: auto; background: none; display: flex; justify-content: space-between; }
+.pk-tl-axis span { font-family: var(--pk-mono); font-size: 0.6875rem; color: var(--pk-muted); }
+.pk-tl-label { font-size: 0.8125rem; line-height: 1.3; }
+.pk-tl-label small { display: block; color: var(--pk-muted); font-size: 0.75rem; }
+.pk-tl-track {
+  position: relative;
+  height: 1.1rem;
+  background: var(--pk-card);
+  border-radius: var(--pk-radius);
+}
+.pk-tl-bar {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(var(--s) / var(--n) * 100%);
+  width: calc((var(--e) - var(--s)) / var(--n) * 100%);
+  background: var(--pk-s1);
+  border-radius: var(--pk-radius);
+  transform-origin: left center;
+}
+.pk-tl-row[data-owner="a"] .pk-tl-bar { background: var(--pk-s1); }
+.pk-tl-row[data-owner="b"] .pk-tl-bar { background: var(--pk-s2); }
+.pk-tl-row[data-owner="both"] .pk-tl-bar { background: var(--pk-s3); }
+.pk-tl-key { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin-top: 0.5rem; font-size: 0.8125rem; color: var(--pk-soft); }
+.pk-tl-key span::before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem; height: 0.7rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.05rem;
+  border-radius: var(--pk-radius);
+  background: var(--k);
+}
+@keyframes pk-grow { from { transform: scaleX(0); } }
+.pk-tl-bar { animation: pk-grow 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+@supports (animation-timeline: view()) {
+  .pk-tl-bar {
+    animation-timeline: view();
+    animation-duration: auto;
+    animation-delay: 0s;
+    animation-range: entry 10% entry 90%;
+  }
+}
+
+/* ========================== FLOW (HTML) ========================== */
+/* Nodes in a row joined by wires whose dashes travel in the direction of
+   flow. Stacks vertically on narrow screens. Responsive, unlike an SVG,
+   so labels stay at body size on phones. */
+.pk-flow-row {
+  display: flex;
+  align-items: stretch;
+}
+.pk-node { position: relative; z-index: 1; flex: 1 1 0; min-width: 0; }
+.pk-node-t { display: block; font-weight: 600; font-size: 0.9375rem; line-height: 1.3; }
+.pk-node-s { display: block; margin-top: 0.3rem; font-size: 0.8125rem; line-height: 1.45; color: var(--pk-soft); }
+.pk-node[data-tone="hl"] { border-color: var(--pk-s1); background: var(--pk-highlight-soft); }
+.pk-wire {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0 0.4rem;
+  flex: 0 0 7.5rem;
+}
+.pk-wire-line {
+  display: block;
+  position: relative;
+  height: 2px;
+  background-image: repeating-linear-gradient(90deg, var(--pk-s1) 0 6px, transparent 6px 12px);
+  background-size: 24px 2px;
+  animation: pk-slide 0.9s linear infinite;
+}
+.pk-wire-line::after {
+  content: "";
+  position: absolute;
+  right: -1px; top: -4px;
+  border: 5px solid transparent;
+  border-left: 7px solid var(--pk-s1);
+  border-right: 0;
+}
+.pk-wire-line.pk-rev { animation-direction: reverse; background-image: repeating-linear-gradient(90deg, var(--pk-s2) 0 6px, transparent 6px 12px); }
+.pk-wire-line.pk-rev::after { right: auto; left: -1px; border-left: 0; border-right: 7px solid var(--pk-s2); }
+.pk-wire-t {
+  font-family: var(--pk-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: var(--pk-muted);
+  text-align: center;
+}
+@keyframes pk-slide { to { background-position: 24px 0; } }
+@media (max-width: 760px) {
+  .pk-flow-row { flex-direction: column; }
+  .pk-node { flex: none; }
+  .pk-wire { flex: none; flex-direction: row; justify-content: center; align-items: center; padding: 0.5rem 0; gap: 0.75rem; }
+  .pk-wire-line { width: 2px; height: 2.25rem; background-image: repeating-linear-gradient(180deg, var(--pk-s1) 0 6px, transparent 6px 12px); background-size: 2px 24px; animation-name: pk-slide-v; }
+  .pk-wire-line.pk-rev { background-image: repeating-linear-gradient(180deg, var(--pk-s2) 0 6px, transparent 6px 12px); }
+  .pk-wire-line::after { right: -4px; top: auto; bottom: -1px; border: 5px solid transparent; border-top: 7px solid var(--pk-s1); border-bottom: 0; }
+  .pk-wire-line.pk-rev::after { left: -4px; right: auto; top: -1px; bottom: auto; border: 5px solid transparent; border-bottom: 7px solid var(--pk-s2); border-top: 0; }
+  .pk-wire-t { text-align: left; }
+}
+@keyframes pk-slide-v { to { background-position: 0 24px; } }
+
+/* ============================== FLEET ============================== */
+/* A grid of device dots. Each dot runs one shared keyframe, offset by
+   --d (its wave), so a rollout or a wake-up pattern sweeps the fleet. */
+.pk-fleet {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 12), 0.85rem);
+  gap: 0.55rem;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+.pk-fleet i {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--pk-line);
+  animation: var(--pk-fleet-anim, pk-adopt) 9s linear infinite;
+  animation-delay: calc(var(--d, 0) * 1s);
+}
+@keyframes pk-adopt {
+  0%, 8% { background: var(--pk-line); }
+  12%, 88% { background: var(--pk-s1); }
+  94%, 100% { background: var(--pk-line); }
+}
+.pk-fleet i.pk-bad { animation-name: pk-reject; }
+@keyframes pk-reject {
+  0%, 8% { background: var(--pk-line); }
+  12%, 30% { background: var(--pk-s2); transform: scale(1.25); }
+  36%, 100% { background: var(--pk-line); transform: scale(1); }
+}
+.pk-fleet[data-mode="wake"] i { animation-name: pk-wake; animation-duration: 6s; }
+@keyframes pk-wake {
+  0%, 70%, 100% { background: var(--pk-line); transform: scale(1); }
+  76%, 90% { background: var(--pk-s1); transform: scale(1.2); }
+}
+.pk-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.25rem; margin-top: 0.75rem; font-size: 0.8125rem; color: var(--pk-soft); }
+.pk-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem; height: 0.7rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.05rem;
+  border-radius: 50%;
+  background: var(--k);
+}
+
+/* ============================ SPECTRUM ============================ */
+/* Frequency bars. .pk-peak bars swell on a loop: a fault showing up as
+   energy at a frequency the healthy machine doesn't have. */
+.pk-spec {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 9rem;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--pk-line);
+}
+.pk-spec i {
+  flex: 1;
+  height: calc(var(--h) * 1%);
+  background: var(--pk-line);
+  border-radius: var(--pk-radius) var(--pk-radius) 0 0;
+}
+.pk-spec i.pk-peak {
+  background: var(--pk-s2);
+  transform-origin: bottom;
+  animation: pk-swell 5s ease-in-out infinite;
+}
+@keyframes pk-swell {
+  0%, 25% { transform: scaleY(0.15); }
+  55%, 85% { transform: scaleY(1); }
+  100% { transform: scaleY(0.15); }
+}
+.pk-spec-axis { display: flex; justify-content: space-between; margin-top: 0.3rem; font-family: var(--pk-mono); font-size: 0.6875rem; color: var(--pk-muted); }
+
+/* ============================ SORT SCENE ============================ */
+/* Blocks lifted one at a time and set down in the bin of their colour.
+   Positions are percentages of the stage, passed in as custom
+   properties, so the scene scales without an SVG. */
+.pk-stage {
+  position: relative;
+  aspect-ratio: 16 / 6;
+  border: 1px solid var(--pk-border);
+  border-radius: var(--pk-radius);
+  background: var(--pk-card);
+  overflow: hidden;
+}
+.pk-bin {
+  position: absolute;
+  bottom: 8%;
+  width: 14%;
+  height: 36%;
+  border: 2px solid var(--k);
+  border-top: 0;
+  border-radius: 0 0 var(--pk-radius) var(--pk-radius);
+  background: color-mix(in srgb, var(--k) 8%, transparent);
+}
+.pk-bin span {
+  position: absolute;
+  left: 0; right: 0; top: 0.3rem;
+  text-align: center;
+  font-family: var(--pk-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pk-muted);
+}
+.pk-block {
+  position: absolute;
+  width: 6%;
+  aspect-ratio: 1;
+  border-radius: var(--pk-radius);
+  background: var(--k);
+  left: var(--x0);
+  top: var(--y0);
+  animation: pk-pick 12s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+  animation-delay: calc(var(--i) * 1.6s);
+}
+@keyframes pk-pick {
+  0% { left: var(--x0); top: var(--y0); transform: scale(1); box-shadow: none; }
+  4% { left: var(--x0); top: var(--y0); transform: scale(1.18); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--pk-ink); }
+  11% { left: var(--x1); top: var(--y1); transform: scale(1.18); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--pk-ink); }
+  13%, 86% { left: var(--x1); top: var(--y1); transform: scale(1); box-shadow: none; }
+  92%, 100% { left: var(--x0); top: var(--y0); transform: scale(1); box-shadow: none; opacity: 1; }
+}
+.pk-prompt {
+  position: absolute;
+  left: 3%; top: 6%;
+  max-width: 55%;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--pk-border);
+  border-radius: var(--pk-radius);
+  background: var(--bg);
+  font-family: var(--pk-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* ============================== CHART ============================== */
+.pk-chart { position: relative; }
+.pk-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pk-chart .pk-grid { stroke: var(--pk-border); stroke-width: 1; }
+.pk-chart .pk-axis-t { font-family: var(--pk-mono); font-size: 11px; fill: var(--pk-muted); }
+.pk-chart .pk-ser { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pk-chart .pk-end { stroke: var(--bg); stroke-width: 2; }
+.pk-chart .pk-lab { font-family: var(--sans); font-size: 12px; fill: var(--pk-ink); }
+.pk-chart .pk-lab-s { font-family: var(--sans); font-size: 11px; fill: var(--pk-muted); }
+.pk-chart .pk-ref { stroke: var(--pk-line); stroke-width: 1; }
+.pk-chart .pk-cross { stroke: var(--pk-ink); stroke-width: 1; opacity: 0; }
+.pk-chart .pk-hit { fill: transparent; cursor: crosshair; }
+.pk-chart .pk-hit:focus { outline: none; }
+.pk-chart:focus-within .pk-plot-focus { outline: 2px solid var(--pk-accent); }
+.pk-tip {
+  position: absolute;
+  pointer-events: none;
+  min-width: 11rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--pk-border);
+  border-radius: var(--pk-radius);
+  background: var(--bg);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+.pk-tip .pk-tip-h { font-family: var(--pk-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pk-muted); margin-bottom: 0.25rem; }
+.pk-tip .pk-tip-r { display: flex; align-items: center; gap: 0.5rem; }
+.pk-tip .pk-tip-r::before { content: ""; width: 0.9rem; height: 2px; background: var(--k); flex: none; }
+.pk-tip .pk-tip-r b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.pk-tip .pk-tip-r span { color: var(--pk-muted); }
+.pk-chart-key { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin: 0 0 0.6rem; font-size: 0.8125rem; color: var(--pk-soft); }
+.pk-chart-key small { color: var(--pk-muted); font-size: 0.75rem; }
+.pk-chart-key span::before { content: ""; display: inline-block; width: 1rem; height: 2px; margin-right: 0.45rem; vertical-align: 0.25rem; background: var(--k); }
+.pk-table-toggle { margin-top: 0.75rem; font-size: 0.8125rem; }
+.pk-table-toggle summary { cursor: pointer; font-family: var(--pk-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pk-muted); }
+.pk-table-toggle table { margin-top: 0.5rem; }
+
+@media (max-width: 600px) {
+  .pk-card { padding: 1rem; }
+  .pk-tl-axis, .pk-tl-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .pk-tl-axis .pk-tl-label { display: none; }
+  .pk-tl-row { margin-bottom: 0.35rem; }
+  .pk-prompt { font-size: 0.625rem; max-width: 70%; }
+}

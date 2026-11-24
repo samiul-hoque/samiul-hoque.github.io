@@ -1,0 +1,196 @@
+---
+/**
+ * Sandbox for long-form posts (src/content/posts/).
+ *
+ * Under `npm run dev`: /sandbox/ lists every post, and each one renders at
+ * /sandbox/<slug>/, drafts included. A production build emits only posts
+ * with `draft: false`, and never the index, so drafts can't go live by
+ * accident. Everything here is noindex and kept out of the sitemap.
+ *
+ * public/sandbox/7ce9976f504d/ (the encrypted Leveor preview) is separate
+ * and unaffected.
+ *
+ * SANDBOX_PRIVATE=1 builds drafts too, without the sandbox chrome, for
+ * scripts/pack-private.mjs to encrypt into a private link. Never deploy
+ * that build.
+ */
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import '../../styles/post-kit.css';
+
+export async function getStaticPaths() {
+  const dev = import.meta.env.DEV;
+  const privateBuild = process.env.SANDBOX_PRIVATE === '1';
+  const posts = (await getCollection('posts', ({ data }) => dev || privateBuild || !data.draft)).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+  const paths = posts.map((post) => ({ params: { slug: post.id }, props: { post, posts: [] } }));
+  if (dev) paths.push({ params: { slug: undefined }, props: { post: null, posts } } as never);
+  return paths;
+}
+
+const { post, posts } = Astro.props;
+const privateBuild = process.env.SANDBOX_PRIVATE === '1';
+const rendered = post ? await render(post) : null;
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+---
+
+{post && rendered ? (
+  <Base title={post.data.title} description={post.data.description} noindex>
+    <article class="container post">
+      <header>
+        {!privateBuild && <a href="/sandbox/" class="back">← Sandbox</a>}
+        {post.data.draft && !privateBuild && <p class="draft">Draft · visible in dev only</p>}
+        <span class="eyebrow">{post.data.kind} · {fmt(post.data.date)}</span>
+        <h1>{post.data.title}</h1>
+        <p class="one-liner">{post.data.description}</p>
+        {post.data.tags.length > 0 && (
+          <p class="tags">{post.data.tags.map((tag) => <span class="tag">{tag}</span>)}</p>
+        )}
+      </header>
+      <div class="body-with-toc">
+        <div class="body">
+          <rendered.Content />
+        </div>
+        <aside class="toc-sidebar">
+          <TableOfContents headings={rendered.headings} />
+        </aside>
+      </div>
+    </article>
+  </Base>
+) : (
+  <Base title="Sandbox" noindex>
+    <section class="container post">
+      <span class="eyebrow">Dev only</span>
+      <h1>Sandbox</h1>
+      <ul class="index">
+        {posts.map((p) => (
+          <li>
+            <a href={`/sandbox/${p.id}/`}>{p.data.title}</a>
+            <span class="meta">{p.data.kind} · {p.data.draft ? 'draft' : 'live'}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </Base>
+)}
+
+<style>
+  /* Header and body mirror the project pages so posts sit in the same
+     system; only the figure kit (post-kit.css) is new. */
+  .post {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .back {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    text-decoration: none;
+    color: var(--ink-mute);
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .back:hover { color: var(--accent); }
+  .draft {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border: 1px dashed var(--rule);
+    display: block;
+    width: fit-content;
+    padding: 0.15rem 0.5rem;
+    margin: 0 0 0.75rem;
+  }
+  .one-liner {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 0.25rem 0 1rem;
+    line-height: 1.5;
+  }
+  .tags {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+  }
+  .body-with-toc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 14rem;
+    gap: 3rem;
+  }
+  .body { min-width: 0; }
+  .toc-sidebar { align-self: stretch; }
+  .body :global(p),
+  .body :global(ul),
+  .body :global(ol) {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+  .body :global(ul),
+  .body :global(ol) {
+    padding-left: 1.25rem;
+  }
+  .body :global(li) { margin-bottom: 0.25rem; }
+  .body :global(h2) {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+  }
+  .body :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .body :global(table) {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 1rem 0 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+  .body :global(th),
+  .body :global(td) {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.45rem 0.9rem 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .body :global(th) {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom-color: var(--ink-mute);
+  }
+  .body :global(td:first-child) { font-weight: 600; }
+  .body :global(div[id]) { scroll-margin-top: 4.5rem; }
+  .body :global(.back-to-ideas) {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    text-decoration: none;
+    color: var(--ink-mute);
+  }
+  .body :global(.back-to-ideas:hover) { color: var(--ink); }
+  .index {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .index li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 960px) {
+    .body-with-toc { grid-template-columns: minmax(0, 1fr); }
+    .toc-sidebar { display: none; }
+  }
+</style>

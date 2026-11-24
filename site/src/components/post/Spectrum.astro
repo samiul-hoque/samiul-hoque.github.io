@@ -1,0 +1,20 @@
+---
+/**
+ * Frequency bars with optional fault peaks that swell on a loop.
+ * `bars` are heights in percent; `peaks` are indices of fault bars.
+ */
+interface Props {
+  bars: number[];
+  peaks?: number[];
+  axis?: string[];
+  label: string;
+}
+const { bars, peaks = [], axis = [], label } = Astro.props;
+---
+
+<div role="img" aria-label={label}>
+  <div class="pk-spec" aria-hidden="true">
+    {bars.map((h, i) => <i class={peaks.includes(i) ? 'pk-peak' : undefined} style={`--h: ${h}`} />)}
+  </div>
+  {axis.length > 0 && <div class="pk-spec-axis" aria-hidden="true">{axis.map((a) => <span>{a}</span>)}</div>}
+</div>

@@ -1,0 +1,52 @@
+---
+/**
+ * A Gantt-style plan. Weeks are 0-based; `e` is exclusive. `owner` colours
+ * the bar (a, b or both), and `owners` names them in the key, e.g.
+ * owners={{ a: 'You lead', b: 'I lead', both: 'Together' }}.
+ */
+interface Props {
+  weeks: number;
+  rows: { label: string; sub?: string; s: number; e: number; owner: 'a' | 'b' | 'both' }[];
+  owners: { a: string; b: string; both?: string };
+  caption?: string;
+}
+const { weeks, rows, owners: names, caption } = Astro.props;
+// Label in months: a 26-week plan reads as six months.
+const months = Math.round(weeks / (52 / 12));
+const ticks = Array.from({ length: months + 1 }, (_, m) => m);
+const owners = new Set(rows.map((r) => r.owner));
+const keys = [
+  { id: 'a', label: names.a, color: 'var(--pk-s1)' },
+  { id: 'b', label: names.b, color: 'var(--pk-s2)' },
+  { id: 'both', label: names.both ?? 'Together', color: 'var(--pk-s3)' },
+].filter((k) => owners.has(k.id as 'a'));
+---
+
+<figure class="pk pk-figure">
+  <div class="pk-card">
+    <div class="pk-tl" style={`--n: ${weeks}`}>
+      <div class="pk-tl-axis" aria-hidden="true">
+        <span class="pk-tl-label"></span>
+        <div class="pk-tl-track">{ticks.map((m) => <span>{m === 0 ? 'Start' : m === months ? `${m} months` : `${m}`}</span>)}</div>
+      </div>
+      {rows.map((r, i) => (
+        <div class="pk-tl-row" data-owner={r.owner}>
+          <span class="pk-tl-label">
+            {r.label}
+            {r.sub && <small>{r.sub}</small>}
+          </span>
+          <div class="pk-tl-track">
+            <span
+              class="pk-tl-bar"
+              style={`--s: ${r.s}; --e: ${r.e}; --i: ${i}`}
+              role="img"
+              aria-label={`${r.label}: weeks ${r.s + 1} to ${r.e}`}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="pk-tl-key">{keys.map((k) => <span style={`--k: ${k.color}`}>{k.label}</span>)}</div>
+  </div>
+  {caption && <figcaption class="pk-caption">{caption}</figcaption>}
+</figure>

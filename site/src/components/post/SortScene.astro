@@ -1,0 +1,49 @@
+---
+/**
+ * A pick-and-place loop: blocks are lifted one at a time and set down in
+ * the bin of their colour, under a language instruction. Layout is
+ * computed here, so a post only lists the bins and how many blocks each
+ * gets. Colours follow the kit's categorical order.
+ */
+interface Props {
+  prompt: string;
+  bins: { label: string; blocks: number }[];
+  label: string;
+}
+const { prompt, bins, label } = Astro.props;
+const colors = ['var(--pk-s1)', 'var(--pk-s2)', 'var(--pk-s3)'];
+
+// Bins sit along the bottom right; blocks start scattered on the left of
+// the table and land in a row inside their bin.
+const binX = bins.map((_, i) => 48 + i * 17);
+const starts = [
+  [6, 40], [16, 62], [27, 44], [9, 74], [21, 30], [33, 66], [14, 52], [29, 80], [4, 58],
+];
+let n = 0;
+const blocks = bins.flatMap((b, bi) =>
+  Array.from({ length: b.blocks }, (_, k) => {
+    const [x0, y0] = starts[n % starts.length];
+    const block = {
+      k: colors[bi],
+      x0, y0,
+      x1: binX[bi] + 1 + k * 6.5,
+      y1: 70,
+      i: n,
+    };
+    n++;
+    return block;
+  })
+);
+// Interleave pick order so colours alternate, like a real cluttered table.
+const order = blocks.map((b, i) => ({ ...b, i: (i * 5) % blocks.length }));
+---
+
+<div class="pk-stage" role="img" aria-label={label}>
+  <span class="pk-prompt">“{prompt}”</span>
+  {bins.map((b, i) => (
+    <span class="pk-bin" style={`left: ${binX[i]}%; --k: ${colors[i]}`}><span>{b.label}</span></span>
+  ))}
+  {order.map((b) => (
+    <span class="pk-block" style={`--k: ${b.k}; --x0: ${b.x0}%; --y0: ${b.y0}%; --x1: ${b.x1}%; --y1: ${b.y1}%; --i: ${b.i}`} />
+  ))}
+</div>

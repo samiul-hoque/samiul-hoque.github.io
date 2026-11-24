@@ -1,0 +1,39 @@
+---
+/**
+ * Overview cards for a long post: one per section, each a jump link with a
+ * few comparable facts. Built for any number of cards.
+ */
+interface Props {
+  items: {
+    num: string;
+    title: string;
+    line: string;
+    href: string;
+    facts?: [string, string][];
+  }[];
+}
+const { items } = Astro.props;
+---
+
+<nav class="pk" aria-label="Ideas on this page">
+  <div class="pk-nav">
+    {items.map((item, i) => (
+      <a class="pk-card pk-nav-card pk-reveal" href={item.href} style={`--pk-i: ${i}`}>
+        <span class="pk-nav-num">{item.num}</span>
+        <span class="pk-nav-title">{item.title}</span>
+        <span class="pk-nav-line">{item.line}</span>
+        {item.facts && (
+          <dl class="pk-nav-facts">
+            {item.facts.map(([k, v]) => (
+              <>
+                <dt>{k}</dt>
+                <dd>{v}</dd>
+              </>
+            ))}
+          </dl>
+        )}
+        <span class="pk-nav-go">Read the plan ↓</span>
+      </a>
+    ))}
+  </div>
+</nav>

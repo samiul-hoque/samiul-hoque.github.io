@@ -1,0 +1,87 @@
+---
+title: 'Post kit specimen'
+description: 'Every interactive building block on one page, for settling how posts look before writing them. All numbers here are samples.'
+kind: specimen
+date: 2026-11-24
+tags: ['sandbox']
+draft: true
+---
+
+import Figure from '../../components/post/Figure.astro';
+import PullQuote from '../../components/post/PullQuote.astro';
+import Reveal from '../../components/post/Reveal.astro';
+import Stats from '../../components/post/Stats.astro';
+
+This page shows each piece of the post kit in this site's theme. Body text, headings and the sidebar are the same as on the project pages. Only the figures are new.
+
+## Stat strip
+
+Digits roll in like an odometer as the strip scrolls into view. Commas, units and symbols stay still.
+
+<Stats items={[
+  { value: '40,000+', label: 'sample: a large count' },
+  { value: '3 yrs', label: 'sample: a duration' },
+  { value: '68%', label: 'sample: a percentage' },
+  { value: '12', label: 'sample: a small count' },
+]} />
+
+## Pull quote
+
+<PullQuote>A pull quote carries the one line a skimming reader should leave with.</PullQuote>
+
+Regular Markdown blockquotes keep the site's existing style:
+
+> A plain blockquote, for quoting a source rather than making a point.
+
+## Staggered reveal
+
+Cards rise in one after another. Give each one the next index.
+
+<div class="pk">
+  <div class="pk-stats">
+    <Reveal i={0} class="pk-card"><span class="pk-kicker">Step 1</span>Question</Reveal>
+    <Reveal i={1} class="pk-card"><span class="pk-kicker">Step 2</span>Method</Reveal>
+    <Reveal i={2} class="pk-card"><span class="pk-kicker">Step 3</span>Evidence</Reveal>
+    <Reveal i={3} class="pk-card"><span class="pk-kicker">Step 4</span>Contribution</Reveal>
+  </div>
+</div>
+
+## Looping diagram
+
+An inline SVG with a marching flow line and a pulsing live node. Because it loops, the figure carries the pause toggle, which stops every loop on the page.
+
+<Figure pausable caption="Sample: data moving from a source to a model to a result." label="Three boxes, source, model and result, joined by moving dashed lines.">
+  <svg class="pk-svg" viewBox="0 0 560 110" width="560" aria-hidden="true">
+    <rect class="pk-fill-soft" x="10" y="40" width="130" height="60" rx="2" />
+    <text class="pk-t" x="75" y="68" text-anchor="middle">Source</text>
+    <text class="pk-ts" x="75" y="86" text-anchor="middle">raw data</text>
+    <path class="pk-flow" d="M140 70 H215" />
+    <rect class="pk-fill-soft" x="215" y="40" width="130" height="60" rx="2" />
+    <text class="pk-t" x="280" y="68" text-anchor="middle">Model</text>
+    <text class="pk-ts" x="280" y="86" text-anchor="middle">the method</text>
+    <path class="pk-flow" d="M345 70 H420" />
+    <rect class="pk-fill-soft" x="420" y="40" width="130" height="60" rx="2" />
+    <text class="pk-t" x="485" y="68" text-anchor="middle">Result</text>
+    <text class="pk-ts" x="485" y="86" text-anchor="middle">what we learn</text>
+    <circle class="pk-fill-hl" cx="540" cy="50" r="4" />
+    <circle class="pk-pulse" cx="540" cy="50" r="4" />
+    <text class="pk-tm" x="10" y="28">SAMPLE PIPELINE</text>
+  </svg>
+</Figure>
+
+## Motion off
+
+The same figure with `motion="off"`: everything shows in its final state, with no toggle.
+
+<Figure motion="off" caption="Sample: the static version.">
+  <svg class="pk-svg" viewBox="0 0 560 110" width="560" aria-hidden="true">
+    <rect class="pk-fill-soft" x="10" y="40" width="130" height="60" rx="2" />
+    <text class="pk-t" x="75" y="74" text-anchor="middle">Source</text>
+    <path class="pk-flow" d="M140 70 H215" />
+    <rect class="pk-fill-soft" x="215" y="40" width="130" height="60" rx="2" />
+    <text class="pk-t" x="280" y="74" text-anchor="middle">Model</text>
+    <path class="pk-flow" d="M345 70 H420" />
+    <rect class="pk-fill-soft" x="420" y="40" width="130" height="60" rx="2" />
+    <text class="pk-t" x="485" y="74" text-anchor="middle">Result</text>
+  </svg>
+</Figure>

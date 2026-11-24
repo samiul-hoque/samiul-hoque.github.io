@@ -1,0 +1,40 @@
+---
+/**
+ * A strip of headline numbers. Digits roll in like an odometer when the
+ * strip scrolls into view; everything else (commas, units, "+") is static.
+ * Screen readers get the plain value.
+ *
+ *   <Stats items={[{ value: '40,000+', label: 'assets tracked' }]} />
+ */
+interface Props {
+  items: { value: string; label: string }[];
+}
+const { items } = Astro.props;
+
+// Split a value into digit and non-digit runs; number digits left to right
+// so the columns settle in order.
+function parts(value: string) {
+  let k = 0;
+  return [...value].map((ch) => (/\d/.test(ch) ? { digit: Number(ch), k: k++ } : { text: ch }));
+}
+---
+
+<div class="pk">
+  <div class="pk-stats">
+    {items.map((item, i) => (
+      <div class="pk-card pk-stat pk-reveal" style={`--pk-i: ${i}`}>
+        <span class="pk-sr">{item.value}</span>
+        <span class="pk-stat-big" aria-hidden="true">
+          {parts(item.value).map((p) =>
+            'digit' in p ? (
+              <span class="pk-roll"><span class="pk-roll-strip" style={`--pk-to: ${20 + p.digit}; --pk-k: ${p.k}`} /></span>
+            ) : (
+              p.text
+            )
+          )}
+        </span>
+        <span class="pk-stat-label">{item.label}</span>
+      </div>
+    ))}
+  </div>
+</div>

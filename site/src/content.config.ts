@@ -76,4 +76,19 @@ const fabacademy = defineCollection({
   }),
 });
 
-export const collections = { projects, publications, fabacademy };
+// Long-form posts with interactive figures (see src/components/post/).
+// Drafts render only under `npm run dev`, at /sandbox/<slug>/; a production
+// build skips them entirely, so nothing goes live until `draft` is false.
+const posts = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    kind: z.enum(['post', 'proposal', 'specimen']).default('post'),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(true),
+  }),
+});
+
+export const collections = { projects, publications, fabacademy, posts };

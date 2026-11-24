@@ -20,3 +20,9 @@ npm-debug.log*
 # Camera originals kept beside the web-ready copies by scripts/import-photos.mjs.
 # HEICs are large, unusable in browsers, and carry EXIF GPS. Never commit them.
 site/public/images/**/_originals/
+
+# Planning notes for posts (people profiles, raw ideas): keep local only
+research-notes/
+# Private drafts, shared only via encrypted sandbox links
+site/src/content/posts/thesis-proposal.mdx
+site/public/private/

@@ -1,0 +1,27 @@
+---
+/**
+ * Wrapper for an interactive figure. Scopes the post kit (.pk), adds an
+ * optional caption, and with `pausable` adds the toggle that pauses every
+ * looping animation on the page. Any page with a looping figure needs one.
+ */
+interface Props {
+  caption?: string;
+  pausable?: boolean;
+  motion?: 'on' | 'off';
+  label?: string;
+}
+const { caption, pausable = false, motion = 'on', label } = Astro.props;
+---
+
+<figure class="pk pk-figure" data-motion={motion === 'off' ? 'off' : undefined} aria-label={label}>
+  {pausable && (
+    <div class="pk-figbar">
+      <label class="pk-motion">
+        <input type="checkbox" aria-label="Pause animations" />
+        <span class="pk-motion-pause">Pause animations</span><span class="pk-motion-play">Play animations</span>
+      </label>
+    </div>
+  )}
+  <slot />
+  {caption && <figcaption class="pk-caption">{caption}</figcaption>}
+</figure>

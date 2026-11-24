@@ -1,0 +1,254 @@
+---
+/**
+ * Cumulative cost against hours of use for a few options: a fixed upfront
+ * cost plus a per-hour cost each. Straight lines, so the crossings are the
+ * break-even points.
+ *
+ * Lines are an SVG stretched to the plot (non-scaling strokes); every
+ * label, dot and the tooltip is HTML positioned in percent, so text stays
+ * at body size at any width. Hover or focus the plot and use the arrow
+ * keys for a readout at any hour; the table view lists the same numbers.
+ */
+interface Series {
+  name: string;
+  note: string;
+  fixed: number;
+  perHour: number;
+}
+interface Props {
+  series: Series[];
+  xMax: number;
+  xStep: number;
+  yMax: number;
+  yStep: number;
+  unit?: string;
+  refs?: { x: number; label: string }[];
+  label: string;
+  tableHours?: number[];
+}
+const { series, xMax, xStep, yMax, yStep, unit = '$', refs = [], label, tableHours = [] } = Astro.props;
+
+const colors = ['var(--pk-s1)', 'var(--pk-s2)', 'var(--pk-s3)'];
+const fmt = (v: number) => `${unit}${Math.round(v).toLocaleString('en-GB')}`;
+const cost = (s: Series, h: number) => s.fixed + s.perHour * h;
+const X = (h: number) => (h / xMax) * 100;
+const Y = (v: number) => 100 - (Math.min(v, yMax) / yMax) * 100;
+
+// Where a line leaves the top of the plot, end it there.
+const lines = series.map((s, i) => {
+  const hEnd = s.perHour > 0 ? Math.min(xMax, (yMax - s.fixed) / s.perHour) : xMax;
+  return { ...s, color: colors[i], hEnd, yEnd: cost(s, hEnd) };
+});
+// End labels: name only. When two ends sit close, push the upper label up
+// and the lower one down so they never overlap; the dots stay true.
+const ends = lines.map((l, i) => ({ i, y: Y(l.yEnd) })).sort((a, b) => a.y - b.y);
+const place: Record<number, 'up' | 'down' | 'mid'> = {};
+ends.forEach((e) => (place[e.i] = 'mid'));
+for (let k = 1; k < ends.length; k++) {
+  if (ends[k].y - ends[k - 1].y < 9) {
+    place[ends[k - 1].i] = 'up';
+    place[ends[k].i] = 'down';
+  }
+}
+const xTicks = Array.from({ length: Math.floor(xMax / xStep) + 1 }, (_, i) => i * xStep);
+const yTicks = Array.from({ length: Math.floor(yMax / yStep) + 1 }, (_, i) => i * yStep);
+const data = JSON.stringify({ series: series.map(({ name, fixed, perHour }) => ({ name, fixed, perHour })), xMax, xStep, unit });
+---
+
+<figure class="pk pk-figure">
+  <div class="pk-chart-key" aria-hidden="true">
+    {lines.map((l) => <span style={`--k: ${l.color}`}>{l.name} <small>{l.note}</small></span>)}
+  </div>
+  <div class="pk-chart" data-chart={data}>
+    <div class="be-frame">
+      <div class="be-y" aria-hidden="true">
+        {yTicks.map((t) => <span style={`top: ${Y(t)}%`}>{t === 0 ? '0' : `${unit}${t >= 1000 ? `${t / 1000}k` : t}`}</span>)}
+      </div>
+      <div class="be-plot pk-plot-focus" tabindex="0" role="img" aria-label={label}>
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          {yTicks.map((t) => <line class="pk-grid" x1="0" x2="100" y1={Y(t)} y2={Y(t)} vector-effect="non-scaling-stroke" />)}
+          {refs.map((r) => <line class="pk-ref" x1={X(r.x)} x2={X(r.x)} y1="0" y2="100" vector-effect="non-scaling-stroke" />)}
+          {lines.map((l) => (
+            <line class="pk-ser" style={`stroke: ${l.color}`} x1="0" y1={Y(l.fixed)} x2={X(l.hEnd)} y2={Y(l.yEnd)} vector-effect="non-scaling-stroke" />
+          ))}
+        </svg>
+        {refs.map((r) => <span class="be-ref" data-side={X(r.x) > 60 ? 'left' : 'right'} style={`left: ${X(r.x)}%`}>{r.label}</span>)}
+        {lines.map((l) => (
+          <span class="be-dot" style={`left: ${X(l.hEnd)}%; top: ${Y(l.yEnd)}%; --k: ${l.color}`} />
+        ))}
+        {lines.map((l, i) => (
+          <span class="be-end" data-place={place[i]} style={`left: ${X(l.hEnd)}%; top: ${Y(l.yEnd)}%`}>{l.name}</span>
+        ))}
+        <span class="be-cross" aria-hidden="true"></span>
+        <div class="pk-tip" aria-hidden="true"></div>
+      </div>
+      <div class="be-x" aria-hidden="true">
+        {xTicks.map((t) => <span style={`left: ${X(t)}%`}>{t.toLocaleString('en-GB')}</span>)}
+      </div>
+    </div>
+    <div class="be-xlabel">GPU-hours used</div>
+  </div>
+  <details class="pk-table-toggle">
+    <summary>Show as a table</summary>
+    <table>
+      <thead>
+        <tr>
+          <th>GPU-hours</th>
+          {series.map((s) => <th>{s.name}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {tableHours.map((h) => (
+          <tr>
+            <td>{h.toLocaleString('en-GB')}</td>
+            {series.map((s) => <td>{fmt(cost(s, h))}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </details>
+  <slot />
+</figure>
+
+<script>
+  // Crosshair + one tooltip listing every series at the hovered hour.
+  // Names come from props, but still go in via textContent.
+  document.querySelectorAll<HTMLElement>('.pk-chart[data-chart]').forEach((chart) => {
+    const cfg = JSON.parse(chart.dataset.chart!);
+    const plot = chart.querySelector<HTMLElement>('.be-plot')!;
+    const cross = chart.querySelector<HTMLElement>('.be-cross')!;
+    const tip = chart.querySelector<HTMLElement>('.pk-tip')!;
+    const colors = ['var(--pk-s1)', 'var(--pk-s2)', 'var(--pk-s3)'];
+    const snap = Math.max(1, cfg.xStep / 10);
+    let hour = 0;
+
+    const show = (h: number) => {
+      hour = Math.max(0, Math.min(cfg.xMax, Math.round(h / snap) * snap));
+      const left = (hour / cfg.xMax) * 100;
+      cross.style.left = `${left}%`;
+      cross.style.opacity = '1';
+      tip.replaceChildren();
+      const head = document.createElement('div');
+      head.className = 'pk-tip-h';
+      head.textContent = `${hour.toLocaleString('en-GB')} GPU-hours`;
+      tip.append(head);
+      cfg.series.forEach((s: { name: string; fixed: number; perHour: number }, i: number) => {
+        const row = document.createElement('div');
+        row.className = 'pk-tip-r';
+        row.style.setProperty('--k', colors[i]);
+        const v = document.createElement('b');
+        v.textContent = `${cfg.unit}${Math.round(s.fixed + s.perHour * hour).toLocaleString('en-GB')}`;
+        const n = document.createElement('span');
+        n.textContent = s.name;
+        row.append(v, n);
+        tip.append(row);
+      });
+      const flip = left > 55;
+      tip.style.left = flip ? 'auto' : `calc(${left}% + 12px)`;
+      tip.style.right = flip ? `calc(${100 - left}% + 12px)` : 'auto';
+      tip.style.top = '8px';
+      tip.style.opacity = '1';
+    };
+    const hide = () => {
+      cross.style.opacity = '0';
+      tip.style.opacity = '0';
+    };
+
+    plot.addEventListener('pointermove', (e) => {
+      const r = plot.getBoundingClientRect();
+      show(((e.clientX - r.left) / r.width) * cfg.xMax);
+    });
+    plot.addEventListener('pointerleave', hide);
+    plot.addEventListener('focus', () => show(hour || cfg.xStep));
+    plot.addEventListener('blur', hide);
+    plot.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        show(hour + (e.key === 'ArrowRight' ? cfg.xStep / 2 : -cfg.xStep / 2));
+      } else if (e.key === 'Escape') hide();
+    });
+  });
+</script>
+
+<style>
+  .be-frame {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    grid-template-rows: 16rem auto;
+  }
+  .be-y { position: relative; }
+  .be-y span {
+    position: absolute;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    color: var(--ink-mute);
+  }
+  .be-plot { position: relative; margin-right: 9rem; }
+  .be-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .be-x { grid-column: 2; position: relative; height: 1.4rem; margin-right: 9rem; }
+  .be-x span {
+    position: absolute;
+    top: 0.35rem;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    color: var(--ink-mute);
+  }
+  .be-xlabel {
+    margin: 0.35rem 0 0 3rem;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .be-dot {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--k);
+    box-shadow: 0 0 0 2px var(--bg);
+    transform: translate(-50%, -50%);
+  }
+  .be-end {
+    position: absolute;
+    transform: translate(0.6rem, -50%);
+    width: 8.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .be-end[data-place='up'] { transform: translate(0.6rem, -105%); }
+  .be-end[data-place='down'] { transform: translate(0.6rem, 5%); }
+  .be-ref {
+    position: absolute;
+    top: 0.3rem;
+    transform: translateX(0.35rem);
+    padding: 0 0.2rem;
+    background: var(--bg);
+    white-space: nowrap;
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+  }
+  .be-ref[data-side='left'] { transform: translateX(calc(-100% - 0.35rem)); }
+  .be-cross {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--ink);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .be-plot:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  @media (max-width: 600px) {
+    .be-plot, .be-x { margin-right: 1.25rem; }
+    .be-end { display: none; }
+    .be-frame { grid-template-rows: 13rem auto; }
+  }
+</style>

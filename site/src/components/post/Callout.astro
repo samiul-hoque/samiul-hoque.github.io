@@ -1,0 +1,18 @@
+---
+/**
+ * A boxed aside. kind="you" (what the reader owns), "partner" (the
+ * industry partner's angle) or "note".
+ */
+interface Props {
+  title: string;
+  kind?: 'you' | 'partner' | 'note';
+}
+const { title, kind = 'note' } = Astro.props;
+---
+
+<aside class="pk">
+  <div class="pk-callout pk-reveal" data-kind={kind}>
+    <span class="pk-kicker">{title}</span>
+    <slot />
+  </div>
+</aside>
