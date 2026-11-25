@@ -274,9 +274,11 @@ body:has(.pk-motion input:checked) .pk *::after {
 /* ========================== IDEA NAVIGATOR ========================== */
 .pk-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(var(--nav-cols, 3), minmax(0, 1fr));
   gap: 1.25rem;
 }
+@media (max-width: 960px) { .pk-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .pk-nav { grid-template-columns: minmax(0, 1fr); } }
 .pk-nav-card {
   display: flex;
   flex-direction: column;

@@ -10,13 +10,15 @@ interface Props {
     line: string;
     href: string;
     facts?: [string, string][];
+    go?: string;
   }[];
+  cols?: number;
 }
-const { items } = Astro.props;
+const { items, cols = 3 } = Astro.props;
 ---
 
 <nav class="pk" aria-label="Ideas on this page">
-  <div class="pk-nav">
+  <div class="pk-nav" style={`--nav-cols: ${cols}`}>
     {items.map((item, i) => (
       <a class="pk-card pk-nav-card pk-reveal" href={item.href} style={`--pk-i: ${i}`}>
         <span class="pk-nav-num">{item.num}</span>
@@ -32,7 +34,7 @@ const { items } = Astro.props;
             ))}
           </dl>
         )}
-        <span class="pk-nav-go">Read the plan ↓</span>
+        <span class="pk-nav-go">{item.go ?? 'Read the plan ↓'}</span>
       </a>
     ))}
   </div>
